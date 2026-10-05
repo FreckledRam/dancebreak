@@ -9,7 +9,9 @@ from __future__ import annotations
 import argparse
 import importlib
 import json
+import os
 import re
+import subprocess
 import traceback
 from datetime import date, timedelta
 
@@ -17,6 +19,7 @@ from . import http, state, store
 
 SOURCES = ["and8", "wdsf", "breakkonnect"]
 SETTLE_DAYS = 2          # leave an event alone until its results have had time to be posted
+SAVE_EVERY = 10          # events between saves, so a long run shows progress and keeps its work if cut off
 REVIEW = store.DATA / "review.json"
 INDEX = store.DATA / "sources"
 
@@ -75,6 +78,22 @@ def check_columns(battles: list[dict]) -> list[dict]:
     return problems
 
 
+def save_progress(key, index, st, review, message: str) -> None:
+    """Write everything collected so far and, on GitHub, push it, so a run that dies keeps its work."""
+    if index is not None:
+        store.write_json(INDEX / f"{key}.json", index)
+    state.save(st)
+    store.write_json(REVIEW, review)
+    if not os.environ.get("PUSH_PROGRESS"):
+        return
+    http.SNAPSHOTS.mkdir(exist_ok=True)
+    for cmd in (["git", "add", "data", "snapshots"], ["git", "commit", "-q", "-m", f"Progress: {message}"],
+                ["git", "pull", "-q", "--rebase"], ["git", "push", "-q"]):
+        if subprocess.run(cmd, cwd=store.ROOT).returncode:
+            print(f"progress not pushed ({' '.join(cmd[:2])} failed); carrying on")
+            break
+
+
 def run_source(key: str, fetch, st: dict, review: list, full: bool, limit: int) -> None:
     module = importlib.import_module(f"sources.{key}")
     src = st["sources"][key]
@@ -101,43 +120,47 @@ def run_source(key: str, fetch, st: dict, review: list, full: bool, limit: int) 
     todo = [ev for ev in events if index[ev["id"]]["status"] in ("pending", "failed") and ev["date"] <= cutoff]
     added_events = added_battles = 0
     errors = []
-    for ev in todo[:limit]:
-        entry = index[ev["id"]]
-        pages = {}
+    for n, ev in enumerate(todo[:limit], 1):
         try:
-            battles, problems = module.collect(fetch, ev, lambda name, html: pages.__setitem__(name, html))
-        except Exception as exc:
-            entry["status"] = "failed"
-            entry["error"] = f"{type(exc).__name__}: {exc}"
-            errors.append(f"{ev['name']}: {entry['error']}")
-            for name, html in pages.items():        # keep what was fetched so the parser can be repaired
-                http.snapshot(key, ev["id"], name, html)
-            traceback.print_exc()
-            continue
-        entry["name"] = ev["name"]
-        already = seed_overlap(battles, seeds)
-        if already:
-            path, data = already
-            data.update(date=ev["date"], url=ev["url"], year=int(ev["date"][:4]))
-            store.write_json(path, data)
-            entry.update(status="in_original", battles=0)
+            entry = index[ev["id"]]
+            pages = {}
+            try:
+                battles, problems = module.collect(fetch, ev, lambda name, html: pages.__setitem__(name, html))
+            except Exception as exc:
+                entry["status"] = "failed"
+                entry["error"] = f"{type(exc).__name__}: {exc}"
+                errors.append(f"{ev['name']}: {entry['error']}")
+                for name, html in pages.items():        # keep what was fetched so the parser can be repaired
+                    http.snapshot(key, ev["id"], name, html)
+                traceback.print_exc()
+                continue
+            entry["name"] = ev["name"]
+            already = seed_overlap(battles, seeds)
+            if already:
+                path, data = already
+                data.update(date=ev["date"], url=ev["url"], year=int(ev["date"][:4]))
+                store.write_json(path, data)
+                entry.update(status="in_original", battles=0)
+                entry.pop("error", None)
+                flag(review, key, ev, [])
+                print(f"{key}: {ev['date']} {ev['name']}: already in the original dataset as '{data['event']}'")
+                continue
+            problems += check_columns(battles)
+            flag(review, key, ev, problems)
             entry.pop("error", None)
-            flag(review, key, ev, [])
-            print(f"{key}: {ev['date']} {ev['name']}: already in the original dataset as '{data['event']}'")
-            continue
-        problems += check_columns(battles)
-        flag(review, key, ev, problems)
-        entry.pop("error", None)
-        entry["battles"] = len(battles)
-        entry["status"] = "collected" if battles else "nothing_to_collect"
-        if battles:
-            store.write_json(store.BATTLES / key / f"{ev['id']}.json", {
-                "event": ev["name"], "source": key, "date": ev["date"], "year": int(ev["date"][:4]),
-                "url": ev["url"], "battles": battles})
-            added_events += 1
-            added_battles += len(battles)
-            src["last_changed"] = state.now()
-        print(f"{key}: {ev['date']} {ev['name']}: {len(battles)} battles, {len(problems)} flagged")
+            entry["battles"] = len(battles)
+            entry["status"] = "collected" if battles else "nothing_to_collect"
+            if battles:
+                store.write_json(store.BATTLES / key / f"{ev['id']}.json", {
+                    "event": ev["name"], "source": key, "date": ev["date"], "year": int(ev["date"][:4]),
+                    "url": ev["url"], "battles": battles})
+                added_events += 1
+                added_battles += len(battles)
+                src["last_changed"] = state.now()
+            print(f"{key}: {ev['date']} {ev['name']}: {len(battles)} battles, {len(problems)} flagged")
+        finally:
+            if n % SAVE_EVERY == 0:
+                save_progress(key, index, st, review, f"{key}: {n} of {min(len(todo), limit)} events")
 
     listed = [index[e["id"]] for e in events]
     newest = max(events, key=lambda e: e["date"], default=None)
@@ -180,9 +203,8 @@ def main() -> None:
                                       last_checked=state.now())
             state.log("check", f"Could not read the event listing: {exc}", key)
         print(f"{key}: {fetch.requests} requests")
-    state.save(st)
-    store.write_json(REVIEW, review)
     store.export_tsvs()
+    save_progress(None, None, st, review, "run finished")
 
 
 if __name__ == "__main__":

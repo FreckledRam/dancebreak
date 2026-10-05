@@ -42,3 +42,15 @@ def log(kind: str, text: str, source: str | None = None, **extra) -> None:
     entries = json.loads(ACTIVITY.read_text(encoding="utf-8")) if ACTIVITY.exists() else []
     entries.insert(0, {"time": now(), "kind": kind, "source": source, "text": text, **extra})
     store.write_json(ACTIVITY, entries[:500])
+
+
+def queue() -> dict:
+    """Per source: events seen but not collected yet, in the order they will be taken (newest first)."""
+    out = {}
+    for path in sorted((store.DATA / "sources").glob("*.json")):
+        index = json.loads(path.read_text(encoding="utf-8"))
+        waiting = sorted((e for e in index.values() if e["status"] in ("pending", "failed")),
+                         key=lambda e: e["date"], reverse=True)
+        out[path.stem] = {"waiting": len(waiting), "seen": len(index),
+                          "next": [{"name": e["name"], "date": e["date"]} for e in waiting[:10]]}
+    return out

@@ -31,14 +31,20 @@ jobs:
       - uses: astral-sh/setup-uv@v5
       - run: uv sync
       - run: uv run pytest -q
-      - name: Check sources and collect new events
-        run: uv run python -m pipeline.check --max "${{ inputs.max || '10' }}" ${{ inputs.full && '--full' || '' }}
-      - name: Save results
+      - name: Identify the bot for commits
         run: |
           git config user.name "dancebreak-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Check sources and collect new events
+        env:
+          PUSH_PROGRESS: "1"      # save and push every 10 events
+          PYTHONUNBUFFERED: "1"   # print each event as it happens
+        run: uv run python -m pipeline.check --max "${{ inputs.max || '10' }}" ${{ inputs.full && '--full' || '' }}
+      - name: Save results
+        run: |
           git add data snapshots 2>/dev/null || git add data
           git diff --cached --quiet || git commit -m "Scheduled check: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase
           git push
 
   publish:
