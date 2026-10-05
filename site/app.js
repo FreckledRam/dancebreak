@@ -1,7 +1,6 @@
 const $ = (s) => document.querySelector(s);
 const PAGE = 50;
 const SOURCE_NAMES = { seed: 'Original', and8: 'And8', wdsf: 'WDSF', breakkonnect: 'Break Konnect' };
-const STATUS_TEXT = { pending: 'Not automated yet', ok: 'Working', repairing: 'Repairing parser', broken: 'Needs attention' };
 const SYSTEMS = ['Traditional', 'RoundByRound', 'SingleSlider', 'Threefold', 'PseudoThreefold', 'Trivium', 'WDSFSystem', 'PointsPerRound'];
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -23,29 +22,71 @@ function showTab() {
 addEventListener('hashchange', showTab);
 showTab();
 
-// how long the scheduled runs need to work through a queue
-function clearTime(pending, status) {
-  const hours = Math.ceil(pending / status.events_per_run) * status.hours_between_runs;
-  if (hours <= status.hours_between_runs) return 'cleared on the next run';
-  return hours < 48 ? `cleared in about ${hours} hours` : `cleared in about ${Math.round(hours / 24)} days`;
+// ---- source status
+function span(hours) {
+  return hours < 48 ? `${hours} hours` : `${Math.round(hours / 24)} days`;
 }
 
-// ---- sources + activity
+function countdown(to) {
+  const mins = Math.max(0, Math.round((to - Date.now()) / 60000));
+  return mins < 60 ? `${mins} min` : `${Math.floor(mins / 60)} h ${mins % 60} min`;
+}
+
+// runs start at the same minute of every Nth hour, UTC
+function nextRun(status) {
+  const now = new Date();
+  const t = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, status.run_minute));
+  while (t <= now) t.setUTCHours(t.getUTCHours() + status.hours_between_runs);
+  return t;
+}
+
+// Healthy: last run worked. Error: it could not read the site. Not running: no recent run at all.
+function health(s, status) {
+  const stale = !s.last_checked || Date.now() - new Date(s.last_checked) > 2.5 * status.hours_between_runs * 3600e3;
+  if (s.status === 'broken') return ['broken', 'Error'];
+  return stale || s.status !== 'ok' ? ['', 'Not running'] : ['ok', 'Healthy'];
+}
+
 function renderStatus(status, activity) {
+  const runsFor = (n) => Math.ceil(n / status.events_per_run);
+  const queue = status.queue || {};
+  const backlog = Object.values(queue).reduce((sum, q) => sum + q.waiting, 0);
+  const runs = Math.max(0, ...Object.values(queue).map((q) => runsFor(q.waiting)));
+  const next = nextRun(status);
+
   $('#totals').innerHTML = [
     [status.battles.toLocaleString(), 'battles'],
-    [status.events.toLocaleString(), 'events'],
-    [ago(status.last_run), 'last check'],
-  ].map(([b, s]) => `<div><b>${b}</b><span>${s}</span></div>`).join('');
+    [status.events.toLocaleString(), status.first_year ? `events since ${status.first_year}` : 'events'],
+    [ago(status.last_run), 'last run'],
+    [`<span title="${esc(next.toLocaleString())}">${countdown(next)}</span>`, 'until next run'],
+    [backlog.toLocaleString(), 'events in backlog',
+      backlog ? `${runs} more run${runs === 1 ? '' : 's'} over the next ${span(runs * status.hours_between_runs)}` : 'nothing waiting'],
+  ].map(([b, s, extra]) => `<div><b>${b}</b><span>${s}</span>${extra ? `<small>${extra}</small>` : ''}</div>`).join('');
 
-  $('#sources-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => `<tr>
+  $('#sources-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => {
+    const [cls, label] = health(s, status);
+    return `<tr>
     <td><a href="${esc(s.url)}">${esc(s.name)}</a></td>
-    <td data-label="Status"><span class="status ${esc(s.status)}">${STATUS_TEXT[s.status] || esc(s.status)}</span>${s.events_pending ? `<div class="note">${s.events_pending} events waiting, ${clearTime(s.events_pending, status)}</div>` : ''}${s.note ? `<div class="note">${esc(s.note)}</div>` : ''}</td>
-    <td data-label="Last checked">${ago(s.last_checked)}</td>
+    <td data-label="Status"><div><span class="status ${cls}">${label}</span>${s.note ? `<div class="note">${esc(s.note)}</div>` : ''}</div></td>
     <td data-label="Last new data">${ago(s.last_changed)}</td>
-    <td data-label="Newest event">${s.newest_event ? `${esc(s.newest_event)} <span class="muted">${esc(s.newest_date || '')}</span>` : '<span class="muted">-</span>'}</td>
+    <td data-label="Newest event">${s.newest_event ? `<span>${esc(s.newest_event)} <span class="muted">${esc(s.newest_date || '')}</span></span>` : '<span class="muted">-</span>'}</td>
     <td data-label="Battles" class="num">${(status.battles_by_source[key] || 0).toLocaleString()}</td>
-  </tr>`).join('');
+  </tr>`;
+  }).join('');
+
+  $('#queue-note').textContent = `Each run takes up to ${status.events_per_run} events per source, newest first. Next run in ${countdown(next)}.`;
+  $('#queue-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => {
+    const q = queue[key] || { waiting: 0, next: [] };
+    const n = runsFor(q.waiting);
+    const upNext = q.next.slice(0, 3).map((e) => `${esc(e.name)} <span class="muted">${esc(e.date)}</span>`).join('<br>');
+    return `<tr>
+    <td>${esc(s.name)}</td>
+    <td data-label="Events waiting" class="num">${q.waiting.toLocaleString()}</td>
+    <td data-label="Runs needed" class="num">${n}</td>
+    <td data-label="Cleared in">${n ? span(n * status.hours_between_runs) : '<span class="muted">Up to date</span>'}</td>
+    <td data-label="Up next">${upNext ? `<div>${upNext}</div>` : '<span class="muted">-</span>'}</td>
+  </tr>`;
+  }).join('');
 
   const seeded = status.battles_by_source.seed || 0;
   $('#sources-note').textContent = seeded ? `${seeded.toLocaleString()} battles come from the original hand-collected dataset.` : '';

@@ -19,7 +19,9 @@ nav a.on { color: var(--fg); border-bottom-color: var(--accent); }
 a { color: var(--accent); }
 main { padding-top: 28px; padding-bottom: 40px; min-height: 60vh; }
 
-.totals { display: flex; gap: 48px; margin-bottom: 28px; flex-wrap: wrap; }
+.totals { display: flex; gap: 20px 48px; margin-bottom: 8px; flex-wrap: wrap; }
+.totals small { display: block; color: var(--muted); font-size: 13px; }
+h2 { font-size: 17px; font-weight: 600; margin: 36px 0 8px; }
 .totals div b { display: block; font-size: 30px; font-weight: 600; letter-spacing: -0.02em; }
 .totals div > span { color: var(--muted); font-size: 13px; }
 .totals b span { color: inherit; }
@@ -61,10 +63,10 @@ footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 4
   h1 { font-size: 22px; }
   .totals { gap: 24px; }
   .totals div b { font-size: 22px; }
-  #sources-table thead { display: none; }
-  #sources-table tr { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); }
-  #sources-table td { display: flex; justify-content: space-between; gap: 16px; border: 0; padding: 3px 0; text-align: right; }
-  #sources-table td::before { content: attr(data-label); color: var(--muted); text-align: left; }
-  #sources-table td:first-child { font-weight: 600; }
-  #sources-table td:first-child::before { content: none; }
+  table.stack thead { display: none; }
+  table.stack tr { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  table.stack td { display: flex; justify-content: space-between; gap: 16px; border: 0; padding: 3px 0; text-align: right; }
+  table.stack td::before { content: attr(data-label); color: var(--muted); text-align: left; }
+  table.stack td:first-child { font-weight: 600; }
+  table.stack td:first-child::before { content: none; }
 }

@@ -12,6 +12,18 @@ from . import state, store
 OUT = store.ROOT / "site" / "data"
 
 
+def queue() -> dict:
+    """Per source: events seen but not collected yet, in the order they will be taken (newest first)."""
+    out = {}
+    for path in sorted((store.DATA / "sources").glob("*.json")):
+        index = json.loads(path.read_text(encoding="utf-8"))
+        waiting = sorted((e for e in index.values() if e["status"] in ("pending", "failed")),
+                         key=lambda e: e["date"], reverse=True)
+        out[path.stem] = {"waiting": len(waiting),
+                          "next": [{"name": e["name"], "date": e["date"]} for e in waiting[:10]]}
+    return out
+
+
 def main() -> None:
     if OUT.exists():
         shutil.rmtree(OUT)
@@ -50,9 +62,12 @@ def main() -> None:
         "last_run": next((a["time"] for a in activity if a["kind"] == "check"), None),
         "sources": st["sources"],
         "review": len(review),
-        # pace of the scheduled run (check.yml: every 6 hours, 10 events per source)
+        # pace of the scheduled run (check.yml: minute 17 of every 6th hour UTC, 10 events per source)
         "events_per_run": 10,
         "hours_between_runs": 6,
+        "run_minute": 17,
+        "first_year": min((r[2] for r in rows if r[2]), default=None),
+        "queue": queue(),
     }
     (OUT / "status.json").write_text(json.dumps(status, ensure_ascii=False), encoding="utf-8")
     (OUT / "activity.json").write_text(json.dumps(activity, ensure_ascii=False), encoding="utf-8")
