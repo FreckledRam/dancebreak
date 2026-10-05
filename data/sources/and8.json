@@ -638,52 +638,62 @@
  "4975": {
   "name": "Castle Rock Jam - Vol. 5 - Kids Edition",
   "date": "2025-05-17",
-  "status": "pending"
+  "status": "collected",
+  "battles": 24
  },
  "5030": {
   "name": "Amsterdam Breaking Championships",
   "date": "2025-05-17",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5062": {
   "name": "Le Championnat Breaking Quebec",
   "date": "2025-05-17",
-  "status": "pending"
+  "status": "collected",
+  "battles": 88
  },
  "5166": {
   "name": "Breaking K Series - 2025 Stage 1",
   "date": "2025-05-17",
-  "status": "pending"
+  "status": "collected",
+  "battles": 76
  },
  "5084": {
   "name": "DTV Ranking Battle 2025",
   "date": "2025-05-11",
-  "status": "pending"
+  "status": "collected",
+  "battles": 84
  },
  "4858": {
   "name": "Express Yourself Battle 2025",
   "date": "2025-05-10",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5100": {
   "name": "Soul Breaking 2025",
   "date": "2025-05-10",
-  "status": "pending"
+  "status": "collected",
+  "battles": 15
  },
  "5087": {
   "name": "ATX Breaking League Event #3",
   "date": "2025-04-27",
-  "status": "pending"
+  "status": "collected",
+  "battles": 7
  },
  "5136": {
   "name": "Rad Crew 15 Year Anniversary",
   "date": "2025-04-19",
-  "status": "pending"
+  "status": "collected",
+  "battles": 7
  },
  "5086": {
   "name": "ATX Breaking League Event #2",
   "date": "2025-04-13",
-  "status": "pending"
+  "status": "collected",
+  "battles": 7
  },
  "5115": {
   "name": "Dance Explosion",
