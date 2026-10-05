@@ -1,5 +1,12 @@
 [
  {
+  "time": "2026-10-05T16:42:30Z",
+  "kind": "check",
+  "source": "and8",
+  "text": "145 events listed, collected 37 battles from 2 events, 125 waiting.",
+  "battles": 37
+ },
+ {
   "time": "2026-10-05T16:40:39Z",
   "kind": "check",
   "source": "and8",
