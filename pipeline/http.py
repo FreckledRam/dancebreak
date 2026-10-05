@@ -8,7 +8,7 @@ import httpx
 
 from . import store
 
-USER_AGENT = "SettleItInTheCypher/0.1 (+https://github.com/Sushimaster124/Settle_It_In_The_Cypher)"
+USER_AGENT = "SettleItInTheCypher/0.1 (+https://github.com/FreckledRam/dancebreak)"
 SNAPSHOTS = store.ROOT / "snapshots"
 
 
