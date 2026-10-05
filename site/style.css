@@ -22,6 +22,7 @@ main { padding-top: 34px; padding-bottom: 60px; min-height: 70vh; }
 h1 { font-weight: 700; font-size: 34px; line-height: 1.1; letter-spacing: -.025em; margin: 0 0 6px; }
 h2 { font-weight: 600; font-size: 17px; line-height: 1; letter-spacing: -.01em; margin: 44px 0 6px; }
 .sub { color: var(--muted); margin: 0; }
+.added { color: var(--ok); font-weight: 600; margin: 0 0 4px; }
 .note { color: var(--muted); font-size: 13px; }
 .muted { color: var(--muted); }
 

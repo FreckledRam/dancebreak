@@ -150,6 +150,20 @@ function renderStatus(status, activity) {
   </tr>`).join('') || '<tr><td colspan="4" class="muted">No runs yet.</td></tr>';
 
   renderQuality(status);
+  renderAdded(status);
+}
+
+// Dataset tab: how much the most recent additions grew the dataset, and since when.
+// Counts back from the newest run to the last one that added battles; "since" is the run before that.
+function renderAdded(status) {
+  const runs = status.runs || [];
+  const last = runs.findIndex((r) => r.battles > 0);
+  const since = last >= 0 && runs[last + 1];
+  $('#dataset-added').hidden = !since;
+  if (!since) return;
+  const added = runs.slice(0, last + 1).reduce((sum, r) => sum + r.battles, 0);
+  const when = new Date(since.time).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' });
+  $('#dataset-added').textContent = `+${added.toLocaleString()} battles since ${when}`;
 }
 
 // ---- dataset
