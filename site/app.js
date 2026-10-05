@@ -23,6 +23,13 @@ function showTab() {
 addEventListener('hashchange', showTab);
 showTab();
 
+// how long the scheduled runs need to work through a queue
+function clearTime(pending, status) {
+  const hours = Math.ceil(pending / status.events_per_run) * status.hours_between_runs;
+  if (hours <= status.hours_between_runs) return 'cleared on the next run';
+  return hours < 48 ? `cleared in about ${hours} hours` : `cleared in about ${Math.round(hours / 24)} days`;
+}
+
 // ---- sources + activity
 function renderStatus(status, activity) {
   $('#totals').innerHTML = [
@@ -33,7 +40,7 @@ function renderStatus(status, activity) {
 
   $('#sources-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => `<tr>
     <td><a href="${esc(s.url)}">${esc(s.name)}</a></td>
-    <td data-label="Status"><span class="status ${esc(s.status)}">${STATUS_TEXT[s.status] || esc(s.status)}</span>${s.events_pending ? `<div class="note">${s.events_pending} events waiting</div>` : ''}${s.note ? `<div class="note">${esc(s.note)}</div>` : ''}</td>
+    <td data-label="Status"><span class="status ${esc(s.status)}">${STATUS_TEXT[s.status] || esc(s.status)}</span>${s.events_pending ? `<div class="note">${s.events_pending} events waiting, ${clearTime(s.events_pending, status)}</div>` : ''}${s.note ? `<div class="note">${esc(s.note)}</div>` : ''}</td>
     <td data-label="Last checked">${ago(s.last_checked)}</td>
     <td data-label="Last new data">${ago(s.last_changed)}</td>
     <td data-label="Newest event">${s.newest_event ? `${esc(s.newest_event)} <span class="muted">${esc(s.newest_date || '')}</span>` : '<span class="muted">-</span>'}</td>

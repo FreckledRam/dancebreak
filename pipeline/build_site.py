@@ -50,6 +50,9 @@ def main() -> None:
         "last_run": next((a["time"] for a in activity if a["kind"] == "check"), None),
         "sources": st["sources"],
         "review": len(review),
+        # pace of the scheduled run (check.yml: every 6 hours, 10 events per source)
+        "events_per_run": 10,
+        "hours_between_runs": 6,
     }
     (OUT / "status.json").write_text(json.dumps(status, ensure_ascii=False), encoding="utf-8")
     (OUT / "activity.json").write_text(json.dumps(activity, ensure_ascii=False), encoding="utf-8")
