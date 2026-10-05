@@ -95,8 +95,8 @@ function renderStatus(status, activity) {
   const states = Object.entries(status.sources).map(([key, src]) => (LIVE && LIVE.current === key ? 'running' : health(src, status)[0]));
   const broken = states.filter((x) => x === 'broken').length, idle = states.filter((x) => x === '').length;
   $('#headline').textContent = LIVE ? 'Check in progress'
-    : broken ? `${broken} source${broken === 1 ? ' needs' : 's need'} attention`
-      : idle ? `${idle} source${idle === 1 ? ' is' : 's are'} not running` : 'All sources healthy';
+    : broken ? `${broken} scraper${broken === 1 ? ' needs' : 's need'} attention`
+      : idle ? `${idle} scraper${idle === 1 ? ' is' : 's are'} not running` : 'All scrapers healthy';
   $('#headline-sub').innerHTML = LIVE ? `Started ${ago(LIVE.started)}. Totals update when it finishes.`
     : `Last check ${ago(status.last_run)}. <b class="next" title="${esc(next.toLocaleString())}">Next check in ${countdown(next)}.</b>`;
   $('#review-count').textContent = status.need_review || '';
@@ -122,8 +122,8 @@ function renderStatus(status, activity) {
   const showQueue = Boolean(LIVE) || backlog > 0;
   $('#queue-table').hidden = !showQueue;
   $('#queue-note').textContent = LIVE ? 'A check is running now. Progress is an estimate.'
-    : backlog ? `Each run takes up to ${status.events_per_run} events per source, newest first.`
-      : 'Nothing waiting. All sources are up to date.';
+    : backlog ? `Each run takes up to ${status.events_per_run} events per scraper, newest first.`
+      : 'Nothing waiting. All scrapers are up to date.';
   $('#queue-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => {
     const q = queue[key] || { waiting: 0, seen: 0, next: [] };
     const n = runsFor(q.waiting);
