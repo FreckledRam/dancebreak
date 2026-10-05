@@ -1,5 +1,26 @@
 [
  {
+  "time": "2026-10-05T18:46:04Z",
+  "kind": "check",
+  "source": "breakkonnect",
+  "text": "111 events listed, collected 18 battles from 2 events, 22 waiting.",
+  "battles": 18
+ },
+ {
+  "time": "2026-10-05T18:45:24Z",
+  "kind": "check",
+  "source": "wdsf",
+  "text": "3 events listed.",
+  "battles": 0
+ },
+ {
+  "time": "2026-10-05T18:45:22Z",
+  "kind": "check",
+  "source": "and8",
+  "text": "145 events listed, collected 330 battles from 6 events, 116 waiting.",
+  "battles": 330
+ },
+ {
   "time": "2026-10-05T18:37:37Z",
   "kind": "check",
   "source": "breakkonnect",

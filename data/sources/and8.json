@@ -80,47 +80,56 @@
  "5620": {
   "name": "FUJIFILM instax™ Undisputed IBE",
   "date": "2026-08-07",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5342": {
   "name": "Silverback Europe 2026 ✘ Cypher Town Hip-Hop festival",
   "date": "2026-07-30",
-  "status": "pending"
+  "status": "collected",
+  "battles": 45
  },
  "5358": {
   "name": "German Breaking Championships 2026",
   "date": "2026-07-26",
-  "status": "pending"
+  "status": "collected",
+  "battles": 44
  },
  "5633": {
   "name": "WDSF 3vs3 台灣選拔",
   "date": "2026-07-26",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5193": {
   "name": "The Legits Blast 2026 presents Outbreak Europe 2026",
   "date": "2026-07-19",
-  "status": "pending"
+  "status": "collected",
+  "battles": 77
  },
  "5354": {
   "name": "Molde Dansefestival 2026",
   "date": "2026-07-04",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5619": {
   "name": "Breaking K Series - 2026 Stage 1",
   "date": "2026-06-27",
-  "status": "pending"
+  "status": "collected",
+  "battles": 84
  },
  "5567": {
   "name": "FUJIFILM instax™ Undisputed Kyoto",
   "date": "2026-06-20",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5614": {
   "name": "Championnat de France de Breaking 2026",
   "date": "2026-06-20",
-  "status": "pending"
+  "status": "collected",
+  "battles": 60
  },
  "5440": {
   "name": "Find your Flow Festival 2026",

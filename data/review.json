@@ -1,1 +1,29 @@
-[]
+[
+ {
+  "source": "and8",
+  "event_id": "5342",
+  "event": "Silverback Europe 2026 ✘ Cypher Town Hip-Hop festival",
+  "date": "2026-07-30",
+  "stage": "1vs1 Footwork Top 8 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/5342/4462/r/",
+  "reason": "no battles found"
+ },
+ {
+  "source": "and8",
+  "event_id": "5342",
+  "event": "Silverback Europe 2026 ✘ Cypher Town Hip-Hop festival",
+  "date": "2026-07-30",
+  "stage": "1vs1 TopRock Top 16 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/5342/4463/r/",
+  "reason": "could not tell if this category is breaking; not collected"
+ },
+ {
+  "source": "and8",
+  "event_id": "5342",
+  "event": "Silverback Europe 2026 ✘ Cypher Town Hip-Hop festival",
+  "date": "2026-07-30",
+  "stage": "1vs1 Power Move Top 16 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/5342/4464/r/",
+  "reason": "no battles found"
+ }
+]

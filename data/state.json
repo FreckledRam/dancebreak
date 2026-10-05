@@ -4,21 +4,21 @@
    "name": "And8",
    "url": "https://and8.dance/en/stats",
    "status": "ok",
-   "last_checked": "2026-10-05T16:41:35Z",
-   "last_changed": "2026-10-05T16:42:27Z",
+   "last_checked": "2026-10-05T18:38:12Z",
+   "last_changed": "2026-10-05T18:45:22Z",
    "newest_event": "DPC Jam World Final 2026",
    "newest_date": "2026-10-03",
    "note": null,
    "events_seen": 138,
-   "events_pending": 125
+   "events_pending": 116
   },
   "wdsf": {
    "name": "WDSF",
    "url": "https://www.worlddancesport.org/Calendar/Results?DisciplineIds=104",
    "status": "ok",
-   "last_checked": "2026-10-05T18:31:04Z",
+   "last_checked": "2026-10-05T18:45:24Z",
    "last_changed": "2026-10-05T18:31:25Z",
-   "newest_event": "WDSF Continental Games Breaking - Nagoya 2026",
+   "newest_event": "WDSF event in Nagoya Japan 2026",
    "newest_date": "2026-10-03",
    "note": null,
    "events_seen": 3,
@@ -28,13 +28,13 @@
    "name": "Break Konnect",
    "url": "https://breakkonnect.com/events",
    "status": "ok",
-   "last_checked": "2026-10-05T18:35:36Z",
-   "last_changed": "2026-10-05T18:37:09Z",
+   "last_checked": "2026-10-05T18:45:26Z",
+   "last_changed": "2026-10-05T18:46:04Z",
    "newest_event": "Spin Control USA Jam",
    "newest_date": "2026-09-19",
    "note": null,
-   "events_seen": 120,
-   "events_pending": 35
+   "events_seen": 111,
+   "events_pending": 22
   }
  }
 }

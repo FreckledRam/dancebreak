@@ -476,52 +476,62 @@
  "4415": {
   "name": "Battlegrounds Vol. 9",
   "date": "2025-12-06",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4410": {
   "name": "Brooklyn's Breaking Academy - Battle Series Vol. 3",
   "date": "2025-11-26",
-  "status": "pending"
+  "status": "collected",
+  "battles": 3
  },
  "4381": {
   "name": "Rhythmic Damage XVIII",
   "date": "2025-11-22",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4278": {
   "name": "Capture the Breaker Vol. 10",
   "date": "2025-11-22",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4365": {
   "name": "Hold Yo Own",
   "date": "2025-11-15",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4363": {
   "name": "Break Melee ED. 7",
   "date": "2025-11-15",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4328": {
   "name": "Matador",
   "date": "2025-11-15",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4373": {
   "name": "Cypher Season",
   "date": "2025-11-09",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4399": {
   "name": "Straight Flava",
   "date": "2025-11-08",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4388": {
   "name": "Gobble & Squabble 2",
   "date": "2025-11-08",
-  "status": "pending"
+  "status": "collected",
+  "battles": 15
  },
  "4383": {
   "name": "Pacific Cypher Showcase",
