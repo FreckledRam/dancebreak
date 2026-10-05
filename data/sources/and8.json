@@ -758,52 +758,62 @@
  "5075": {
   "name": "reVision: Lone Star Breaking League #1",
   "date": "2025-03-20",
-  "status": "pending"
+  "status": "collected",
+  "battles": 28
  },
  "5018": {
   "name": "Groove’N’Move",
   "date": "2025-03-16",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5074": {
   "name": "ATX Breaking League Event #1",
   "date": "2025-03-16",
-  "status": "pending"
+  "status": "collected",
+  "battles": 7
  },
  "5000": {
   "name": "Streetdance Battle Series 2025 – Vol. 1",
   "date": "2025-03-15",
-  "status": "pending"
+  "status": "collected",
+  "battles": 59
  },
  "5016": {
   "name": "PowerMadness",
   "date": "2025-03-01",
-  "status": "pending"
+  "status": "collected",
+  "battles": 80
  },
  "4999": {
   "name": "The ReUnion (Winter Jam Edition)",
   "date": "2025-02-22",
-  "status": "pending"
+  "status": "collected",
+  "battles": 7
  },
  "4956": {
   "name": "Rock Harder",
   "date": "2025-02-16",
-  "status": "pending"
+  "status": "collected",
+  "battles": 16
  },
  "4997": {
   "name": "6th All Japan National Championships 2025",
   "date": "2025-02-16",
-  "status": "pending"
+  "status": "collected",
+  "battles": 90
  },
  "5034": {
   "name": "All Japan Final Qualifier",
   "date": "2025-02-14",
-  "status": "pending"
+  "status": "collected",
+  "battles": 11
  },
  "4655": {
   "name": "BadenBreaks 2025",
   "date": "2025-01-25",
-  "status": "pending"
+  "status": "collected",
+  "battles": 56
  },
  "4896": {
   "name": "Breaking FIDESM Absolute Championship 2025",
