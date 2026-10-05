@@ -144,45 +144,42 @@ function renderStatus(status, activity) {
 let DATA = null, rows = [], page = 0, sortCol = null, sortDir = 1;
 const eventCache = {};
 
-function option(sel, value, label) { sel.add(new Option(label ?? value, value)); }
+const colFilters = {};          // column -> Set of values to keep (absent = no filter on that column)
+const label = (col, v) => (col === 'source' ? SOURCE_NAMES[v] || v : v === '' || v == null ? '(blank)' : String(v));
 
 function setupDataset(data) {
   DATA = data;
   const C = Object.fromEntries(data.cols.map((c, i) => [c, i]));
   DATA.C = C;
   DATA.text = data.rows.map((r) => [r[C.event], r[C.stage], r[C.red], r[C.blue], r[C.judge_names]].join(' ').toLowerCase());
-  SYSTEMS.forEach((s) => option($('#f-system'), s));
-  [...new Set(data.rows.map((r) => r[C.year]).filter(Boolean))].sort((a, b) => b - a).forEach((y) => option($('#f-year'), y));
-  [...new Set(data.rows.map((r) => r[C.source]))].forEach((s) => option($('#f-source'), s, SOURCE_NAMES[s] || s));
   $('#downloads').innerHTML = SYSTEMS.map((s) => `<a href="data/export/${s}DataRaw.tsv" download>${s}</a>`).join(', ');
-  ['#q', '#f-system', '#f-year', '#f-source'].forEach((id) => $(id).addEventListener('input', () => { page = 0; filter(); }));
+  $('#q').addEventListener('input', () => { page = 0; filter(); });
+  $('#clear-filters').onclick = () => {
+    Object.keys(colFilters).forEach((k) => delete colFilters[k]);
+    sortCol = null; $('#q').value = ''; page = 0; filter();
+  };
   document.querySelectorAll('#battles th[data-sort]').forEach((th) => {
-    th.onclick = () => {
-      // first click sorts ascending, second descending, third returns to the original order
-      if (sortCol !== th.dataset.sort) { sortCol = th.dataset.sort; sortDir = 1; }
-      else if (sortDir === 1) sortDir = -1;
-      else sortCol = null;
-      page = 0;
-      filter();
-    };
+    th.onclick = (e) => { e.stopPropagation(); openColumnMenu(th); };
   });
+  document.addEventListener('click', (e) => { if (!e.target.closest('#colmenu')) closeColumnMenu(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeColumnMenu(); });
   $('#prev').onclick = () => { page--; draw(); };
   $('#next').onclick = () => { page++; draw(); };
   filter();
 }
 
+function passes(r, i, words, skipCol) {
+  const C = DATA.C;
+  for (const col in colFilters) {
+    if (col !== skipCol && !colFilters[col].has(String(r[C[col]] ?? ''))) return false;
+  }
+  return !words.length || words.every((w) => DATA.text[i].includes(w));
+}
+
 function filter() {
   const C = DATA.C;
   const words = $('#q').value.toLowerCase().split(/\s+/).filter(Boolean);
-  const sys = $('#f-system').value, year = $('#f-year').value, src = $('#f-source').value;
-  rows = [];
-  DATA.rows.forEach((r, i) => {
-    if (sys && r[C.system] !== sys) return;
-    if (year && String(r[C.year]) !== year) return;
-    if (src && r[C.source] !== src) return;
-    if (words.length && !words.every((w) => DATA.text[i].includes(w))) return;
-    rows.push(r);
-  });
+  rows = DATA.rows.filter((r, i) => passes(r, i, words));
   if (sortCol) {
     // Year sorts by full date where the event has one
     const key = sortCol === 'year' ? (r) => r[C.date] || (r[C.year] ? String(r[C.year]) : '') : (r) => r[C[sortCol]] ?? '';
@@ -190,9 +187,85 @@ function filter() {
     rows.sort((x, y) => sortDir * (numeric ? key(x) - key(y) : String(key(x)).localeCompare(String(key(y)), undefined, { sensitivity: 'base' })));
   }
   document.querySelectorAll('#battles th[data-sort]').forEach((th) => {
-    th.dataset.dir = th.dataset.sort === sortCol ? (sortDir === 1 ? 'asc' : 'desc') : '';
+    const col = th.dataset.sort;
+    th.dataset.dir = col === sortCol ? (sortDir === 1 ? 'asc' : 'desc') : '';
+    th.classList.toggle('filtered', col in colFilters);
   });
+  const active = Object.keys(colFilters).length || sortCol || words.length;
+  $('#clear-filters').hidden = !active;
   draw();
+}
+
+// ---- column menu: sort and pick values, like a spreadsheet header
+const MENU_LIMIT = 200;
+
+function closeColumnMenu() { $('#colmenu')?.remove(); }
+
+function openColumnMenu(th) {
+  const already = $('#colmenu')?.dataset.col === th.dataset.sort;
+  closeColumnMenu();
+  if (already) return;
+  const col = th.dataset.sort, C = DATA.C;
+  const words = $('#q').value.toLowerCase().split(/\s+/).filter(Boolean);
+  // values still reachable given the other columns' filters, with how many battles each has
+  const counts = new Map();
+  DATA.rows.forEach((r, i) => {
+    if (!passes(r, i, words, col)) return;
+    const v = String(r[C[col]] ?? '');
+    counts.set(v, (counts.get(v) || 0) + 1);
+  });
+  const numeric = col === 'year' || col === 'judges';
+  const values = [...counts.keys()].sort((a, b) => (numeric ? b - a : a.localeCompare(b, undefined, { sensitivity: 'base' })));
+
+  const menu = document.createElement('div');
+  menu.id = 'colmenu';
+  menu.dataset.col = col;
+  menu.innerHTML = `
+    <button data-act="asc">Sort ascending</button>
+    <button data-act="desc">Sort descending</button>
+    <hr>
+    <input type="search" placeholder="Find a value" autocomplete="off">
+    <div class="menu-links"><a data-act="all">Select all</a><a data-act="none">Clear</a></div>
+    <div class="menu-values"></div>
+    <p class="note"></p>`;
+  document.body.append(menu);
+  const box = th.getBoundingClientRect();
+  menu.style.top = `${box.bottom + scrollY + 4}px`;
+  menu.style.left = `${Math.max(8, Math.min(box.left + scrollX, scrollX + innerWidth - menu.offsetWidth - 8))}px`;
+
+  const search = menu.querySelector('input[type=search]');
+  const shown = () => values.filter((v) => label(col, v).toLowerCase().includes(search.value.toLowerCase()));
+  const picked = () => colFilters[col] || new Set(values);
+
+  function list() {
+    const hits = shown(), sel = picked();
+    menu.querySelector('.menu-values').innerHTML = hits.slice(0, MENU_LIMIT).map((v) => `<label>
+      <input type="checkbox" value="${esc(v)}" ${sel.has(v) ? 'checked' : ''}>
+      <span>${esc(label(col, v))}</span><span class="muted">${counts.get(v).toLocaleString()}</span></label>`).join('');
+    menu.querySelector('p.note').textContent = hits.length > MENU_LIMIT
+      ? `Showing ${MENU_LIMIT} of ${hits.length.toLocaleString()}. Type to narrow.` : '';
+  }
+  function apply(set) {
+    if (set.size === values.length) delete colFilters[col]; else colFilters[col] = set;
+    page = 0; filter(); list();
+  }
+  search.oninput = list;
+  menu.onclick = (e) => {
+    e.stopPropagation();
+    const act = e.target.dataset.act;
+    if (act === 'asc' || act === 'desc') { sortCol = col; sortDir = act === 'asc' ? 1 : -1; page = 0; filter(); closeColumnMenu(); }
+    // with a search typed, Select all / Clear act on the matching values only
+    if (act === 'all') { const s = search.value ? new Set(picked()) : new Set(values); shown().forEach((v) => s.add(v)); apply(s); }
+    if (act === 'none') { const s = search.value ? new Set(picked()) : new Set(); if (search.value) shown().forEach((v) => s.delete(v)); apply(s); }
+  };
+  menu.onchange = (e) => {
+    if (e.target.type !== 'checkbox') return;
+    const s = new Set(picked());
+    e.target.checked ? s.add(e.target.value) : s.delete(e.target.value);
+    apply(s);
+  };
+  list();
+  search.focus();
 }
 
 function draw() {
