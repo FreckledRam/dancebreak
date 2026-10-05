@@ -9,7 +9,7 @@ import re
 import shutil
 from datetime import datetime, timedelta
 
-from . import state, store
+from . import analytics, state, store
 
 OUT = store.ROOT / "site" / "data"
 
@@ -43,6 +43,7 @@ QUALITY = {
     "i": ("Judging system is a guess", "Only votes were visible; confirm Traditional or Round-by-Round"),
     "d": ("No date or source link", "Original rows; the backfill links them to the source"),
 }
+QCOL = 14                  # position of the quality codes in a site row
 NEEDS_REVIEW = "gjwn"       # counted in the Review total; the rest are for information
 
 
@@ -106,10 +107,10 @@ def main() -> None:
             rows.append([len(files) - 1, i, ev.get("year"), ev.get("date"), ev["event"], b["stage"],
                          b["red"], b["blue"], b["winner"], b["system"], len(b["judges"]),
                          ev["source"], b.get("url") or ev.get("url"), ", ".join(b["judges"]),
-                         quality_codes(b, ev)])
+                         quality_codes(b, ev), analytics.key(b["red"]), analytics.key(b["blue"])])
 
     cols = ["file", "idx", "year", "date", "event", "stage", "red", "blue", "winner",
-            "system", "judges", "source", "url", "judge_names", "q"]
+            "system", "judges", "source", "url", "judge_names", "q", "rk", "bk"]
     (OUT / "battles.json").write_text(
         json.dumps({"cols": cols, "files": files, "rows": rows}, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8")
@@ -127,9 +128,9 @@ def main() -> None:
         "last_run": next((a["time"] for a in activity if a["kind"] == "check"), None),
         "sources": st["sources"],
         "review": len(review),
-        "quality": [{"code": code, "label": label, "fix": fix, "count": sum(code in r[-1] for r in rows)}
+        "quality": [{"code": code, "label": label, "fix": fix, "count": sum(code in r[QCOL] for r in rows)}
                     for code, (label, fix) in QUALITY.items()],
-        "need_review": len(review) + sum(any(c in r[-1] for c in NEEDS_REVIEW) for r in rows),
+        "need_review": len(review) + sum(any(c in r[QCOL] for c in NEEDS_REVIEW) for r in rows),
         "runs": runs(activity),
         # pace of the scheduled run (check.yml: minute 17 of every 6th hour UTC, 10 events per source)
         "events_per_run": 10,
@@ -139,6 +140,9 @@ def main() -> None:
         "queue": state.queue(),
     }
     (OUT / "status.json").write_text(json.dumps(status, ensure_ascii=False), encoding="utf-8")
+
+    (OUT / "analytics.json").write_text(
+        json.dumps(analytics.build(store.all_battles()), ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
     store.export_tsvs()
     shutil.copytree(store.EXPORT, OUT / "export")

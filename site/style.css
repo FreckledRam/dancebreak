@@ -138,3 +138,28 @@ footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 4
   table.stack td:first-child { font-weight: 600; }
   table.stack td:first-child::before { content: none; }
 }
+
+/* rankings */
+select { font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px 12px; }
+table.rank th { cursor: pointer; user-select: none; }
+table.rank th:hover { color: var(--fg); }
+table.rank th[data-dir="asc"], table.rank th[data-dir="desc"] { color: var(--accent); }
+table.rank th[data-dir="asc"]::after { content: " \2191"; }
+table.rank th[data-dir="desc"]::after { content: " \2193"; }
+table.rank td { white-space: nowrap; }
+#breakers-table tr.row, #judges-table tr.row { cursor: pointer; }
+table.rank tr.row:hover td, table.rank tr.open td { background: var(--soft); }
+table.rank tr.detail > td { background: var(--soft); padding: 14px 16px 18px; white-space: normal; }
+.cols { display: grid; grid-template-columns: 1fr 1fr 2fr; gap: 8px 36px; }
+.cols h4 { margin: 12px 0 4px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.cols table { margin: 0; }
+table.rank .cols td { border: 0; padding: 3px 12px 3px 0; font-size: 13px; background: none; white-space: normal; }
+.chart { position: relative; max-width: 720px; }
+.chart svg { display: block; width: 100%; height: 150px; }
+.chart .line { fill: none; stroke: var(--accent); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.chart .dot { fill: var(--accent); stroke: var(--soft); stroke-width: 2; }
+.chart .grid { stroke: var(--line); vector-effect: non-scaling-stroke; }
+.chart .cross { stroke: var(--rule); vector-effect: non-scaling-stroke; }
+.chart .axis { fill: var(--muted); font-size: 11px; }
+.chart .tip { position: absolute; top: -4px; font-size: 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; white-space: nowrap; pointer-events: none; }
+@media (max-width: 680px) { .cols { grid-template-columns: 1fr; } nav { overflow-x: auto; max-width: 100%; } }

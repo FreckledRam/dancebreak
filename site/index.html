@@ -21,7 +21,10 @@
   <nav>
     <a href="#sources">Scraper status</a>
     <a href="#dataset">Dataset</a>
-    <a href="#review">Review<em id="review-count"></em></a>
+    <a href="#breakers">Breakers</a>
+    <a href="#judges">Judges</a>
+    <a href="#systems">Systems</a>
+    <a href="#review">Null<em id="review-count"></em></a>
   </nav>
 </header>
 
@@ -70,6 +73,34 @@
     <div class="pager"><button id="prev">Previous</button><span id="page"></span><button id="next">Next</button></div>
   </section>
 
+  <section id="breakers" hidden>
+    <h1>Breaker rankings</h1>
+    <p class="sub">Elo rating from every recorded 1 vs 1 battle. A breaker is ranked after 5 battles. Click a breaker for their history.</p>
+    <div class="filters">
+      <input id="bq" type="search" placeholder="Search breaker" autocomplete="off">
+      <select id="bdiv"><option value="">All divisions</option><option>B-Boys</option><option>B-Girls</option><option>Open</option></select>
+    </div>
+    <div class="scroll"><table id="breakers-table" class="rank"></table></div>
+    <div class="pager" id="breakers-pager"></div>
+    <p class="note">People are matched by name. Two breakers who share a name are counted as one; one breaker with two names is counted as two. Coverage before 2025 is incomplete, which affects ratings.</p>
+  </section>
+
+  <section id="judges" hidden>
+    <h1>Judges</h1>
+    <p class="sub">How each judge votes compared with the rest of the panel. Click a judge for the systems they have judged.</p>
+    <div class="filters"><input id="jq" type="search" placeholder="Search judge" autocomplete="off"></div>
+    <div class="scroll"><table id="judges-table" class="rank"></table></div>
+    <div class="pager" id="judges-pager"></div>
+    <p class="note">With majority: share of a judge's round votes that matched the panel's majority. Lone dissent: share where they were the only judge on their side. Votes for red: 50% would be even.</p>
+  </section>
+
+  <section id="systems" hidden>
+    <h1>Judging systems</h1>
+    <p class="sub">How each system behaves in practice across the battles that used it.</p>
+    <div class="scroll"><table id="systems-table" class="rank"></table></div>
+    <p class="note">Judges and Rounds are averages per battle. Unanimous: rounds where every judge picked the same side. One-vote: rounds decided by a single judge. Red wins: share of decided battles won by the red side.</p>
+  </section>
+
   <section id="review" hidden>
     <h1 id="review-title">&nbsp;</h1>
     <p class="sub">Everything else was collected and published automatically.</p>
@@ -92,6 +123,6 @@
 <footer>
   <p>Data from <a href="https://and8.dance">And8</a>, <a href="https://www.worlddancesport.org">WDSF</a> and <a href="https://breakkonnect.com">Break Konnect</a>. <a id="repo" href="https://github.com/FreckledRam/dancebreak">Code and data on GitHub</a>.</p>
 </footer>
-<script>document.write('<script src="app.js?v=' + Date.now() + '"><\/script>');</script>
+<script>document.write('<script src="app.js?v=' + Date.now() + '"><\/script><script src="analytics.js?v=' + Date.now() + '"><\/script>');</script>
 </body>
 </html>

@@ -15,7 +15,7 @@ function ago(iso) {
 
 // ---- tabs
 function showTab() {
-  const tab = ['sources', 'dataset', 'review'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'sources';
+  const tab = ['sources', 'dataset', 'breakers', 'judges', 'systems', 'review'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'sources';
   document.querySelectorAll('main section').forEach((s) => { s.hidden = s.id !== tab; });
   document.querySelectorAll('nav a').forEach((a) => a.classList.toggle('on', a.hash === '#' + tab));
   scrollTo(0, 0);     // the tab name is also an element id, so the browser would scroll past the header
@@ -105,7 +105,7 @@ function renderStatus(status, activity) {
     [`${added.events.toLocaleString()} / ${added.battles.toLocaleString()}`, 'events / battles added last run'],
     [backlog.toLocaleString(), 'events in backlog',
       backlog ? `${runs} more run${runs === 1 ? '' : 's'} over the next ${span(runs * status.hours_between_runs)}` : ''],
-    [(status.need_review || 0).toLocaleString(), 'need review'],
+    [(status.need_review || 0).toLocaleString(), 'nulls'],
   ].map(([b, s, extra]) => `<div><b>${b}</b><span>${s}</span>${extra ? `<small>${extra}</small>` : ''}</div>`).join('');
 
   $('#sources-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => {
@@ -408,7 +408,7 @@ function renderReview() {
 
 function renderQuality(status) {
   const n = status.need_review || 0;
-  $('#review-title').textContent = n ? `${n.toLocaleString()} need review` : 'Nothing needs review';
+  $('#review-title').textContent = n ? `${n.toLocaleString()} null${n === 1 ? '' : 's'}` : 'No nulls';
   $('#quality-table tbody').innerHTML = (status.quality || []).map((q) => `<tr>
     <td><b>${esc(q.label)}</b></td><td class="num">${q.count.toLocaleString()}</td><td class="muted">${esc(q.fix)}</td>
     <td class="num">${q.count ? `<a data-code="${q.code}" style="cursor:pointer">View</a>` : ''}</td></tr>`).join('');
