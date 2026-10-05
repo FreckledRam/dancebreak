@@ -19,6 +19,10 @@ from . import http, state, store
 
 SOURCES = ["and8", "wdsf", "breakkonnect"]
 SETTLE_DAYS = 2          # leave an event alone until its results have had time to be posted
+# rough seconds per event, only used to draw the estimated progress bar on the site
+PACE = {"and8": 45, "wdsf": 12, "breakkonnect": 8}
+RUN = {"running": False, "started": None, "current": None, "sources": {}}
+PROGRESS = store.DATA / "progress.json"
 SAVE_EVERY = 10          # events between saves, so a long run shows progress and keeps its work if cut off
 REVIEW = store.DATA / "review.json"
 INDEX = store.DATA / "sources"
@@ -84,6 +88,7 @@ def save_progress(key, index, st, review, message: str) -> None:
         store.write_json(INDEX / f"{key}.json", index)
     state.save(st)
     store.write_json(REVIEW, review)
+    store.write_json(PROGRESS, {**RUN, "updated": state.now()})    # the site reads this during a run
     if not os.environ.get("PUSH_PROGRESS"):
         return
     http.SNAPSHOTS.mkdir(exist_ok=True)
@@ -120,7 +125,13 @@ def run_source(key: str, fetch, st: dict, review: list, full: bool, limit: int) 
     todo = [ev for ev in events if index[ev["id"]]["status"] in ("pending", "failed") and ev["date"] <= cutoff]
     added_events = added_battles = 0
     errors = []
-    for n, ev in enumerate(todo[:limit], 1):
+    todo = todo[:limit]
+    if todo:        # tell the site a run has started on this source before the slow part begins
+        RUN.update(running=True, current=key)
+        RUN["sources"][key] = {"todo": len(todo), "done": 0, "started": state.now(),
+                               "eta_seconds": len(todo) * PACE.get(key, 30)}
+        save_progress(key, index, st, review, f"{key}: starting {len(todo)} events")
+    for n, ev in enumerate(todo, 1):
         try:
             entry = index[ev["id"]]
             pages = {}
@@ -159,8 +170,9 @@ def run_source(key: str, fetch, st: dict, review: list, full: bool, limit: int) 
                 src["last_changed"] = state.now()
             print(f"{key}: {ev['date']} {ev['name']}: {len(battles)} battles, {len(problems)} flagged")
         finally:
+            RUN["sources"][key]["done"] = n
             if n % SAVE_EVERY == 0:
-                save_progress(key, index, st, review, f"{key}: {n} of {min(len(todo), limit)} events")
+                save_progress(key, index, st, review, f"{key}: {n} of {len(todo)} events")
 
     listed = [index[e["id"]] for e in events]
     newest = max(events, key=lambda e: e["date"], default=None)
@@ -181,7 +193,7 @@ def run_source(key: str, fetch, st: dict, review: list, full: bool, limit: int) 
         parts.append(f"{len(errors)} failed to parse")
     if src["events_pending"]:
         parts.append(f"{src['events_pending']} waiting")
-    state.log("check", ", ".join(parts) + ".", key, battles=added_battles)
+    state.log("check", ", ".join(parts) + ".", key, battles=added_battles, events=added_events, run=RUN["started"])
 
 
 def main() -> None:
@@ -193,6 +205,7 @@ def main() -> None:
 
     st = state.load()
     review = load_json(REVIEW, [])
+    RUN["started"] = state.now()
     for key in [args.only] if args.only else SOURCES:
         fetch = http.Fetcher()
         try:
@@ -204,6 +217,7 @@ def main() -> None:
             state.log("check", f"Could not read the event listing: {exc}", key)
         print(f"{key}: {fetch.requests} requests")
     store.export_tsvs()
+    RUN.update(running=False, current=None)
     save_progress(None, None, st, review, "run finished")
 
 

@@ -40,6 +40,15 @@ function nextRun(status) {
   return t;
 }
 
+function progressCell(key, q, done, pct) {
+  const live = liveProgress(key);
+  if (live) {
+    return `<div class="progress"><div class="bar live"><i style="width:${live.pct}%"></i></div><span class="note">Scraping ${live.todo} event${live.todo === 1 ? '' : 's'}, about ${live.left} min left</span></div>`;
+  }
+  if (!q.waiting) return '<span class="muted">Up to date</span>';
+  return `<div class="progress"><div class="bar"><i style="width:${pct}%"></i></div><span class="note">${done.toLocaleString()} of ${q.seen.toLocaleString()} events processed</span></div>`;
+}
+
 // Healthy: last run worked. Error: it could not read the site. Not running: no recent run at all.
 function health(s, status) {
   const stale = !s.last_checked || Date.now() - new Date(s.last_checked) > 2.5 * status.hours_between_runs * 3600e3;
@@ -47,24 +56,52 @@ function health(s, status) {
   return stale || s.status !== 'ok' ? ['', 'Not running'] : ['ok', 'Healthy'];
 }
 
+let STATUS = null, ACTIVITY = [], LIVE = null;
+
+// During a run the pipeline pushes data/progress.json to the repository. Read it from there so the
+// page can show a run in progress without the site being rebuilt or the page reloaded.
+async function pollProgress() {
+  const repo = new URL($('#repo').href).pathname.slice(1);
+  try {
+    const r = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/progress.json?t=${Date.now()}`, { cache: 'no-store' });
+    const p = r.ok ? await r.json() : null;
+    const fresh = p && Date.now() - new Date(p.updated) < 3 * 3600e3;     // ignore a marker left by a dead run
+    LIVE = p && p.running && fresh ? p : null;
+  } catch (e) { LIVE = null; }
+  if (STATUS) renderStatus(STATUS, ACTIVITY);
+}
+
+// Estimated, not measured: time since the source started against its expected duration.
+function liveProgress(key) {
+  const src = LIVE && LIVE.sources[key];
+  if (!src || LIVE.current !== key) return null;
+  const elapsed = (Date.now() - new Date(src.started)) / 1000;
+  const pct = Math.min(95, Math.max(3, Math.round((100 * elapsed) / Math.max(src.eta_seconds, 60))));
+  const left = Math.max(1, Math.round((src.eta_seconds - elapsed) / 60));
+  return { pct, left, todo: src.todo };
+}
+
 function renderStatus(status, activity) {
+  STATUS = status; ACTIVITY = activity;
   const runsFor = (n) => Math.ceil(n / status.events_per_run);
   const queue = status.queue || {};
   const backlog = Object.values(queue).reduce((sum, q) => sum + q.waiting, 0);
   const runs = Math.max(0, ...Object.values(queue).map((q) => runsFor(q.waiting)));
   const next = nextRun(status);
 
+  const added = status.last_run_added || { events: 0, battles: 0 };
   $('#totals').innerHTML = [
     [status.battles.toLocaleString(), 'battles'],
-    [status.events.toLocaleString(), status.first_year ? `events since ${status.first_year}` : 'events'],
+    [`${added.events.toLocaleString()} / ${added.battles.toLocaleString()}`, 'events / battles added in last run'],
     [ago(status.last_run), 'last check'],
-    [`<span title="${esc(next.toLocaleString())}">${countdown(next)}</span>`, 'until next check'],
+    LIVE ? ['Running', 'check in progress']
+      : [`<span title="${esc(next.toLocaleString())}">${countdown(next)}</span>`, 'until next check'],
     [backlog.toLocaleString(), 'events in backlog',
-      backlog ? `${runs} more run${runs === 1 ? '' : 's'} over the next ${span(runs * status.hours_between_runs)}` : 'nothing waiting'],
+      backlog ? `${runs} more run${runs === 1 ? '' : 's'} over the next ${span(runs * status.hours_between_runs)}` : ''],
   ].map(([b, s, extra]) => `<div><b>${b}</b><span>${s}</span>${extra ? `<small>${extra}</small>` : ''}</div>`).join('');
 
   $('#sources-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => {
-    const [cls, label] = health(s, status);
+    const [cls, label] = LIVE && LIVE.current === key ? ['running', 'Running'] : health(s, status);
     return `<tr>
     <td><a href="${esc(s.url)}">${esc(s.name)}</a></td>
     <td data-label="Status"><div><span class="status ${cls}">${label}</span>${s.note ? `<div class="note">${esc(s.note)}</div>` : ''}</div></td>
@@ -74,18 +111,21 @@ function renderStatus(status, activity) {
   </tr>`;
   }).join('');
 
-  $('#queue-note').textContent = `Each run takes up to ${status.events_per_run} events per source, newest first. Next check in ${countdown(next)}.`;
+  $('#queue-note').textContent = LIVE
+    ? 'A check is running now. Progress is an estimate; totals update when it finishes.'
+    : `Each run takes up to ${status.events_per_run} events per source, newest first. Next check in ${countdown(next)}.`;
   $('#queue-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => {
     const q = queue[key] || { waiting: 0, seen: 0, next: [] };
     const n = runsFor(q.waiting);
+    const live = liveProgress(key);
     const done = q.seen - q.waiting;
     const pct = q.seen ? Math.round((100 * done) / q.seen) : 0;
     const upNext = q.next.slice(0, 3).map((e) => `${esc(e.name)} <span class="muted">${esc(e.date)}</span>`).join('<br>');
     return `<tr>
     <td>${esc(s.name)}</td>
-    <td data-label="Progress"><div class="progress"><div class="bar"><i style="width:${pct}%"></i></div><span class="note">${done.toLocaleString()} of ${q.seen.toLocaleString()} events processed</span></div></td>
-    <td data-label="Waiting" class="num">${q.waiting.toLocaleString()}</td>
-    <td data-label="Cleared in">${n ? `${span(n * status.hours_between_runs)} <span class="muted">${n} run${n === 1 ? '' : 's'}</span>` : '<span class="muted">Up to date</span>'}</td>
+    <td data-label="Progress">${progressCell(key, q, done, pct)}</td>
+    <td data-label="Waiting" class="num">${(live ? live.todo : q.waiting).toLocaleString()}</td>
+    <td data-label="Cleared in">${live ? `about ${live.left} min` : n ? `${span(n * status.hours_between_runs)} <span class="muted">${n} run${n === 1 ? '' : 's'}</span>` : '<span class="muted">Up to date</span>'}</td>
     <td data-label="Up next">${upNext ? `<div>${upNext}</div>` : '<span class="muted">-</span>'}</td>
   </tr>`;
   }).join('');
@@ -101,7 +141,7 @@ function renderStatus(status, activity) {
 }
 
 // ---- dataset
-let DATA = null, rows = [], page = 0;
+let DATA = null, rows = [], page = 0, sortCol = null, sortDir = 1;
 const eventCache = {};
 
 function option(sel, value, label) { sel.add(new Option(label ?? value, value)); }
@@ -116,6 +156,16 @@ function setupDataset(data) {
   [...new Set(data.rows.map((r) => r[C.source]))].forEach((s) => option($('#f-source'), s, SOURCE_NAMES[s] || s));
   $('#downloads').innerHTML = SYSTEMS.map((s) => `<a href="data/export/${s}DataRaw.tsv" download>${s}</a>`).join(', ');
   ['#q', '#f-system', '#f-year', '#f-source'].forEach((id) => $(id).addEventListener('input', () => { page = 0; filter(); }));
+  document.querySelectorAll('#battles th[data-sort]').forEach((th) => {
+    th.onclick = () => {
+      // first click sorts ascending, second descending, third returns to the original order
+      if (sortCol !== th.dataset.sort) { sortCol = th.dataset.sort; sortDir = 1; }
+      else if (sortDir === 1) sortDir = -1;
+      else sortCol = null;
+      page = 0;
+      filter();
+    };
+  });
   $('#prev').onclick = () => { page--; draw(); };
   $('#next').onclick = () => { page++; draw(); };
   filter();
@@ -132,6 +182,15 @@ function filter() {
     if (src && r[C.source] !== src) return;
     if (words.length && !words.every((w) => DATA.text[i].includes(w))) return;
     rows.push(r);
+  });
+  if (sortCol) {
+    // Year sorts by full date where the event has one
+    const key = sortCol === 'year' ? (r) => r[C.date] || (r[C.year] ? String(r[C.year]) : '') : (r) => r[C[sortCol]] ?? '';
+    const numeric = sortCol === 'judges';
+    rows.sort((x, y) => sortDir * (numeric ? key(x) - key(y) : String(key(x)).localeCompare(String(key(y)), undefined, { sensitivity: 'base' })));
+  }
+  document.querySelectorAll('#battles th[data-sort]').forEach((th) => {
+    th.dataset.dir = th.dataset.sort === sortCol ? (sortDir === 1 ? 'asc' : 'desc') : '';
   });
   draw();
 }
@@ -189,7 +248,12 @@ function scoreTables(b) {
   return html + `<p class="note">Negative favors red (${esc(b.red)}), positive favors blue (${esc(b.blue)}).</p>`;
 }
 
-Promise.all([get('data/status.json'), get('data/activity.json')]).then(([s, a]) => renderStatus(s, a));
+Promise.all([get('data/status.json'), get('data/activity.json')]).then(([s, a]) => {
+  renderStatus(s, a);
+  pollProgress();
+  setInterval(pollProgress, 60000);                               // is a run going?
+  setInterval(() => STATUS && renderStatus(STATUS, ACTIVITY), 15000);   // keep countdowns and the bar moving
+});
 get('data/review.json').then((items) => {
   $('#review-table tbody').innerHTML = items.map((r) => `<tr>
     <td style="white-space:nowrap">${esc(r.date)}</td><td>${esc(r.event)}</td>

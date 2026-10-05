@@ -41,6 +41,11 @@ td { padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line); vertical-a
 .progress { min-width: 200px; }
 .bar { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; margin: 6px 0 5px; }
 .bar i { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+.bar.live i { transition: width 1s linear; background-image: linear-gradient(90deg, transparent 0, rgba(255,255,255,.45) 50%, transparent 100%);
+  background-size: 60px 100%; background-repeat: no-repeat; animation: sweep 1.4s linear infinite; }
+@keyframes sweep { from { background-position: -60px 0; } to { background-position: calc(100% + 60px) 0; } }
+.status.running::before { background: var(--accent); animation: pulse 1.2s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .25; } }
 
 .filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
 input, select, button { font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; }
@@ -74,3 +79,10 @@ footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 4
   table.stack td:first-child { font-weight: 600; }
   table.stack td:first-child::before { content: none; }
 }
+
+th[data-sort] { cursor: pointer; user-select: none; }
+th[data-sort]:hover { color: var(--fg); }
+th[data-sort]::after { content: " \2195"; opacity: .35; }
+th[data-dir="asc"], th[data-dir="desc"] { color: var(--fg); }
+th[data-dir="asc"]::after { content: " \2191"; opacity: 1; color: var(--accent); }
+th[data-dir="desc"]::after { content: " \2193"; opacity: 1; color: var(--accent); }

@@ -5,11 +5,33 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
+from datetime import datetime, timedelta
 
 from . import state, store
 
 OUT = store.ROOT / "site" / "data"
+
+
+def last_run_added(activity: list) -> dict:
+    """Events and battles the most recent run added, summed over its per-source log entries."""
+    checks = [a for a in activity if a["kind"] == "check"]
+    if not checks:
+        return {"events": 0, "battles": 0}
+    newest = checks[0]
+    if newest.get("run"):
+        mine = [a for a in checks if a.get("run") == newest["run"]]
+    else:       # entries written before runs were numbered: group by time
+        t0 = datetime.fromisoformat(newest["time"].replace("Z", "+00:00"))
+        mine = [a for a in checks
+                if t0 - datetime.fromisoformat(a["time"].replace("Z", "+00:00")) < timedelta(hours=2, minutes=30)
+                and not a.get("run")]
+    events = 0
+    for a in mine:
+        m = re.search(r"from (\d+) events", a["text"])
+        events += a["events"] if "events" in a else int(m.group(1)) if m else 0
+    return {"events": events, "battles": sum(a.get("battles", 0) for a in mine)}
 
 
 def main() -> None:
@@ -54,7 +76,7 @@ def main() -> None:
         "events_per_run": 10,
         "hours_between_runs": 6,
         "run_minute": 17,
-        "first_year": min((r[2] for r in rows if r[2]), default=None),
+        "last_run_added": last_run_added(activity),
         "queue": state.queue(),
     }
     (OUT / "status.json").write_text(json.dumps(status, ensure_ascii=False), encoding="utf-8")
