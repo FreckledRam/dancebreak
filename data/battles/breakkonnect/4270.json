@@ -1,0 +1,108 @@
+{
+ "event": "Brooklyn's Breaking Academy - Battle Series Vol. 1",
+ "source": "breakkonnect",
+ "date": "2025-09-30",
+ "year": 2025,
+ "url": "https://breakkonnect.com/event/4270",
+ "battles": [
+  {
+   "system": "PointsPerRound",
+   "red": "Lazi",
+   "blue": "Lil Serious",
+   "winner": "Lazi",
+   "judges": [
+    "JSerious"
+   ],
+   "cells": {
+    "event": "Brooklyn's Breaking Academy - Battle Series Vol. 1",
+    "stage": "1vs1 Kids1vs1 Top 4 KnockOut",
+    "r1j1over": "-2",
+    "r1j1redp": "8",
+    "r1j1blup": "6",
+    "breaker 1 (red)": "Lazi",
+    "breaker 2 (blue)": "Lil Serious",
+    "winner": "Lazi",
+    "battle rounds": "1",
+    "number of judges": "1",
+    "breaker 1 round wins": "1",
+    "breaker 2 round wins": "0",
+    "tie rounds": "0",
+    "breaker 1 vote count": "1",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "breaker 1 points": "8",
+    "breaker 2 points": "6",
+    "judge 1 name": "JSerious"
+   },
+   "id": "breakkonnect-4270-2116-55349",
+   "stage": "1vs1 Kids1vs1 Top 4 KnockOut",
+   "url": "https://breakkonnect.com/sparring/55349"
+  },
+  {
+   "system": "PointsPerRound",
+   "red": "Violet",
+   "blue": "Lil Serious",
+   "winner": "Lil Serious",
+   "judges": [
+    "JSerious"
+   ],
+   "cells": {
+    "event": "Brooklyn's Breaking Academy - Battle Series Vol. 1",
+    "stage": "1vs1 Kids1vs1 Top 4 KnockOut",
+    "r1j1over": "1",
+    "r1j1redp": "7",
+    "r1j1blup": "8",
+    "breaker 1 (red)": "Violet",
+    "breaker 2 (blue)": "Lil Serious",
+    "winner": "Lil Serious",
+    "battle rounds": "1",
+    "number of judges": "1",
+    "breaker 1 round wins": "0",
+    "breaker 2 round wins": "1",
+    "tie rounds": "0",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "1",
+    "tie vote count": "0",
+    "breaker 1 points": "7",
+    "breaker 2 points": "8",
+    "judge 1 name": "JSerious"
+   },
+   "id": "breakkonnect-4270-2116-55348",
+   "stage": "1vs1 Kids1vs1 Top 4 KnockOut",
+   "url": "https://breakkonnect.com/sparring/55348"
+  },
+  {
+   "system": "PointsPerRound",
+   "red": "Lazi",
+   "blue": "Bboy AntMan",
+   "winner": "Lazi",
+   "judges": [
+    "JSerious"
+   ],
+   "cells": {
+    "event": "Brooklyn's Breaking Academy - Battle Series Vol. 1",
+    "stage": "1vs1 Kids1vs1 Top 4 KnockOut",
+    "r1j1over": "-1",
+    "r1j1redp": "8",
+    "r1j1blup": "7",
+    "breaker 1 (red)": "Lazi",
+    "breaker 2 (blue)": "Bboy AntMan",
+    "winner": "Lazi",
+    "battle rounds": "1",
+    "number of judges": "1",
+    "breaker 1 round wins": "1",
+    "breaker 2 round wins": "0",
+    "tie rounds": "0",
+    "breaker 1 vote count": "1",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "breaker 1 points": "8",
+    "breaker 2 points": "7",
+    "judge 1 name": "JSerious"
+   },
+   "id": "breakkonnect-4270-2116-55347",
+   "stage": "1vs1 Kids1vs1 Top 4 KnockOut",
+   "url": "https://breakkonnect.com/sparring/55347"
+  }
+ ]
+}

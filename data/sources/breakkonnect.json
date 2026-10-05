@@ -596,52 +596,62 @@
  "4355": {
   "name": "CYPHERST8 THROWDOWN DAY 1- LIMITLESS: 2V2 BREAKING",
   "date": "2025-10-11",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4353": {
   "name": "Breaki Habits Crew 20th Anniversary 2v2 Jam",
   "date": "2025-10-11",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4346": {
   "name": "Level Up Battles",
   "date": "2025-10-11",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4361": {
   "name": "Winner Takes All",
   "date": "2025-10-05",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4270": {
   "name": "Brooklyn's Breaking Academy - Battle Series Vol. 1",
   "date": "2025-09-30",
-  "status": "pending"
+  "status": "collected",
+  "battles": 3
  },
  "4292": {
   "name": "Footwork Fiend — Na$ty City Edition",
   "date": "2025-09-28",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4287": {
   "name": "One of One (1 vs 1 for $2000)",
   "date": "2025-09-28",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4277": {
   "name": "All The Way Live San Francisco: Hip Hop Dance Festival",
   "date": "2025-09-27",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4272": {
   "name": "School of Breaking Day Breaking & Hip-Hop fest",
   "date": "2025-09-27",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4307": {
   "name": "THE GET DOWN",
   "date": "2025-09-25",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4260": {
   "name": "COLLEGE CLUB FUNDRAISER: UCSD BODY ROCK X SDSU STATESIDE BREAKS",
