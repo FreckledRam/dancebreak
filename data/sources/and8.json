@@ -242,52 +242,62 @@
  "5421": {
   "name": "7th All Japan National Championships 2026",
   "date": "2026-03-01",
-  "status": "pending"
+  "status": "collected",
+  "battles": 95
  },
  "5416": {
   "name": "PowerMadness",
   "date": "2026-02-28",
-  "status": "pending"
+  "status": "collected",
+  "battles": 64
  },
  "5364": {
   "name": "FUJIFILM instax™ Undisputed New Delhi",
   "date": "2026-01-31",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5366": {
   "name": "NBB – National Breaking Battle 2025 (El Salvador)",
   "date": "2025-12-27",
-  "status": "pending"
+  "status": "collected",
+  "battles": 29
  },
  "5067": {
   "name": "Dubai Open Breaking 2025",
   "date": "2025-12-20",
-  "status": "pending"
+  "status": "collected",
+  "battles": 5
  },
  "5248": {
   "name": "The World Battle Fukuoka - Kurume City - Japan",
   "date": "2025-12-14",
-  "status": "pending"
+  "status": "collected",
+  "battles": 16
  },
  "5351": {
   "name": "Battle BBoy & BGirl France 2025",
   "date": "2025-12-13",
-  "status": "pending"
+  "status": "collected",
+  "battles": 34
  },
  "5025": {
   "name": "Streetdance Battle Series 2025 – Vol. 7",
   "date": "2025-12-06",
-  "status": "pending"
+  "status": "collected",
+  "battles": 56
  },
  "5287": {
   "name": "FUJIFILM instax™ Undisputed Cape Town",
   "date": "2025-12-06",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5352": {
   "name": "Solothurner Tanztage 2025",
   "date": "2025-12-05",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5294": {
   "name": "Street Disciples",

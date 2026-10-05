@@ -97,5 +97,23 @@
   "stage": "1vs1 PRH B-girls Osnovci (Juvenile II) Top 0 KnockOut",
   "url": "https://and8.dance/en/stats/reports/5479/4200/r/",
   "reason": "bracket layout not mapped for 'Top 0 KnockOut'"
+ },
+ {
+  "source": "and8",
+  "event_id": "5067",
+  "event": "Dubai Open Breaking 2025",
+  "date": "2025-12-20",
+  "stage": "1vs1 B-Boy Top 32 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/5067/3692/r/",
+  "reason": "page says 32 battles, found 1"
+ },
+ {
+  "source": "and8",
+  "event_id": "5067",
+  "event": "Dubai Open Breaking 2025",
+  "date": "2025-12-20",
+  "stage": "1vs1 B-Girl Top 16 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/5067/3691/r/",
+  "reason": "page says 16 battles, found 4"
  }
 ]
