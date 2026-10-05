@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Settle It In The Cypher</title>
 <meta name="description" content="Live dataset of judge scores from competitive breaking battles.">
-<link rel="stylesheet" href="style.css">
+<script>
+  // always load the newest styles and script instead of a copy the browser saved earlier
+  document.write('<link rel="stylesheet" href="style.css?v=' + Date.now() + '">');
+</script>
+<noscript><link rel="stylesheet" href="style.css"></noscript>
 </head>
 <body>
 <header>
@@ -33,7 +37,7 @@
     <h2>Queue</h2>
     <p class="note" id="queue-note"></p>
     <table id="queue-table" class="stack">
-      <thead><tr><th>Source</th><th class="num">Events waiting</th><th class="num">Runs needed</th><th>Cleared in</th><th>Up next</th></tr></thead>
+      <thead><tr><th>Source</th><th>Progress</th><th class="num">Waiting</th><th>Cleared in</th><th>Up next</th></tr></thead>
       <tbody></tbody>
     </table>
   </section>
@@ -74,6 +78,6 @@
 <footer>
   <p>Data from <a href="https://and8.dance">And8</a>, <a href="https://www.worlddancesport.org">WDSF</a> and <a href="https://breakkonnect.com">Break Konnect</a>. <a id="repo" href="https://github.com/FreckledRam/dancebreak">Code and data on GitHub</a>.</p>
 </footer>
-<script src="app.js"></script>
+<script>document.write('<script src="app.js?v=' + Date.now() + '"><\/script>');</script>
 </body>
 </html>

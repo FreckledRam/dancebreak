@@ -4,7 +4,7 @@ const SOURCE_NAMES = { seed: 'Original', and8: 'And8', wdsf: 'WDSF', breakkonnec
 const SYSTEMS = ['Traditional', 'RoundByRound', 'SingleSlider', 'Threefold', 'PseudoThreefold', 'Trivium', 'WDSFSystem', 'PointsPerRound'];
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const get = (path) => fetch(path).then((r) => r.json());
+const get = (path) => fetch(path, { cache: 'no-cache' }).then((r) => r.json());
 
 function ago(iso) {
   if (!iso) return '<span class="muted">Never</span>';
@@ -57,8 +57,8 @@ function renderStatus(status, activity) {
   $('#totals').innerHTML = [
     [status.battles.toLocaleString(), 'battles'],
     [status.events.toLocaleString(), status.first_year ? `events since ${status.first_year}` : 'events'],
-    [ago(status.last_run), 'last run'],
-    [`<span title="${esc(next.toLocaleString())}">${countdown(next)}</span>`, 'until next run'],
+    [ago(status.last_run), 'last check'],
+    [`<span title="${esc(next.toLocaleString())}">${countdown(next)}</span>`, 'until next check'],
     [backlog.toLocaleString(), 'events in backlog',
       backlog ? `${runs} more run${runs === 1 ? '' : 's'} over the next ${span(runs * status.hours_between_runs)}` : 'nothing waiting'],
   ].map(([b, s, extra]) => `<div><b>${b}</b><span>${s}</span>${extra ? `<small>${extra}</small>` : ''}</div>`).join('');
@@ -74,16 +74,18 @@ function renderStatus(status, activity) {
   </tr>`;
   }).join('');
 
-  $('#queue-note').textContent = `Each run takes up to ${status.events_per_run} events per source, newest first. Next run in ${countdown(next)}.`;
+  $('#queue-note').textContent = `Each run takes up to ${status.events_per_run} events per source, newest first. Next check in ${countdown(next)}.`;
   $('#queue-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => {
-    const q = queue[key] || { waiting: 0, next: [] };
+    const q = queue[key] || { waiting: 0, seen: 0, next: [] };
     const n = runsFor(q.waiting);
+    const done = q.seen - q.waiting;
+    const pct = q.seen ? Math.round((100 * done) / q.seen) : 0;
     const upNext = q.next.slice(0, 3).map((e) => `${esc(e.name)} <span class="muted">${esc(e.date)}</span>`).join('<br>');
     return `<tr>
     <td>${esc(s.name)}</td>
-    <td data-label="Events waiting" class="num">${q.waiting.toLocaleString()}</td>
-    <td data-label="Runs needed" class="num">${n}</td>
-    <td data-label="Cleared in">${n ? span(n * status.hours_between_runs) : '<span class="muted">Up to date</span>'}</td>
+    <td data-label="Progress"><div class="progress"><div class="bar"><i style="width:${pct}%"></i></div><span class="note">${done.toLocaleString()} of ${q.seen.toLocaleString()} events processed</span></div></td>
+    <td data-label="Waiting" class="num">${q.waiting.toLocaleString()}</td>
+    <td data-label="Cleared in">${n ? `${span(n * status.hours_between_runs)} <span class="muted">${n} run${n === 1 ? '' : 's'}</span>` : '<span class="muted">Up to date</span>'}</td>
     <td data-label="Up next">${upNext ? `<div>${upNext}</div>` : '<span class="muted">-</span>'}</td>
   </tr>`;
   }).join('');

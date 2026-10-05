@@ -38,6 +38,10 @@ td { padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line); vertical-a
 .status.repairing::before { background: var(--warn); }
 .status.broken::before { background: var(--bad); }
 
+.progress { min-width: 200px; }
+.bar { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; margin: 6px 0 5px; }
+.bar i { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+
 .filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
 input, select, button { font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; }
 #q { flex: 1 1 260px; }

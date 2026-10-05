@@ -19,7 +19,7 @@ def queue() -> dict:
         index = json.loads(path.read_text(encoding="utf-8"))
         waiting = sorted((e for e in index.values() if e["status"] in ("pending", "failed")),
                          key=lambda e: e["date"], reverse=True)
-        out[path.stem] = {"waiting": len(waiting),
+        out[path.stem] = {"waiting": len(waiting), "seen": len(index),
                           "next": [{"name": e["name"], "date": e["date"]} for e in waiting[:10]]}
     return out
 
