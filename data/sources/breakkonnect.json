@@ -656,11 +656,13 @@
  "4260": {
   "name": "COLLEGE CLUB FUNDRAISER: UCSD BODY ROCK X SDSU STATESIDE BREAKS",
   "date": "2025-09-07",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4269": {
   "name": "Back to School Jam",
   "date": "2025-06-01",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  }
 }
