@@ -524,47 +524,56 @@
  "4954": {
   "name": "Cypher Town ✘ Silverback Europe",
   "date": "2025-08-01",
-  "status": "pending"
+  "status": "collected",
+  "battles": 45
  },
  "5217": {
   "name": "AAU Junior Olympic Games - BREAKING",
   "date": "2025-07-25",
-  "status": "pending"
+  "status": "collected",
+  "battles": 64
  },
  "4832": {
   "name": "The Legits Blast 2025 presents Outbreak Europe 2025",
   "date": "2025-07-24",
-  "status": "pending"
+  "status": "collected",
+  "battles": 77
  },
  "5200": {
   "name": "AAU Breaking Super Regionals 2",
   "date": "2025-07-20",
-  "status": "pending"
+  "status": "collected",
+  "battles": 32
  },
  "5037": {
   "name": "Castle Rock Jam - Vol. 6 - Summer Edition",
   "date": "2025-07-19",
-  "status": "pending"
+  "status": "collected",
+  "battles": 32
  },
  "5212": {
   "name": "LoneStar Breaking Open 2025",
   "date": "2025-07-19",
-  "status": "pending"
+  "status": "collected",
+  "battles": 7
  },
  "5157": {
   "name": "DTV Ranking Battle 2025",
   "date": "2025-07-06",
-  "status": "pending"
+  "status": "collected",
+  "battles": 53
  },
  "5177": {
   "name": "Molde Dansefestival 2025",
   "date": "2025-07-05",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5002": {
   "name": "Streetdance Battle Series 2025 – Vol. 4",
   "date": "2025-06-28",
-  "status": "pending"
+  "status": "collected",
+  "battles": 37
  },
  "5058": {
   "name": "Find your Flow Festival 2025",
