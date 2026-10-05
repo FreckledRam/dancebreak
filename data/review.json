@@ -142,5 +142,23 @@
   "stage": "1vs1 B-Girl Pro (Quali) Top 8 KnockOut",
   "url": "https://and8.dance/en/stats/reports/4903/3633/r/",
   "reason": "no battles found"
+ },
+ {
+  "source": "and8",
+  "event_id": "4887",
+  "event": "World Kidz Breaking Champion 2025",
+  "date": "2025-06-07",
+  "stage": "1vs1 B-Boy U18 - TOP64 - (WKBC) Top 64 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/4887/3554/r/",
+  "reason": "bracket layout not mapped for 'Top 64 KnockOut'"
+ },
+ {
+  "source": "and8",
+  "event_id": "5114",
+  "event": "Break Mission x B-Side Hip-Hop Festival 2025",
+  "date": "2025-05-30",
+  "stage": "1vs1 Breaking 18'n'under Top 16 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/5114/3379/r/",
+  "reason": "page says 16 battles, found 15"
  }
 ]
