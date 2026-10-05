@@ -188,47 +188,56 @@
  "5437": {
   "name": "Red Bull BC One Cypher Austria 2026",
   "date": "2026-04-18",
-  "status": "pending"
+  "status": "collected",
+  "battles": 30
  },
  "5477": {
   "name": "Level Up - Breaking Battle Series",
   "date": "2026-04-18",
-  "status": "pending"
+  "status": "collected",
+  "battles": 52
  },
  "5413": {
   "name": "Streetdance Battle Series 2026 - Vol. 1",
   "date": "2026-04-11",
-  "status": "pending"
+  "status": "collected",
+  "battles": 56
  },
  "5404": {
   "name": "Red Bull BC One Cypher Liège 2026",
   "date": "2026-03-28",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5350": {
   "name": "ROCK HARDER",
   "date": "2026-03-22",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5355": {
   "name": "CDance Battle Vol 8",
   "date": "2026-03-21",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5435": {
   "name": "FUJIFILM instax™ Undisputed Tokyo World Final 2026",
   "date": "2026-03-21",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5439": {
   "name": "Break2Future 2026",
   "date": "2026-03-15",
-  "status": "pending"
+  "status": "collected",
+  "battles": 32
  },
  "5479": {
   "name": "HSPS Croatian National Breaking Championship 2026",
   "date": "2026-03-07",
-  "status": "pending"
+  "status": "collected",
+  "battles": 71
  },
  "5421": {
   "name": "7th All Japan National Championships 2026",

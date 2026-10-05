@@ -70,5 +70,32 @@
   "stage": "1vs1 B B-girls Osnovci (Juvenile II) Top 1 KnockOut",
   "url": "https://and8.dance/en/stats/reports/5566/4422/r/",
   "reason": "no battles found"
+ },
+ {
+  "source": "and8",
+  "event_id": "5437",
+  "event": "Red Bull BC One Cypher Austria 2026",
+  "date": "2026-04-18",
+  "stage": "1vs1 B-Boy Qualifier TOP30 - Knock-Out",
+  "url": "https://and8.dance/en/stats/reports/5437/4317/r/",
+  "reason": "page says 15 battles, found 8"
+ },
+ {
+  "source": "and8",
+  "event_id": "5479",
+  "event": "HSPS Croatian National Breaking Championship 2026",
+  "date": "2026-03-07",
+  "stage": "1vs1 PRH B-girls Ml.osnovci (Juvenile I) Top 1 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/5479/4198/r/",
+  "reason": "no battles found"
+ },
+ {
+  "source": "and8",
+  "event_id": "5479",
+  "event": "HSPS Croatian National Breaking Championship 2026",
+  "date": "2026-03-07",
+  "stage": "1vs1 PRH B-girls Osnovci (Juvenile II) Top 0 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/5479/4200/r/",
+  "reason": "bracket layout not mapped for 'Top 0 KnockOut'"
  }
 ]
