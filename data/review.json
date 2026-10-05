@@ -196,5 +196,14 @@
   "stage": "1vs1 PRH B-girls St.mladez (Youth) Top 3 KnockOut",
   "url": "https://and8.dance/en/stats/reports/5076/3312/r/",
   "reason": "no battles found"
+ },
+ {
+  "source": "and8",
+  "event_id": "4896",
+  "event": "Breaking FIDESM Absolute Championship 2025",
+  "date": "2025-01-19",
+  "stage": "Bboy Junior (12-15) Top 16 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/4896/3060/r/",
+  "reason": "page says 17 battles, found 16"
  }
 ]

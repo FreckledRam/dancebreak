@@ -818,11 +818,13 @@
  "4896": {
   "name": "Breaking FIDESM Absolute Championship 2025",
   "date": "2025-01-19",
-  "status": "pending"
+  "status": "collected",
+  "battles": 73
  },
  "4909": {
   "name": "FUJIFILM INSTAX Undisputed Cape Town",
   "date": "2025-01-18",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  }
 }

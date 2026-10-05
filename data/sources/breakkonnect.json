@@ -536,52 +536,62 @@
  "4383": {
   "name": "Pacific Cypher Showcase",
   "date": "2025-11-08",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4314": {
   "name": "Flavor Fest 2025",
   "date": "2025-11-08",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4374": {
   "name": "Jammin’ NYC",
   "date": "2025-11-07",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4391": {
   "name": "Winner Takes All (Vol. 2)",
   "date": "2025-11-02",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4352": {
   "name": "Victory Breaks Chapter 2",
   "date": "2025-11-01",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4330": {
   "name": "Battle of the Boroughs",
   "date": "2025-11-01",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4289": {
   "name": "All Maine Points",
   "date": "2025-11-01",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4372": {
   "name": "Brooklyn's Breaking Academy - Battle Series Vol. 2",
   "date": "2025-10-28",
-  "status": "pending"
+  "status": "collected",
+  "battles": 3
  },
  "4376": {
   "name": "Break Fluid Jam",
   "date": "2025-10-25",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4335": {
   "name": "SLO Silver Gen II",
   "date": "2025-10-25",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4355": {
   "name": "CYPHERST8 THROWDOWN DAY 1- LIMITLESS: 2V2 BREAKING",
