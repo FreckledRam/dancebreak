@@ -1,0 +1,233 @@
+{
+ "event": "Groove E Session",
+ "source": "seed",
+ "date": null,
+ "year": null,
+ "url": null,
+ "battles": [
+  {
+   "id": "seed-Traditional-0356",
+   "system": "Traditional",
+   "order": 356,
+   "stage": "B-Girls Top 8 Knock-Out",
+   "red": "Kastet",
+   "blue": "Ami",
+   "winner": "Ami",
+   "judges": [
+    "Movie One",
+    "Roxy",
+    "Nadia"
+   ],
+   "cells": {
+    "event": "Groove E Session",
+    "stage": "B-Girls Top 8 Knock-Out",
+    "breaker 1 (red)": "Kastet",
+    "breaker 2 (blue)": "Ami",
+    "winner": "Ami",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "3",
+    "tie vote count": "0",
+    "judge 1 name": "Movie One",
+    "judge 2 name": "Roxy",
+    "judge 3 name": "Nadia",
+    "j1vote": "blue",
+    "j2vote": "blue",
+    "j3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0357",
+   "system": "Traditional",
+   "order": 357,
+   "stage": "B-Girls Top 8 Knock-Out",
+   "red": "San Andrea",
+   "blue": "Ami",
+   "winner": "Ami",
+   "judges": [
+    "Movie One",
+    "Roxy",
+    "Nadia"
+   ],
+   "cells": {
+    "event": "Groove E Session",
+    "stage": "B-Girls Top 8 Knock-Out",
+    "breaker 1 (red)": "San Andrea",
+    "breaker 2 (blue)": "Ami",
+    "winner": "Ami",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "1",
+    "breaker 2 vote count": "2",
+    "tie vote count": "0",
+    "judge 1 name": "Movie One",
+    "judge 2 name": "Roxy",
+    "judge 3 name": "Nadia",
+    "j1vote": "blue",
+    "j2vote": "red",
+    "j3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0358",
+   "system": "Traditional",
+   "order": 358,
+   "stage": "B-Girls Top 8 Knock-Out",
+   "red": "Ayane",
+   "blue": "Kastet",
+   "winner": "Kastet",
+   "judges": [
+    "Movie One",
+    "Roxy",
+    "Nadia"
+   ],
+   "cells": {
+    "event": "Groove E Session",
+    "stage": "B-Girls Top 8 Knock-Out",
+    "breaker 1 (red)": "Ayane",
+    "breaker 2 (blue)": "Kastet",
+    "winner": "Kastet",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "3",
+    "tie vote count": "0",
+    "judge 1 name": "Movie One",
+    "judge 2 name": "Roxy",
+    "judge 3 name": "Nadia",
+    "j1vote": "blue",
+    "j2vote": "blue",
+    "j3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0359",
+   "system": "Traditional",
+   "order": 359,
+   "stage": "B-Girls Top 8 Knock-Out",
+   "red": "Yell",
+   "blue": "Ami",
+   "winner": "Ami",
+   "judges": [
+    "Movie One",
+    "Roxy",
+    "Nadia"
+   ],
+   "cells": {
+    "event": "Groove E Session",
+    "stage": "B-Girls Top 8 Knock-Out",
+    "breaker 1 (red)": "Yell",
+    "breaker 2 (blue)": "Ami",
+    "winner": "Ami",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "3",
+    "tie vote count": "0",
+    "judge 1 name": "Movie One",
+    "judge 2 name": "Roxy",
+    "judge 3 name": "Nadia",
+    "j1vote": "blue",
+    "j2vote": "blue",
+    "j3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0360",
+   "system": "Traditional",
+   "order": 360,
+   "stage": "B-Girls Top 8 Knock-Out",
+   "red": "Kate",
+   "blue": "San Andrea",
+   "winner": "San Andrea",
+   "judges": [
+    "Movie One",
+    "Roxy",
+    "Nadia"
+   ],
+   "cells": {
+    "event": "Groove E Session",
+    "stage": "B-Girls Top 8 Knock-Out",
+    "breaker 1 (red)": "Kate",
+    "breaker 2 (blue)": "San Andrea",
+    "winner": "San Andrea",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "3",
+    "tie vote count": "0",
+    "judge 1 name": "Movie One",
+    "judge 2 name": "Roxy",
+    "judge 3 name": "Nadia",
+    "j1vote": "blue",
+    "j2vote": "blue",
+    "j3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0361",
+   "system": "Traditional",
+   "order": 361,
+   "stage": "B-Girls Top 8 Knock-Out",
+   "red": "Jilou",
+   "blue": "Kastet",
+   "winner": "Kastet",
+   "judges": [
+    "Movie One",
+    "Roxy",
+    "Nadia"
+   ],
+   "cells": {
+    "event": "Groove E Session",
+    "stage": "B-Girls Top 8 Knock-Out",
+    "breaker 1 (red)": "Jilou",
+    "breaker 2 (blue)": "Kastet",
+    "winner": "Kastet",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "3",
+    "tie vote count": "0",
+    "judge 1 name": "Movie One",
+    "judge 2 name": "Roxy",
+    "judge 3 name": "Nadia",
+    "j1vote": "blue",
+    "j2vote": "blue",
+    "j3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0362",
+   "system": "Traditional",
+   "order": 362,
+   "stage": "B-Girls Top 8 Knock-Out",
+   "red": "Ayane",
+   "blue": "Carito",
+   "winner": "Ayane",
+   "judges": [
+    "Movie One",
+    "Roxy",
+    "Nadia"
+   ],
+   "cells": {
+    "event": "Groove E Session",
+    "stage": "B-Girls Top 8 Knock-Out",
+    "breaker 1 (red)": "Ayane",
+    "breaker 2 (blue)": "Carito",
+    "winner": "Ayane",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "2",
+    "breaker 2 vote count": "1",
+    "tie vote count": "0",
+    "judge 1 name": "Movie One",
+    "judge 2 name": "Roxy",
+    "judge 3 name": "Nadia",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "blue"
+   }
+  }
+ ]
+}

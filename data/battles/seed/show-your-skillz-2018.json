@@ -1,0 +1,233 @@
+{
+ "event": "Show Your Skillz 2018",
+ "source": "seed",
+ "date": null,
+ "year": 2018,
+ "url": null,
+ "battles": [
+  {
+   "id": "seed-Traditional-0665",
+   "system": "Traditional",
+   "order": 665,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Marson",
+   "blue": "Sheku",
+   "winner": "Marson",
+   "judges": [
+    "Johannes",
+    "Storm",
+    "The Wolfer"
+   ],
+   "cells": {
+    "event": "Show Your Skillz 2018",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Marson",
+    "breaker 2 (blue)": "Sheku",
+    "winner": "Marson",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "2",
+    "breaker 2 vote count": "1",
+    "tie vote count": "0",
+    "judge 1 name": "Johannes",
+    "judge 2 name": "Storm",
+    "judge 3 name": "The Wolfer",
+    "j1vote": "red",
+    "j2vote": "blue",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0666",
+   "system": "Traditional",
+   "order": 666,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Sheku",
+   "blue": "Harlekin",
+   "winner": "Sheku",
+   "judges": [
+    "Johannes",
+    "Storm",
+    "The Wolfer"
+   ],
+   "cells": {
+    "event": "Show Your Skillz 2018",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Sheku",
+    "breaker 2 (blue)": "Harlekin",
+    "winner": "Sheku",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "Johannes",
+    "judge 2 name": "Storm",
+    "judge 3 name": "The Wolfer",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0667",
+   "system": "Traditional",
+   "order": 667,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Marson",
+   "blue": "Intus",
+   "winner": "Marson",
+   "judges": [
+    "Johannes",
+    "Storm",
+    "The Wolfer"
+   ],
+   "cells": {
+    "event": "Show Your Skillz 2018",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Marson",
+    "breaker 2 (blue)": "Intus",
+    "winner": "Marson",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "2",
+    "breaker 2 vote count": "1",
+    "tie vote count": "0",
+    "judge 1 name": "Johannes",
+    "judge 2 name": "Storm",
+    "judge 3 name": "The Wolfer",
+    "j1vote": "blue",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0668",
+   "system": "Traditional",
+   "order": 668,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Harlekin",
+   "blue": "Electrostyle",
+   "winner": "Harlekin",
+   "judges": [
+    "Johannes",
+    "Storm",
+    "The Wolfer"
+   ],
+   "cells": {
+    "event": "Show Your Skillz 2018",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Harlekin",
+    "breaker 2 (blue)": "Electrostyle",
+    "winner": "Harlekin",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "Johannes",
+    "judge 2 name": "Storm",
+    "judge 3 name": "The Wolfer",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0669",
+   "system": "Traditional",
+   "order": 669,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Sheku",
+   "blue": "Che Che",
+   "winner": "Sheku",
+   "judges": [
+    "Johannes",
+    "Storm",
+    "The Wolfer"
+   ],
+   "cells": {
+    "event": "Show Your Skillz 2018",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Sheku",
+    "breaker 2 (blue)": "Che Che",
+    "winner": "Sheku",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "2",
+    "breaker 2 vote count": "1",
+    "tie vote count": "0",
+    "judge 1 name": "Johannes",
+    "judge 2 name": "Storm",
+    "judge 3 name": "The Wolfer",
+    "j1vote": "blue",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0670",
+   "system": "Traditional",
+   "order": 670,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Intus",
+   "blue": "Rock'n'Rolli",
+   "winner": "Intus",
+   "judges": [
+    "Johannes",
+    "Storm",
+    "The Wolfer"
+   ],
+   "cells": {
+    "event": "Show Your Skillz 2018",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Intus",
+    "breaker 2 (blue)": "Rock'n'Rolli",
+    "winner": "Intus",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "Johannes",
+    "judge 2 name": "Storm",
+    "judge 3 name": "The Wolfer",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0671",
+   "system": "Traditional",
+   "order": 671,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Marson",
+   "blue": "Ghostface",
+   "winner": "Marson",
+   "judges": [
+    "Johannes",
+    "Storm",
+    "The Wolfer"
+   ],
+   "cells": {
+    "event": "Show Your Skillz 2018",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Marson",
+    "breaker 2 (blue)": "Ghostface",
+    "winner": "Marson",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "Johannes",
+    "judge 2 name": "Storm",
+    "judge 3 name": "The Wolfer",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  }
+ ]
+}

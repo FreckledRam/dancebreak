@@ -1,0 +1,243 @@
+{
+ "event": "Christkindl Jam 2017",
+ "source": "seed",
+ "date": null,
+ "year": 2017,
+ "url": null,
+ "battles": [
+  {
+   "id": "seed-SingleSlider-0764",
+   "system": "SingleSlider",
+   "order": 764,
+   "stage": "1vs1 Breaking Beginner Top 8 Knock-Out",
+   "red": "Tik",
+   "blue": "Marox",
+   "winner": "Marox",
+   "judges": [
+    "Jedi Jule",
+    "Alex",
+    "Sinaya"
+   ],
+   "cells": {
+    "event": "Christkindl Jam 2017",
+    "stage": "1vs1 Breaking Beginner Top 8 Knock-Out",
+    "breaker 1 (red)": "Tik",
+    "breaker 2 (blue)": "Marox",
+    "winner": "Marox",
+    "battle rounds": "2",
+    "number of judges": "3",
+    "breaker 1 round wins": "0",
+    "breaker 2 round wins": "2",
+    "breaker 1 vote count": "1",
+    "breaker 2 vote count": "5",
+    "judge 1 name": "Jedi Jule",
+    "judge 2 name": "Alex",
+    "judge 3 name": "Sinaya",
+    "r1j1over": "14",
+    "r1j2over": "71",
+    "r1j3over": "-9",
+    "r2j1over": "48",
+    "r2j2over": "100",
+    "r2j3over": "21"
+   }
+  },
+  {
+   "id": "seed-SingleSlider-0765",
+   "system": "SingleSlider",
+   "order": 765,
+   "stage": "1vs1 Breaking Beginner Top 8 Knock-Out",
+   "red": "Marox",
+   "blue": "Lee-On",
+   "winner": "Marox",
+   "judges": [
+    "Jedi Jule",
+    "Alex",
+    "Sinaya"
+   ],
+   "cells": {
+    "event": "Christkindl Jam 2017",
+    "stage": "1vs1 Breaking Beginner Top 8 Knock-Out",
+    "breaker 1 (red)": "Marox",
+    "breaker 2 (blue)": "Lee-On",
+    "winner": "Marox",
+    "battle rounds": "1",
+    "number of judges": "3",
+    "breaker 1 round wins": "1",
+    "breaker 2 round wins": "0",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "judge 1 name": "Jedi Jule",
+    "judge 2 name": "Alex",
+    "judge 3 name": "Sinaya",
+    "r1j1over": "-33",
+    "r1j2over": "-43",
+    "r1j3over": "-2"
+   }
+  },
+  {
+   "id": "seed-SingleSlider-0766",
+   "system": "SingleSlider",
+   "order": 766,
+   "stage": "1vs1 Breaking Beginner Top 8 Knock-Out",
+   "red": "Ella",
+   "blue": "Tik",
+   "winner": "Tik",
+   "judges": [
+    "Jedi Jule",
+    "Alex",
+    "Sinaya"
+   ],
+   "cells": {
+    "event": "Christkindl Jam 2017",
+    "stage": "1vs1 Breaking Beginner Top 8 Knock-Out",
+    "breaker 1 (red)": "Ella",
+    "breaker 2 (blue)": "Tik",
+    "winner": "Tik",
+    "battle rounds": "1",
+    "number of judges": "3",
+    "breaker 1 round wins": "0",
+    "breaker 2 round wins": "1",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "3",
+    "judge 1 name": "Jedi Jule",
+    "judge 2 name": "Alex",
+    "judge 3 name": "Sinaya",
+    "r1j1over": "18",
+    "r1j2over": "4",
+    "r1j3over": "4"
+   }
+  },
+  {
+   "id": "seed-SingleSlider-0767",
+   "system": "SingleSlider",
+   "order": 767,
+   "stage": "1vs1 Breaking Beginner Top 8 Knock-Out",
+   "red": "Rico",
+   "blue": "Lee-On",
+   "winner": "Lee-On",
+   "judges": [
+    "Jedi Jule",
+    "Alex",
+    "Sinaya"
+   ],
+   "cells": {
+    "event": "Christkindl Jam 2017",
+    "stage": "1vs1 Breaking Beginner Top 8 Knock-Out",
+    "breaker 1 (red)": "Rico",
+    "breaker 2 (blue)": "Lee-On",
+    "winner": "Lee-On",
+    "battle rounds": "1",
+    "number of judges": "3",
+    "breaker 1 round wins": "0",
+    "breaker 2 round wins": "1",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "3",
+    "judge 1 name": "Jedi Jule",
+    "judge 2 name": "Alex",
+    "judge 3 name": "Sinaya",
+    "r1j1over": "15",
+    "r1j2over": "6",
+    "r1j3over": "18"
+   }
+  },
+  {
+   "id": "seed-SingleSlider-0768",
+   "system": "SingleSlider",
+   "order": 768,
+   "stage": "1vs1 Breaking Beginner Top 8 Knock-Out",
+   "red": "Marox",
+   "blue": "Philmo",
+   "winner": "Marox",
+   "judges": [
+    "Jedi Jule",
+    "Alex",
+    "Sinaya"
+   ],
+   "cells": {
+    "event": "Christkindl Jam 2017",
+    "stage": "1vs1 Breaking Beginner Top 8 Knock-Out",
+    "breaker 1 (red)": "Marox",
+    "breaker 2 (blue)": "Philmo",
+    "winner": "Marox",
+    "battle rounds": "1",
+    "number of judges": "3",
+    "breaker 1 round wins": "1",
+    "breaker 2 round wins": "0",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "judge 1 name": "Jedi Jule",
+    "judge 2 name": "Alex",
+    "judge 3 name": "Sinaya",
+    "r1j1over": "-33",
+    "r1j2over": "-50",
+    "r1j3over": "-31"
+   }
+  },
+  {
+   "id": "seed-SingleSlider-0769",
+   "system": "SingleSlider",
+   "order": 769,
+   "stage": "1vs1 Breaking Beginner Top 8 Knock-Out",
+   "red": "Tik",
+   "blue": "Jascha",
+   "winner": "Tik",
+   "judges": [
+    "Jedi Jule",
+    "Alex",
+    "Sinaya"
+   ],
+   "cells": {
+    "event": "Christkindl Jam 2017",
+    "stage": "1vs1 Breaking Beginner Top 8 Knock-Out",
+    "breaker 1 (red)": "Tik",
+    "breaker 2 (blue)": "Jascha",
+    "winner": "Tik",
+    "battle rounds": "1",
+    "number of judges": "3",
+    "breaker 1 round wins": "1",
+    "breaker 2 round wins": "0",
+    "breaker 1 vote count": "2",
+    "breaker 2 vote count": "1",
+    "judge 1 name": "Jedi Jule",
+    "judge 2 name": "Alex",
+    "judge 3 name": "Sinaya",
+    "r1j1over": "-47",
+    "r1j2over": "-5",
+    "r1j3over": "65"
+   }
+  },
+  {
+   "id": "seed-SingleSlider-0770",
+   "system": "SingleSlider",
+   "order": 770,
+   "stage": "1vs1 Breaking Beginner Top 8 Knock-Out",
+   "red": "MD",
+   "blue": "Ella",
+   "winner": "Ella",
+   "judges": [
+    "Jedi Jule",
+    "Alex",
+    "Sinaya"
+   ],
+   "cells": {
+    "event": "Christkindl Jam 2017",
+    "stage": "1vs1 Breaking Beginner Top 8 Knock-Out",
+    "breaker 1 (red)": "MD",
+    "breaker 2 (blue)": "Ella",
+    "winner": "Ella",
+    "battle rounds": "1",
+    "number of judges": "3",
+    "breaker 1 round wins": "0",
+    "breaker 2 round wins": "1",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "3",
+    "judge 1 name": "Jedi Jule",
+    "judge 2 name": "Alex",
+    "judge 3 name": "Sinaya",
+    "r1j1over": "62",
+    "r1j2over": "64",
+    "r1j3over": "18"
+   }
+  }
+ ]
+}

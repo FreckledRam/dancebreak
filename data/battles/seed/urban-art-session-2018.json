@@ -1,0 +1,233 @@
+{
+ "event": "Urban Art Session 2018",
+ "source": "seed",
+ "date": null,
+ "year": 2018,
+ "url": null,
+ "battles": [
+  {
+   "id": "seed-Traditional-0628",
+   "system": "Traditional",
+   "order": 628,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Burst",
+   "blue": "El Vasi",
+   "winner": "Burst",
+   "judges": [
+    "Cat",
+    "Storm",
+    "Jaekwon"
+   ],
+   "cells": {
+    "event": "Urban Art Session 2018",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Burst",
+    "breaker 2 (blue)": "El Vasi",
+    "winner": "Burst",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "2",
+    "breaker 2 vote count": "1",
+    "tie vote count": "0",
+    "judge 1 name": "Cat",
+    "judge 2 name": "Storm",
+    "judge 3 name": "Jaekwon",
+    "j1vote": "red",
+    "j2vote": "blue",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0629",
+   "system": "Traditional",
+   "order": 629,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Thirsty-J",
+   "blue": "El Vasi",
+   "winner": "El Vasi",
+   "judges": [
+    "Cat",
+    "Storm",
+    "Jaekwon"
+   ],
+   "cells": {
+    "event": "Urban Art Session 2018",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Thirsty-J",
+    "breaker 2 (blue)": "El Vasi",
+    "winner": "El Vasi",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "1",
+    "breaker 2 vote count": "2",
+    "tie vote count": "0",
+    "judge 1 name": "Cat",
+    "judge 2 name": "Storm",
+    "judge 3 name": "Jaekwon",
+    "j1vote": "blue",
+    "j2vote": "blue",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0630",
+   "system": "Traditional",
+   "order": 630,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Showtime",
+   "blue": "Burst",
+   "winner": "Burst",
+   "judges": [
+    "Cat",
+    "Storm",
+    "Jaekwon"
+   ],
+   "cells": {
+    "event": "Urban Art Session 2018",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Showtime",
+    "breaker 2 (blue)": "Burst",
+    "winner": "Burst",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "3",
+    "tie vote count": "0",
+    "judge 1 name": "Cat",
+    "judge 2 name": "Storm",
+    "judge 3 name": "Jaekwon",
+    "j1vote": "blue",
+    "j2vote": "blue",
+    "j3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0631",
+   "system": "Traditional",
+   "order": 631,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Rock Lee",
+   "blue": "El Vasi",
+   "winner": "El Vasi",
+   "judges": [
+    "Cat",
+    "Storm",
+    "Jaekwon"
+   ],
+   "cells": {
+    "event": "Urban Art Session 2018",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Rock Lee",
+    "breaker 2 (blue)": "El Vasi",
+    "winner": "El Vasi",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "1",
+    "breaker 2 vote count": "2",
+    "tie vote count": "0",
+    "judge 1 name": "Cat",
+    "judge 2 name": "Storm",
+    "judge 3 name": "Jaekwon",
+    "j1vote": "red",
+    "j2vote": "blue",
+    "j3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0632",
+   "system": "Traditional",
+   "order": 632,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Thirsty-J",
+   "blue": "Sinaya",
+   "winner": "Thirsty-J",
+   "judges": [
+    "Cat",
+    "Storm",
+    "Jaekwon"
+   ],
+   "cells": {
+    "event": "Urban Art Session 2018",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Thirsty-J",
+    "breaker 2 (blue)": "Sinaya",
+    "winner": "Thirsty-J",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "Cat",
+    "judge 2 name": "Storm",
+    "judge 3 name": "Jaekwon",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0633",
+   "system": "Traditional",
+   "order": 633,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Burst",
+   "blue": "Fabmaster",
+   "winner": "Burst",
+   "judges": [
+    "Cat",
+    "Storm",
+    "Jaekwon"
+   ],
+   "cells": {
+    "event": "Urban Art Session 2018",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Burst",
+    "breaker 2 (blue)": "Fabmaster",
+    "winner": "Burst",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "Cat",
+    "judge 2 name": "Storm",
+    "judge 3 name": "Jaekwon",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0634",
+   "system": "Traditional",
+   "order": 634,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Showtime",
+   "blue": "Jedi Jul",
+   "winner": "Showtime",
+   "judges": [
+    "Cat",
+    "Storm",
+    "Jaekwon"
+   ],
+   "cells": {
+    "event": "Urban Art Session 2018",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Showtime",
+    "breaker 2 (blue)": "Jedi Jul",
+    "winner": "Showtime",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "Cat",
+    "judge 2 name": "Storm",
+    "judge 3 name": "Jaekwon",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  }
+ ]
+}

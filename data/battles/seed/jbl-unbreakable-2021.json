@@ -1,0 +1,233 @@
+{
+ "event": "JBL Unbreakable 2021",
+ "source": "seed",
+ "date": null,
+ "year": 2021,
+ "url": null,
+ "battles": [
+  {
+   "id": "seed-Traditional-0320",
+   "system": "Traditional",
+   "order": 320,
+   "stage": "Kids Top 8 Knockout",
+   "red": "B-Boy K.G",
+   "blue": "Anthony",
+   "winner": "Anthony",
+   "judges": [
+    "MG",
+    "Saidon",
+    "Simon"
+   ],
+   "cells": {
+    "event": "JBL Unbreakable 2021",
+    "stage": "Kids Top 8 Knockout",
+    "breaker 1 (red)": "B-Boy K.G",
+    "breaker 2 (blue)": "Anthony",
+    "winner": "Anthony",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "3",
+    "tie vote count": "0",
+    "judge 1 name": "MG",
+    "judge 2 name": "Saidon",
+    "judge 3 name": "Simon",
+    "j1vote": "blue",
+    "j2vote": "blue",
+    "j3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0321",
+   "system": "Traditional",
+   "order": 321,
+   "stage": "Kids Top 8 Knockout",
+   "red": "Mattix",
+   "blue": "Anthony",
+   "winner": "Mattix",
+   "judges": [
+    "MG",
+    "Saidon",
+    "Simon"
+   ],
+   "cells": {
+    "event": "JBL Unbreakable 2021",
+    "stage": "Kids Top 8 Knockout",
+    "breaker 1 (red)": "Mattix",
+    "breaker 2 (blue)": "Anthony",
+    "winner": "Mattix",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "MG",
+    "judge 2 name": "Saidon",
+    "judge 3 name": "Simon",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0322",
+   "system": "Traditional",
+   "order": 322,
+   "stage": "Kids Top 8 Knockout",
+   "red": "Maflex",
+   "blue": "B-Boy K.G",
+   "winner": "B-Boy K.G",
+   "judges": [
+    "MG",
+    "Saidon",
+    "Simon"
+   ],
+   "cells": {
+    "event": "JBL Unbreakable 2021",
+    "stage": "Kids Top 8 Knockout",
+    "breaker 1 (red)": "Maflex",
+    "breaker 2 (blue)": "B-Boy K.G",
+    "winner": "B-Boy K.G",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "1",
+    "breaker 2 vote count": "2",
+    "tie vote count": "0",
+    "judge 1 name": "MG",
+    "judge 2 name": "Saidon",
+    "judge 3 name": "Simon",
+    "j1vote": "blue",
+    "j2vote": "red",
+    "j3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0323",
+   "system": "Traditional",
+   "order": 323,
+   "stage": "Kids Top 8 Knockout",
+   "red": "Anthony",
+   "blue": "Lil Gio",
+   "winner": "Anthony",
+   "judges": [
+    "MG",
+    "Saidon",
+    "Simon"
+   ],
+   "cells": {
+    "event": "JBL Unbreakable 2021",
+    "stage": "Kids Top 8 Knockout",
+    "breaker 1 (red)": "Anthony",
+    "breaker 2 (blue)": "Lil Gio",
+    "winner": "Anthony",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "MG",
+    "judge 2 name": "Saidon",
+    "judge 3 name": "Simon",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0324",
+   "system": "Traditional",
+   "order": 324,
+   "stage": "Kids Top 8 Knockout",
+   "red": "Aiko",
+   "blue": "Mattix",
+   "winner": "Mattix",
+   "judges": [
+    "MG",
+    "Saidon",
+    "Simon"
+   ],
+   "cells": {
+    "event": "JBL Unbreakable 2021",
+    "stage": "Kids Top 8 Knockout",
+    "breaker 1 (red)": "Aiko",
+    "breaker 2 (blue)": "Mattix",
+    "winner": "Mattix",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "3",
+    "tie vote count": "0",
+    "judge 1 name": "MG",
+    "judge 2 name": "Saidon",
+    "judge 3 name": "Simon",
+    "j1vote": "blue",
+    "j2vote": "blue",
+    "j3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0325",
+   "system": "Traditional",
+   "order": 325,
+   "stage": "Kids Top 8 Knockout",
+   "red": "B-Boy K.G",
+   "blue": "Djibril",
+   "winner": "B-Boy K.G",
+   "judges": [
+    "MG",
+    "Saidon",
+    "Simon"
+   ],
+   "cells": {
+    "event": "JBL Unbreakable 2021",
+    "stage": "Kids Top 8 Knockout",
+    "breaker 1 (red)": "B-Boy K.G",
+    "breaker 2 (blue)": "Djibril",
+    "winner": "B-Boy K.G",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "MG",
+    "judge 2 name": "Saidon",
+    "judge 3 name": "Simon",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0326",
+   "system": "Traditional",
+   "order": 326,
+   "stage": "Kids Top 8 Knockout",
+   "red": "Danger",
+   "blue": "Maflex",
+   "winner": "Maflex",
+   "judges": [
+    "MG",
+    "Saidon",
+    "Simon"
+   ],
+   "cells": {
+    "event": "JBL Unbreakable 2021",
+    "stage": "Kids Top 8 Knockout",
+    "breaker 1 (red)": "Danger",
+    "breaker 2 (blue)": "Maflex",
+    "winner": "Maflex",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "1",
+    "breaker 2 vote count": "2",
+    "tie vote count": "0",
+    "judge 1 name": "MG",
+    "judge 2 name": "Saidon",
+    "judge 3 name": "Simon",
+    "j1vote": "blue",
+    "j2vote": "red",
+    "j3vote": "blue"
+   }
+  }
+ ]
+}

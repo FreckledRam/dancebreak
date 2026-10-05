@@ -1,0 +1,297 @@
+{
+ "event": "International Streetdance Fest 2018",
+ "source": "seed",
+ "date": null,
+ "year": 2018,
+ "url": null,
+ "battles": [
+  {
+   "id": "seed-Traditional-0574",
+   "system": "Traditional",
+   "order": 574,
+   "stage": "Minis Top 4 Knock-Out",
+   "red": "Midge",
+   "blue": "Jacob",
+   "winner": "Jacob",
+   "judges": [
+    "Admir",
+    "Kid Colombia",
+    "Bestia"
+   ],
+   "cells": {
+    "event": "International Streetdance Fest 2018",
+    "stage": "Minis Top 4 Knock-Out",
+    "breaker 1 (red)": "Midge",
+    "breaker 2 (blue)": "Jacob",
+    "winner": "Jacob",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "3",
+    "tie vote count": "0",
+    "judge 1 name": "Admir",
+    "judge 2 name": "Kid Colombia",
+    "judge 3 name": "Bestia",
+    "j1vote": "blue",
+    "j2vote": "blue",
+    "j3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0575",
+   "system": "Traditional",
+   "order": 575,
+   "stage": "Minis Top 4 Knock-Out",
+   "red": "Jacob",
+   "blue": "Vinz Dreush",
+   "winner": "Jacob",
+   "judges": [
+    "Admir",
+    "Kid Colombia",
+    "Bestia"
+   ],
+   "cells": {
+    "event": "International Streetdance Fest 2018",
+    "stage": "Minis Top 4 Knock-Out",
+    "breaker 1 (red)": "Jacob",
+    "breaker 2 (blue)": "Vinz Dreush",
+    "winner": "Jacob",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "2",
+    "breaker 2 vote count": "1",
+    "tie vote count": "0",
+    "judge 1 name": "Admir",
+    "judge 2 name": "Kid Colombia",
+    "judge 3 name": "Bestia",
+    "j1vote": "blue",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0576",
+   "system": "Traditional",
+   "order": 576,
+   "stage": "Minis Top 4 Knock-Out",
+   "red": "Midge",
+   "blue": "Mini V",
+   "winner": "Midge",
+   "judges": [
+    "Admir",
+    "Kid Colombia",
+    "Bestia"
+   ],
+   "cells": {
+    "event": "International Streetdance Fest 2018",
+    "stage": "Minis Top 4 Knock-Out",
+    "breaker 1 (red)": "Midge",
+    "breaker 2 (blue)": "Mini V",
+    "winner": "Midge",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "Admir",
+    "judge 2 name": "Kid Colombia",
+    "judge 3 name": "Bestia",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0577",
+   "system": "Traditional",
+   "order": 577,
+   "stage": "Kids Top 4 Knock-Out",
+   "red": "Jet Leg",
+   "blue": "BBoy Sa",
+   "winner": "Jet Leg",
+   "judges": [
+    "Admir",
+    "Kid Colombia",
+    "Bestia"
+   ],
+   "cells": {
+    "event": "International Streetdance Fest 2018",
+    "stage": "Kids Top 4 Knock-Out",
+    "breaker 1 (red)": "Jet Leg",
+    "breaker 2 (blue)": "BBoy Sa",
+    "winner": "Jet Leg",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "Admir",
+    "judge 2 name": "Kid Colombia",
+    "judge 3 name": "Bestia",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0578",
+   "system": "Traditional",
+   "order": 578,
+   "stage": "Kids Top 4 Knock-Out",
+   "red": "BBoy Sa",
+   "blue": "Kid Lion",
+   "winner": "BBoy Sa",
+   "judges": [
+    "Admir",
+    "Kid Colombia",
+    "Bestia"
+   ],
+   "cells": {
+    "event": "International Streetdance Fest 2018",
+    "stage": "Kids Top 4 Knock-Out",
+    "breaker 1 (red)": "BBoy Sa",
+    "breaker 2 (blue)": "Kid Lion",
+    "winner": "BBoy Sa",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "Admir",
+    "judge 2 name": "Kid Colombia",
+    "judge 3 name": "Bestia",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0579",
+   "system": "Traditional",
+   "order": 579,
+   "stage": "Kids Top 4 Knock-Out",
+   "red": "Jet Leg",
+   "blue": "Matej",
+   "winner": "Jet Leg",
+   "judges": [
+    "Admir",
+    "Kid Colombia",
+    "Bestia"
+   ],
+   "cells": {
+    "event": "International Streetdance Fest 2018",
+    "stage": "Kids Top 4 Knock-Out",
+    "breaker 1 (red)": "Jet Leg",
+    "breaker 2 (blue)": "Matej",
+    "winner": "Jet Leg",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "Admir",
+    "judge 2 name": "Kid Colombia",
+    "judge 3 name": "Bestia",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0580",
+   "system": "Traditional",
+   "order": 580,
+   "stage": "B-Girls Top 4 Knock-Out",
+   "red": "Indi",
+   "blue": "Solid",
+   "winner": "Solid",
+   "judges": [
+    "Admir",
+    "Kid Colombia",
+    "Bestia"
+   ],
+   "cells": {
+    "event": "International Streetdance Fest 2018",
+    "stage": "B-Girls Top 4 Knock-Out",
+    "breaker 1 (red)": "Indi",
+    "breaker 2 (blue)": "Solid",
+    "winner": "Solid",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "3",
+    "tie vote count": "0",
+    "judge 1 name": "Admir",
+    "judge 2 name": "Kid Colombia",
+    "judge 3 name": "Bestia",
+    "j1vote": "blue",
+    "j2vote": "blue",
+    "j3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0581",
+   "system": "Traditional",
+   "order": 581,
+   "stage": "B-Girls Top 4 Knock-Out",
+   "red": "Solid",
+   "blue": "Sabri",
+   "winner": "Solid",
+   "judges": [
+    "Admir",
+    "Kid Colombia",
+    "Bestia"
+   ],
+   "cells": {
+    "event": "International Streetdance Fest 2018",
+    "stage": "B-Girls Top 4 Knock-Out",
+    "breaker 1 (red)": "Solid",
+    "breaker 2 (blue)": "Sabri",
+    "winner": "Solid",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "Admir",
+    "judge 2 name": "Kid Colombia",
+    "judge 3 name": "Bestia",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0582",
+   "system": "Traditional",
+   "order": 582,
+   "stage": "B-Girls Top 4 Knock-Out",
+   "red": "Gamora",
+   "blue": "Indi",
+   "winner": "Indi",
+   "judges": [
+    "Admir",
+    "Kid Colombia",
+    "Bestia"
+   ],
+   "cells": {
+    "event": "International Streetdance Fest 2018",
+    "stage": "B-Girls Top 4 Knock-Out",
+    "breaker 1 (red)": "Gamora",
+    "breaker 2 (blue)": "Indi",
+    "winner": "Indi",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "3",
+    "tie vote count": "0",
+    "judge 1 name": "Admir",
+    "judge 2 name": "Kid Colombia",
+    "judge 3 name": "Bestia",
+    "j1vote": "blue",
+    "j2vote": "blue",
+    "j3vote": "blue"
+   }
+  }
+ ]
+}

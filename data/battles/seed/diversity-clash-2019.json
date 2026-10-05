@@ -1,0 +1,239 @@
+{
+ "event": "Diversity Clash 2019",
+ "source": "seed",
+ "date": null,
+ "year": 2019,
+ "url": null,
+ "battles": [
+  {
+   "id": "seed-Traditional-0436",
+   "system": "Traditional",
+   "order": 436,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Tik",
+   "blue": "Fabez",
+   "winner": "Tik",
+   "judges": [
+    "Jaekwon",
+    "Guti",
+    "El Vasi"
+   ],
+   "cells": {
+    "event": "Diversity Clash 2019",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Tik",
+    "breaker 2 (blue)": "Fabez",
+    "winner": "Tik",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "2",
+    "breaker 2 vote count": "1",
+    "tie vote count": "0",
+    "judge 1 name": "Jaekwon",
+    "judge 2 name": "Guti",
+    "judge 3 name": "El Vasi",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0437",
+   "system": "Traditional",
+   "order": 437,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Optimus Primo",
+   "blue": "Fabez",
+   "winner": "Fabez",
+   "judges": [
+    "Jaekwon",
+    "Guti",
+    "El Vasi"
+   ],
+   "cells": {
+    "event": "Diversity Clash 2019",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Optimus Primo",
+    "breaker 2 (blue)": "Fabez",
+    "winner": "Fabez",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "2",
+    "tie vote count": "1",
+    "judge 1 name": "Jaekwon",
+    "judge 2 name": "Guti",
+    "judge 3 name": "El Vasi",
+    "j1vote": "blue",
+    "j2vote": "tie",
+    "j3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0438",
+   "system": "Traditional",
+   "order": 438,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Sirk",
+   "blue": "Tik",
+   "winner": "Tik",
+   "judges": [
+    "Jaekwon",
+    "Guti",
+    "El Vasi"
+   ],
+   "cells": {
+    "event": "Diversity Clash 2019",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Sirk",
+    "breaker 2 (blue)": "Tik",
+    "winner": "Tik",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "1",
+    "tie vote count": "2",
+    "judge 1 name": "Jaekwon",
+    "judge 2 name": "Guti",
+    "judge 3 name": "El Vasi",
+    "j1vote": "tie",
+    "j2vote": "blue",
+    "j3vote": "tie"
+   }
+  },
+  {
+   "id": "seed-Traditional-0439",
+   "system": "Traditional",
+   "order": 439,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Fabez",
+   "blue": "Super D",
+   "winner": "Fabez",
+   "judges": [
+    "Jaekwon",
+    "Guti",
+    "El Vasi"
+   ],
+   "cells": {
+    "event": "Diversity Clash 2019",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Fabez",
+    "breaker 2 (blue)": "Super D",
+    "winner": "Fabez",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "Jaekwon",
+    "judge 2 name": "Guti",
+    "judge 3 name": "El Vasi",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0440",
+   "system": "Traditional",
+   "order": 440,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Mogli",
+   "blue": "Optimus Primo",
+   "winner": "Optimus Primo",
+   "judges": [
+    "Jaekwon",
+    "Guti",
+    "El Vasi"
+   ],
+   "cells": {
+    "event": "Diversity Clash 2019",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Mogli",
+    "breaker 2 (blue)": "Optimus Primo",
+    "winner": "Optimus Primo",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "1",
+    "breaker 2 vote count": "2",
+    "tie vote count": "0",
+    "judge 1 name": "Jaekwon",
+    "judge 2 name": "Guti",
+    "judge 3 name": "El Vasi",
+    "j1vote": "blue",
+    "j2vote": "blue",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0441",
+   "system": "Traditional",
+   "order": 441,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "K.Y.S.",
+   "blue": "Tik",
+   "winner": "Tik",
+   "judges": [
+    "Jaekwon",
+    "Guti",
+    "El Vasi"
+   ],
+   "cells": {
+    "event": "Diversity Clash 2019",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "K.Y.S.",
+    "breaker 2 (blue)": "Tik",
+    "winner": "Tik",
+    "tiebreaker": "yes",
+    "number of judges": "3",
+    "breaker 1 vote count": "1",
+    "breaker 2 vote count": "1",
+    "tie vote count": "1",
+    "tie breaker 1 vote count": "0",
+    "tie breaker 2 vote count": "3",
+    "tie tie vote count": "0",
+    "judge 1 name": "Jaekwon",
+    "judge 2 name": "Guti",
+    "judge 3 name": "El Vasi",
+    "j1vote": "red",
+    "j2vote": "tie",
+    "j3vote": "blue",
+    "tiej1vote": "blue",
+    "tiej2vote": "blue",
+    "tiej3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0442",
+   "system": "Traditional",
+   "order": 442,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Funky C",
+   "blue": "Sirk",
+   "winner": "Sirk",
+   "judges": [
+    "Jaekwon",
+    "Guti",
+    "El Vasi"
+   ],
+   "cells": {
+    "event": "Diversity Clash 2019",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Funky C",
+    "breaker 2 (blue)": "Sirk",
+    "winner": "Sirk",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "3",
+    "tie vote count": "0",
+    "judge 1 name": "Jaekwon",
+    "judge 2 name": "Guti",
+    "judge 3 name": "El Vasi",
+    "j1vote": "blue",
+    "j2vote": "blue",
+    "j3vote": "blue"
+   }
+  }
+ ]
+}

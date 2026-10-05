@@ -1,0 +1,239 @@
+{
+ "event": "Carinthian-X-Break 2019 Vol 6",
+ "source": "seed",
+ "date": null,
+ "year": 2019,
+ "url": null,
+ "battles": [
+  {
+   "id": "seed-Traditional-0535",
+   "system": "Traditional",
+   "order": 535,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Cicov",
+   "blue": "Sina",
+   "winner": "Sina",
+   "judges": [
+    "Maximus",
+    "Ronnie",
+    "Fabez"
+   ],
+   "cells": {
+    "event": "Carinthian-X-Break 2019 Vol 6",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Cicov",
+    "breaker 2 (blue)": "Sina",
+    "winner": "Sina",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "1",
+    "breaker 2 vote count": "2",
+    "tie vote count": "0",
+    "judge 1 name": "Maximus",
+    "judge 2 name": "Ronnie",
+    "judge 3 name": "Fabez",
+    "j1vote": "red",
+    "j2vote": "blue",
+    "j3vote": "blue"
+   }
+  },
+  {
+   "id": "seed-Traditional-0536",
+   "system": "Traditional",
+   "order": 536,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Intus",
+   "blue": "Sina",
+   "winner": "Sina",
+   "judges": [
+    "Maximus",
+    "Ronnie",
+    "Fabez"
+   ],
+   "cells": {
+    "event": "Carinthian-X-Break 2019 Vol 6",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Intus",
+    "breaker 2 (blue)": "Sina",
+    "winner": "Sina",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "1",
+    "tie vote count": "2",
+    "judge 1 name": "Maximus",
+    "judge 2 name": "Ronnie",
+    "judge 3 name": "Fabez",
+    "j1vote": "blue",
+    "j2vote": "tie",
+    "j3vote": "tie"
+   }
+  },
+  {
+   "id": "seed-Traditional-0537",
+   "system": "Traditional",
+   "order": 537,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Patrix",
+   "blue": "Cicov",
+   "winner": "Cicov",
+   "judges": [
+    "Maximus",
+    "Ronnie",
+    "Fabez"
+   ],
+   "cells": {
+    "event": "Carinthian-X-Break 2019 Vol 6",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Patrix",
+    "breaker 2 (blue)": "Cicov",
+    "winner": "Cicov",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "1",
+    "breaker 2 vote count": "2",
+    "tie vote count": "0",
+    "judge 1 name": "Maximus",
+    "judge 2 name": "Ronnie",
+    "judge 3 name": "Fabez",
+    "j1vote": "blue",
+    "j2vote": "blue",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0538",
+   "system": "Traditional",
+   "order": 538,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Sina",
+   "blue": "Sevõne",
+   "winner": "Sina",
+   "judges": [
+    "Maximus",
+    "Ronnie",
+    "Fabez"
+   ],
+   "cells": {
+    "event": "Carinthian-X-Break 2019 Vol 6",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Sina",
+    "breaker 2 (blue)": "Sevõne",
+    "winner": "Sina",
+    "tiebreaker": "yes",
+    "number of judges": "3",
+    "breaker 1 vote count": "1",
+    "breaker 2 vote count": "1",
+    "tie vote count": "1",
+    "tie breaker 1 vote count": "3",
+    "tie breaker 2 vote count": "0",
+    "tie tie vote count": "0",
+    "judge 1 name": "Maximus",
+    "judge 2 name": "Ronnie",
+    "judge 3 name": "Fabez",
+    "j1vote": "tie",
+    "j2vote": "blue",
+    "j3vote": "red",
+    "tiej1vote": "red",
+    "tiej2vote": "red",
+    "tiej3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0539",
+   "system": "Traditional",
+   "order": 539,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Intus",
+   "blue": "K.Y.S.",
+   "winner": "Intus",
+   "judges": [
+    "Maximus",
+    "Ronnie",
+    "Fabez"
+   ],
+   "cells": {
+    "event": "Carinthian-X-Break 2019 Vol 6",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Intus",
+    "breaker 2 (blue)": "K.Y.S.",
+    "winner": "Intus",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "2",
+    "breaker 2 vote count": "1",
+    "tie vote count": "0",
+    "judge 1 name": "Maximus",
+    "judge 2 name": "Ronnie",
+    "judge 3 name": "Fabez",
+    "j1vote": "blue",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0540",
+   "system": "Traditional",
+   "order": 540,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Cicov",
+   "blue": "Zappel",
+   "winner": "Cicov",
+   "judges": [
+    "Maximus",
+    "Ronnie",
+    "Fabez"
+   ],
+   "cells": {
+    "event": "Carinthian-X-Break 2019 Vol 6",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Cicov",
+    "breaker 2 (blue)": "Zappel",
+    "winner": "Cicov",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "Maximus",
+    "judge 2 name": "Ronnie",
+    "judge 3 name": "Fabez",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  },
+  {
+   "id": "seed-Traditional-0541",
+   "system": "Traditional",
+   "order": 541,
+   "stage": "Open Top 8 Knock-Out",
+   "red": "Patrix",
+   "blue": "Tik",
+   "winner": "Patrix",
+   "judges": [
+    "Maximus",
+    "Ronnie",
+    "Fabez"
+   ],
+   "cells": {
+    "event": "Carinthian-X-Break 2019 Vol 6",
+    "stage": "Open Top 8 Knock-Out",
+    "breaker 1 (red)": "Patrix",
+    "breaker 2 (blue)": "Tik",
+    "winner": "Patrix",
+    "tiebreaker": "no",
+    "number of judges": "3",
+    "breaker 1 vote count": "3",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "judge 1 name": "Maximus",
+    "judge 2 name": "Ronnie",
+    "judge 3 name": "Fabez",
+    "j1vote": "red",
+    "j2vote": "red",
+    "j3vote": "red"
+   }
+  }
+ ]
+}

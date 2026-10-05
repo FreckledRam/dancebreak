@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settle It In The Cypher</title>
+<meta name="description" content="Live dataset of judge scores from competitive breaking battles.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Settle It In The Cypher</h1>
+  <p class="sub">Judge scores from competitive breaking, collected automatically.</p>
+  <nav>
+    <a href="#sources">Sources</a>
+    <a href="#dataset">Dataset</a>
+    <a href="#activity">Activity</a>
+  </nav>
+</header>
+
+<main>
+  <section id="sources" hidden>
+    <div class="totals" id="totals"></div>
+    <table id="sources-table">
+      <thead><tr><th>Source</th><th>Status</th><th>Last checked</th><th>Last new data</th><th>Newest event</th><th class="num">Battles</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <p class="note" id="sources-note"></p>
+  </section>
+
+  <section id="dataset" hidden>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Search breaker, judge, event" autocomplete="off">
+      <select id="f-system"><option value="">All systems</option></select>
+      <select id="f-year"><option value="">All years</option></select>
+      <select id="f-source"><option value="">All sources</option></select>
+    </div>
+    <p class="note"><span id="count"></span> · Download: <span id="downloads"></span></p>
+    <div class="scroll">
+      <table id="battles">
+        <thead><tr><th>Year</th><th>Event</th><th>Stage</th><th>Red</th><th>Blue</th><th>System</th><th class="num">Judges</th><th>Source</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="pager"><button id="prev">Previous</button><span id="page"></span><button id="next">Next</button></div>
+  </section>
+
+  <section id="activity" hidden>
+    <table id="activity-table">
+      <thead><tr><th>When</th><th>Source</th><th>What happened</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</main>
+
+<footer>
+  <p>Data from <a href="https://and8.dance">And8</a>, <a href="https://www.worlddancesport.org">WDSF</a> and <a href="https://breakkonnect.com">Break Konnect</a>. <a id="repo" href="https://github.com/Sushimaster124/Settle_It_In_The_Cypher">Code and data on GitHub</a>.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

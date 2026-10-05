@@ -1,0 +1,37 @@
+{
+ "event": "WDSF BfG Challenge Series - Cambrils 2022",
+ "source": "seed",
+ "date": null,
+ "year": 2022,
+ "url": null,
+ "battles": [
+  {
+   "id": "seed-PseudoThreefold-0176",
+   "system": "PseudoThreefold",
+   "order": 176,
+   "stage": "1vs1 B-Girls Adult Top 16 KnockOut",
+   "red": "",
+   "blue": "",
+   "winner": "",
+   "judges": [],
+   "cells": {
+    "event": "WDSF BfG Challenge Series - Cambrils 2022",
+    "stage": "1vs1 B-Girls Adult Top 16 KnockOut"
+   }
+  },
+  {
+   "id": "seed-PseudoThreefold-0177",
+   "system": "PseudoThreefold",
+   "order": 177,
+   "stage": "1vs1 B-Boys Adult Top 16 KnockOut",
+   "red": "",
+   "blue": "",
+   "winner": "",
+   "judges": [],
+   "cells": {
+    "event": "WDSF BfG Challenge Series - Cambrils 2022",
+    "stage": "1vs1 B-Boys Adult Top 16 KnockOut"
+   }
+  }
+ ]
+}

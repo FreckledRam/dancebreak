@@ -1,0 +1,40 @@
+{
+ "sources": {
+  "and8": {
+   "name": "And8",
+   "url": "https://and8.dance/en/stats",
+   "status": "pending",
+   "last_checked": null,
+   "last_changed": null,
+   "newest_event": null,
+   "newest_date": null,
+   "note": null,
+   "events_seen": 0,
+   "events_pending": 0
+  },
+  "wdsf": {
+   "name": "WDSF",
+   "url": "https://www.worlddancesport.org/Calendar/Results?DisciplineIds=104",
+   "status": "pending",
+   "last_checked": null,
+   "last_changed": null,
+   "newest_event": null,
+   "newest_date": null,
+   "note": null,
+   "events_seen": 0,
+   "events_pending": 0
+  },
+  "breakkonnect": {
+   "name": "Break Konnect",
+   "url": "https://breakkonnect.com/events",
+   "status": "pending",
+   "last_checked": null,
+   "last_changed": null,
+   "newest_event": null,
+   "newest_date": null,
+   "note": null,
+   "events_seen": 0,
+   "events_pending": 0
+  }
+ }
+}
