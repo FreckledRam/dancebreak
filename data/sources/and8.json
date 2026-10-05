@@ -134,47 +134,56 @@
  "5440": {
   "name": "Find your Flow Festival 2026",
   "date": "2026-06-18",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5447": {
   "name": "DNA Festival 2026",
   "date": "2026-06-14",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5269": {
   "name": "World Kidz Breaking Champion 2026",
   "date": "2026-05-24",
-  "status": "pending"
+  "status": "collected",
+  "battles": 84
  },
  "5508": {
   "name": "NBL Youth League Eindhoven (Urban Dansdagen)",
   "date": "2026-05-23",
-  "status": "pending"
+  "status": "collected",
+  "battles": 15
  },
  "5596": {
   "name": "Red Bull BC One Cypher Italy 2026",
   "date": "2026-05-23",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5182": {
   "name": "Check The Style World Final 2026",
   "date": "2026-05-21",
-  "status": "pending"
+  "status": "collected",
+  "battles": 62
  },
  "5499": {
   "name": "Le Championnat Canadien 2026",
   "date": "2026-05-16",
-  "status": "pending"
+  "status": "collected",
+  "battles": 78
  },
  "5574": {
   "name": "Breaking K Crew Battle",
   "date": "2026-05-16",
-  "status": "pending"
+  "status": "collected",
+  "battles": 16
  },
  "5566": {
   "name": "bruTALA Dance Trophy",
   "date": "2026-04-19",
-  "status": "pending"
+  "status": "collected",
+  "battles": 53
  },
  "5437": {
   "name": "Red Bull BC One Cypher Austria 2026",

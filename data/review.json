@@ -25,5 +25,50 @@
   "stage": "1vs1 Power Move Top 16 KnockOut",
   "url": "https://and8.dance/en/stats/reports/5342/4464/r/",
   "reason": "no battles found"
+ },
+ {
+  "source": "and8",
+  "event_id": "5269",
+  "event": "World Kidz Breaking Champion 2026",
+  "date": "2026-05-23",
+  "stage": "1vs1 B-Boy U18 Top 64 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/5269/3757/r/",
+  "reason": "bracket layout not mapped for 'Top 64 KnockOut'"
+ },
+ {
+  "source": "and8",
+  "event_id": "5596",
+  "event": "Red Bull BC One Cypher Italy 2026",
+  "date": "2026-05-23",
+  "stage": "1vs1 B-Boys (Prelims) Top 64 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/5596/4465/r/",
+  "reason": "bracket layout not mapped for 'Top 64 KnockOut'"
+ },
+ {
+  "source": "and8",
+  "event_id": "5596",
+  "event": "Red Bull BC One Cypher Italy 2026",
+  "date": "2026-05-23",
+  "stage": "1vs1 B-Girls (Prelims) Top 16 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/5596/4466/r/",
+  "reason": "no battles found"
+ },
+ {
+  "source": "and8",
+  "event_id": "5566",
+  "event": "bruTALA Dance Trophy",
+  "date": "2026-04-19",
+  "stage": "1vs1 B B-girls Ml.osnovci (Juvenile I) Top 1 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/5566/4407/r/",
+  "reason": "no battles found"
+ },
+ {
+  "source": "and8",
+  "event_id": "5566",
+  "event": "bruTALA Dance Trophy",
+  "date": "2026-04-19",
+  "stage": "1vs1 B B-girls Osnovci (Juvenile II) Top 1 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/5566/4422/r/",
+  "reason": "no battles found"
  }
 ]
