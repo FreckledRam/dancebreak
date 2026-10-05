@@ -309,6 +309,9 @@ $('#battles tbody').addEventListener('click', async (e) => {
   if (tr.nextElementSibling?.classList.contains('detail')) { tr.nextElementSibling.remove(); tr.classList.remove('open'); return; }
   const file = DATA.files[tr.dataset.f];
   eventCache[file] ??= await get('data/events/' + file);
+  // only one battle open at a time
+  document.querySelectorAll('#battles tr.detail').forEach((d) => d.remove());
+  document.querySelectorAll('#battles tr.open').forEach((r) => r.classList.remove('open'));
   const detail = document.createElement('tr');
   detail.className = 'detail';
   detail.innerHTML = `<td colspan="7">${battleDetail(eventCache[file].battles[tr.dataset.i])}</td>`;
