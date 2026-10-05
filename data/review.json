@@ -160,5 +160,41 @@
   "stage": "1vs1 Breaking 18'n'under Top 16 KnockOut",
   "url": "https://and8.dance/en/stats/reports/5114/3379/r/",
   "reason": "page says 16 battles, found 15"
+ },
+ {
+  "source": "and8",
+  "event_id": "4959",
+  "event": "Red Bull BC One Cypher Austria 2025",
+  "date": "2025-04-12",
+  "stage": "1vs1 B-Boys Open Qualifier TOP28 - Knock-Out",
+  "url": "https://and8.dance/en/stats/reports/4959/3292/r/",
+  "reason": "page says 14 battles, found 0"
+ },
+ {
+  "source": "and8",
+  "event_id": "5106",
+  "event": "Rock Da Floor - Kids Dance Battles",
+  "date": "2025-04-05",
+  "stage": "1 v 1 Breaking Beginner (Ages 7-12 ) Top 16 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/5106/3361/r/",
+  "reason": "no battles found"
+ },
+ {
+  "source": "and8",
+  "event_id": "5106",
+  "event": "Rock Da Floor - Kids Dance Battles",
+  "date": "2025-04-05",
+  "stage": "1 v 1 Lil Breaker (6 years old & under) Top 8 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/5106/3360/r/",
+  "reason": "no battles found"
+ },
+ {
+  "source": "and8",
+  "event_id": "5076",
+  "event": "HSPS Croatian National Breaking Championship 2025",
+  "date": "2025-03-22",
+  "stage": "1vs1 PRH B-girls St.mladez (Youth) Top 3 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/5076/3312/r/",
+  "reason": "no battles found"
  }
 ]

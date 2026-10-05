@@ -698,52 +698,62 @@
  "5115": {
   "name": "Dance Explosion",
   "date": "2025-04-13",
-  "status": "pending"
+  "status": "collected",
+  "battles": 40
  },
  "4959": {
   "name": "Red Bull BC One Cypher Austria 2025",
   "date": "2025-04-12",
-  "status": "pending"
+  "status": "collected",
+  "battles": 22
  },
  "5107": {
   "name": "ISF GYMNASIADE ZLATIBOR 2025",
   "date": "2025-04-07",
-  "status": "pending"
+  "status": "collected",
+  "battles": 16
  },
  "4789": {
   "name": "Carinthian-X-Break 2025 - 10th Anniversary",
   "date": "2025-04-05",
-  "status": "pending"
+  "status": "collected",
+  "battles": 22
  },
  "5083": {
   "name": "Red Bull BC One Cypher Brussels",
   "date": "2025-04-05",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5106": {
   "name": "Rock Da Floor - Kids Dance Battles",
   "date": "2025-04-05",
-  "status": "pending"
+  "status": "collected",
+  "battles": 25
  },
  "5089": {
   "name": "reVision: Lone Star Breaking League #2",
   "date": "2025-03-30",
-  "status": "pending"
+  "status": "collected",
+  "battles": 28
  },
  "4786": {
   "name": "Austrian Breaking Cup & Streetdance Battle Series 2025 – Vol. 2",
   "date": "2025-03-29",
-  "status": "pending"
+  "status": "collected",
+  "battles": 65
  },
  "4950": {
   "name": "FUJIFILM INSTAX Undisputed Tokyo World Final 2025",
   "date": "2025-03-22",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5076": {
   "name": "HSPS Croatian National Breaking Championship 2025",
   "date": "2025-03-22",
-  "status": "pending"
+  "status": "collected",
+  "battles": 112
  },
  "5075": {
   "name": "reVision: Lone Star Breaking League #1",
