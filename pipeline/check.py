@@ -142,7 +142,7 @@ def run_source(key: str, fetch, st: dict, review: list, full: bool, limit: int) 
     listed = [index[e["id"]] for e in events]
     newest = max(events, key=lambda e: e["date"], default=None)
     if newest:
-        src["newest_event"], src["newest_date"] = newest["name"], newest["date"]
+        src["newest_event"], src["newest_date"] = index[newest["id"]]["name"], newest["date"]
     src["events_seen"] = len(index)
     src["events_pending"] = sum(1 for e in index.values() if e["status"] in ("pending", "failed"))
     src["status"] = "broken" if errors else "ok"
