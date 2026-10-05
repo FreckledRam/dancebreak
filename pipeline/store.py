@@ -19,8 +19,16 @@ BATTLES = DATA / "battles"
 EXPORT = DATA / "export"
 SCHEMA = DATA / "schema" / "headers.json"
 
-SYSTEMS = ["Traditional", "RoundByRound", "SingleSlider", "Threefold",
-           "PseudoThreefold", "Trivium", "WDSFSystem"]
+LEGACY_SYSTEMS = ["Traditional", "RoundByRound", "SingleSlider", "Threefold",
+                  "PseudoThreefold", "Trivium", "WDSFSystem"]
+SYSTEMS = LEGACY_SYSTEMS + ["PointsPerRound"]
+# Break Konnect's format, which the original dataset had no sheet for: each judge gives both sides points.
+POINTS_HEADER = (
+    ["event", "stage", "breaker 1 (red)", "breaker 2 (blue)", "winner", "battle rounds", "number of judges",
+     "breaker 1 round wins", "breaker 2 round wins", "tie rounds", "breaker 1 vote count",
+     "breaker 2 vote count", "tie vote count", "breaker 1 points", "breaker 2 points"]
+    + [f"judge {j} name" for j in range(1, 10)]
+    + [f"r{r}j{j}{k}" for r in range(1, 6) for j in range(1, 10) for k in ("over", "redp", "blup")])
 # columns appended to the org's format on export
 EXTRA_COLS = ["date", "source", "source url"]
 
@@ -36,7 +44,7 @@ def col_keys(header: list[str]) -> list[str]:
 
 
 def headers() -> dict[str, list[str]]:
-    return json.loads(SCHEMA.read_text(encoding="utf-8"))
+    return {**json.loads(SCHEMA.read_text(encoding="utf-8")), "PointsPerRound": POINTS_HEADER}
 
 
 def slugify(text: str) -> str:

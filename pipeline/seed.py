@@ -19,7 +19,7 @@ def read_tsv(system: str) -> tuple[list[str], list[list[str]]]:
 
 def main() -> None:
     headers, events = {}, {}
-    for system in store.SYSTEMS:
+    for system in store.LEGACY_SYSTEMS:
         header, rows = read_tsv(system)
         headers[system] = header
         keys = store.col_keys(header)

@@ -1,0 +1,17 @@
+{
+ "status": "",
+ "left": [],
+ "right": [],
+ "final": {
+  "sparringId": 48324,
+  "winner": 14477,
+  "red": {
+   "id": 14477,
+   "name": "Character King"
+  },
+  "blue": {
+   "id": 21389,
+   "name": "Lokita"
+  }
+ }
+}

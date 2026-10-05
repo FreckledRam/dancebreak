@@ -2,7 +2,7 @@ const $ = (s) => document.querySelector(s);
 const PAGE = 50;
 const SOURCE_NAMES = { seed: 'Original', and8: 'And8', wdsf: 'WDSF', breakkonnect: 'Break Konnect' };
 const STATUS_TEXT = { pending: 'Not automated yet', ok: 'Working', repairing: 'Repairing parser', broken: 'Needs attention' };
-const SYSTEMS = ['Traditional', 'RoundByRound', 'SingleSlider', 'Threefold', 'PseudoThreefold', 'Trivium', 'WDSFSystem'];
+const SYSTEMS = ['Traditional', 'RoundByRound', 'SingleSlider', 'Threefold', 'PseudoThreefold', 'Trivium', 'WDSFSystem', 'PointsPerRound'];
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const get = (path) => fetch(path).then((r) => r.json());

@@ -1,0 +1,99 @@
+{
+ "status": "",
+ "left": [
+  [
+   {
+    "sparringId": 70947,
+    "winner": 0,
+    "red": {
+     "id": 0,
+     "name": ""
+    },
+    "blue": {
+     "id": 0,
+     "name": ""
+    }
+   },
+   {
+    "sparringId": 70948,
+    "winner": 0,
+    "red": {
+     "id": 0,
+     "name": ""
+    },
+    "blue": {
+     "id": 0,
+     "name": ""
+    }
+   }
+  ],
+  [
+   {
+    "sparringId": 70950,
+    "winner": 0,
+    "red": {
+     "id": 0,
+     "name": ""
+    },
+    "blue": {
+     "id": 0,
+     "name": ""
+    }
+   }
+  ]
+ ],
+ "right": [
+  [
+   {
+    "sparringId": 70945,
+    "winner": 0,
+    "red": {
+     "id": 0,
+     "name": ""
+    },
+    "blue": {
+     "id": 0,
+     "name": ""
+    }
+   },
+   {
+    "sparringId": 70946,
+    "winner": 0,
+    "red": {
+     "id": 0,
+     "name": ""
+    },
+    "blue": {
+     "id": 0,
+     "name": ""
+    }
+   }
+  ],
+  [
+   {
+    "sparringId": 70949,
+    "winner": 0,
+    "red": {
+     "id": 0,
+     "name": ""
+    },
+    "blue": {
+     "id": 0,
+     "name": ""
+    }
+   }
+  ]
+ ],
+ "final": {
+  "sparringId": 70951,
+  "winner": 0,
+  "red": {
+   "id": 0,
+   "name": ""
+  },
+  "blue": {
+   "id": 0,
+   "name": ""
+  }
+ }
+}

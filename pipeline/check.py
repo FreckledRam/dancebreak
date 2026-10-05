@@ -15,7 +15,7 @@ from datetime import date, timedelta
 
 from . import http, state, store
 
-SOURCES = ["and8"]
+SOURCES = ["and8", "wdsf", "breakkonnect"]
 SETTLE_DAYS = 2          # leave an event alone until its results have had time to be posted
 REVIEW = store.DATA / "review.json"
 INDEX = store.DATA / "sources"
@@ -33,6 +33,22 @@ def seed_events() -> dict:
         ev = json.loads(path.read_text(encoding="utf-8"))
         out[name_key(ev["event"], ev.get("year"))] = (path, ev)
     return out
+
+
+def pairs(battles: list[dict]) -> set:
+    return {frozenset((b["red"].lower(), b["blue"].lower())) for b in battles}
+
+
+def seed_overlap(battles: list[dict], seeds: dict):
+    """The original-dataset event that already holds most of these battles, if any.
+    Catches events the org collected under a hand-written name."""
+    mine = pairs(battles)
+    if len(mine) < 4:
+        return None
+    for path, data in seeds.values():
+        if len(mine & pairs(data["battles"])) >= 0.6 * len(mine):
+            return path, data
+    return None
 
 
 def load_json(path, default):
@@ -97,6 +113,17 @@ def run_source(key: str, fetch, st: dict, review: list, full: bool, limit: int) 
             for name, html in pages.items():        # keep what was fetched so the parser can be repaired
                 http.snapshot(key, ev["id"], name, html)
             traceback.print_exc()
+            continue
+        entry["name"] = ev["name"]
+        already = seed_overlap(battles, seeds)
+        if already:
+            path, data = already
+            data.update(date=ev["date"], url=ev["url"], year=int(ev["date"][:4]))
+            store.write_json(path, data)
+            entry.update(status="in_original", battles=0)
+            entry.pop("error", None)
+            flag(review, key, ev, [])
+            print(f"{key}: {ev['date']} {ev['name']}: already in the original dataset as '{data['event']}'")
             continue
         problems += check_columns(battles)
         flag(review, key, ev, problems)

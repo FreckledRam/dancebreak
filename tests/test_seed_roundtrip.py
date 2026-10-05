@@ -7,7 +7,7 @@ LEGACY = store.DATA / "legacy"
 N_EXTRA = len(store.EXTRA_COLS)
 
 
-@pytest.mark.parametrize("system", store.SYSTEMS)
+@pytest.mark.parametrize("system", store.LEGACY_SYSTEMS)
 def test_export_matches_legacy(system):
     legacy = (LEGACY / f"{system}DataRaw.tsv").read_text(encoding="utf-8").split("\n")
     ours = (store.EXPORT / f"{system}DataRaw.tsv").read_text(encoding="utf-8").split("\n")

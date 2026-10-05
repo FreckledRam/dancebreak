@@ -96,7 +96,8 @@ def _number(text: str) -> str:
     m = re.search(r"\d+(?:[.,]\d+)?", text)
     if not m:
         raise ParseError(f"no number in {text!r}")
-    return m.group(0).replace(",", ".")
+    value = m.group(0).replace(",", ".")
+    return value.rstrip("0").rstrip(".") if "." in value else value
 
 
 def _signed(value: str, side: str) -> str:

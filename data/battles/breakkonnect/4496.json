@@ -1,0 +1,108 @@
+{
+ "event": "Brooklyn's Breaking Academy - Battle Series Vol. 4",
+ "source": "breakkonnect",
+ "date": "2026-01-28",
+ "year": 2026,
+ "url": "https://breakkonnect.com/event/4496",
+ "battles": [
+  {
+   "system": "PointsPerRound",
+   "red": "Nicholas",
+   "blue": "Blaze",
+   "winner": "Nicholas",
+   "judges": [
+    "JSerious"
+   ],
+   "cells": {
+    "event": "Brooklyn's Breaking Academy - Battle Series Vol. 4",
+    "stage": "1vs1 Kill-The-Beat Brawl Top 4 KnockOut",
+    "r1j1over": "-10",
+    "r1j1redp": "10",
+    "r1j1blup": "0",
+    "breaker 1 (red)": "Nicholas",
+    "breaker 2 (blue)": "Blaze",
+    "winner": "Nicholas",
+    "battle rounds": "1",
+    "number of judges": "1",
+    "breaker 1 round wins": "1",
+    "breaker 2 round wins": "0",
+    "tie rounds": "0",
+    "breaker 1 vote count": "1",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "breaker 1 points": "10",
+    "breaker 2 points": "0",
+    "judge 1 name": "JSerious"
+   },
+   "id": "breakkonnect-4496-2256-60889",
+   "stage": "1vs1 Kill-The-Beat Brawl Top 4 KnockOut",
+   "url": "https://breakkonnect.com/sparring/60889"
+  },
+  {
+   "system": "PointsPerRound",
+   "red": "Lil Serious",
+   "blue": "Blaze",
+   "winner": "Blaze",
+   "judges": [
+    "JSerious"
+   ],
+   "cells": {
+    "event": "Brooklyn's Breaking Academy - Battle Series Vol. 4",
+    "stage": "1vs1 Kill-The-Beat Brawl Top 4 KnockOut",
+    "r1j1over": "10",
+    "r1j1redp": "0",
+    "r1j1blup": "10",
+    "breaker 1 (red)": "Lil Serious",
+    "breaker 2 (blue)": "Blaze",
+    "winner": "Blaze",
+    "battle rounds": "1",
+    "number of judges": "1",
+    "breaker 1 round wins": "0",
+    "breaker 2 round wins": "1",
+    "tie rounds": "0",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "1",
+    "tie vote count": "0",
+    "breaker 1 points": "0",
+    "breaker 2 points": "10",
+    "judge 1 name": "JSerious"
+   },
+   "id": "breakkonnect-4496-2256-60888",
+   "stage": "1vs1 Kill-The-Beat Brawl Top 4 KnockOut",
+   "url": "https://breakkonnect.com/sparring/60888"
+  },
+  {
+   "system": "PointsPerRound",
+   "red": "Bboy AntMan",
+   "blue": "Nicholas",
+   "winner": "Nicholas",
+   "judges": [
+    "JSerious"
+   ],
+   "cells": {
+    "event": "Brooklyn's Breaking Academy - Battle Series Vol. 4",
+    "stage": "1vs1 Kill-The-Beat Brawl Top 4 KnockOut",
+    "r1j1over": "10",
+    "r1j1redp": "0",
+    "r1j1blup": "10",
+    "breaker 1 (red)": "Bboy AntMan",
+    "breaker 2 (blue)": "Nicholas",
+    "winner": "Nicholas",
+    "battle rounds": "1",
+    "number of judges": "1",
+    "breaker 1 round wins": "0",
+    "breaker 2 round wins": "1",
+    "tie rounds": "0",
+    "breaker 1 vote count": "0",
+    "breaker 2 vote count": "1",
+    "tie vote count": "0",
+    "breaker 1 points": "0",
+    "breaker 2 points": "10",
+    "judge 1 name": "JSerious"
+   },
+   "id": "breakkonnect-4496-2256-60887",
+   "stage": "1vs1 Kill-The-Beat Brawl Top 4 KnockOut",
+   "url": "https://breakkonnect.com/sparring/60887"
+  }
+ ]
+}

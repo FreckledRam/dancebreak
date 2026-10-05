@@ -1,0 +1,93 @@
+{
+ "permissions": {
+  "canSetScore": false,
+  "canSetAudienceScore": false,
+  "canAddExtra": false,
+  "canFinish": false
+ },
+ "eventId": 3937,
+ "battleId": 1915,
+ "status": "finished",
+ "sparringId": 48324,
+ "winnerId": 14477,
+ "rounds": [
+  {
+   "sumRedPoints": 26,
+   "sumBluePoints": 25,
+   "scores": [
+    {
+     "id": 22542,
+     "dancerName": "Wesley Swipes",
+     "avatar": "1d69ce08-752d-4dab-ae53-794d533103a7",
+     "country": "",
+     "redPoints": 10,
+     "bluePoints": 9
+    },
+    {
+     "id": 1864,
+     "dancerName": "Max Crebs",
+     "avatar": "",
+     "country": "",
+     "redPoints": 7,
+     "bluePoints": 8
+    },
+    {
+     "id": 22400,
+     "dancerName": "bboy monkee",
+     "avatar": "61f52c3b-f5e8-485f-8a9d-463caaea52fd",
+     "country": "",
+     "redPoints": 9,
+     "bluePoints": 8
+    }
+   ]
+  },
+  {
+   "sumRedPoints": 27,
+   "sumBluePoints": 23,
+   "scores": [
+    {
+     "id": 22542,
+     "dancerName": "Wesley Swipes",
+     "avatar": "1d69ce08-752d-4dab-ae53-794d533103a7",
+     "country": "",
+     "redPoints": 10,
+     "bluePoints": 9
+    },
+    {
+     "id": 1864,
+     "dancerName": "Max Crebs",
+     "avatar": "",
+     "country": "",
+     "redPoints": 8,
+     "bluePoints": 7
+    },
+    {
+     "id": 22400,
+     "dancerName": "bboy monkee",
+     "avatar": "61f52c3b-f5e8-485f-8a9d-463caaea52fd",
+     "country": "",
+     "redPoints": 9,
+     "bluePoints": 7
+    }
+   ]
+  },
+  {
+   "sumRedPoints": 0,
+   "sumBluePoints": 0,
+   "scores": []
+  }
+ ],
+ "extraRounds": 0,
+ "red": {
+  "id": 14477,
+  "name": "Character King",
+  "totalPoints": 53,
+  "audiencePoints": 0
+ },
+ "blue": {
+  "id": 21389,
+  "name": "Lokita",
+  "totalPoints": 48,
+  "audiencePoints": 0
+ }
+}
