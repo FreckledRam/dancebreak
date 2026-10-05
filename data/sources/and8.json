@@ -422,47 +422,56 @@
  "5225": {
   "name": "DNA Festival & Battle of the Year Weekender 2025",
   "date": "2025-10-12",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5250": {
   "name": "JDSF Breaking Block Battle Series 2025 - Middle East Block",
   "date": "2025-10-12",
-  "status": "pending"
+  "status": "collected",
+  "battles": 28
  },
  "5272": {
   "name": "SPT 30 On Beat Battle & P.O.W",
   "date": "2025-10-11",
-  "status": "pending"
+  "status": "collected",
+  "battles": 64
  },
  "4932": {
   "name": "Unbreakable 2025 - 20 year anniversary",
   "date": "2025-10-05",
-  "status": "pending"
+  "status": "collected",
+  "battles": 46
  },
  "5249": {
   "name": "JDSF Breaking Block Battle Series 2025 - Middle West Block",
   "date": "2025-09-28",
-  "status": "pending"
+  "status": "collected",
+  "battles": 25
  },
  "5219": {
   "name": "Breaking K Series - 2025 Stage 2",
   "date": "2025-09-27",
-  "status": "pending"
+  "status": "collected",
+  "battles": 60
  },
  "5172": {
   "name": "Battle of the Year 2025 World Final",
   "date": "2025-09-21",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5224": {
   "name": "The Freshest Prince:ess of Austria 2025",
   "date": "2025-09-21",
-  "status": "pending"
+  "status": "collected",
+  "battles": 18
  },
  "5207": {
   "name": "Swiss Breaking Championship 2025",
   "date": "2025-09-20",
-  "status": "pending"
+  "status": "collected",
+  "battles": 48
  },
  "5023": {
   "name": "Streetdance Battle Series 2025 – Vol. 5",
