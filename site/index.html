@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Settle It In The Cypher</title>
 <meta name="description" content="Live dataset of judge scores from competitive breaking battles.">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <script>
   // always load the newest styles and script instead of a copy the browser saved earlier
   document.write('<link rel="stylesheet" href="style.css?v=' + Date.now() + '">');
@@ -13,21 +17,21 @@
 </head>
 <body>
 <header>
-  <h1>Settle It In The Cypher</h1>
-  <p class="sub">Judge scores from competitive breaking, collected automatically.</p>
+  <span class="brand">Settle It In The Cypher</span>
   <nav>
-    <a href="#sources">Source Status</a>
+    <a href="#sources">Source status</a>
     <a href="#dataset">Dataset</a>
-    <a href="#review">Review</a>
-    <a href="#activity">Activity</a>
+    <a href="#review">Review<em id="review-count"></em></a>
   </nav>
 </header>
 
 <main>
   <section id="sources" hidden>
-    <div class="totals" id="totals"></div>
+    <h1 id="headline">&nbsp;</h1>
+    <p class="sub" id="headline-sub">&nbsp;</p>
+    <div class="nums" id="totals"></div>
 
-    <h2>Current state</h2>
+    <h2>Sources</h2>
     <table id="sources-table" class="stack">
       <thead><tr><th>Source</th><th>Status</th><th>Last new data</th><th>Newest event</th><th class="num">Battles</th></tr></thead>
       <tbody></tbody>
@@ -35,22 +39,30 @@
     <p class="note" id="sources-note"></p>
 
     <h2>Queue</h2>
-    <p class="note" id="queue-note"></p>
-    <table id="queue-table" class="stack">
+    <p class="muted" id="queue-note"></p>
+    <table id="queue-table" class="stack" hidden>
       <thead><tr><th>Source</th><th>Progress</th><th class="num">Waiting</th><th>Cleared in</th><th>Up next</th></tr></thead>
+      <tbody></tbody>
+    </table>
+
+    <h2>Recent runs</h2>
+    <table id="runs-table">
+      <thead><tr><th>When</th><th>Result</th><th class="num">Events added</th><th class="num">Battles added</th></tr></thead>
       <tbody></tbody>
     </table>
   </section>
 
   <section id="dataset" hidden>
+    <h1 id="dataset-title">&nbsp;</h1>
+    <p class="sub">Click a column heading to sort or filter. Click a battle to see every judge's score.</p>
     <div class="filters">
-      <input id="q" type="search" placeholder="Search breaker, judge, event" autocomplete="off">
+      <input id="q" type="search" placeholder="Search breaker, judge or event" autocomplete="off">
       <button id="clear-filters" hidden>Clear filters</button>
     </div>
-    <p class="note"><span id="count"></span> · Download: <span id="downloads"></span></p>
+    <p class="note"><span id="count"></span><span id="quality-note"></span> · Download: <span id="downloads"></span></p>
     <div class="scroll">
       <table id="battles">
-        <thead><tr><th data-sort="year">Year</th><th data-sort="event">Event</th><th data-sort="stage">Stage</th><th data-sort="red">Red</th><th data-sort="blue">Blue</th><th data-sort="system">System</th><th data-sort="judges" class="num">Judges</th><th data-sort="source">Source</th></tr></thead>
+        <thead><tr><th data-sort="year">Date</th><th data-sort="event">Event</th><th data-sort="stage">Stage</th><th data-sort="red">Red</th><th data-sort="blue">Blue</th><th data-sort="system">System</th><th data-sort="source">Source</th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
@@ -58,16 +70,19 @@
   </section>
 
   <section id="review" hidden>
-    <p class="note">Things the pipeline was not sure about. Everything else was published automatically.</p>
+    <h1 id="review-title">&nbsp;</h1>
+    <p class="sub">Everything else was collected and published automatically.</p>
+
+    <h2>Collection problems</h2>
     <table id="review-table">
-      <thead><tr><th>Date</th><th>Event</th><th>Stage</th><th>Why</th></tr></thead>
+      <thead><tr><th>Event</th><th>Stage</th><th>Problem</th><th></th></tr></thead>
       <tbody></tbody>
     </table>
-  </section>
+    <p class="note" id="review-more"></p>
 
-  <section id="activity" hidden>
-    <table id="activity-table">
-      <thead><tr><th>When</th><th>Source</th><th>What happened</th></tr></thead>
+    <h2>Missing values</h2>
+    <table id="quality-table">
+      <thead><tr><th>What is missing</th><th class="num">Battles</th><th>How it gets fixed</th><th></th></tr></thead>
       <tbody></tbody>
     </table>
   </section>

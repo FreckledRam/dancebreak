@@ -15,12 +15,14 @@ function ago(iso) {
 
 // ---- tabs
 function showTab() {
-  const tab = ['sources', 'dataset', 'review', 'activity'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'sources';
+  const tab = ['sources', 'dataset', 'review'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'sources';
   document.querySelectorAll('main section').forEach((s) => { s.hidden = s.id !== tab; });
   document.querySelectorAll('nav a').forEach((a) => a.classList.toggle('on', a.hash === '#' + tab));
+  scrollTo(0, 0);     // the tab name is also an element id, so the browser would scroll past the header
 }
 addEventListener('hashchange', showTab);
 showTab();
+addEventListener('load', () => scrollTo(0, 0));
 
 // ---- source status
 function span(hours) {
@@ -90,30 +92,38 @@ function renderStatus(status, activity) {
   const next = nextRun(status);
 
   const added = status.last_run_added || { events: 0, battles: 0 };
+  const states = Object.entries(status.sources).map(([key, src]) => (LIVE && LIVE.current === key ? 'running' : health(src, status)[0]));
+  const broken = states.filter((x) => x === 'broken').length, idle = states.filter((x) => x === '').length;
+  $('#headline').textContent = LIVE ? 'Check in progress'
+    : broken ? `${broken} source${broken === 1 ? ' needs' : 's need'} attention`
+      : idle ? `${idle} source${idle === 1 ? ' is' : 's are'} not running` : 'All sources healthy';
+  $('#headline-sub').innerHTML = LIVE ? `Started ${ago(LIVE.started)}. Totals update when it finishes.`
+    : `Last check ${ago(status.last_run)}. Next check in <span title="${esc(next.toLocaleString())}">${countdown(next)}</span>.`;
+  $('#review-count').textContent = status.need_review || '';
   $('#totals').innerHTML = [
     [status.battles.toLocaleString(), 'battles'],
-    [`${added.events.toLocaleString()} / ${added.battles.toLocaleString()}`, 'events / battles added in last run'],
-    [ago(status.last_run), 'last check'],
-    LIVE ? ['Running', 'check in progress']
-      : [`<span title="${esc(next.toLocaleString())}">${countdown(next)}</span>`, 'until next check'],
+    [`${added.events.toLocaleString()} / ${added.battles.toLocaleString()}`, 'events / battles added last run'],
     [backlog.toLocaleString(), 'events in backlog',
       backlog ? `${runs} more run${runs === 1 ? '' : 's'} over the next ${span(runs * status.hours_between_runs)}` : ''],
+    [(status.need_review || 0).toLocaleString(), 'need review'],
   ].map(([b, s, extra]) => `<div><b>${b}</b><span>${s}</span>${extra ? `<small>${extra}</small>` : ''}</div>`).join('');
 
   $('#sources-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => {
     const [cls, label] = LIVE && LIVE.current === key ? ['running', 'Running'] : health(s, status);
     return `<tr>
-    <td><a href="${esc(s.url)}">${esc(s.name)}</a></td>
+    <td><b><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a></b></td>
     <td data-label="Status"><div><span class="status ${cls}">${label}</span>${s.note ? `<div class="note">${esc(s.note)}</div>` : ''}</div></td>
     <td data-label="Last new data">${ago(s.last_changed)}</td>
-    <td data-label="Newest event">${s.newest_event ? `<span>${esc(s.newest_event)} <span class="muted">${esc(s.newest_date || '')}</span></span>` : '<span class="muted">-</span>'}</td>
+    <td data-label="Newest event">${s.newest_event ? `<div>${esc(s.newest_event)}<small>${esc(s.newest_date || '')}</small></div>` : '<span class="muted">-</span>'}</td>
     <td data-label="Battles" class="num">${(status.battles_by_source[key] || 0).toLocaleString()}</td>
   </tr>`;
   }).join('');
 
-  $('#queue-note').textContent = LIVE
-    ? 'A check is running now. Progress is an estimate; totals update when it finishes.'
-    : `Each run takes up to ${status.events_per_run} events per source, newest first. Next check in ${countdown(next)}.`;
+  const showQueue = Boolean(LIVE) || backlog > 0;
+  $('#queue-table').hidden = !showQueue;
+  $('#queue-note').textContent = LIVE ? 'A check is running now. Progress is an estimate.'
+    : backlog ? `Each run takes up to ${status.events_per_run} events per source, newest first.`
+      : 'Nothing waiting. All sources are up to date.';
   $('#queue-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => {
     const q = queue[key] || { waiting: 0, seen: 0, next: [] };
     const n = runsFor(q.waiting);
@@ -133,15 +143,17 @@ function renderStatus(status, activity) {
   const seeded = status.battles_by_source.seed || 0;
   $('#sources-note').textContent = seeded ? `${seeded.toLocaleString()} battles come from the original hand-collected dataset.` : '';
 
-  $('#activity-table tbody').innerHTML = activity.map((a) => `<tr>
-    <td style="white-space:nowrap">${esc(new Date(a.time).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' }))}</td>
-    <td>${esc(SOURCE_NAMES[a.source] || a.source || '')}</td>
-    <td>${esc(a.text)}</td>
-  </tr>`).join('') || '<tr><td colspan="3" class="muted">Nothing yet.</td></tr>';
+  $('#runs-table tbody').innerHTML = (status.runs || []).map((r) => `<tr>
+    <td style="white-space:nowrap">${esc(new Date(r.time).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' }))}</td>
+    <td><span class="status ${r.ok ? 'ok' : 'broken'}">${r.ok ? 'OK' : 'Error'}</span>${r.note ? `<small>${esc(r.note)}</small>` : ''}</td>
+    <td class="num">${r.events.toLocaleString()}</td><td class="num">${r.battles.toLocaleString()}</td>
+  </tr>`).join('') || '<tr><td colspan="4" class="muted">No runs yet.</td></tr>';
+
+  renderQuality(status);
 }
 
 // ---- dataset
-let DATA = null, rows = [], page = 0, sortCol = null, sortDir = 1;
+let DATA = null, rows = [], page = 0, sortCol = null, sortDir = 1, qualityCode = null;   // qualityCode: a Review check to show
 const eventCache = {};
 
 const colFilters = {};          // column -> Set of values to keep (absent = no filter on that column)
@@ -156,7 +168,7 @@ function setupDataset(data) {
   $('#q').addEventListener('input', () => { page = 0; filter(); });
   $('#clear-filters').onclick = () => {
     Object.keys(colFilters).forEach((k) => delete colFilters[k]);
-    sortCol = null; $('#q').value = ''; page = 0; filter();
+    sortCol = null; qualityCode = null; $('#q').value = ''; page = 0; filter();
   };
   document.querySelectorAll('#battles th[data-sort]').forEach((th) => {
     th.onclick = (e) => { e.stopPropagation(); openColumnMenu(th); };
@@ -170,6 +182,7 @@ function setupDataset(data) {
 
 function passes(r, i, words, skipCol) {
   const C = DATA.C;
+  if (qualityCode && !r[C.q].includes(qualityCode)) return false;
   for (const col in colFilters) {
     if (col !== skipCol && !colFilters[col].has(String(r[C[col]] ?? ''))) return false;
   }
@@ -191,7 +204,9 @@ function filter() {
     th.dataset.dir = col === sortCol ? (sortDir === 1 ? 'asc' : 'desc') : '';
     th.classList.toggle('filtered', col in colFilters);
   });
-  const active = Object.keys(colFilters).length || sortCol || words.length;
+  const active = Object.keys(colFilters).length || sortCol || words.length || qualityCode;
+  const check = qualityCode && STATUS && (STATUS.quality || []).find((x) => x.code === qualityCode);
+  $('#quality-note').textContent = check ? ` · Showing: ${check.label}` : '';
   $('#clear-filters').hidden = !active;
   draw();
 }
@@ -272,47 +287,78 @@ function draw() {
   const C = DATA.C;
   const pages = Math.max(1, Math.ceil(rows.length / PAGE));
   page = Math.min(Math.max(page, 0), pages - 1);
-  $('#count').textContent = `${rows.length.toLocaleString()} battles`;
+  $('#dataset-title').textContent = `${DATA.rows.length.toLocaleString()} battles`;
+  $('#count').textContent = rows.length === DATA.rows.length ? 'All battles' : `${rows.length.toLocaleString()} match`;
   $('#page').textContent = `Page ${page + 1} of ${pages}`;
   $('#prev').disabled = page === 0;
   $('#next').disabled = page >= pages - 1;
-  const name = (r, side) => `<td class="${r[C.winner] && r[C.winner] === r[C[side]] ? 'win' : ''}">${esc(r[C[side]])}</td>`;
+  const name = (r, side) => `<td class="side ${r[C.winner] && r[C.winner] === r[C[side]] ? 'win' : ''}"><i class="tick ${side}"></i>${esc(r[C[side]])}</td>`;
   $('#battles tbody').innerHTML = rows.slice(page * PAGE, (page + 1) * PAGE).map((r) => `<tr class="row" data-f="${r[C.file]}" data-i="${r[C.idx]}">
-    <td>${r[C.year] || ''}</td><td>${esc(r[C.event])}</td><td>${esc(r[C.stage])}</td>
+    <td style="white-space:nowrap">${r[C.date] || r[C.year] || ''}</td><td>${esc(r[C.event])}</td><td>${esc(r[C.stage])}</td>
     ${name(r, 'red')}${name(r, 'blue')}
-    <td>${esc(r[C.system])}</td><td class="num">${r[C.judges]}</td>
+    <td>${esc(r[C.system])}</td>
     <td>${r[C.url] ? `<a href="${esc(r[C.url])}" target="_blank" rel="noopener">${esc(SOURCE_NAMES[r[C.source]] || r[C.source])}</a>` : `<span class="muted">${esc(SOURCE_NAMES[r[C.source]] || r[C.source])}</span>`}</td>
-  </tr>`).join('');
+  </tr>`).join('') || '<tr><td colspan="7" class="muted">No battles match.</td></tr>';
 }
 
 $('#battles tbody').addEventListener('click', async (e) => {
-  if (e.target.closest('a')) return;
+  if (e.target.dataset.act === 'raw') { e.target.closest('td').querySelector('.raw').hidden ^= true; return; }
+  if (e.target.closest('a') || e.target.closest('tr.detail')) return;
   const tr = e.target.closest('tr.row');
   if (!tr) return;
-  if (tr.nextElementSibling?.classList.contains('detail')) { tr.nextElementSibling.remove(); return; }
+  if (tr.nextElementSibling?.classList.contains('detail')) { tr.nextElementSibling.remove(); tr.classList.remove('open'); return; }
   const file = DATA.files[tr.dataset.f];
   eventCache[file] ??= await get('data/events/' + file);
   const detail = document.createElement('tr');
   detail.className = 'detail';
-  detail.innerHTML = `<td colspan="8">${scoreTables(eventCache[file].battles[tr.dataset.i])}</td>`;
+  detail.innerHTML = `<td colspan="7">${battleDetail(eventCache[file].battles[tr.dataset.i])}</td>`;
+  tr.classList.add('open');
   tr.after(detail);
 });
 
-// rounds x judges grid from the r#j#cate cells
-function scoreTables(b) {
+// every score cell of a battle, grouped round -> judge seat -> category
+function scoreCells(b) {
   const rounds = {};
   for (const [key, value] of Object.entries(b.cells)) {
-    const m = key.match(/^(?:r(\d+))?j(\d+)([a-z0-9]+)$/);
+    const m = key.match(/^(tie)?(?:r(\d+))?j(\d+)([a-z0-9]+)$/);
     if (!m) continue;
-    const r = m[1] || '0';
-    ((rounds[r] ??= {})[m[2]] ??= {})[m[3]] = value;
+    const r = m[1] ? 'tie' : m[2] || '0';
+    ((rounds[r] ??= {})[m[3]] ??= {})[m[4]] = value;
   }
-  const keys = Object.keys(rounds).sort((a, c) => a - c);
+  return rounds;
+}
+const roundName = (r) => (r === '0' ? 'Votes' : r === 'tie' ? 'Tiebreaker' : 'Round ' + r);
+const roundOrder = (rounds) => Object.keys(rounds).sort((a, c) => (a === 'tie') - (c === 'tie') || a - c);
+
+// Each judge's overall call per round as a bar: left of centre for red, right for blue.
+// Scored systems use the size of the margin; vote-only systems get a full-length bar.
+function battleDetail(b) {
+  const rounds = scoreCells(b), keys = roundOrder(rounds);
   if (!keys.length) return '<span class="muted">No judge-level scores recorded.</span>';
+  const overall = (cell) => cell.over ?? cell.vote;
+  const numbers = keys.flatMap((r) => Object.values(rounds[r]).map(overall)).filter((v) => v !== undefined && !isNaN(v)).map((v) => Math.abs(v));
+  const max = Math.max(...numbers, 0.0001);
+  const bar = (v) => {
+    if (v === undefined || v === '') return ['', '<span class="muted">-</span>'];
+    if (isNaN(v)) return [v === 'red' ? 'red' : v === 'blue' ? 'blue' : '', v === 'tie' ? 'tie' : '', 50];
+    return [+v < 0 ? 'red' : +v > 0 ? 'blue' : '', String(Math.abs(+v)), (50 * Math.abs(+v)) / max];
+  };
+  const blocks = keys.map((r) => `<div><h4>${roundName(r)}</h4><table>${Object.keys(rounds[r]).sort((a, c) => a - c).map((j) => {
+    const [side, text, width] = bar(overall(rounds[r][j]));
+    return `<tr><td>${esc(b.judges[j - 1] || 'Judge ' + j)}</td><td class="w"><span class="div ${side}"><i style="width:${width || 0}%"></i></span></td><td class="num">${text}</td></tr>`;
+  }).join('')}</table></div>`).join('');
+  const link = b.url ? ` · <a href="${esc(b.url)}" target="_blank" rel="noopener">Source page</a>` : '';
+  return `<div class="rounds">${blocks}</div>
+    <p class="key"><i style="background:var(--red)"></i>${esc(b.red)}<i style="background:var(--blue)"></i>${esc(b.blue)} · <a data-act="raw">All scores as numbers</a>${link}</p>
+    <div class="raw" hidden>${scoreTables(rounds, b)}</div>`;
+}
+
+// the same battle as plain numbers, one table per round
+function scoreTables(rounds, b) {
   let html = '';
-  for (const r of keys) {
+  for (const r of roundOrder(rounds)) {
     const cats = [...new Set(Object.values(rounds[r]).flatMap((j) => Object.keys(j)))];
-    html += `<h4>${r === '0' ? 'Votes' : 'Round ' + r}</h4><table><thead><tr><th>Judge</th>${cats.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>`;
+    html += `<h4>${roundName(r)}</h4><table><thead><tr><th>Judge</th>${cats.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>`;
     for (const j of Object.keys(rounds[r]).sort((a, c) => a - c)) {
       html += `<tr><td>${esc(b.judges[j - 1] || 'Judge ' + j)}</td>${cats.map((c) => `<td>${esc(rounds[r][j][c] ?? '')}</td>`).join('')}</tr>`;
     }
@@ -321,16 +367,51 @@ function scoreTables(b) {
   return html + `<p class="note">Negative favors red (${esc(b.red)}), positive favors blue (${esc(b.blue)}).</p>`;
 }
 
-Promise.all([get('data/status.json'), get('data/activity.json')]).then(([s, a]) => {
+// ---- review
+const PROBLEM = [
+  [/page (says|lists)|decided/, 'Battles missing'], [/no battles found/, 'Stage empty'], [/layout not mapped/, 'Bracket too big'],
+  [/could not tell/, 'Category unclear'], [/no export column/, 'More rounds or judges than the sheet holds'],
+];
+const REVIEW_SHOWN = 12;
+let REVIEW = [], reviewAll = false;
+
+function renderReview() {
+  const shown = reviewAll ? REVIEW : REVIEW.slice(0, REVIEW_SHOWN);
+  $('#review-table tbody').innerHTML = shown.map((r) => {
+    const kind = (PROBLEM.find(([re]) => re.test(r.reason)) || [null, 'Needs a look'])[1];
+    return `<tr><td>${esc(r.event)}<small>${esc(r.date)}</small></td><td>${esc(r.stage)}</td>
+      <td><span class="status warn">${kind}</span><small>${esc(r.reason)}</small></td>
+      <td class="num">${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">Source</a>` : ''}</td></tr>`;
+  }).join('') || '<tr><td colspan="4" class="muted">No collection problems.</td></tr>';
+  $('#review-more').innerHTML = REVIEW.length > REVIEW_SHOWN
+    ? `Showing ${shown.length} of ${REVIEW.length}. <a id="review-toggle" style="cursor:pointer">${reviewAll ? 'Show fewer' : 'Show all'}</a>` : '';
+  const toggle = $('#review-toggle');
+  if (toggle) toggle.onclick = () => { reviewAll = !reviewAll; renderReview(); };
+}
+
+function renderQuality(status) {
+  const n = status.need_review || 0;
+  $('#review-title').textContent = n ? `${n.toLocaleString()} need review` : 'Nothing needs review';
+  $('#quality-table tbody').innerHTML = (status.quality || []).map((q) => `<tr>
+    <td><b>${esc(q.label)}</b></td><td class="num">${q.count.toLocaleString()}</td><td class="muted">${esc(q.fix)}</td>
+    <td class="num">${q.count ? `<a data-code="${q.code}" style="cursor:pointer">View</a>` : ''}</td></tr>`).join('');
+}
+
+// "View" on a missing-values row opens the dataset filtered to those battles
+$('#quality-table').addEventListener('click', (e) => {
+  const code = e.target.dataset.code;
+  if (!code || !DATA) return;
+  Object.keys(colFilters).forEach((k) => delete colFilters[k]);
+  $('#q').value = ''; qualityCode = code; page = 0;
+  filter();
+  location.hash = '#dataset';
+});
+
+Promise.all([get('data/status.json'), Promise.resolve([])]).then(([s, a]) => {
   renderStatus(s, a);
   pollProgress();
   setInterval(pollProgress, 60000);                               // is a run going?
   setInterval(() => STATUS && renderStatus(STATUS, ACTIVITY), 15000);   // keep countdowns and the bar moving
 });
-get('data/review.json').then((items) => {
-  $('#review-table tbody').innerHTML = items.map((r) => `<tr>
-    <td style="white-space:nowrap">${esc(r.date)}</td><td>${esc(r.event)}</td>
-    <td>${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.stage)}</a>` : esc(r.stage)}</td>
-    <td>${esc(r.reason)}</td></tr>`).join('') || '<tr><td colspan="4" class="muted">Nothing needs review.</td></tr>';
-});
+get('data/review.json').then((items) => { REVIEW = items; renderReview(); });
 get('data/battles.json').then(setupDataset);

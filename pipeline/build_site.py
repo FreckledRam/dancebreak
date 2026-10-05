@@ -34,6 +34,60 @@ def last_run_added(activity: list) -> dict:
     return {"events": events, "battles": sum(a.get("battles", 0) for a in mine)}
 
 
+# Things worth a look in the data itself: code -> (what is missing, how it gets fixed)
+QUALITY = {
+    "g": ("A judge has no score in a round", "Re-collect, or confirm the source has none"),
+    "j": ("No judges recorded", "Check the source page"),
+    "w": ("No winner recorded", "Check the source page"),
+    "n": ("Breaker name blank", "Check the source page"),
+    "i": ("Judging system is a guess", "Only votes were visible; confirm Traditional or Round-by-Round"),
+    "d": ("No date or source link", "Original rows; the backfill links them to the source"),
+}
+NEEDS_REVIEW = "gjwn"       # counted in the Review total; the rest are for information
+
+
+def quality_codes(b: dict, ev: dict) -> str:
+    c, codes = b["cells"], ""
+    rounds = c.get("battle rounds", "")
+    if rounds.isdigit() and any(f"r{r}j{j}over" not in c
+                                for r in range(1, int(rounds) + 1) for j in range(1, len(b["judges"]) + 1)):
+        codes += "g"
+    if not b["judges"]:
+        codes += "j"
+    if not b["winner"]:
+        codes += "w"
+    if not b["red"].strip() or not b["blue"].strip():
+        codes += "n"
+    if ev["source"] != "seed" and b["system"] in ("Traditional", "RoundByRound"):
+        codes += "i"
+    if not ev.get("date") or not (b.get("url") or ev.get("url")):
+        codes += "d"
+    return codes
+
+
+def runs(activity: list) -> list:
+    """One row per run, newest first, from the per-source log entries."""
+    out = []
+    for a in activity:
+        if a["kind"] != "check":
+            continue
+        t = datetime.fromisoformat(a["time"].replace("Z", "+00:00"))
+        last = out[-1] if out else None
+        same = last and (a.get("run") == last["run"] if a.get("run") or last["run"]
+                         else last["_t"] - t < timedelta(minutes=20))
+        if not same:
+            last = {"time": a["time"], "run": a.get("run"), "_t": t, "events": 0, "battles": 0, "ok": True, "note": ""}
+            out.append(last)
+        m = re.search(r"from (\d+) events", a["text"])
+        last["events"] += a["events"] if "events" in a else int(m.group(1)) if m else 0
+        last["battles"] += a.get("battles", 0)
+        last["_t"] = t
+        if "failed" in a["text"] or "Could not" in a["text"]:
+            last["ok"] = False
+            last["note"] = f"{state.SOURCES.get(a['source'], {}).get('name', a['source'])}: {a['text']}"
+    return [{k: v for k, v in r.items() if not k.startswith("_")} for r in out[:12]]
+
+
 def main() -> None:
     if OUT.exists():
         shutil.rmtree(OUT)
@@ -51,10 +105,11 @@ def main() -> None:
         for i, b in enumerate(ev["battles"]):
             rows.append([len(files) - 1, i, ev.get("year"), ev.get("date"), ev["event"], b["stage"],
                          b["red"], b["blue"], b["winner"], b["system"], len(b["judges"]),
-                         ev["source"], b.get("url") or ev.get("url"), ", ".join(b["judges"])])
+                         ev["source"], b.get("url") or ev.get("url"), ", ".join(b["judges"]),
+                         quality_codes(b, ev)])
 
     cols = ["file", "idx", "year", "date", "event", "stage", "red", "blue", "winner",
-            "system", "judges", "source", "url", "judge_names"]
+            "system", "judges", "source", "url", "judge_names", "q"]
     (OUT / "battles.json").write_text(
         json.dumps({"cols": cols, "files": files, "rows": rows}, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8")
@@ -72,6 +127,10 @@ def main() -> None:
         "last_run": next((a["time"] for a in activity if a["kind"] == "check"), None),
         "sources": st["sources"],
         "review": len(review),
+        "quality": [{"code": code, "label": label, "fix": fix, "count": sum(code in r[-1] for r in rows)}
+                    for code, (label, fix) in QUALITY.items()],
+        "need_review": len(review) + sum(any(c in r[-1] for c in NEEDS_REVIEW) for r in rows),
+        "runs": runs(activity),
         # pace of the scheduled run (check.yml: minute 17 of every 6th hour UTC, 10 events per source)
         "events_per_run": 10,
         "hours_between_runs": 6,
@@ -80,7 +139,6 @@ def main() -> None:
         "queue": state.queue(),
     }
     (OUT / "status.json").write_text(json.dumps(status, ensure_ascii=False), encoding="utf-8")
-    (OUT / "activity.json").write_text(json.dumps(activity, ensure_ascii=False), encoding="utf-8")
 
     store.export_tsvs()
     shutil.copytree(store.EXPORT, OUT / "export")
