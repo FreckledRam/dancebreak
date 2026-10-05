@@ -124,5 +124,23 @@
   "stage": "1vs1 Kids Top 16 KnockOut",
   "url": "https://and8.dance/en/stats/reports/4932/3739/r/",
   "reason": "could not tell if this category is breaking; not collected"
+ },
+ {
+  "source": "and8",
+  "event_id": "4903",
+  "event": "German Breaking Championships 2025",
+  "date": "2025-08-01",
+  "stage": "1vs1 B-Girl Youth (Quali) Top 4 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/4903/3630/r/",
+  "reason": "no battles found"
+ },
+ {
+  "source": "and8",
+  "event_id": "4903",
+  "event": "German Breaking Championships 2025",
+  "date": "2025-08-01",
+  "stage": "1vs1 B-Girl Pro (Quali) Top 8 KnockOut",
+  "url": "https://and8.dance/en/stats/reports/4903/3633/r/",
+  "reason": "no battles found"
  }
 ]

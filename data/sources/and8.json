@@ -476,42 +476,50 @@
  "5023": {
   "name": "Streetdance Battle Series 2025 – Vol. 5",
   "date": "2025-09-13",
-  "status": "pending"
+  "status": "collected",
+  "battles": 51
  },
  "5015": {
   "name": "Flavourama Vol. 17",
   "date": "2025-09-04",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4842": {
   "name": "The World Battle 2025",
   "date": "2025-08-30",
-  "status": "pending"
+  "status": "collected",
+  "battles": 100
  },
  "4933": {
   "name": "UK B-Boy Championships 2025",
   "date": "2025-08-23",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5210": {
   "name": "FUJIFILM instax™ Undisputed x IBE",
   "date": "2025-08-17",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5214": {
   "name": "Infinite Smoke @ The Notorious IBE 2025",
   "date": "2025-08-17",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5129": {
   "name": "Move For Freedom 2025",
   "date": "2025-08-03",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4903": {
   "name": "German Breaking Championships 2025",
   "date": "2025-08-02",
-  "status": "pending"
+  "status": "collected",
+  "battles": 76
  },
  "4954": {
   "name": "Cypher Town ✘ Silverback Europe",
