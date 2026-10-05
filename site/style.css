@@ -3,14 +3,13 @@
   /* red and blue mean the two sides of a battle and nothing else */
   --red: #e5484d; --blue: #3e7fe6;
   --ok: #3ecf7a; --warn: #e6a23c; --bad: #f0605a;
-  --head: "Barlow Condensed", "Arial Narrow", sans-serif;
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--fg);
   font: 15px/1.5 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
 header, main, footer { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 header { display: flex; align-items: baseline; gap: 32px; padding-top: 28px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
-.brand { font: 700 24px/1 var(--head); text-transform: uppercase; padding-bottom: 14px; white-space: nowrap; }
+.brand { font-weight: 700; font-size: 18px; line-height: 1; letter-spacing: -.02em; padding-bottom: 14px; white-space: nowrap; }
 nav { display: flex; gap: 24px; }
 nav a { color: var(--muted); text-decoration: none; font-weight: 500; padding-bottom: 13px; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; }
 nav a.on { color: var(--fg); border-bottom-color: var(--accent); }
@@ -20,14 +19,14 @@ a:hover { text-decoration: underline; }
 nav a:hover { text-decoration: none; color: var(--fg); }
 main { padding-top: 34px; padding-bottom: 60px; min-height: 70vh; }
 
-h1 { font: 700 40px/1 var(--head); text-transform: uppercase; margin: 0 0 6px; }
-h2 { font: 600 20px/1 var(--head); text-transform: uppercase; letter-spacing: .03em; margin: 44px 0 6px; }
+h1 { font-weight: 700; font-size: 34px; line-height: 1.1; letter-spacing: -.025em; margin: 0 0 6px; }
+h2 { font-weight: 600; font-size: 17px; line-height: 1; letter-spacing: -.01em; margin: 44px 0 6px; }
 .sub { color: var(--muted); margin: 0; }
 .note { color: var(--muted); font-size: 13px; }
 .muted { color: var(--muted); }
 
 .nums { display: flex; gap: 20px 48px; margin: 26px 0 0; flex-wrap: wrap; }
-.nums b { display: block; font: 700 30px/1.1 var(--head); }
+.nums b { display: block; font-weight: 700; font-size: 26px; line-height: 1.2; letter-spacing: -.025em; font-variant-numeric: tabular-nums; }
 .nums div > span { color: var(--muted); font-size: 13px; }
 .nums small { display: block; color: var(--muted); font-size: 13px; }
 
@@ -117,9 +116,9 @@ footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 4
 
 @media (max-width: 680px) {
   header { gap: 6px 20px; padding-top: 20px; }
-  h1 { font-size: 30px; }
+  h1 { font-size: 27px; }
   .nums { gap: 16px 28px; }
-  .nums b { font-size: 24px; }
+  .nums b { font-size: 22px; }
   table.stack thead { display: none; }
   table.stack tr { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); }
   table.stack td { display: flex; justify-content: space-between; gap: 16px; border: 0; padding: 3px 0; text-align: right; }
