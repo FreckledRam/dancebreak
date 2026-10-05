@@ -302,52 +302,62 @@
  "5294": {
   "name": "Street Disciples",
   "date": "2025-11-30",
-  "status": "pending"
+  "status": "collected",
+  "battles": 57
  },
  "5317": {
   "name": "NBL Master Event 2025",
   "date": "2025-11-29",
-  "status": "pending"
+  "status": "collected",
+  "battles": 22
  },
  "5331": {
   "name": "JDSF Breaking Japan Open",
   "date": "2025-11-29",
-  "status": "pending"
+  "status": "collected",
+  "battles": 32
  },
  "5313": {
   "name": "Snipes Beyond Doubt",
   "date": "2025-11-23",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5329": {
   "name": "Breaking K Series - 2025 Final",
   "date": "2025-11-23",
-  "status": "pending"
+  "status": "collected",
+  "battles": 52
  },
  "5345": {
   "name": "ZSPS Prvenstvo Grada Zagreba",
   "date": "2025-11-23",
-  "status": "pending"
+  "status": "collected",
+  "battles": 65
  },
  "4587": {
   "name": "Castle Rock Jam & Battle 2025",
   "date": "2025-11-22",
-  "status": "pending"
+  "status": "collected",
+  "battles": 32
  },
  "5340": {
   "name": "Le F2BO",
   "date": "2025-11-22",
-  "status": "pending"
+  "status": "collected",
+  "battles": 24
  },
  "5280": {
   "name": "Urban Essentials",
   "date": "2025-11-17",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5130": {
   "name": "Freestyle Session World Finals 2025",
   "date": "2025-11-16",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5311": {
   "name": "Youth Breaking Championships: 2025 Grand Finals",
