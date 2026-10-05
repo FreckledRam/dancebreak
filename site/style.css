@@ -40,6 +40,17 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .status::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; background: var(--muted); }
 .status.ok::before { background: var(--ok); }
+/* a slow ring spreading from each source's dot, so the page reads as live */
+#sources-table .status::before { color: var(--muted); animation: beacon 2.4s ease-out infinite; }
+#sources-table .status.ok::before { color: var(--ok); }
+#sources-table .status.broken::before { color: var(--bad); animation-duration: 1.2s; }
+#sources-table .status.running::before { color: var(--accent); animation: beacon 1.2s ease-out infinite; }
+@keyframes beacon {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 55%, transparent); }
+  70%, 100% { box-shadow: 0 0 0 7px transparent; }
+}
+@media (prefers-reduced-motion: reduce) { .status::before, .bar.live i { animation: none !important; } }
+.sub .next { color: var(--fg); font-weight: 600; }
 .status.warn::before { background: var(--warn); }
 .status.broken::before { background: var(--bad); }
 .status.running::before { background: var(--accent); animation: pulse 1.2s ease-in-out infinite; }

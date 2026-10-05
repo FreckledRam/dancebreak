@@ -98,7 +98,7 @@ function renderStatus(status, activity) {
     : broken ? `${broken} source${broken === 1 ? ' needs' : 's need'} attention`
       : idle ? `${idle} source${idle === 1 ? ' is' : 's are'} not running` : 'All sources healthy';
   $('#headline-sub').innerHTML = LIVE ? `Started ${ago(LIVE.started)}. Totals update when it finishes.`
-    : `Last check ${ago(status.last_run)}. Next check in <span title="${esc(next.toLocaleString())}">${countdown(next)}</span>.`;
+    : `Last check ${ago(status.last_run)}. <b class="next" title="${esc(next.toLocaleString())}">Next check in ${countdown(next)}.</b>`;
   $('#review-count').textContent = status.need_review || '';
   $('#totals').innerHTML = [
     [status.battles.toLocaleString(), 'battles'],
