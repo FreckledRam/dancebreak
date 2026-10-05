@@ -14,6 +14,7 @@
   <nav>
     <a href="#sources">Sources</a>
     <a href="#dataset">Dataset</a>
+    <a href="#review">Review</a>
     <a href="#activity">Activity</a>
   </nav>
 </header>
@@ -43,6 +44,14 @@
       </table>
     </div>
     <div class="pager"><button id="prev">Previous</button><span id="page"></span><button id="next">Next</button></div>
+  </section>
+
+  <section id="review" hidden>
+    <p class="note">Things the pipeline was not sure about. Everything else was published automatically.</p>
+    <table id="review-table">
+      <thead><tr><th>Date</th><th>Event</th><th>Stage</th><th>Why</th></tr></thead>
+      <tbody></tbody>
+    </table>
   </section>
 
   <section id="activity" hidden>

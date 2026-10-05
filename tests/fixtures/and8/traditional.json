@@ -1,0 +1,27 @@
+{
+ "system": "Traditional",
+ "red": "Flash",
+ "blue": "Cicov",
+ "winner": "Cicov",
+ "judges": [
+  "Junior",
+  "Sarah Bee",
+  "Lil Zoo"
+ ],
+ "cells": {
+  "breaker 1 (red)": "Flash",
+  "breaker 2 (blue)": "Cicov",
+  "number of judges": "3",
+  "breaker 1 vote count": "0",
+  "breaker 2 vote count": "3",
+  "judge 1 name": "Junior",
+  "judge 2 name": "Sarah Bee",
+  "judge 3 name": "Lil Zoo",
+  "tiebreaker": "no",
+  "tie vote count": "0",
+  "j1vote": "blue",
+  "j2vote": "blue",
+  "j3vote": "blue",
+  "winner": "Cicov"
+ }
+}

@@ -82,8 +82,9 @@ FADER_KEYS = {
     "physical": "phys", "artistic": "arti", "interpretive": "inte",
     "technique": "tech", "variety": "vari", "performativity": "perf", "performance": "perf",
     "musicality": "musi", "creativity": "crea", "personality": "pers",
+    "vocabulary": "voca", "originality": "orig", "execution": "exec",
 }
-SYSTEM_BY_FADERS = {0: "RoundByRound", 1: "SingleSlider", 3: "Threefold", 6: "Trivium"}
+SYSTEM_BY_FADERS = {0: "RoundByRound", 1: "SingleSlider", 3: "Threefold", 5: "WDSFSystem", 6: "Trivium"}
 
 
 class ParseError(Exception):
@@ -120,6 +121,8 @@ def parse_battle(html: str) -> dict | None:
     red, blue = red.text(strip=True), blue.text(strip=True)
     rounds = tree.css("div.round_info")
     if not rounds:
+        if not red or not blue or "votes not available" in html:
+            return None         # a bye, or a battle whose votes were never recorded
         raise ParseError("battle has no rounds")
 
     cells, judges, faders_seen = {}, [], set()
@@ -199,7 +202,7 @@ BRACKET_POINTS = {
     16: [(615, 175), (615, 525), (615, 615), (745, 360), (480, 360),
          (785, 495), (785, 225), (440, 495), (440, 225),
          (1085, 540), (1085, 405), (1085, 270), (1085, 135), (135, 540), (135, 405), (135, 270), (135, 135)],
-    32: [(615, 200), (615, 545), (695, 375), (535, 375), (740, 500), (740, 245), (490, 500), (490, 245),
+    32: [(615, 200), (615, 545), (615, 615), (695, 375), (535, 375), (740, 500), (740, 245), (490, 500), (490, 245),
          (775, 565), (775, 435), (775, 310), (775, 180), (450, 565), (450, 435), (450, 310), (450, 180)]
         + [(935, y) for y in _YS32] + [(300, y) for y in _YS32],
 }
@@ -268,8 +271,12 @@ def scrape_stage(fetch, stage_url: str, label: str, save=None) -> tuple[list[dic
     save("stage.html", page)
     stated = re.search(r"<b>(\d+) Battles</b>", page)
 
+    byes = set()
+
     def add(html: str, url: str, group: str = "") -> None:
         battle = parse_battle(html)
+        if battle is None and "dancer1_h" in html:
+            byes.add(re.sub(r"\s+", "", html[:600]))      # the page counts byes as battles
         if battle and _signature(battle) not in seen:
             seen.add(_signature(battle))
             found.append({**battle, "url": url, "group": group})
@@ -298,8 +305,48 @@ def scrape_stage(fetch, stage_url: str, label: str, save=None) -> tuple[list[dic
                 save(f"x{x}y{y}.html", html)
             add(html, url)
 
-    if stated and int(stated.group(1)) != len(found):
+    if stated and int(stated.group(1)) != len(found) + len(byes):
         problems.append(f"page says {stated.group(1)} battles, found {len(found)}")
     elif not found:
         problems.append("no battles found")
     return settle_system(found), problems
+
+
+# ---- pipeline interface
+
+def discover(fetch, full: bool = False) -> list[dict]:
+    """Events listed on the site. A normal run looks at this year and last; full goes back to 2015."""
+    this_year = date.today().year
+    return list_events(fetch, None if full else [this_year, this_year - 1])
+
+
+def collect(fetch, event: dict, save=None) -> tuple[list[dict], list[dict]]:
+    """Battles of every 1 vs 1 breaking stage of an event, plus problems as {stage, url, reason}."""
+    battles, problems = [], []
+    mixed = any(OTHER_STYLES.search(c["name"]) for c in event["categories"])
+    for cat in event["categories"]:
+        kind = classify(cat["name"])
+        if kind == "unsure" and not mixed:
+            kind = "solo_breaking"          # a 1 vs 1 category at an event with no other dance styles
+        for stage in cat["stages"]:
+            name = f"{cat['name']} {stage['label']}".strip()
+            if kind == "unsure":
+                problems.append({"stage": name, "url": stage["url"],
+                                 "reason": "could not tell if this category is breaking; not collected"})
+            if kind != "solo_breaking":
+                continue
+            prefix = f"{cat.get('id', 'x')}-{slug(stage['label'])}"
+            found, issues = scrape_stage(fetch, stage["url"], stage["label"],
+                                         save and (lambda n, h, p=prefix: save(f"{p}-{n}", h)))
+            problems += [{"stage": name, "url": stage["url"], "reason": r} for r in issues]
+            for n, b in enumerate(found, 1):
+                full_name = f"{name} {b.pop('group')}".strip()
+                b["id"] = f"and8-{event['id']}-{prefix}-{n:02d}"
+                b["stage"] = full_name
+                b["cells"] = {"event": event["name"], "stage": full_name, **b["cells"]}
+                battles.append(b)
+    return battles, problems
+
+
+def slug(text: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", text.lower())

@@ -1,5 +1,40 @@
 [
  {
+  "time": "2026-10-05T16:40:39Z",
+  "kind": "check",
+  "source": "and8",
+  "text": "145 events listed, collected 154 battles from 2 events, 130 waiting.",
+  "battles": 154
+ },
+ {
+  "time": "2026-10-05T16:36:38Z",
+  "kind": "check",
+  "source": "and8",
+  "text": "145 events listed, collected 177 battles from 3 events, 130 waiting.",
+  "battles": 177
+ },
+ {
+  "time": "2026-10-05T16:32:54Z",
+  "kind": "check",
+  "source": "and8",
+  "text": "145 events listed, collected 177 battles from 3 events, 130 waiting.",
+  "battles": 177
+ },
+ {
+  "time": "2026-10-05T16:29:06Z",
+  "kind": "check",
+  "source": "and8",
+  "text": "145 events listed, collected 68 battles from 1 events, 1 failed to parse, 133 waiting.",
+  "battles": 68
+ },
+ {
+  "time": "2026-10-05T16:27:04Z",
+  "kind": "check",
+  "source": "and8",
+  "text": "145 events listed, 138 new, collected 22 battles from 1 events, 1 failed to parse, 136 waiting.",
+  "battles": 22
+ },
+ {
   "time": "2026-10-05T16:08:16Z",
   "kind": "seed",
   "source": "seed",

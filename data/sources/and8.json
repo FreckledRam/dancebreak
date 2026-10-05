@@ -1,0 +1,700 @@
+{
+ "5319": {
+  "name": "DPC Jam World Final 2026",
+  "date": "2026-10-03",
+  "status": "nothing_to_collect",
+  "battles": 0
+ },
+ "5655": {
+  "name": "NBL Youth League & NBL Challenger League - Den Bosch",
+  "date": "2026-09-26",
+  "status": "collected",
+  "battles": 22
+ },
+ "5699": {
+  "name": "JDSF Breaking Block Battle Series 2026 - Middle East Block",
+  "date": "2026-09-22",
+  "status": "collected",
+  "battles": 27
+ },
+ "5685": {
+  "name": "Breaking K Series - 2026 Stage 2",
+  "date": "2026-09-20",
+  "status": "collected",
+  "battles": 68
+ },
+ "5452": {
+  "name": "Flavourama Vol. 18",
+  "date": "2026-09-05",
+  "status": "nothing_to_collect",
+  "battles": 0
+ },
+ "5470": {
+  "name": "Soul Cypher Swiss 2026",
+  "date": "2026-09-05",
+  "status": "nothing_to_collect",
+  "battles": 0
+ },
+ "5353": {
+  "name": "Unbreakable 2026",
+  "date": "2026-09-04",
+  "status": "collected",
+  "battles": 61
+ },
+ "5245": {
+  "name": "The World Battle 2026 | URB-X",
+  "date": "2026-08-30",
+  "status": "collected",
+  "battles": 93
+ },
+ "5654": {
+  "name": "2026 Youth Breaking Championships: Grand Finals",
+  "date": "2026-08-28",
+  "status": "pending"
+ },
+ "5634": {
+  "name": "3vs3 Swiss Breaking Crew Championship 2026",
+  "date": "2026-08-23",
+  "status": "pending"
+ },
+ "5649": {
+  "name": "Break Battle X - NBL 3",
+  "date": "2026-08-22",
+  "status": "pending"
+ },
+ "5344": {
+  "name": "UK B-Boy Championships - World Finals, 30th Anniversary",
+  "date": "2026-08-16",
+  "status": "pending"
+ },
+ "5642": {
+  "name": "Infinite Smoke @ The Notorious IBE 2026",
+  "date": "2026-08-09",
+  "status": "pending"
+ },
+ "5620": {
+  "name": "FUJIFILM instax™ Undisputed IBE",
+  "date": "2026-08-07",
+  "status": "pending"
+ },
+ "5342": {
+  "name": "Silverback Europe 2026 ✘ Cypher Town Hip-Hop festival",
+  "date": "2026-07-30",
+  "status": "pending"
+ },
+ "5358": {
+  "name": "German Breaking Championships 2026",
+  "date": "2026-07-26",
+  "status": "pending"
+ },
+ "5633": {
+  "name": "WDSF 3vs3 台灣選拔",
+  "date": "2026-07-26",
+  "status": "pending"
+ },
+ "5193": {
+  "name": "The Legits Blast 2026 presents Outbreak Europe 2026",
+  "date": "2026-07-19",
+  "status": "pending"
+ },
+ "5354": {
+  "name": "Molde Dansefestival 2026",
+  "date": "2026-07-04",
+  "status": "pending"
+ },
+ "5619": {
+  "name": "Breaking K Series - 2026 Stage 1",
+  "date": "2026-06-27",
+  "status": "pending"
+ },
+ "5567": {
+  "name": "FUJIFILM instax™ Undisputed Kyoto",
+  "date": "2026-06-20",
+  "status": "pending"
+ },
+ "5614": {
+  "name": "Championnat de France de Breaking 2026",
+  "date": "2026-06-20",
+  "status": "pending"
+ },
+ "5440": {
+  "name": "Find your Flow Festival 2026",
+  "date": "2026-06-18",
+  "status": "pending"
+ },
+ "5447": {
+  "name": "DNA Festival 2026",
+  "date": "2026-06-14",
+  "status": "pending"
+ },
+ "5269": {
+  "name": "World Kidz Breaking Champion 2026",
+  "date": "2026-05-24",
+  "status": "pending"
+ },
+ "5508": {
+  "name": "NBL Youth League Eindhoven (Urban Dansdagen)",
+  "date": "2026-05-23",
+  "status": "pending"
+ },
+ "5596": {
+  "name": "Red Bull BC One Cypher Italy 2026",
+  "date": "2026-05-23",
+  "status": "pending"
+ },
+ "5182": {
+  "name": "Check The Style World Final 2026",
+  "date": "2026-05-21",
+  "status": "pending"
+ },
+ "5499": {
+  "name": "Le Championnat Canadien 2026",
+  "date": "2026-05-16",
+  "status": "pending"
+ },
+ "5574": {
+  "name": "Breaking K Crew Battle",
+  "date": "2026-05-16",
+  "status": "pending"
+ },
+ "5566": {
+  "name": "bruTALA Dance Trophy",
+  "date": "2026-04-19",
+  "status": "pending"
+ },
+ "5437": {
+  "name": "Red Bull BC One Cypher Austria 2026",
+  "date": "2026-04-18",
+  "status": "pending"
+ },
+ "5477": {
+  "name": "Level Up - Breaking Battle Series",
+  "date": "2026-04-18",
+  "status": "pending"
+ },
+ "5413": {
+  "name": "Streetdance Battle Series 2026 - Vol. 1",
+  "date": "2026-04-11",
+  "status": "pending"
+ },
+ "5404": {
+  "name": "Red Bull BC One Cypher Liège 2026",
+  "date": "2026-03-28",
+  "status": "pending"
+ },
+ "5350": {
+  "name": "ROCK HARDER",
+  "date": "2026-03-22",
+  "status": "pending"
+ },
+ "5355": {
+  "name": "CDance Battle Vol 8",
+  "date": "2026-03-21",
+  "status": "pending"
+ },
+ "5435": {
+  "name": "FUJIFILM instax™ Undisputed Tokyo World Final 2026",
+  "date": "2026-03-21",
+  "status": "pending"
+ },
+ "5439": {
+  "name": "Break2Future 2026",
+  "date": "2026-03-15",
+  "status": "pending"
+ },
+ "5479": {
+  "name": "HSPS Croatian National Breaking Championship 2026",
+  "date": "2026-03-07",
+  "status": "pending"
+ },
+ "5421": {
+  "name": "7th All Japan National Championships 2026",
+  "date": "2026-03-01",
+  "status": "pending"
+ },
+ "5416": {
+  "name": "PowerMadness",
+  "date": "2026-02-28",
+  "status": "pending"
+ },
+ "5364": {
+  "name": "FUJIFILM instax™ Undisputed New Delhi",
+  "date": "2026-01-31",
+  "status": "pending"
+ },
+ "5366": {
+  "name": "NBB – National Breaking Battle 2025 (El Salvador)",
+  "date": "2025-12-27",
+  "status": "pending"
+ },
+ "5067": {
+  "name": "Dubai Open Breaking 2025",
+  "date": "2025-12-20",
+  "status": "pending"
+ },
+ "5248": {
+  "name": "The World Battle Fukuoka - Kurume City - Japan",
+  "date": "2025-12-14",
+  "status": "pending"
+ },
+ "5351": {
+  "name": "Battle BBoy & BGirl France 2025",
+  "date": "2025-12-13",
+  "status": "pending"
+ },
+ "5025": {
+  "name": "Streetdance Battle Series 2025 – Vol. 7",
+  "date": "2025-12-06",
+  "status": "pending"
+ },
+ "5287": {
+  "name": "FUJIFILM instax™ Undisputed Cape Town",
+  "date": "2025-12-06",
+  "status": "pending"
+ },
+ "5352": {
+  "name": "Solothurner Tanztage 2025",
+  "date": "2025-12-05",
+  "status": "pending"
+ },
+ "5294": {
+  "name": "Street Disciples",
+  "date": "2025-11-30",
+  "status": "pending"
+ },
+ "5317": {
+  "name": "NBL Master Event 2025",
+  "date": "2025-11-29",
+  "status": "pending"
+ },
+ "5331": {
+  "name": "JDSF Breaking Japan Open",
+  "date": "2025-11-29",
+  "status": "pending"
+ },
+ "5313": {
+  "name": "Snipes Beyond Doubt",
+  "date": "2025-11-23",
+  "status": "pending"
+ },
+ "5329": {
+  "name": "Breaking K Series - 2025 Final",
+  "date": "2025-11-23",
+  "status": "pending"
+ },
+ "5345": {
+  "name": "ZSPS Prvenstvo Grada Zagreba",
+  "date": "2025-11-23",
+  "status": "pending"
+ },
+ "4587": {
+  "name": "Castle Rock Jam & Battle 2025",
+  "date": "2025-11-22",
+  "status": "pending"
+ },
+ "5340": {
+  "name": "Le F2BO",
+  "date": "2025-11-22",
+  "status": "pending"
+ },
+ "5280": {
+  "name": "Urban Essentials",
+  "date": "2025-11-17",
+  "status": "pending"
+ },
+ "5130": {
+  "name": "Freestyle Session World Finals 2025",
+  "date": "2025-11-16",
+  "status": "pending"
+ },
+ "5311": {
+  "name": "Youth Breaking Championships: 2025 Grand Finals",
+  "date": "2025-11-14",
+  "status": "pending"
+ },
+ "5197": {
+  "name": "Enter the Circle 2025",
+  "date": "2025-11-01",
+  "status": "pending"
+ },
+ "5252": {
+  "name": "JDSF Breaking Block Battle Series 2025 - South Block",
+  "date": "2025-11-01",
+  "status": "pending"
+ },
+ "5304": {
+  "name": "Super Kidz",
+  "date": "2025-10-31",
+  "status": "pending"
+ },
+ "5178": {
+  "name": "Battle of the South 2025",
+  "date": "2025-10-30",
+  "status": "pending"
+ },
+ "5244": {
+  "name": "Freestyle Session France",
+  "date": "2025-10-26",
+  "status": "pending"
+ },
+ "5251": {
+  "name": "JDSF Breaking Block Battle Series 2025 - North Block",
+  "date": "2025-10-26",
+  "status": "pending"
+ },
+ "4973": {
+  "name": "DPC Jam World Final 2025",
+  "date": "2025-10-25",
+  "status": "pending"
+ },
+ "5270": {
+  "name": "Le Mois du HipHop - 4th Edition",
+  "date": "2025-10-25",
+  "status": "pending"
+ },
+ "5255": {
+  "name": "The 106 National Sports Festival - Breaking Competition",
+  "date": "2025-10-17",
+  "status": "pending"
+ },
+ "5225": {
+  "name": "DNA Festival & Battle of the Year Weekender 2025",
+  "date": "2025-10-12",
+  "status": "pending"
+ },
+ "5250": {
+  "name": "JDSF Breaking Block Battle Series 2025 - Middle East Block",
+  "date": "2025-10-12",
+  "status": "pending"
+ },
+ "5272": {
+  "name": "SPT 30 On Beat Battle & P.O.W",
+  "date": "2025-10-11",
+  "status": "pending"
+ },
+ "4932": {
+  "name": "Unbreakable 2025 - 20 year anniversary",
+  "date": "2025-10-05",
+  "status": "pending"
+ },
+ "5249": {
+  "name": "JDSF Breaking Block Battle Series 2025 - Middle West Block",
+  "date": "2025-09-28",
+  "status": "pending"
+ },
+ "5219": {
+  "name": "Breaking K Series - 2025 Stage 2",
+  "date": "2025-09-27",
+  "status": "pending"
+ },
+ "5172": {
+  "name": "Battle of the Year 2025 World Final",
+  "date": "2025-09-21",
+  "status": "pending"
+ },
+ "5224": {
+  "name": "The Freshest Prince:ess of Austria 2025",
+  "date": "2025-09-21",
+  "status": "pending"
+ },
+ "5207": {
+  "name": "Swiss Breaking Championship 2025",
+  "date": "2025-09-20",
+  "status": "pending"
+ },
+ "5023": {
+  "name": "Streetdance Battle Series 2025 – Vol. 5",
+  "date": "2025-09-13",
+  "status": "pending"
+ },
+ "5015": {
+  "name": "Flavourama Vol. 17",
+  "date": "2025-09-04",
+  "status": "pending"
+ },
+ "4842": {
+  "name": "The World Battle 2025",
+  "date": "2025-08-30",
+  "status": "pending"
+ },
+ "4933": {
+  "name": "UK B-Boy Championships 2025",
+  "date": "2025-08-23",
+  "status": "pending"
+ },
+ "5210": {
+  "name": "FUJIFILM instax™ Undisputed x IBE",
+  "date": "2025-08-17",
+  "status": "pending"
+ },
+ "5214": {
+  "name": "Infinite Smoke @ The Notorious IBE 2025",
+  "date": "2025-08-17",
+  "status": "pending"
+ },
+ "5129": {
+  "name": "Move For Freedom 2025",
+  "date": "2025-08-03",
+  "status": "pending"
+ },
+ "4903": {
+  "name": "German Breaking Championships 2025",
+  "date": "2025-08-02",
+  "status": "pending"
+ },
+ "4954": {
+  "name": "Cypher Town ✘ Silverback Europe",
+  "date": "2025-08-01",
+  "status": "pending"
+ },
+ "5217": {
+  "name": "AAU Junior Olympic Games - BREAKING",
+  "date": "2025-07-25",
+  "status": "pending"
+ },
+ "4832": {
+  "name": "The Legits Blast 2025 presents Outbreak Europe 2025",
+  "date": "2025-07-24",
+  "status": "pending"
+ },
+ "5200": {
+  "name": "AAU Breaking Super Regionals 2",
+  "date": "2025-07-20",
+  "status": "pending"
+ },
+ "5037": {
+  "name": "Castle Rock Jam - Vol. 6 - Summer Edition",
+  "date": "2025-07-19",
+  "status": "pending"
+ },
+ "5212": {
+  "name": "LoneStar Breaking Open 2025",
+  "date": "2025-07-19",
+  "status": "pending"
+ },
+ "5157": {
+  "name": "DTV Ranking Battle 2025",
+  "date": "2025-07-06",
+  "status": "pending"
+ },
+ "5177": {
+  "name": "Molde Dansefestival 2025",
+  "date": "2025-07-05",
+  "status": "pending"
+ },
+ "5002": {
+  "name": "Streetdance Battle Series 2025 – Vol. 4",
+  "date": "2025-06-28",
+  "status": "pending"
+ },
+ "5058": {
+  "name": "Find your Flow Festival 2025",
+  "date": "2025-06-20",
+  "status": "pending"
+ },
+ "5060": {
+  "name": "Streetdance Battle Series 2025 – Vol. 3",
+  "date": "2025-06-14",
+  "status": "pending"
+ },
+ "5101": {
+  "name": "Freedom City 8 Festival",
+  "date": "2025-06-14",
+  "status": "pending"
+ },
+ "5112": {
+  "name": "FUJIFILM instax™ Undisputed Sao Paulo",
+  "date": "2025-06-14",
+  "status": "pending"
+ },
+ "4887": {
+  "name": "World Kidz Breaking Champion 2025",
+  "date": "2025-06-07",
+  "status": "pending"
+ },
+ "5171": {
+  "name": "Championnat de France de Breaking 2025",
+  "date": "2025-05-31",
+  "status": "pending"
+ },
+ "5174": {
+  "name": "Dance Explosion",
+  "date": "2025-05-31",
+  "status": "pending"
+ },
+ "5114": {
+  "name": "Break Mission x B-Side Hip-Hop Festival 2025",
+  "date": "2025-05-30",
+  "status": "pending"
+ },
+ "4881": {
+  "name": "Check The Style World Final 2025",
+  "date": "2025-05-22",
+  "status": "pending"
+ },
+ "5135": {
+  "name": "AAU Breaking Super Regionals 1",
+  "date": "2025-05-18",
+  "status": "pending"
+ },
+ "4975": {
+  "name": "Castle Rock Jam - Vol. 5 - Kids Edition",
+  "date": "2025-05-17",
+  "status": "pending"
+ },
+ "5030": {
+  "name": "Amsterdam Breaking Championships",
+  "date": "2025-05-17",
+  "status": "pending"
+ },
+ "5062": {
+  "name": "Le Championnat Breaking Quebec",
+  "date": "2025-05-17",
+  "status": "pending"
+ },
+ "5166": {
+  "name": "Breaking K Series - 2025 Stage 1",
+  "date": "2025-05-17",
+  "status": "pending"
+ },
+ "5084": {
+  "name": "DTV Ranking Battle 2025",
+  "date": "2025-05-11",
+  "status": "pending"
+ },
+ "4858": {
+  "name": "Express Yourself Battle 2025",
+  "date": "2025-05-10",
+  "status": "pending"
+ },
+ "5100": {
+  "name": "Soul Breaking 2025",
+  "date": "2025-05-10",
+  "status": "pending"
+ },
+ "5087": {
+  "name": "ATX Breaking League Event #3",
+  "date": "2025-04-27",
+  "status": "pending"
+ },
+ "5136": {
+  "name": "Rad Crew 15 Year Anniversary",
+  "date": "2025-04-19",
+  "status": "pending"
+ },
+ "5086": {
+  "name": "ATX Breaking League Event #2",
+  "date": "2025-04-13",
+  "status": "pending"
+ },
+ "5115": {
+  "name": "Dance Explosion",
+  "date": "2025-04-13",
+  "status": "pending"
+ },
+ "4959": {
+  "name": "Red Bull BC One Cypher Austria 2025",
+  "date": "2025-04-12",
+  "status": "pending"
+ },
+ "5107": {
+  "name": "ISF GYMNASIADE ZLATIBOR 2025",
+  "date": "2025-04-07",
+  "status": "pending"
+ },
+ "4789": {
+  "name": "Carinthian-X-Break 2025 - 10th Anniversary",
+  "date": "2025-04-05",
+  "status": "pending"
+ },
+ "5083": {
+  "name": "Red Bull BC One Cypher Brussels",
+  "date": "2025-04-05",
+  "status": "pending"
+ },
+ "5106": {
+  "name": "Rock Da Floor - Kids Dance Battles",
+  "date": "2025-04-05",
+  "status": "pending"
+ },
+ "5089": {
+  "name": "reVision: Lone Star Breaking League #2",
+  "date": "2025-03-30",
+  "status": "pending"
+ },
+ "4786": {
+  "name": "Austrian Breaking Cup & Streetdance Battle Series 2025 – Vol. 2",
+  "date": "2025-03-29",
+  "status": "pending"
+ },
+ "4950": {
+  "name": "FUJIFILM INSTAX Undisputed Tokyo World Final 2025",
+  "date": "2025-03-22",
+  "status": "pending"
+ },
+ "5076": {
+  "name": "HSPS Croatian National Breaking Championship 2025",
+  "date": "2025-03-22",
+  "status": "pending"
+ },
+ "5075": {
+  "name": "reVision: Lone Star Breaking League #1",
+  "date": "2025-03-20",
+  "status": "pending"
+ },
+ "5018": {
+  "name": "Groove’N’Move",
+  "date": "2025-03-16",
+  "status": "pending"
+ },
+ "5074": {
+  "name": "ATX Breaking League Event #1",
+  "date": "2025-03-16",
+  "status": "pending"
+ },
+ "5000": {
+  "name": "Streetdance Battle Series 2025 – Vol. 1",
+  "date": "2025-03-15",
+  "status": "pending"
+ },
+ "5016": {
+  "name": "PowerMadness",
+  "date": "2025-03-01",
+  "status": "pending"
+ },
+ "4999": {
+  "name": "The ReUnion (Winter Jam Edition)",
+  "date": "2025-02-22",
+  "status": "pending"
+ },
+ "4956": {
+  "name": "Rock Harder",
+  "date": "2025-02-16",
+  "status": "pending"
+ },
+ "4997": {
+  "name": "6th All Japan National Championships 2025",
+  "date": "2025-02-16",
+  "status": "pending"
+ },
+ "5034": {
+  "name": "All Japan Final Qualifier",
+  "date": "2025-02-14",
+  "status": "pending"
+ },
+ "4655": {
+  "name": "BadenBreaks 2025",
+  "date": "2025-01-25",
+  "status": "pending"
+ },
+ "4896": {
+  "name": "Breaking FIDESM Absolute Championship 2025",
+  "date": "2025-01-19",
+  "status": "pending"
+ },
+ "4909": {
+  "name": "FUJIFILM INSTAX Undisputed Cape Town",
+  "date": "2025-01-18",
+  "status": "pending"
+ }
+}

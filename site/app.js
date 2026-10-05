@@ -16,7 +16,7 @@ function ago(iso) {
 
 // ---- tabs
 function showTab() {
-  const tab = ['sources', 'dataset', 'activity'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'sources';
+  const tab = ['sources', 'dataset', 'review', 'activity'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'sources';
   document.querySelectorAll('main section').forEach((s) => { s.hidden = s.id !== tab; });
   document.querySelectorAll('nav a').forEach((a) => a.classList.toggle('on', a.hash === '#' + tab));
 }
@@ -33,7 +33,7 @@ function renderStatus(status, activity) {
 
   $('#sources-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => `<tr>
     <td><a href="${esc(s.url)}">${esc(s.name)}</a></td>
-    <td data-label="Status"><span class="status ${esc(s.status)}">${STATUS_TEXT[s.status] || esc(s.status)}</span></td>
+    <td data-label="Status"><span class="status ${esc(s.status)}">${STATUS_TEXT[s.status] || esc(s.status)}</span>${s.events_pending ? `<div class="note">${s.events_pending} events waiting</div>` : ''}${s.note ? `<div class="note">${esc(s.note)}</div>` : ''}</td>
     <td data-label="Last checked">${ago(s.last_checked)}</td>
     <td data-label="Last new data">${ago(s.last_changed)}</td>
     <td data-label="Newest event">${s.newest_event ? `${esc(s.newest_event)} <span class="muted">${esc(s.newest_date || '')}</span>` : '<span class="muted">-</span>'}</td>
@@ -140,4 +140,10 @@ function scoreTables(b) {
 }
 
 Promise.all([get('data/status.json'), get('data/activity.json')]).then(([s, a]) => renderStatus(s, a));
+get('data/review.json').then((items) => {
+  $('#review-table tbody').innerHTML = items.map((r) => `<tr>
+    <td style="white-space:nowrap">${esc(r.date)}</td><td>${esc(r.event)}</td>
+    <td>${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.stage)}</a>` : esc(r.stage)}</td>
+    <td>${esc(r.reason)}</td></tr>`).join('') || '<tr><td colspan="4" class="muted">Nothing needs review.</td></tr>';
+});
 get('data/battles.json').then(setupDataset);

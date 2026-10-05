@@ -1,0 +1,40 @@
+{
+ "system": "SingleSlider",
+ "red": "Popcorn & Lil J",
+ "blue": "Lio the Warrior",
+ "winner": "Popcorn & Lil J",
+ "judges": [
+  "B",
+  "Shao",
+  "Skyline"
+ ],
+ "cells": {
+  "r1j1over": "100",
+  "r1j2over": "-41",
+  "r1j3over": "-10",
+  "r2j1over": "-100",
+  "r2j2over": "-26",
+  "r2j3over": "-21",
+  "r3j1over": "5",
+  "r3j2over": "27",
+  "r3j3over": "-8",
+  "r4j1over": "-5",
+  "r4j2over": "39",
+  "r4j3over": "15",
+  "r5j1over": "-100",
+  "r5j2over": "-50",
+  "r5j3over": "18",
+  "breaker 1 (red)": "Popcorn & Lil J",
+  "breaker 2 (blue)": "Lio the Warrior",
+  "winner": "Popcorn & Lil J",
+  "battle rounds": "5",
+  "number of judges": "3",
+  "breaker 1 round wins": "3",
+  "breaker 2 round wins": "2",
+  "breaker 1 vote count": "9",
+  "breaker 2 vote count": "6",
+  "judge 1 name": "B",
+  "judge 2 name": "Shao",
+  "judge 3 name": "Skyline"
+ }
+}

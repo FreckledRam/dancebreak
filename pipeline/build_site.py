@@ -37,8 +37,11 @@ def main() -> None:
         json.dumps({"cols": cols, "files": files, "rows": rows}, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8")
 
-    st = state.load()
     activity = json.loads(state.ACTIVITY.read_text(encoding="utf-8")) if state.ACTIVITY.exists() else []
+    review_path = store.DATA / "review.json"
+    review = json.loads(review_path.read_text(encoding="utf-8")) if review_path.exists() else []
+    (OUT / "review.json").write_text(json.dumps(review, ensure_ascii=False), encoding="utf-8")
+    st = state.load()
     status = {
         "built": state.now(),
         "battles": len(rows),
@@ -46,6 +49,7 @@ def main() -> None:
         "battles_by_source": per_source,
         "last_run": next((a["time"] for a in activity if a["kind"] == "check"), None),
         "sources": st["sources"],
+        "review": len(review),
     }
     (OUT / "status.json").write_text(json.dumps(status, ensure_ascii=False), encoding="utf-8")
     (OUT / "activity.json").write_text(json.dumps(activity, ensure_ascii=False), encoding="utf-8")

@@ -1,0 +1,41 @@
+{
+ "system": "RoundByRound",
+ "red": "Maik MD",
+ "blue": "Rico",
+ "winner": "Rico",
+ "judges": [
+  "Ibot",
+  "Marox",
+  "Primary Vic",
+  "Hynamite",
+  "Istwan"
+ ],
+ "cells": {
+  "r1j1over": "blue",
+  "r1j2over": "blue",
+  "r1j3over": "blue",
+  "r1j4over": "blue",
+  "r1j5over": "red",
+  "r2j1over": "blue",
+  "r2j2over": "blue",
+  "r2j3over": "red",
+  "r2j4over": "blue",
+  "r2j5over": "blue",
+  "breaker 1 (red)": "Maik MD",
+  "breaker 2 (blue)": "Rico",
+  "winner": "Rico",
+  "battle rounds": "2",
+  "number of judges": "5",
+  "breaker 1 round wins": "0",
+  "breaker 2 round wins": "2",
+  "breaker 1 vote count": "2",
+  "breaker 2 vote count": "8",
+  "tie rounds": "0",
+  "tie vote count": "0",
+  "judge 1 name": "Ibot",
+  "judge 2 name": "Marox",
+  "judge 3 name": "Primary Vic",
+  "judge 4 name": "Hynamite",
+  "judge 5 name": "Istwan"
+ }
+}

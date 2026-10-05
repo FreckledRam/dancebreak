@@ -1,0 +1,46 @@
+name: Check sources
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      max:
+        description: Events to collect per source
+        default: "10"
+      full:
+        description: Look at every year (backfill)
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync
+      - run: uv run pytest -q
+      - name: Check sources and collect new events
+        run: uv run python -m pipeline.check --max "${{ inputs.max || '10' }}" ${{ inputs.full && '--full' || '' }}
+      - name: Save results
+        run: |
+          git config user.name "dancebreak-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data snapshots 2>/dev/null || git add data
+          git diff --cached --quiet || git commit -m "Scheduled check: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
+
+  publish:
+    needs: check
+    uses: ./.github/workflows/pages.yml
