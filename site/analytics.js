@@ -4,7 +4,7 @@
 // Clicking a heading opens a menu: put the column in order either way, and filter it (text that it
 // contains, or a lowest and highest number). The rows left can be downloaded as a CSV.
 // csv: [[heading, fn], ...] when a column should be written as different columns than it is shown.
-function rankTable(el, pagerEl, cols, { pageSize = 50, onRow, sort, dir = -1, tools, file = 'table' } = {}) {
+function rankTable(el, pagerEl, cols, { pageSize = 50, onRow, sort, dir = -1, tools, file = 'table', title } = {}) {
   let rows = [], page = 0, sortKey = sort, sortDir = dir, openKey = null, chosen = false;    // chosen: the visitor picked the order
   const filters = {};                 // column key -> { text } (contains) or { groups, on } (ticked groups of values)
   const blank = (v) => v === null || v === undefined || v === '';
@@ -64,7 +64,7 @@ function rankTable(el, pagerEl, cols, { pageSize = 50, onRow, sort, dir = -1, to
 
   const bar = document.createElement('span');
   bar.className = 'rank-tools';
-  bar.innerHTML = '<button data-act="clear" hidden>Clear filters</button><button data-act="csv">Download CSV</button>';
+  bar.innerHTML = '<button data-act="clear" hidden>Clear filters</button><button data-act="save" class="save-as">Download as</button>';
   tools?.append(bar);
 
   function draw() {
@@ -80,22 +80,19 @@ function rankTable(el, pagerEl, cols, { pageSize = 50, onRow, sort, dir = -1, to
       pagerEl.innerHTML = pages > 1 ? `<button ${page === 0 ? 'disabled' : ''} data-go="-1">Previous</button><span>Page ${page + 1} of ${pages}</span><button ${page >= pages - 1 ? 'disabled' : ''} data-go="1">Next</button>` : '';
     }
     bar.querySelector('[data-act="clear"]').hidden = !(chosen || Object.keys(filters).length);
-    bar.querySelector('[data-act="csv"]').textContent = sorted.length === rows.length ? 'Download CSV' : `Download ${sorted.length.toLocaleString()} rows`;
+    bar.querySelector('[data-act="save"]').textContent = sorted.length === rows.length ? 'Download as' : `Download ${sorted.length.toLocaleString()} rows as`;
   }
 
   // the rows as shown (every page of them), in the order shown
-  function download() {
-    const out = cols.flatMap(([k, h, o = {}]) => o.csv || [[h, (r) => r[k]]]);
-    const lines = [out.map(([h]) => csvCell(h)).join(','), ...view().map((r) => out.map(([, fn]) => csvCell(fn(r))).join(','))];
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(new Blob(['﻿' + lines.join('\n') + '\n'], { type: 'text/csv;charset=utf-8' }));
-    link.download = `breaking_${file}_${lines.length - 1}_rows.csv`;
-    link.click();
-    URL.revokeObjectURL(link.href);
+  function download(format) {
+    const out = cols.flatMap(([k, h, o = {}]) => o.csv || [[h, (r) => r[k]]]), shown = view();
+    const data = shown.map((r) => out.map(([, fn]) => fn(r) ?? ''));
+    saveTable(format, `breaking_${file}_${data.length}_rows`, title || file, out.map(([h]) => h), data,
+      shown.length === rows.length ? '' : `filtered from ${rows.length.toLocaleString()}`);
   }
   bar.addEventListener('click', (e) => {
     const act = e.target.dataset.act;
-    if (act === 'csv') download();
+    if (act === 'save') { e.stopPropagation(); formatMenu(e.target, download); }
     if (act === 'clear') { Object.keys(filters).forEach((k) => delete filters[k]); sortKey = sort; sortDir = dir; chosen = false; page = 0; draw(); }
   });
 
@@ -324,7 +321,7 @@ get('data/analytics.json').then((A) => {
     ['events', 'Events', { num: true, tip: 'Number of events they have battled at' }],
     ['div', 'Division', { tip: 'The category they most often enter' }],
     ['to', 'Active', { fmt: years, tip: 'First and last year they appear in the dataset', csv: ACTIVE }],
-  ], { onRow: breakerDetail, tools: $('#breakers .filters'), file: 'breakers' });
+  ], { onRow: breakerDetail, tools: $('#breakers .filters'), file: 'breakers', title: 'Breaker rankings' });
   const showBreakers = () => {
     const q = $('#bq').value.trim().toLowerCase(), d = $('#bdiv .on').dataset.v;
     breakers.set(A.breakers.filter((b) => (!d || b.div === d) && (!q || b.name.toLowerCase().includes(q))));
@@ -353,7 +350,7 @@ get('data/analytics.json').then((A) => {
     ['alone', 'Lone dissent', { ...pctCell('alone'), tip: 'How often they were the only judge on their side' }],
     ['red', 'Votes for red', { ...pctCell('red'), tip: 'Share of their votes that went to the red side. 50% would be even' }],
     ['to', 'Active', { fmt: years, tip: 'First and last year they appear in the dataset', csv: ACTIVE }],
-  ], { onRow: judgeDetail, sort: 'battles', tools: $('#judges [data-view="judges"] .filters'), file: 'judges' });
+  ], { onRow: judgeDetail, sort: 'battles', tools: $('#judges [data-view="judges"] .filters'), file: 'judges', title: 'Judges' });
   const showJudges = () => { const q = $('#jq').value.trim().toLowerCase(); judges.set(A.judges.filter((j) => !q || j.name.toLowerCase().includes(q))); };
   $('#jq').oninput = showJudges;
   showJudges();
@@ -378,7 +375,7 @@ get('data/analytics.json').then((A) => {
     ['system', 'System', { fmt: (r) => `<a class="plink" href="#systems">${esc(r.system)}</a>`, tip: 'The judging system used most at this event' }],
     ['unanimous', 'Unanimous', { ...pctCell('unanimous'), tip: 'Rounds where every judge picked the same side' }],
     ['one_vote', 'One-vote', { ...pctCell('one_vote'), tip: 'Rounds decided by a single judge' }],
-  ], { onRow: eventDetail, tools: $('#events .filters'), file: 'events' });
+  ], { onRow: eventDetail, tools: $('#events .filters'), file: 'events', title: 'Events' });
   // Older events have a year and no day. Sorting uses one value for both, so they fall in with their year.
   A.events.forEach((e) => { e.when = e.date || (e.year ? String(e.year) : null); e.md = e.date ? e.date.slice(5) : null; });
   const showEvents = () => {
@@ -412,5 +409,5 @@ get('data/analytics.json').then((A) => {
     ['one_vote', 'One-vote', { ...pctCell('one_vote'), tip: 'Rounds decided by a single judge' }],
     ['red_wins', 'Red wins', { ...pctCell('red_wins'), tip: 'Share of decided battles won by the red side' }],
     ['ties', 'Ties', { num: true, tip: 'Battles that ended level' }],
-  ], { sort: 'battles', tools: $('#systems-tools'), file: 'systems' }).set(A.systems.map((s) => ({ ...s, k: s.system })));
+  ], { sort: 'battles', tools: $('#systems-tools'), file: 'systems', title: 'Judging systems' }).set(A.systems.map((s) => ({ ...s, k: s.system })));
 });

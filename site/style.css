@@ -504,3 +504,8 @@ table.rank th.filtered::after { opacity: 1; }
 .panel #scrape-nums b { font-size: 30px; white-space: nowrap; }
 .panel #scrape-nums b span { color: inherit; }
 @media (max-width: 900px) { .panel #scrape-nums { grid-template-columns: 1fr 1fr; } }
+
+/* Download as: CSV, Excel or PDF */
+#colmenu button small { float: right; color: var(--muted); font-size: 12px; font-weight: 400; }
+.save-as::after, #download-csv::after { content: " \25BE"; opacity: .6; }
+.dialog .formats { margin: 14px 0 12px; }

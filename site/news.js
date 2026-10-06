@@ -36,7 +36,7 @@
 
     const mast = `<div class="np-mast">
       <div class="np-top"><span>Vol. 1 &middot; No. ${issue}</span><span>${now.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</span><span>${news && news.updated ? `Updated ${ago(news.updated)}` : ''}</span></div>
-      <h1 class="np-name" aria-label="Break News">${letters('Break', 'a')}<i></i>${letters('News', 'b')}</h1>
+      <h1 class="np-name" aria-label="Breaking News">${letters('Breaking', 'a')}<i></i>${letters('News', 'b')}</h1>
       <div class="np-motto"><span>All the breaking that is fit to print</span><span><b>${events.length}</b> events ahead in <b>${places.length}</b> countries</span></div>
     </div>`;
 

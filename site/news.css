@@ -23,14 +23,14 @@
 .np-top span { flex: 1; }
 .np-top span:first-child { text-align: left; }
 .np-top span:last-child { text-align: right; }
-.np-name { display: flex; justify-content: center; align-items: baseline; font-family: var(--display); font-stretch: 62%; font-weight: 900; font-size: clamp(60px, 16.8vw, 204px);
+.np-name { display: flex; justify-content: center; align-items: baseline; font-family: var(--display); font-stretch: 62%; font-weight: 900; font-size: clamp(44px, 13.3vw, 164px);
   line-height: .86; letter-spacing: -.035em; text-transform: uppercase; padding: 20px 0 12px; overflow: hidden; }
 .np-name b { display: inline-block; font-weight: 900; }
 .np-name i { width: .2em; }
 .np-name .b { color: var(--yellow); }
 .np-js .np-name b { animation: np-drop .8s cubic-bezier(.2,1.25,.3,1) both; animation-delay: calc(var(--i) * 55ms); }
 .np-js .np-name.set b { animation: none; transform: none; }
-.np-js .np-name .b { animation-delay: calc(300ms + var(--i) * 55ms); }
+.np-js .np-name .b { animation-delay: calc(460ms + var(--i) * 55ms); }
 @keyframes np-drop { from { transform: translateY(105%) rotate(6deg); } }
 .np-motto { align-items: baseline; padding: 12px 0; border-top: 4px solid var(--fg); border-bottom: 1px solid var(--rule); }
 .np-motto span:first-child { font: 800 15px/1 var(--display); font-stretch: 80%; letter-spacing: .1em; color: var(--fg); }
@@ -38,7 +38,7 @@
 .np-empty { padding: 60px 0; text-align: center; font: 600 20px/1.4 Inter, sans-serif; color: var(--muted); }
 
 /* ---- the ticker: a yellow tape of what is next */
-.np-ticker { display: flex; align-items: stretch; margin: 22px calc(50% - 50vw) 0; background: var(--yellow); color: var(--ink); transform: rotate(-.6deg); box-shadow: 0 14px 30px rgb(0 0 0 / .45); }
+.np-ticker { display: flex; align-items: stretch; margin: 22px 0 0; background: var(--yellow); color: var(--ink); transform: rotate(-.6deg); box-shadow: 0 14px 30px rgb(0 0 0 / .45); }
 .np-ticker strong { flex: none; display: flex; align-items: center; padding: 0 20px; background: var(--ink); color: var(--yellow); font: 900 15px/1 var(--display); font-stretch: 75%; letter-spacing: .06em; text-transform: uppercase; }
 .np-ticker .belt { overflow: hidden; flex: 1; }
 .np-ticker .belt > div { display: flex; width: max-content; animation: np-belt 70s linear infinite; }
