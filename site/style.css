@@ -433,3 +433,5 @@ p.note { margin-top: 24px; line-height: 1.65; }
 .panel #headline-sub { margin-top: 8px; }
 .panel table { margin-top: 24px; }
 #dataset h1.oneline { margin-bottom: 4px; }
+th[title] { cursor: help; }
+th[data-sort][title], table.rank th[title] { cursor: pointer; }

@@ -187,16 +187,16 @@ get('data/analytics.json').then((A) => {
   A.breakers.forEach((b) => { NAMES[b.k] = b.name; });
   A.breakers.forEach((b) => { b.rank = b.n >= A.min_battles ? ++rank : null; b.pct = b.w + b.l ? Math.round((100 * b.w) / (b.w + b.l)) : null; });
   const breakers = rankTable($('#breakers-table'), $('#breakers-pager'), [
-    ['rank', '#', { num: true }],
-    ['name', 'Breaker', { fmt: (r) => `<b>${esc(r.name)}</b>` }],
-    ['elo', 'Elo', { num: true, fmt: (r) => `<b>${r.elo}</b>` }],
-    ['peak', 'Peak', { num: true }],
-    ['w', 'Won–lost', { num: true, fmt: (r) => `${r.w}–${r.l}` }],
-    ['pct', 'Win %', pctCell('pct')],
+    ['rank', '#', { num: true, tip: 'Position by Elo rating, once a breaker has 5 battles' }],
+    ['name', 'Breaker', { fmt: (r) => `<b>${esc(r.name)}</b>`, tip: 'The name used most often for this breaker' }],
+    ['elo', 'Elo', { num: true, fmt: (r) => `<b>${r.elo}</b>`, tip: 'Skill rating today. Everyone starts at 1500; beating stronger breakers raises it more' }],
+    ['peak', 'Peak', { num: true, tip: 'The highest Elo rating they have reached' }],
+    ['w', 'Won–lost', { num: true, fmt: (r) => `${r.w}–${r.l}`, tip: 'Battles won and battles lost' }],
+    ['pct', 'Win %', { ...pctCell('pct'), tip: 'Share of their battles that they won' }],
     ['vote_share', 'Judge votes %', { ...pctCell('vote_share'), tip: 'Share of all judge votes in their battles that went their way' }],
-    ['events', 'Events', { num: true }],
-    ['div', 'Division'],
-    ['to', 'Active', { fmt: years }],
+    ['events', 'Events', { num: true, tip: 'Number of events they have battled at' }],
+    ['div', 'Division', { tip: 'The category they most often enter' }],
+    ['to', 'Active', { fmt: years, tip: 'First and last year they appear in the dataset' }],
   ], { onRow: breakerDetail });
   const showBreakers = () => {
     const q = $('#bq').value.trim().toLowerCase(), d = $('#bdiv .on').dataset.v;
@@ -219,13 +219,13 @@ get('data/analytics.json').then((A) => {
   };
 
   const judges = rankTable($('#judges-table'), $('#judges-pager'), [
-    ['name', 'Judge', { fmt: (r) => `<b>${esc(r.name)}</b>` }],
-    ['battles', 'Battles', { num: true, fmt: (r) => r.battles.toLocaleString() }],
-    ['events', 'Events', { num: true }],
-    ['with', 'With majority', pctCell('with')],
-    ['alone', 'Lone dissent', pctCell('alone')],
-    ['red', 'Votes for red', pctCell('red')],
-    ['to', 'Active', { fmt: years }],
+    ['name', 'Judge', { fmt: (r) => `<b>${esc(r.name)}</b>`, tip: 'The name used most often for this judge' }],
+    ['battles', 'Battles', { num: true, fmt: (r) => r.battles.toLocaleString(), tip: 'Battles they sat on the panel for' }],
+    ['events', 'Events', { num: true, tip: 'Events they have judged at' }],
+    ['with', 'With majority', { ...pctCell('with'), tip: 'How often their vote matched most of the panel' }],
+    ['alone', 'Lone dissent', { ...pctCell('alone'), tip: 'How often they were the only judge on their side' }],
+    ['red', 'Votes for red', { ...pctCell('red'), tip: 'Share of their votes that went to the red side. 50% would be even' }],
+    ['to', 'Active', { fmt: years, tip: 'First and last year they appear in the dataset' }],
   ], { onRow: judgeDetail, sort: 'battles' });
   const showJudges = () => { const q = $('#jq').value.trim().toLowerCase(); judges.set(A.judges.filter((j) => !q || j.name.toLowerCase().includes(q))); };
   $('#jq').oninput = showJudges;
@@ -241,15 +241,15 @@ get('data/analytics.json').then((A) => {
   window.ANALYTICS = A;
 
   const events = rankTable($('#events-table'), $('#events-pager'), [
-    ['name', 'Event', { fmt: (r) => `<b>${esc(r.name)}</b>` }],
-    ['date', 'Date', { fmt: (r) => `<span style="white-space:nowrap">${r.date || r.year || '<span class="muted">-</span>'}</span>` }],
+    ['name', 'Event', { fmt: (r) => `<b>${esc(r.name)}</b>`, tip: 'The name of the competition' }],
+    ['date', 'Date', { fmt: (r) => `<span style="white-space:nowrap">${r.date || r.year || '<span class="muted">-</span>'}</span>`, tip: 'When the event took place' }],
     ['field', 'Field', { num: true, tip: 'Average Elo today of the eight highest-rated breakers who entered' }],
-    ['battles', 'Battles', { num: true }],
-    ['breakers', 'Breakers', { num: true }],
-    ['judges', 'Judges', { num: true }],
-    ['system', 'System', { fmt: (r) => `<a class="plink" href="#systems">${esc(r.system)}</a>` }],
-    ['unanimous', 'Unanimous', pctCell('unanimous')],
-    ['one_vote', 'One-vote', pctCell('one_vote')],
+    ['battles', 'Battles', { num: true, tip: '1 vs 1 battles recorded at this event' }],
+    ['breakers', 'Breakers', { num: true, tip: 'Different breakers who battled' }],
+    ['judges', 'Judges', { num: true, tip: 'Different judges on the panel' }],
+    ['system', 'System', { fmt: (r) => `<a class="plink" href="#systems">${esc(r.system)}</a>`, tip: 'The judging system used most at this event' }],
+    ['unanimous', 'Unanimous', { ...pctCell('unanimous'), tip: 'Rounds where every judge picked the same side' }],
+    ['one_vote', 'One-vote', { ...pctCell('one_vote'), tip: 'Rounds decided by a single judge' }],
   ], { onRow: eventDetail });
   const showEvents = () => {
     const q = $('#eq').value.trim().toLowerCase(), src = $('#esrc .on').dataset.v;
@@ -272,15 +272,15 @@ get('data/analytics.json').then((A) => {
   };
 
   rankTable($('#systems-table'), null, [
-    ['system', 'System', { fmt: (r) => `<b>${esc(r.system)}</b>` }],
-    ['battles', 'Battles', { num: true, fmt: (r) => r.battles.toLocaleString() }],
-    ['events', 'Events', { num: true }],
-    ['to', 'Years', { fmt: years }],
-    ['judges', 'Judges', { num: true }],
-    ['rounds', 'Rounds', { num: true }],
-    ['unanimous', 'Unanimous', pctCell('unanimous')],
-    ['one_vote', 'One-vote', pctCell('one_vote')],
-    ['red_wins', 'Red wins', pctCell('red_wins')],
-    ['ties', 'Ties', { num: true }],
+    ['system', 'System', { fmt: (r) => `<b>${esc(r.system)}</b>`, tip: 'The judging system' }],
+    ['battles', 'Battles', { num: true, fmt: (r) => r.battles.toLocaleString(), tip: 'Battles scored with this system' }],
+    ['events', 'Events', { num: true, tip: 'Events that used this system' }],
+    ['to', 'Years', { fmt: years, tip: 'First and last year it appears in the dataset' }],
+    ['judges', 'Judges', { num: true, tip: 'Average number of judges per battle' }],
+    ['rounds', 'Rounds', { num: true, tip: 'Average number of rounds per battle' }],
+    ['unanimous', 'Unanimous', { ...pctCell('unanimous'), tip: 'Rounds where every judge picked the same side' }],
+    ['one_vote', 'One-vote', { ...pctCell('one_vote'), tip: 'Rounds decided by a single judge' }],
+    ['red_wins', 'Red wins', { ...pctCell('red_wins'), tip: 'Share of decided battles won by the red side' }],
+    ['ties', 'Ties', { num: true, tip: 'Battles that ended level' }],
   ], { sort: 'battles' }).set(A.systems.map((s) => ({ ...s, k: s.system })));
 });

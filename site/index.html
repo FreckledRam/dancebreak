@@ -8,7 +8,7 @@
 <meta name="color-scheme" content="dark">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
 <script>
   // always load the newest styles and script instead of a copy the browser saved earlier
   document.write('<link rel="stylesheet" href="style.css?v=' + Date.now() + '"><link rel="stylesheet" href="home.css?v=' + Date.now() + '"><link rel="stylesheet" href="news.css?v=' + Date.now() + '">');
@@ -172,7 +172,7 @@
     </div>
     <div class="scroll">
       <table id="battles">
-        <thead><tr><th data-sort="year">Date</th><th data-sort="event">Event</th><th data-sort="stage">Stage</th><th data-sort="red">Red</th><th data-sort="blue">Blue</th><th data-sort="system">System</th><th data-sort="source">Source</th></tr></thead>
+        <thead><tr><th title="When the event took place" data-sort="year">Date</th><th title="The competition the battle was part of" data-sort="event">Event</th><th title="The category and round of the bracket" data-sort="stage">Stage</th><th title="The breaker on the red side. Bold means they won" data-sort="red">Red</th><th title="The breaker on the blue side. Bold means they won" data-sort="blue">Blue</th><th title="The judging system used to score the battle" data-sort="system">System</th><th title="The site the scores were collected from" data-sort="source">Source</th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
@@ -191,7 +191,7 @@
       <h1 id="headline">&nbsp;</h1>
       <p class="sub" id="headline-sub">&nbsp;</p>
       <table id="sources-table" class="stack">
-        <thead><tr><th>Scraper</th><th>Status</th><th>Last new data</th><th>Newest event</th><th class="num">Battles</th></tr></thead>
+        <thead><tr><th title="The site this scraper reads">Scraper</th><th title="Whether its last run worked">Status</th><th title="When this scraper last found a battle it did not already have">Last new data</th><th title="The most recent event collected from this site">Newest event</th><th title="Battles in the dataset that came from this site" class="num">Battles</th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
@@ -200,7 +200,7 @@
       <h2>Queue</h2>
       <p class="muted" id="queue-note"></p>
       <table id="queue-table" class="stack" hidden>
-        <thead><tr><th>Scraper</th><th>Status</th><th>Progress</th><th>Time left</th></tr></thead>
+        <thead><tr><th title="The site this scraper reads">Scraper</th><th title="What this scraper is doing now">Status</th><th title="Events collected so far out of the events found">Progress</th><th title="Estimated time until this scraper has caught up">Time left</th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
@@ -208,7 +208,7 @@
     <div class="panel">
       <h2>Recent runs</h2>
       <table id="runs-table">
-        <thead><tr><th>When</th><th>Result</th><th class="num">Events added</th><th class="num">Battles added</th></tr></thead>
+        <thead><tr><th title="When the collection run started">When</th><th title="Whether the run finished, and any problem it hit">Result</th><th title="New events the run put in the dataset" class="num">Events added</th><th title="New battles the run put in the dataset" class="num">Battles added</th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
@@ -222,7 +222,7 @@
     <h2 id="problems">Collection problems</h2>
     <p class="sub">Stages the scraper could not collect cleanly.</p>
     <table id="review-table">
-      <thead><tr><th>Event</th><th>Stage</th><th>Problem</th><th></th></tr></thead>
+      <thead><tr><th title="The event the problem is in">Event</th><th title="The category and round that could not be collected">Stage</th><th title="Why the scraper could not collect this stage cleanly">Problem</th><th></th></tr></thead>
       <tbody></tbody>
     </table>
     <p class="note" id="review-more"></p>

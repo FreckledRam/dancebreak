@@ -1,7 +1,7 @@
 /* News: a front page. Everything is scoped under .np. */
 .np {
   --yellow: #ffd60a; --pink: #ff4d8d; --lime: #b8f321; --violet: #8b5cf6; --orange: #ff7a1a; --paper: #f2ead8; --ink: #0e0f11;
-  --display: "Archivo", Inter, sans-serif; --serif: "Instrument Serif", Georgia, serif;
+  --display: "Archivo", Inter, sans-serif;
 }
 .np h1, .np h2, .np h3, .np h4, .np p, .np figure, .np ol { margin: 0; padding: 0; }
 .np a { color: inherit; }
@@ -32,9 +32,9 @@
 .np-js .np-name .b { animation-delay: calc(300ms + var(--i) * 55ms); }
 @keyframes np-drop { to { transform: none; } }
 .np-motto { align-items: baseline; padding: 12px 0; border-top: 4px solid var(--fg); border-bottom: 1px solid var(--rule); }
-.np-motto span:first-child { font: italic 400 22px/1 var(--serif); letter-spacing: 0; text-transform: none; color: var(--fg); }
+.np-motto span:first-child { font: 800 15px/1 var(--display); font-stretch: 80%; letter-spacing: .1em; color: var(--fg); }
 .np-motto b { color: var(--yellow); font-weight: 700; }
-.np-empty { padding: 60px 0; text-align: center; font: italic 26px var(--serif); color: var(--muted); }
+.np-empty { padding: 60px 0; text-align: center; font: 600 20px/1.4 Inter, sans-serif; color: var(--muted); }
 
 /* ---- the ticker: a yellow tape of what is next */
 .np-ticker { display: flex; align-items: stretch; margin: 22px calc(50% - 50vw) 0; background: var(--yellow); color: var(--ink); transform: rotate(-.6deg); box-shadow: 0 14px 30px rgb(0 0 0 / .45); }
@@ -45,7 +45,7 @@
 .np-ticker a { display: flex; align-items: baseline; gap: 10px; padding: 13px 26px 12px 0; white-space: nowrap; font-weight: 700; font-size: 15px; }
 .np-ticker a::after { content: ""; align-self: center; width: 8px; height: 8px; margin-left: 16px; background: var(--ink); transform: rotate(45deg); }
 .np-ticker a b { font: 900 15px/1 var(--display); font-stretch: 75%; text-transform: uppercase; }
-.np-ticker a em { font: italic 17px/1 var(--serif); opacity: .75; }
+.np-ticker a em { font-style: normal; font-weight: 500; font-size: 14px; opacity: .7; }
 .np-ticker a:hover { text-decoration: underline; }
 @keyframes np-belt { to { transform: translateX(-50%); } }
 
@@ -73,13 +73,13 @@
 .np-count .clock i { font-style: normal; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .7; }
 .np-count h3 { position: relative; margin-top: 0; font: 900 clamp(26px, 3vw, 36px)/1 var(--display); font-stretch: 70%; text-wrap: balance; }
 .np-count p { margin: 10px 0 24px; font-weight: 500; opacity: .9; }
-.np-count em { align-self: flex-start; margin-top: auto; font: italic 20px/1 var(--serif); border-bottom: 2px solid var(--yellow); padding-bottom: 3px; }
+.np-count em { align-self: flex-start; margin-top: auto; font: 700 14px/1 Inter, sans-serif; letter-spacing: .02em; border-bottom: 2px solid var(--yellow); padding-bottom: 4px; }
 
 /* ---- section heads: a label on a slab, then a rule */
 .np-h { display: flex; align-items: center; gap: 16px; margin: 76px 0 26px; }
 .np-h h2 { flex: none; padding: 9px 16px 7px; background: var(--fg); color: var(--ink); font: 900 20px/1 var(--display); font-stretch: 72%; letter-spacing: .02em; text-transform: uppercase; transform: rotate(-1.2deg); }
 .np-h i { flex: 1; height: 0; border-top: 4px solid var(--fg); border-bottom: 1px solid var(--fg); padding-top: 3px; }
-.np-h span { flex: none; font: italic 19px/1 var(--serif); color: var(--muted); }
+.np-h span { flex: none; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
 /* ---- posters: one loud card per event */
 .np-posters { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
@@ -125,7 +125,7 @@
 .np-wire a { display: grid; grid-template-columns: 34px 1fr; padding: 13px 0; transition: transform .25s; }
 .np-wire a::before { content: counter(wire, decimal-leading-zero); grid-row: span 2; font: 900 20px/1.1 var(--display); font-stretch: 70%; color: var(--red); }
 .np-wire a:hover { transform: translateX(6px); }
-.np-wire b { font: 400 20px/1.14 var(--serif); letter-spacing: -.005em; }
+.np-wire b { font: 700 16px/1.28 Inter, sans-serif; letter-spacing: -.01em; }
 .np-wire a:hover b { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
 .np-wire span { margin-top: 5px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .6; }
 
