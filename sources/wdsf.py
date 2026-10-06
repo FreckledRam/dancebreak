@@ -18,6 +18,7 @@ from .and8 import FADER_KEYS, ParseError, _number, _signed
 BASE = "https://www.worlddancesport.org"
 BREAKING = 104                      # the site's discipline id
 FIRST = (2018, 1)
+ALWAYS_LISTS_EVENTS = False      # a quiet three months can have no breaking events
 SYSTEM_BY_KEYS = {
     frozenset(): "RoundByRound",
     frozenset({"phys", "arti", "inte"}): "Threefold",

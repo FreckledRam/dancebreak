@@ -268,3 +268,14 @@ button.primary:disabled { opacity: .6; color: #06231f; }
 #review h2 { margin-top: 28px; }
 
 #sources-table td:first-child, #queue-table td:first-child { white-space: nowrap; }
+
+/* queue: the scraper being worked on stands out, the ones waiting sit back */
+#queue-table span.scraping { color: var(--ok); font-weight: 600; }
+#queue-table tr.queued td { opacity: .55; }
+#queue-table tr.scraping .bar i { background-color: var(--ok); }
+
+/* long event names stay on one line and fade out at the end; hover shows the full name */
+.clip { max-width: 300px; }
+.clip > span { display: block; white-space: nowrap; overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent); }
+@media (max-width: 680px) { .clip { max-width: 60vw; } }

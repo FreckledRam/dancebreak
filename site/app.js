@@ -129,7 +129,7 @@ function renderStatus(status, activity) {
     <td><b><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a></b></td>
     <td data-label="Status"><div><span class="status ${cls}">${label}</span>${why ? `<div class="note" ${s.detail ? `title="${esc(s.detail)}"` : ''}>${esc(why)}</div>` : ''}</div></td>
     <td data-label="Last new data">${ago(s.last_changed)}</td>
-    <td data-label="Newest event">${s.newest_event ? `<div>${esc(s.newest_event)}<small>${esc(s.newest_date || '')}</small></div>` : '<span class="muted">-</span>'}</td>
+    <td data-label="Newest event">${s.newest_event ? `<div class="clip"><span title="${esc(s.newest_event)}">${esc(s.newest_event)}</span><small>${esc(s.newest_date || '')}</small></div>` : '<span class="muted">-</span>'}</td>
     <td data-label="Battles" class="num">${(status.battles_by_source[key] || 0).toLocaleString()}</td>
   </tr>`;
   }).join('');
@@ -152,15 +152,17 @@ function renderStatus(status, activity) {
         : state === 'stopped' ? '<span class="muted">Not until it runs again</span>'
           : state === 'error' ? '<span class="muted">Not until the error is fixed</span>'
             : `About ${span(n * status.hours_between_runs)}`;
-    return `<tr>
+    // scraping: being worked on right now. queued: has events waiting for a run.
+    const stage = live ? 'scraping' : q.waiting ? 'queued' : 'idle';
+    const stageLabel = { scraping: '<span class="scraping">Scraping</span>', queued: 'Queued', idle: '<span class="muted">-</span>' }[stage];
+    return `<tr class="${stage}">
     <td>${esc(s.name)}</td>
+    <td data-label="Status">${stageLabel}</td>
     <td data-label="Progress">${progressCell(key, q, done, pct)}</td>
-    <td data-label="Cleared in">${cleared}</td>
+    <td data-label="Time left">${cleared}</td>
   </tr>`;
   }).join('');
 
-  const seeded = status.battles_by_source.seed || 0;
-  $('#sources-note').textContent = seeded ? `${seeded.toLocaleString()} battles come from the original hand-collected dataset.` : '';
 
   $('#runs-table tbody').innerHTML = (status.runs || []).map((r) => `<tr>
     <td style="white-space:nowrap">${esc(new Date(r.time).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' }))}</td>
