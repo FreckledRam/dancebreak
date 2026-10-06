@@ -173,7 +173,7 @@
     const canvas = q('#h-cypher'), ctx = canvas.getContext('2d');
     const roundLabel = q('#h-round'), pips = q('#h-pips');
     pips.innerHTML = '<i></i>'.repeat(5);
-    const TAU = Math.PI * 2, TURN = 4.6, FREEZE = 0.9;
+    const TAU = Math.PI * 2, TURN = 5.8, FREEZE = 0.9, PARTS = 4;
     const RED = css('--red') || '#e5484d', BLUE = css('--blue') || '#3e7fe6', FG = css('--fg') || '#f1f2f4';
     let W = 0, H = 0, seed = 7;
     const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
@@ -198,12 +198,68 @@
           feet: [[0.5 * Math.sin(b / 2) - 0.2 + 0.25 * Math.max(0, sway), 0.62 * Math.max(0, sway)], [0.5 * Math.sin(b / 2) + 0.2 - 0.25 * Math.max(0, -sway), 0.62 * Math.max(0, -sway)]],
         }, face + 0.5 * Math.sin(t * 0.9));
       },
+      // standing: a wide step out to each side, the arms opening with it and closing as the feet come back
+      sidestep(t, face) {
+        const b = t * 5.4, out = Math.sin(b), open = Math.abs(out);
+        return facingPose({
+          c: [0.75 * out, 0], rot: 0.18 * out, head: [0.8 * out, 0.05],
+          hands: [[0.75 * out - 0.5 - 0.45 * open, 0.15], [0.75 * out + 0.5 + 0.45 * open, 0.15]],
+          feet: [[0.75 * out - 0.18 - 0.4 * Math.max(0, -Math.cos(b)), 0.1], [0.75 * out + 0.18 + 0.4 * Math.max(0, Math.cos(b)), 0.1]],
+        }, face);
+      },
+      // standing: one foot crosses over in front of the other and the shoulders twist against it
+      crossover(t, face) {
+        const b = t * 6.8, x = Math.sin(b);
+        return facingPose({
+          c: [0, 0.18 * Math.abs(x)], rot: -0.55 * x, head: [0, 0.2 * Math.abs(x) + 0.05],
+          hands: [[-0.55 + 0.25 * x, 0.5 * x], [0.55 + 0.25 * x, -0.5 * x]],
+          feet: [[-0.2 + 0.55 * Math.max(0, x), 0.5 * Math.max(0, x)], [0.2 - 0.55 * Math.max(0, -x), 0.5 * Math.max(0, -x)]],
+        }, face + 0.9 * Math.sin(t * 1.3));
+      },
       // down on the floor: the hands stay near one spot and the body and legs walk a circle around them
       footwork(t) {
         const w = t * 5.4, c = polar(0.5, w), kick = 0.3 * Math.sin(w * 2);
         return { c, rot: w + Math.PI / 2, head: polar(0.2, w), low: 1,
           hands: [polar(0.24, w + 2.3), polar(0.24, w - 2.3)],
           feet: [add(c, polar(1.15, w + 0.45 + kick)), add(c, polar(0.95, w - 0.5 + kick))] };
+      },
+      // down on the floor: sitting back on the hands while the legs kick out one after the other
+      kicks(t, face) {
+        const b = t * 7.5, x = Math.sin(b);
+        return facingPose({
+          c: [0.1 * x, -0.1], rot: 0.25 * x, head: [0.1 * x, -0.3], low: 1,
+          hands: [[-0.55, -0.62], [0.55, -0.62]],
+          feet: [[-0.3 - 0.35 * Math.max(0, x), 0.45 + 0.95 * Math.max(0, x)], [0.3 + 0.35 * Math.max(0, -x), 0.45 + 0.95 * Math.max(0, -x)]],
+        }, face);
+      },
+      // down on the floor: crouched over one foot while the other leg sweeps a full circle around it
+      sweep(t) {
+        const w = t * 7.2;
+        return { c: [0, 0], rot: w * 0.5, head: polar(0.18, w + Math.PI), low: 1,
+          hands: [polar(0.55, w + Math.PI + 0.6), polar(0.55, w + Math.PI - 0.6)],
+          feet: [polar(1.45, w), polar(0.28, w + Math.PI)] };
+      },
+      // on the hands with the legs straddled wide, the hips swinging round and round
+      flare(t) {
+        const w = t * 8.5, c = polar(0.42, w);
+        return { c, rot: w + Math.PI / 2, head: add(c, polar(0.4, w + Math.PI)), low: 1,
+          hands: [polar(0.22, w + Math.PI + 1.1), polar(0.22, w + Math.PI - 1.1)],
+          feet: [add(c, polar(1.5, w + 0.9)), add(c, polar(1.5, w - 0.9))] };
+      },
+      // on the head: everything is stacked over one point, so from above it is a tight shape turning very fast
+      headspin(t) {
+        const w = t * 17, spread = 0.55 + 0.35 * Math.sin(t * 3.1);
+        return { c: [0, 0], rot: w, head: [0, 0], low: 0,
+          hands: [polar(0.48, w + 0.3), polar(0.48, w + Math.PI + 0.3)],
+          feet: [polar(0.4 + 0.5 * spread, w + Math.PI / 2 + spread), polar(0.4 + 0.5 * spread, w - Math.PI / 2 - spread)] };
+      },
+      // hand to hand: the body flips over in half turns, the legs whipping round after it each time
+      swipe(t) {
+        const beat = t * 2.4, step = Math.floor(beat), f = beat - step, w = (step + f * f * (3 - 2 * f)) * Math.PI;
+        const c = polar(0.25, w);
+        return { c, rot: w, head: add(c, polar(0.4, w + Math.PI / 2)), low: 1,
+          hands: [add(c, polar(0.75, w + 2.2)), add(c, polar(0.75, w + 0.95))],
+          feet: [add(c, polar(1.4, w - Math.PI / 2 - 0.35 - 0.5 * Math.sin(f * Math.PI))), add(c, polar(1.25, w - Math.PI / 2 + 0.45))] };
       },
       // spinning on the back and shoulders: the whole body turns fast with the legs flung wide in a V
       power(t) {
@@ -218,8 +274,20 @@
       { c: [0, 0], rot: 0.5, head: [0.12, 0.46], hands: [[-0.78, 0.22], [0.42, 0.6]], feet: [[-0.5, -1.15], [0.82, -0.6]], low: 1 },
       { c: [0, 0], rot: -0.9, head: [-0.4, 0.3], hands: [[-0.75, -0.1], [-0.2, 0.75]], feet: [[0.95, -0.25], [0.6, -0.95]], low: 1 },
       { c: [0, 0], rot: 0.1, head: [0, 0.5], hands: [[-0.55, 0.62], [0.55, 0.62]], feet: [[-0.9, -1.0], [0.25, -1.35]], low: 1 },
+      { c: [0, 0], rot: 1.2, head: [0.45, 0.2], hands: [[0.78, -0.15], [0.3, 0.72]], feet: [[-1.05, 0.3], [-0.7, -0.9]], low: 1 },
+      { c: [0, 0], rot: -0.3, head: [-0.1, 0.5], hands: [[-0.3, 0.78], [0.72, 0.35]], feet: [[0.2, -1.45], [-0.85, -0.75]], low: 1 },
+      { c: [0, 0], rot: 0.9, head: [0.3, -0.35], hands: [[0.82, 0.1], [0.1, -0.78]], feet: [[-1.35, 0.35], [-0.6, 1.0]], low: 1 },
+      { c: [0, 0], rot: 0, head: [0, -0.1], hands: [[-0.95, 0.1], [0.95, 0.1]], feet: [[-0.25, -1.3], [0.25, -1.3]], low: 1 },
     ];
-    const ORDER = ['toprock', 'footwork', 'power'];
+    // what a set is built from, and how tightly the drawn joints follow each kind (a spin smears if followed loosely)
+    const KINDS = { stand: ['toprock', 'sidestep', 'crossover'], floor: ['footwork', 'kicks', 'sweep'], power: ['power', 'flare', 'headspin', 'swipe'] };
+    const EASE = { stand: 0.2, floor: 0.3, power: 0.45 };
+    const KIND_OF = Object.fromEntries(Object.entries(KINDS).flatMap(([kind, names]) => names.map((n) => [n, kind])));
+    const lastUsed = {};
+    const pick = (kind) => {                              // never the move this kind used last time
+      const choices = KINDS[kind].filter((n) => n !== lastUsed[kind]);
+      return (lastUsed[kind] = choices[Math.floor(rand() * choices.length)]);
+    };
 
     const blank = () => ({ c: [0, 0], rot: 0, head: [0, 0], hands: [[-0.6, 0], [0.6, 0]], feet: [[-0.2, 0], [0.2, 0]], low: 0 });
     const dancers = [RED, BLUE].map((c, i) => ({ c, home: Math.PI * (i ? 0.06 : 0.94), spot: polar(0.74, Math.PI * (i ? 0.06 : 0.94)), now: blank(), trails: [[], []] }));
@@ -244,9 +312,10 @@
         setTimeout(() => [...pips.children].forEach((p) => { p.className = ''; }), 1700);
       }
       roundLabel.textContent = `Round ${round + 1} · ${sideNow ? 'Blue' : 'Red'}`;
-      const first = Math.floor(rand() * 3);
-      plan = ['toprock', ORDER[1 + (first % 2)], ORDER[2 - (first % 2)]];      // every set opens standing, then goes down
-      freeze = FREEZES[Math.floor(rand() * FREEZES.length)];
+      // every set opens standing, then goes down: floor work and power in either order, and one more of either to close
+      const middle = rand() < 0.5 ? ['floor', 'power'] : ['power', 'floor'];
+      plan = [pick('stand'), pick(middle[0]), pick(middle[1]), pick(rand() < 0.5 ? 'floor' : 'power')];
+      freeze = FREEZES.filter((f) => f !== freeze)[Math.floor(rand() * (FREEZES.length - 1))];
       freezeFace = rand() * TAU;
       frozen = false;
     }
@@ -314,11 +383,10 @@
           if (!frozen) { frozen = true; bursts.push({ at: [...d.spot], c: d.c, t }); }
           target = facingPose(freeze, freezeFace); ease = 0.34;
         } else {
-          const third = (TURN - FREEZE) / 3, move = plan[Math.min(2, Math.floor(into / third))];
+          const part = (TURN - FREEZE) / PARTS, move = plan[Math.min(PARTS - 1, Math.floor(into / part))];
           spot = polar(0.14, t * 0.5 + i * 3);
           target = MOVES[move](t, toMiddle);
-          if (move === 'power') ease = 0.45;           // a spin has to be followed closely or it smears into a blob
-          else if (move === 'footwork') ease = 0.3;
+          ease = EASE[KIND_OF[move]];
         }
         // the spot and every joint chase their targets: this is what turns separate moves into one run
         const follow = (cur, to, k) => { cur[0] += (to[0] - cur[0]) * k; cur[1] += (to[1] - cur[1]) * k; };
