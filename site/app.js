@@ -56,6 +56,8 @@ document.addEventListener('click', (e) => {
   e.preventDefault();
   goTab(a.hash.slice(1));
 });
+// a refresh starts at the top of the page, not wherever the browser remembers being
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 addEventListener('hashchange', showTab);
 showTab();
 function settleHeader() {

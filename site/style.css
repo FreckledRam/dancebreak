@@ -325,8 +325,8 @@ header { position: sticky; top: 0; z-index: 20; padding-top: 26px; padding-botto
 header::before { content: ""; position: absolute; z-index: -1; inset: 0 calc(50% - 50vw); background: rgb(14 15 17 / .72);
   -webkit-backdrop-filter: blur(18px) saturate(160%); backdrop-filter: blur(18px) saturate(160%); border-bottom: 1px solid var(--line); }
 header .brand { padding-bottom: 18px; column-gap: 12px; }
-header .brand .title { font-size: 24px; letter-spacing: -.035em; }
-header .brand .mark i { width: 5px; }
+header .brand .title { font-size: 34px; letter-spacing: -.04em; }
+header .brand .mark i { width: 6px; }
 header .brand .mark i + i { margin-top: 6px; margin-bottom: -3px; }
 header nav { position: relative; margin: 0 -13px; gap: 8px; }
 header nav div { gap: 2px; align-items: center; }
@@ -348,6 +348,7 @@ main section:not([hidden]) { animation: tab-in .32s cubic-bezier(.2,.7,.2,1); }
 @media (max-width: 680px) {
   header { padding-top: 18px; }
   header .brand { padding-bottom: 12px; }
+  header .brand .title { font-size: 26px; }
   header nav { gap: 2px 8px; margin: 0 -10px; }
   header nav a { padding: 6px 10px; }
   header nav .sep { margin: 0 4px; }
