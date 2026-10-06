@@ -56,7 +56,7 @@
         <p>${esc(lead.source)} &middot; ${md(lead.date)}</p>
       </a>` : ''}
       ${next ? `<a class="np-count nv" href="${esc(next.url)}" ${out} data-start="${next.start}">
-        <small>${daysTo(next.start) <= 0 ? 'On the floor now' : 'Next battle in'}</small>
+        <strong class="shout">${(daysTo(next.start) <= 0 ? 'On the floor now' : 'Next battle in').split(' ').map((w, i) => `<b style="--i:${i}">${w}</b>`).join(' ')}</strong>
         <div class="clock" id="np-clock">${['days', 'hrs', 'min', 'sec'].map((u) => `<span><b data-u="${u}">00</b><i>${u}</i></span>`).join('')}</div>
         <h3>${esc(next.name)}</h3>
         <p>${dateRange(next)}${next.place ? ` &middot; ${esc(next.place)}` : ''}</p>
