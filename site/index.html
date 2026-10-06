@@ -8,12 +8,12 @@
 <meta name="color-scheme" content="dark">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <script>
   // always load the newest styles and script instead of a copy the browser saved earlier
-  document.write('<link rel="stylesheet" href="style.css?v=' + Date.now() + '"><link rel="stylesheet" href="home.css?v=' + Date.now() + '">');
+  document.write('<link rel="stylesheet" href="style.css?v=' + Date.now() + '"><link rel="stylesheet" href="home.css?v=' + Date.now() + '"><link rel="stylesheet" href="news.css?v=' + Date.now() + '">');
 </script>
-<noscript><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="home.css"></noscript>
+<noscript><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="home.css"><link rel="stylesheet" href="news.css"></noscript>
 </head>
 <body>
 <header>
@@ -26,12 +26,12 @@
     <i class="nav-glass" aria-hidden="true"></i>
     <div class="nav-main">
       <a class="tab" href="#home">Home</a>
+      <a class="tab" href="#news">News</a>
+      <span class="sep" aria-hidden="true"></span>
       <span class="nav-label">Explore</span>
       <a class="tab c-breakers" href="#breakers">Breakers</a>
       <a class="tab c-judges" href="#judges">Judges</a>
       <a class="tab c-events" href="#events">Events</a>
-      <span class="sep" aria-hidden="true"></span>
-      <a class="tab" href="#news">News</a>
     </div>
     <div class="nav-side">
       <div class="nav-search" id="nav-search">
@@ -230,23 +230,7 @@
   </section>
 
   <section id="news" hidden>
-    <a class="panel next-up" id="news-next" target="_blank" rel="noopener" hidden></a>
-    <div class="panel">
-      <h2>Coming up <span id="news-updated"></span></h2>
-      <div class="nums" id="news-nums"></div>
-    </div>
-    <div class="news-cols">
-      <div class="panel">
-        <h2>Events</h2>
-        <div id="news-events"></div>
-        <button class="more" id="news-more" hidden></button>
-      </div>
-      <div class="panel">
-        <h2>Headlines</h2>
-        <div id="news-features"></div>
-        <div id="news-headlines"></div>
-      </div>
-    </div>
+    <div class="np" id="paper"></div>
   </section>
 
 
@@ -307,6 +291,6 @@
 <footer>
   <p>Data from <a href="https://and8.dance">And8</a>, <a href="https://www.worlddancesport.org">WDSF</a> and <a href="https://breakkonnect.com">Break Konnect</a>. <a id="repo" href="https://github.com/FreckledRam/dancebreak">Code and data on GitHub</a>.</p>
 </footer>
-<script>document.write('<script src="app.js?v=' + Date.now() + '"><\/script><script src="analytics.js?v=' + Date.now() + '"><\/script><script src="home.js?v=' + Date.now() + '"><\/script><script src="nav.js?v=' + Date.now() + '"><\/script>');</script>
+<script>document.write('<script src="app.js?v=' + Date.now() + '"><\/script><script src="analytics.js?v=' + Date.now() + '"><\/script><script src="home.js?v=' + Date.now() + '"><\/script><script src="news.js?v=' + Date.now() + '"><\/script><script src="nav.js?v=' + Date.now() + '"><\/script>');</script>
 </body>
 </html>

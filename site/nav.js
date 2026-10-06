@@ -78,10 +78,10 @@
 
   // ---- each tab ends by pointing at the next one, so the site can be walked through without the tab bar
   const TOUR = [
+    ['news', 'News', 'Upcoming events and headlines'],
     ['breakers', 'Breakers', 'An Elo rating for every breaker'],
     ['judges', 'Judges', 'How each judge votes, and how each system behaves'],
     ['events', 'Events', 'Size, field strength and closeness of every event'],
-    ['news', 'News', 'Upcoming events and headlines'],
   ];
   TOUR.forEach(([id], i) => {
     const prev = TOUR[i - 1], next = TOUR[i + 1];

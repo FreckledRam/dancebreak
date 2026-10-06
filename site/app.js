@@ -88,77 +88,6 @@ const navWatch = new ResizeObserver(settleHeader);
 document.querySelectorAll('nav .tab').forEach((a) => navWatch.observe(a));
 addEventListener('load', () => { scrollTo(0, 0); settleHeader(); });
 
-// ---- news: upcoming events and headlines. Pictures load from the site that owns them, at thumbnail size.
-const NEWS_SOURCES = { and8: 'And8', wdsf: 'WDSF', breakkonnect: 'Break Konnect' };
-const NEWS_PAGE = 20;
-const day = (iso) => new Date(iso + 'T12:00:00');
-const today = () => { const d = new Date(); return new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12); };
-const daysTo = (iso) => Math.round((day(iso) - today()) / 864e5);
-
-function dateRange(ev) {
-  const a = day(ev.start), b = day(ev.end), md = { month: 'short', day: 'numeric' };
-  if (ev.start === ev.end) return a.toLocaleDateString([], md);
-  return a.getMonth() === b.getMonth() ? `${a.toLocaleDateString([], md)}-${b.getDate()}` : `${a.toLocaleDateString([], md)} - ${b.toLocaleDateString([], md)}`;
-}
-
-function until(ev) {
-  const n = daysTo(ev.start);
-  return n <= 0 ? 'On now' : n === 1 ? 'Tomorrow' : n < 14 ? `In ${n} days` : n < 60 ? `In ${Math.round(n / 7)} weeks` : `In ${Math.round(n / 30)} months`;
-}
-
-// a picture that fails to load takes its frame with it
-const picture = (src, cls) => (src ? `<img class="${cls}" src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : '');
-
-let NEWS_SHOWN = NEWS_PAGE;
-function renderNews(news) {
-  const events = ((news && news.upcoming) || []).filter((e) => daysTo(e.end) >= 0);
-  const features = (news && news.features) || [], headlines = (news && news.headlines) || [];
-  if (!events.length && !features.length && !headlines.length) {
-    $('#news-nums').innerHTML = '<span class="muted">Nothing collected yet.</span>';
-    return;
-  }
-
-  // the event to lead with: the soonest one that has a picture within two weeks, else the soonest
-  const lead = events.find((e) => e.image && daysTo(e.start) <= 14) || events[0];
-  const next = $('#news-next');
-  next.hidden = !lead;
-  if (lead) {
-    next.href = lead.url;
-    next.classList.toggle('plain', !lead.image);
-    next.innerHTML = `${picture(lead.image, 'poster')}<div><h2>Next up</h2><h1>${esc(lead.name)}</h1>
-      <p class="sub">${dateRange(lead)}${lead.place ? ` · ${esc(lead.place)}` : ''}</p>
-      <p class="when">${until(lead)}</p></div>`;
-  }
-
-  const within = (n) => events.filter((e) => daysTo(e.start) <= n).length;
-  const countries = new Set(events.map((e) => e.place.split(', ').pop()).filter(Boolean));
-  $('#news-nums').innerHTML = [
-    ['hero', within(7), 'this week'], ['', within(30), 'next 30 days'], ['', events.length, 'on the calendar'], ['', countries.size, 'countries'],
-  ].map(([cls, b, label]) => `<div class="${cls}"><b>${b}</b><span>${label}</span></div>`).join('');
-  $('#news-updated').innerHTML = news.updated ? `Updated ${ago(news.updated)}` : '';
-
-  let month = '';
-  $('#news-events').innerHTML = events.slice(0, NEWS_SHOWN).map((e) => {
-    const m = day(e.start).toLocaleDateString([], { month: 'long', year: 'numeric' });
-    const head = m === month ? '' : `<h3>${m}</h3>`;
-    month = m;
-    return `${head}<a class="event" href="${esc(e.url)}" target="_blank" rel="noopener">
-      <time>${dateRange(e)}</time>
-      <span><b>${esc(e.name)}</b><small>${esc([e.place, NEWS_SOURCES[e.source]].filter(Boolean).join(' · '))}</small></span>
-      ${picture(e.image, 'thumb')}</a>`;
-  }).join('') || '<span class="muted">No upcoming events listed.</span>';
-  const more = $('#news-more');
-  more.hidden = events.length <= NEWS_SHOWN;
-  more.textContent = `Show all ${events.length}`;
-  more.onclick = () => { NEWS_SHOWN = Infinity; renderNews(news); };
-
-  const stamp = (a) => `${esc(a.source)} · ${day(a.date).toLocaleDateString([], { month: 'short', day: 'numeric' })}`;
-  $('#news-features').innerHTML = features.slice(0, 3).map((a, i) => `<a class="story${i ? '' : ' lead'}" href="${esc(a.url)}" target="_blank" rel="noopener">
-    ${picture(a.image, 'shot')}<span><b>${esc(a.title)}</b><small>${stamp(a)}</small></span></a>`).join('');
-  $('#news-headlines').innerHTML = [...features.slice(3), ...headlines].sort((a, b) => b.date.localeCompare(a.date))
-    .map((a) => `<a class="line" href="${esc(a.url)}" target="_blank" rel="noopener"><b>${esc(a.title)}</b><small>${stamp(a)}</small></a>`).join('');
-}
-
 // ---- source status
 function span(hours) {
   return hours < 48 ? `${hours} hours` : `${Math.round(hours / 24)} days`;
@@ -696,6 +625,5 @@ Promise.all([get('data/status.json'), Promise.resolve([])]).then(([s, a]) => {
   setInterval(pollProgress, 60000);                               // is a run going?
   setInterval(() => STATUS && renderStatus(STATUS, ACTIVITY), 15000);   // keep countdowns and the bar moving
 });
-get('data/news.json').then(renderNews).catch(() => renderNews(null));
 get('data/review.json').then((items) => { REVIEW = items; renderReview(); });
 get('data/battles.json').then(setupDataset);
