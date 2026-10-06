@@ -7,6 +7,7 @@ function rankTable(el, pagerEl, cols, { pageSize = 50, onRow, sort, dir = -1, co
   function draw() {
     const sorted = sortKey ? [...rows].sort((a, b) => {
       const x = value(a, sortKey), y = value(b, sortKey);
+      if (x === -Infinity || y === -Infinity) return (x === y ? 0 : x === -Infinity ? 1 : -1);      // blanks go last, whichever way
       return sortDir * (typeof x === 'string' || typeof y === 'string' ? String(x).localeCompare(String(y)) : x - y);
     }) : rows;
     const pages = Math.max(1, Math.ceil(sorted.length / pageSize));
@@ -242,7 +243,7 @@ get('data/analytics.json').then((A) => {
 
   const events = rankTable($('#events-table'), $('#events-pager'), [
     ['name', 'Event', { fmt: (r) => `<b>${esc(r.name)}</b>`, tip: 'The name of the competition' }],
-    ['date', 'Date', { fmt: (r) => `<span style="white-space:nowrap">${r.date || r.year || '<span class="muted">-</span>'}</span>`, tip: 'When the event took place' }],
+    ['when', 'Date', { fmt: (r) => `<span style="white-space:nowrap">${r.date || r.year || '<span class="muted">-</span>'}</span>`, tip: 'When the event took place. Older events record only the year' }],
     ['field', 'Field', { num: true, tip: 'Average Elo today of the eight highest-rated breakers who entered' }],
     ['battles', 'Battles', { num: true, tip: '1 vs 1 battles recorded at this event' }],
     ['breakers', 'Breakers', { num: true, tip: 'Different breakers who battled' }],
@@ -251,6 +252,8 @@ get('data/analytics.json').then((A) => {
     ['unanimous', 'Unanimous', { ...pctCell('unanimous'), tip: 'Rounds where every judge picked the same side' }],
     ['one_vote', 'One-vote', { ...pctCell('one_vote'), tip: 'Rounds decided by a single judge' }],
   ], { onRow: eventDetail });
+  // Older events have a year and no day. Sorting uses one value for both, so they fall in with their year.
+  A.events.forEach((e) => { e.when = e.date || (e.year ? String(e.year) : null); });
   const showEvents = () => {
     const q = $('#eq').value.trim().toLowerCase(), src = $('#esrc .on').dataset.v;
     events.set(A.events.filter((e) => (!src || e.source === src) && (!q || e.name.toLowerCase().includes(q))));
