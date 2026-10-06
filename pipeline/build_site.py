@@ -7,7 +7,7 @@ from __future__ import annotations
 import json
 import re
 import shutil
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 from . import analytics, state, store
 
@@ -119,8 +119,19 @@ def main() -> None:
     review_path = store.DATA / "review.json"
     review = json.loads(review_path.read_text(encoding="utf-8")) if review_path.exists() else []
     (OUT / "review.json").write_text(json.dumps(review, ensure_ascii=False), encoding="utf-8")
+    stats = analytics.build(store.all_battles())
+    (OUT / "analytics.json").write_text(json.dumps(stats, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    week_ago = datetime.now(timezone.utc) - timedelta(days=7)
+    recent = [r for r in runs(activity) if datetime.fromisoformat(r["time"].replace("Z", "+00:00")) > week_ago]
+    years = [r[2] for r in rows if r[2]]
     st = state.load()
     status = {
+        "totals": {
+            "breakers": len(stats["breakers"]), "judges": len(stats["judges"]), "decisions": stats["decisions"],
+            "week_battles": sum(r["battles"] for r in recent), "week_events": sum(r["events"] for r in recent),
+            "first_year": min(years, default=None), "last_year": max(years, default=None),
+            "newest_date": max((r[3] for r in rows if r[3]), default=None),
+        },
         "built": state.now(),
         "battles": len(rows),
         "events": len(files),
@@ -141,8 +152,6 @@ def main() -> None:
     }
     (OUT / "status.json").write_text(json.dumps(status, ensure_ascii=False), encoding="utf-8")
 
-    (OUT / "analytics.json").write_text(
-        json.dumps(analytics.build(store.all_battles()), ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
     store.export_tsvs()
     shutil.copytree(store.EXPORT, OUT / "export")

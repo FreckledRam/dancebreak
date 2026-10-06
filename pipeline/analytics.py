@@ -203,4 +203,5 @@ def build(battles: list[dict]) -> dict:
         "margin": round(s["margin"] / s["margins"], 1) if s["margins"] else None,
     } for name, s in sorted(S.items(), key=lambda kv: -kv[1]["battles"])]
 
-    return {"min_battles": MIN_BATTLES, "breakers": breakers, "judges": judges, "systems": systems}
+    return {"min_battles": MIN_BATTLES, "breakers": breakers, "judges": judges, "systems": systems,
+            "decisions": sum(len(votes(b)) for b in battles)}

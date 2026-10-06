@@ -33,7 +33,14 @@ h2 { font-weight: 600; font-size: 17px; line-height: 1; letter-spacing: -.01em; 
 .panel { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 20px 24px 22px; margin-bottom: 16px; }
 .panel h2 { margin: 0 0 14px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 .panel h1 { font-size: 28px; }
-.panel .nums { margin: 0; }
+.panel .nums { margin: 0; display: grid; grid-template-columns: 1.5fr 1fr 1.2fr 1fr .8fr 1.3fr; gap: 22px 24px; align-items: end; }
+.panel .nums .date b { font-size: 28px; white-space: nowrap; }
+@media (max-width: 900px) { .panel .nums { grid-template-columns: 1fr 1fr; } }
+.panel .nums b { font-size: 36px; font-weight: 700; line-height: 1.05; letter-spacing: -.035em; }
+.panel .nums .hero b { font-size: 52px; color: var(--accent); }
+.panel .nums div > span { font-size: 14px; color: var(--fg); font-weight: 500; }
+.panel .nums small { margin-top: 2px; }
+.panel .nums small.up { color: var(--ok); font-weight: 500; }
 .panel table { margin-top: 16px; }
 .panel tr:last-child td { border-bottom: 0; }
 .panel #queue-note { margin: 0; }
