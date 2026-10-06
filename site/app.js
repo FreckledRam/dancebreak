@@ -97,6 +97,11 @@ function renderStatus(status, activity) {
   $('#headline').textContent = LIVE ? 'Check in progress'
     : broken ? `${broken} scraper${broken === 1 ? ' needs' : 's need'} attention`
       : idle ? `${idle} scraper${idle === 1 ? ' is' : 's are'} not running` : 'All scrapers healthy';
+  // the dot beside the tab: green and pulsing when every scraper is healthy
+  const dot = $('#nav-dot');
+  dot.className = `status ${LIVE ? 'running' : broken ? 'broken' : idle ? '' : 'ok'}`;
+  dot.title = $('#headline').textContent;
+  dot.hidden = false;
   const news = added.events || added.battles
     ? `<span class="good">+${added.events.toLocaleString()} event${added.events === 1 ? '' : 's'}, +${added.battles.toLocaleString()} battle${added.battles === 1 ? '' : 's'}.</span>`
     : '<span class="good">No new events or battles.</span>';
