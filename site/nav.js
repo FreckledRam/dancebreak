@@ -76,6 +76,27 @@
   });
   results.addEventListener('click', (e) => { const a = e.target.closest('a[data-i]'); if (a) choose(+a.dataset.i); });
 
+  // ---- the logo's bars rise and fall in a wave for as long as the mouse is moving, and settle when it stops
+  (() => {
+    const bars = [...document.querySelectorAll('.brand .mark i')];
+    if (!bars.length || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let lastMove = -1e9, level = 0, phase = 0, before = 0, running = false;
+    const frame = (now) => {
+      const dt = Math.min(50, now - before) / 1000;
+      before = now;
+      const moving = now - lastMove < 140;
+      level += ((moving ? 1 : 0) - level) * Math.min(1, dt * (moving ? 7 : 3.2));     // swell in quickly, die away slowly
+      phase += dt * 7.5 * (0.35 + 0.65 * level);
+      bars.forEach((bar, i) => { bar.style.transform = `scaleY(${(1 + 0.3 * level * Math.sin(phase - i * 1.25)).toFixed(3)})`; });
+      if (level < 0.004 && !moving) { bars.forEach((bar) => { bar.style.transform = ''; }); running = false; return; }
+      requestAnimationFrame(frame);
+    };
+    addEventListener('mousemove', () => {
+      lastMove = performance.now();
+      if (!running) { running = true; before = lastMove; requestAnimationFrame(frame); }
+    }, { passive: true });
+  })();
+
   // ---- each tab ends by pointing at the next one, so the site can be walked through without the tab bar
   const TOUR = [
     ['news', 'News', 'Upcoming events and headlines'],
