@@ -519,7 +519,8 @@ function renderQuality(status) {
     why: 'Stages collected incompletely or not at all. Listed below.',
     fix: 'Listed below with a link to each source page.' };
   const checks = status.quality || [];
-  $('#quality-cards').innerHTML = [...checks.filter((q) => q.action), problems, ...checks.filter((q) => !q.action)].map(card).join('');
+  // largest first
+  $('#quality-cards').innerHTML = [...checks, problems].sort((a, b) => b.count - a.count).map(card).join('');
 }
 
 // "View" on a missing-values row opens the dataset filtered to those battles

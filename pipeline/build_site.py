@@ -51,9 +51,6 @@ QUALITY = {
     "n": ("Breaker name blank",
           "The red or blue side has no name.",
           "Check the source page."),
-    "d": ("No date or source link",
-          "Original hand-collected rows: a year but no date, and no link to the page.",
-          "The backfill will link them to their source."),
 }
 UNCERTAIN = "Uncertain"     # the System value shown for battles whose system is not confirmed
 SYSCOL = 9
@@ -75,8 +72,6 @@ def quality_codes(b: dict, ev: dict) -> str:
         codes += "n"
     if store.system_uncertain({**b, "source": ev["source"]}):
         codes += "i"
-    if not ev.get("date") or not (b.get("url") or ev.get("url")):
-        codes += "d"
     return codes
 
 
