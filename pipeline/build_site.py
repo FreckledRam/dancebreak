@@ -187,6 +187,9 @@ def main() -> None:
 
     store.export_tsvs()
     shutil.copytree(store.EXPORT, OUT / "export")
+    news = store.DATA / "news.json"         # written by pipeline.news; the site shows an empty tab without it
+    if news.exists():
+        shutil.copy(news, OUT / "news.json")
     print(f"site data: {len(rows)} battles, {len(files)} events")
 
 

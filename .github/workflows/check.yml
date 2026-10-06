@@ -35,6 +35,9 @@ jobs:
         run: |
           git config user.name "dancebreak-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Upcoming events and headlines for the News tab
+        continue-on-error: true   # the news is extra; a failure here must not stop the scrape
+        run: uv run python -m pipeline.news
       - name: Check sources and collect new events
         env:
           PUSH_PROGRESS: "1"      # save and push every 10 events

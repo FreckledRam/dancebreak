@@ -1,0 +1,332 @@
+{
+ "and8": {
+  "5609": {
+   "breaking": true,
+   "place": "Dortmund, Germany"
+  },
+  "5417": {
+   "breaking": true,
+   "place": "Asten, Austria"
+  },
+  "5639": {
+   "breaking": true,
+   "place": "Aarau, Switzerland"
+  },
+  "5679": {
+   "breaking": true,
+   "place": ""
+  },
+  "5696": {
+   "breaking": true,
+   "place": "Veitshöchheim, Germany"
+  },
+  "5693": {
+   "breaking": true,
+   "place": ""
+  },
+  "5598": {
+   "breaking": true,
+   "place": "Oslo, Norway"
+  },
+  "5414": {
+   "breaking": true,
+   "place": "Asten, Austria"
+  },
+  "5676": {
+   "breaking": true,
+   "place": "Oberhausbergen, France"
+  },
+  "5684": {
+   "breaking": true,
+   "place": ""
+  },
+  "5715": {
+   "breaking": true,
+   "place": ""
+  },
+  "5623": {
+   "breaking": false,
+   "place": "Chemnitz, Germany"
+  },
+  "5616": {
+   "breaking": true,
+   "place": ""
+  },
+  "5660": {
+   "breaking": true,
+   "place": "Hannover, Germany"
+  },
+  "5396": {
+   "breaking": true,
+   "place": "Záhorská Bystrica, Slovakia"
+  },
+  "5647": {
+   "breaking": true,
+   "place": "Taipei, Taiwan"
+  },
+  "5694": {
+   "breaking": true,
+   "place": ""
+  },
+  "5711": {
+   "breaking": true,
+   "place": ""
+  },
+  "5305": {
+   "breaking": false,
+   "place": "Zurich, Switzerland"
+  },
+  "5481": {
+   "breaking": true,
+   "place": "Ferney-Voltaire, France"
+  },
+  "5604": {
+   "breaking": true,
+   "place": ""
+  },
+  "5653": {
+   "breaking": true,
+   "place": ""
+  },
+  "5645": {
+   "breaking": true,
+   "place": ""
+  },
+  "5681": {
+   "breaking": false,
+   "place": ""
+  },
+  "5700": {
+   "breaking": true,
+   "place": ""
+  },
+  "5710": {
+   "breaking": false,
+   "place": ""
+  },
+  "5690": {
+   "breaking": true,
+   "place": "Dijon, France"
+  },
+  "5695": {
+   "breaking": true,
+   "place": "Seoul, South Korea"
+  },
+  "5643": {
+   "breaking": true,
+   "place": "Hamburg, Germany"
+  },
+  "5674": {
+   "breaking": true,
+   "place": ""
+  },
+  "5701": {
+   "breaking": true,
+   "place": ""
+  },
+  "5648": {
+   "breaking": true,
+   "place": "Tokyo, Japan"
+  },
+  "5697": {
+   "breaking": false,
+   "place": "Feuchtwangen, Germany"
+  },
+  "5560": {
+   "breaking": true,
+   "place": ""
+  },
+  "3720": {
+   "breaking": true,
+   "place": ""
+  },
+  "5530": {
+   "breaking": false,
+   "place": ""
+  },
+  "5341": {
+   "breaking": false,
+   "place": ""
+  },
+  "5662": {
+   "breaking": true,
+   "place": "Aachen, Germany"
+  },
+  "5505": {
+   "breaking": true,
+   "place": "Ingolstadt, Germany"
+  },
+  "5600": {
+   "breaking": false,
+   "place": ""
+  },
+  "5542": {
+   "breaking": true,
+   "place": "Stralsund, Germany"
+  },
+  "5707": {
+   "breaking": true,
+   "place": ""
+  },
+  "5472": {
+   "breaking": true,
+   "place": "Taoyuan, Taiwan"
+  },
+  "5348": {
+   "breaking": true,
+   "place": ""
+  },
+  "5486": {
+   "breaking": true,
+   "place": ""
+  },
+  "5709": {
+   "breaking": true,
+   "place": ""
+  },
+  "5657": {
+   "breaking": true,
+   "place": ""
+  },
+  "5703": {
+   "breaking": true,
+   "place": "Den Bosch, Netherlands"
+  },
+  "5713": {
+   "breaking": true,
+   "place": ""
+  },
+  "5698": {
+   "breaking": true,
+   "place": ""
+  },
+  "5688": {
+   "breaking": true,
+   "place": "Toronto, Canada"
+  },
+  "5326": {
+   "breaking": true,
+   "place": ""
+  },
+  "5632": {
+   "breaking": true,
+   "place": ""
+  },
+  "5708": {
+   "breaking": true,
+   "place": "Erfurt, Germany"
+  },
+  "5611": {
+   "breaking": true,
+   "place": ""
+  },
+  "5683": {
+   "breaking": true,
+   "place": "Hamburg, Germany"
+  },
+  "5689": {
+   "breaking": true,
+   "place": "Miami, USA"
+  },
+  "5610": {
+   "breaking": true,
+   "place": "Wetzikon, Switzerland"
+  },
+  "5415": {
+   "breaking": true,
+   "place": "Linz, Austria"
+  },
+  "5702": {
+   "breaking": true,
+   "place": ""
+  },
+  "5378": {
+   "breaking": true,
+   "place": "Dubai, United Arab Emirates"
+  },
+  "5450": {
+   "breaking": true,
+   "place": "Baden, Switzerland"
+  },
+  "5554": {
+   "breaking": true,
+   "place": "Athens, Greece"
+  },
+  "5524": {
+   "breaking": true,
+   "place": "Zagreb, Croatia"
+  },
+  "5570": {
+   "breaking": true,
+   "place": ""
+  },
+  "5640": {
+   "breaking": true,
+   "place": ""
+  },
+  "5482": {
+   "breaking": true,
+   "place": "Aarau, Switzerland"
+  },
+  "5671": {
+   "breaking": true,
+   "place": "L'Aquila, Italy"
+  },
+  "5626": {
+   "breaking": true,
+   "place": "Hamburg, Germany"
+  },
+  "5716": {
+   "breaking": false,
+   "place": "Den Bosch, Netherlands"
+  },
+  "5668": {
+   "breaking": false,
+   "place": "Solothurn, Switzerland"
+  },
+  "5652": {
+   "breaking": true,
+   "place": "Burghausen, Germany"
+  },
+  "5636": {
+   "breaking": false,
+   "place": ""
+  },
+  "5608": {
+   "breaking": true,
+   "place": ""
+  },
+  "5637": {
+   "breaking": true,
+   "place": "Stuttgart, Germany"
+  },
+  "5381": {
+   "breaking": false,
+   "place": "Stuttgart, Germany"
+  },
+  "5575": {
+   "breaking": true,
+   "place": ""
+  },
+  "5673": {
+   "breaking": false,
+   "place": ""
+  },
+  "5672": {
+   "breaking": true,
+   "place": ""
+  },
+  "5490": {
+   "breaking": false,
+   "place": "Augst/Basel, Switzerland"
+  },
+  "5678": {
+   "breaking": false,
+   "place": ""
+  },
+  "5663": {
+   "breaking": false,
+   "place": "Karlsruhe, Germany"
+  }
+ }
+}
