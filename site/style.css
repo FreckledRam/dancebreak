@@ -462,3 +462,4 @@ table.rank > tbody > tr.detail > td { border-radius: 8px; }
 #battles .rounds td.w { padding: 6px 12px; }
 #battles .raw th, #battles .raw td { padding: 7px 20px 7px 0; }
 .rounds h4, .raw h4 { margin: 14px 0 8px; }
+#judges h1.twin a.on[data-view="systems"] { color: #a78bfa; }      /* Judges is red; Systems gets its own violet */
