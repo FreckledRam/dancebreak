@@ -150,6 +150,8 @@ th.filtered::after { opacity: 1; }
   border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,.6); font-size: 14px; }
 #colmenu button { display: block; width: 100%; height: 34px; text-align: left; border: 0; border-radius: 7px; padding: 0 8px; background: none; }
 #colmenu button:hover, #colmenu label:hover { background: var(--line); }
+#colmenu button.on { color: var(--accent); }
+#colmenu button.on::after { content: "\2713"; float: right; }
 #colmenu hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
 #colmenu input[type=search] { width: 100%; height: 36px; background-color: var(--bg); }
 .menu-links { display: flex; gap: 16px; padding: 8px 8px 4px; font-size: 13px; }

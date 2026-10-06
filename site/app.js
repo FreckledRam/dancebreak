@@ -337,8 +337,9 @@ function openColumnMenu(th) {
   menu.id = 'colmenu';
   menu.dataset.col = col;
   menu.innerHTML = `
-    <button data-act="asc">Sort ascending</button>
-    <button data-act="desc">Sort descending</button>
+    <button data-act="asc" class="${sortCol === col && sortDir === 1 ? 'on' : ''}">Sort ascending</button>
+    <button data-act="desc" class="${sortCol === col && sortDir === -1 ? 'on' : ''}">Sort descending</button>
+    <button data-act="unsort" class="${sortCol === col ? '' : 'on'}">Default order</button>
     <hr>
     <input type="search" placeholder="Find a value" autocomplete="off">
     <div class="menu-links"><a data-act="all">Select all</a><a data-act="none">Clear</a></div>
@@ -373,6 +374,7 @@ function openColumnMenu(th) {
     e.stopPropagation();
     const act = e.target.dataset.act;
     if (act === 'asc' || act === 'desc') { sortCol = col; sortDir = act === 'asc' ? 1 : -1; page = 0; filter(); closeColumnMenu(); }
+    if (act === 'unsort') { if (sortCol === col) sortCol = null; page = 0; filter(); closeColumnMenu(); }
     // with a search typed, Select all / Clear act on the matching values only
     if (act === 'all') { const s = search.value ? new Set(picked()) : new Set(values); shown().forEach((v) => s.add(v)); apply(s); }
     if (act === 'none') { const s = search.value ? new Set(picked()) : new Set(); if (search.value) shown().forEach((v) => s.delete(v)); apply(s); }

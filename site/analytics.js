@@ -2,7 +2,7 @@
 
 // A sortable, paged table. cols: [key, heading, {num, fmt, tip}]; clicking a heading sorts by it.
 function rankTable(el, pagerEl, cols, { pageSize = 50, onRow, sort, dir = -1, colspan } = {}) {
-  let rows = [], page = 0, sortKey = sort, sortDir = dir, openKey = null;
+  let rows = [], page = 0, sortKey = sort, sortDir = dir, openKey = null, clicks = 0;   // clicks: presses on the sorted heading
   const value = (r, k) => (r[k] === null || r[k] === undefined ? -Infinity : r[k]);
   function draw() {
     const sorted = sortKey ? [...rows].sort((a, b) => {
@@ -12,7 +12,7 @@ function rankTable(el, pagerEl, cols, { pageSize = 50, onRow, sort, dir = -1, co
     const pages = Math.max(1, Math.ceil(sorted.length / pageSize));
     page = Math.min(page, pages - 1);
     el.innerHTML = `<thead><tr>${cols.map(([k, h, o = {}]) => `<th data-k="${k}" class="${o.num ? 'num' : ''}" ${o.tip ? `title="${esc(o.tip)}"` : ''}
-      data-dir="${k === sortKey ? (sortDir === 1 ? 'asc' : 'desc') : ''}">${h}</th>`).join('')}</tr></thead><tbody>${
+      data-dir="${clicks && k === sortKey ? (sortDir === 1 ? 'asc' : 'desc') : ''}">${h}</th>`).join('')}</tr></thead><tbody>${
       sorted.slice(page * pageSize, (page + 1) * pageSize).map((r) => `<tr class="row ${r.k === openKey ? 'open' : ''}" data-key="${esc(r.k ?? '')}">${
         cols.map(([k, , o = {}]) => `<td class="${o.num ? 'num' : ''}">${o.fmt ? o.fmt(r) : r[k] === null || r[k] === undefined ? '<span class="muted">-</span>' : esc(r[k])}</td>`).join('')}</tr>`).join('')
       || `<tr><td colspan="${cols.length}" class="muted">Nothing matches.</td></tr>`}</tbody>`;
@@ -23,7 +23,11 @@ function rankTable(el, pagerEl, cols, { pageSize = 50, onRow, sort, dir = -1, co
   el.addEventListener('click', (e) => {
     const th = e.target.closest('th[data-k]');
     if (th) {
-      if (sortKey === th.dataset.k) sortDir = -sortDir; else { sortKey = th.dataset.k; sortDir = typeof rows[0]?.[sortKey] === 'string' ? 1 : -1; }
+      // first click sorts, second reverses, third goes back to the table's standard order
+      const first = (k) => (typeof rows[0]?.[k] === 'string' ? 1 : -1);
+      if (sortKey !== th.dataset.k || clicks === 0) { sortKey = th.dataset.k; sortDir = first(sortKey); clicks = 1; }
+      else if (clicks === 1) { sortDir = -sortDir; clicks = 2; }
+      else { sortKey = sort; sortDir = dir; clicks = 0; }
       page = 0; draw(); return;
     }
     const tr = e.target.closest('tr.row');
