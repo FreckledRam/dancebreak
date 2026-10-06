@@ -46,10 +46,13 @@
     const q = find.value.trim().toLowerCase(), A = window.ANALYTICS;
     if (q.length < 2) { results.hidden = true; return; }
     hits = [
-      ...(A ? best(A.breakers, q, (b) => b.n, 5).map((b) => ({ kind: 'Breaker', name: b.name, note: `${b.n} battles`, go: () => OPEN.breaker(b.k) })) : []),
-      ...(A ? best(A.judges, q, (j) => j.battles, 3).map((j) => ({ kind: 'Judge', name: j.name, note: `${j.battles.toLocaleString()} battles judged`, go: () => OPEN.judge(j.k) })) : []),
-      ...best(eventNames(), q, (e) => e.n, 4).map((e) => ({ kind: 'Event', name: e.name, note: `${e.n} battles`, go: () => findInDataset(e.name) })),
+      ...(A ? best(A.breakers, q, (b) => b.n, 5).map((b) => ({ kind: 'Breaker', name: b.name, note: `${b.n} battles`, size: b.n, go: () => OPEN.breaker(b.k) })) : []),
+      ...(A ? best(A.judges, q, (j) => j.battles, 3).map((j) => ({ kind: 'Judge', name: j.name, note: `${j.battles.toLocaleString()} battles judged`, size: j.battles, go: () => OPEN.judge(j.k) })) : []),
+      ...best(eventNames(), q, (e) => e.n, 4).map((e) => ({ kind: 'Event', name: e.name, note: `${e.n} battles`, size: e.n, go: () => findInDataset(e.name) })),
     ];
+    // across the three kinds: an exact name first, then a name that starts with it, then whoever has the most battles
+    const fit = (h) => (h.name.toLowerCase() === q ? 2 : h.name.toLowerCase().startsWith(q) ? 1 : 0);
+    hits.sort((a, b) => fit(b) - fit(a) || b.size - a.size);
     at = 0;
     results.innerHTML = hits.map((h, i) => `<a data-i="${i}" class="${i ? '' : 'at'}"><small>${h.kind}</small><b>${esc(h.name)}</b><span>${h.note}</span></a>`).join('')
       || `<p class="muted">Nothing called that. Press Enter to search every battle.</p>`;
