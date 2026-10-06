@@ -486,3 +486,7 @@ header .brand .title span { display: inline-block; animation: logo-mid .7s cubic
 @keyframes logo-mid { from { opacity: 0; transform: translateY(8px); } }
 /* after that the bars answer the pointer: nav.js rides a wave through them for as long as the mouse is moving */
 @media (prefers-reduced-motion: reduce) { header .brand .mark i, header .brand .title, header .brand .title span { animation: none !important; } }
+
+/* the Video column: a small play mark before the word */
+a.watch { white-space: nowrap; }
+a.watch::before { content: ""; display: inline-block; margin-right: 6px; border: solid transparent; border-width: 4.5px 0 4.5px 7px; border-left-color: currentColor; }

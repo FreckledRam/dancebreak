@@ -30,7 +30,7 @@ POINTS_HEADER = (
     + [f"judge {j} name" for j in range(1, 10)]
     + [f"r{r}j{j}{k}" for r in range(1, 6) for j in range(1, 10) for k in ("over", "redp", "blup")])
 # columns appended to the org's format on export
-EXTRA_COLS = ["date", "source", "source url"]
+EXTRA_COLS = ["date", "source", "source url", "video url"]
 
 
 def col_keys(header: list[str]) -> list[str]:
@@ -124,7 +124,7 @@ def export_tsvs() -> dict[str, int]:
         lines = ["\t".join(header + EXTRA_COLS)]
         for b in sorted(battles, key=export_order):
             row = [b["cells"].get(k, "") for k in keys]
-            row += [b.get("date") or "", b["source"], b.get("url") or b.get("event_url") or ""]
+            row += [b.get("date") or "", b["source"], b.get("url") or b.get("event_url") or "", b.get("video") or ""]
             lines.append("\t".join(row))
         (EXPORT / f"{system}DataRaw.tsv").write_text("\n".join(lines) + "\n", encoding="utf-8")
         counts[system] = len(battles)

@@ -398,12 +398,12 @@ async function downloadCsv() {
   for (const b of battles) for (const k of Object.keys(b.cells)) { if (!seen.has(k)) { seen.add(k); (scoreKey(k) ? scores : meta).push(k); } }
   const position = Object.fromEntries(scores.map((k, i) => [k, i]));
   scores.sort((a, b) => { const x = scoreKey(a), y = scoreKey(b); return x[0] - y[0] || x[1] - y[1] || position[a] - position[b]; });
-  const header = ['date', 'system', ...meta, ...scores, 'source', 'source url'];
+  const header = ['date', 'system', ...meta, ...scores, 'source', 'source url', 'video url'];
   const lines = [header.map(csvCell).join(',')];
   picked.forEach((r, i) => {
     const cells = battles[i].cells;
     lines.push([r[C.date] || r[C.year] || '', r[C.system], ...meta.map((k) => cells[k]), ...scores.map((k) => cells[k]),
-      SOURCE_NAMES[r[C.source]] || r[C.source], r[C.url] || ''].map(csvCell).join(','));
+      SOURCE_NAMES[r[C.source]] || r[C.source], r[C.url] || '', r[C.video] || ''].map(csvCell).join(','));
   });
   const link = document.createElement('a');
   link.href = URL.createObjectURL(new Blob(['﻿' + lines.join('\n') + '\n'], { type: 'text/csv;charset=utf-8' }));
@@ -518,7 +518,8 @@ function draw() {
     ${name(r, 'red')}${name(r, 'blue')}
     <td>${r[C.system] === UNCERTAIN ? '<span class="muted">Uncertain</span>' : `<a class="plink" href="#systems" title="How this system behaves">${esc(r[C.system])}</a>`}</td>
     <td>${r[C.url] ? `<a href="${esc(r[C.url])}" target="_blank" rel="noopener">${esc(SOURCE_NAMES[r[C.source]] || r[C.source])}</a>` : `<span class="muted">${esc(SOURCE_NAMES[r[C.source]] || r[C.source])}</span>`}</td>
-  </tr>`).join('') || '<tr><td colspan="7" class="muted">No battles match.</td></tr>';
+    <td>${r[C.video] ? `<a class="watch" href="${esc(r[C.video])}" target="_blank" rel="noopener" title="Watch this battle on YouTube">Watch</a>` : '<span class="muted">-</span>'}</td>
+  </tr>`).join('') || '<tr><td colspan="8" class="muted">No battles match.</td></tr>';
 }
 
 $('#battles tbody').addEventListener('click', async (e) => {
@@ -534,7 +535,7 @@ $('#battles tbody').addEventListener('click', async (e) => {
   document.querySelectorAll('#battles tr.open').forEach((r) => r.classList.remove('open'));
   const detail = document.createElement('tr');
   detail.className = 'detail';
-  detail.innerHTML = `<td colspan="7">${battleDetail(eventCache[file].battles[tr.dataset.i], tr.dataset)}</td>`;
+  detail.innerHTML = `<td colspan="8">${battleDetail(eventCache[file].battles[tr.dataset.i], tr.dataset)}</td>`;
   tr.classList.add('open');
   tr.after(detail);
 });
@@ -572,7 +573,8 @@ function battleDetail(b, keys = {}) {
     const [side, text, width] = bar(overall(rounds[r][j]));
     return `<tr><td>${judge(j)}</td><td class="w"><span class="div ${side}"><i style="width:${width || 0}%"></i></span></td><td class="num">${text}</td></tr>`;
   }).join('')}</table></div>`).join('');
-  const link = b.url ? ` · <a href="${esc(b.url)}" target="_blank" rel="noopener">Source page</a>` : '';
+  const link = (b.url ? ` · <a href="${esc(b.url)}" target="_blank" rel="noopener">Source page</a>` : '')
+    + (b.video ? ` · <a href="${esc(b.video)}" target="_blank" rel="noopener">Watch the battle</a>` : '');
   return `<div class="rounds">${blocks}</div>
     <p class="key"><i style="background:var(--red)"></i>${breaker(b.red, keys.rk)}<i style="background:var(--blue)"></i>${breaker(b.blue, keys.bk)} · <a data-act="raw">All scores as numbers</a>${link}</p>
     <div class="raw" hidden>${scoreTables(rounds, b)}</div>`;

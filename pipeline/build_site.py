@@ -144,10 +144,10 @@ def main() -> None:
             rows.append([len(files) - 1, i, ev.get("year"), ev.get("date"), ev["event"], b["stage"],
                          b["red"], b["blue"], b["winner"], UNCERTAIN if unsure else b["system"], len(b["judges"]),
                          ev["source"], b.get("url") or ev.get("url"), ", ".join(b["judges"]),
-                         quality_codes(b, ev), analytics.key(b["red"]), analytics.key(b["blue"])])
+                         quality_codes(b, ev), analytics.key(b["red"]), analytics.key(b["blue"]), b.get("video") or ""])
 
     cols = ["file", "idx", "year", "date", "event", "stage", "red", "blue", "winner",
-            "system", "judges", "source", "url", "judge_names", "q", "rk", "bk"]
+            "system", "judges", "source", "url", "judge_names", "q", "rk", "bk", "video"]
     (OUT / "battles.json").write_text(
         json.dumps({"cols": cols, "files": files, "rows": rows}, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8")
