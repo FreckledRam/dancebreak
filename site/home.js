@@ -166,25 +166,66 @@
   });
   drawDesk();
 
-  // ---- the cypher: a ring of people, two breakers taking turns in the middle, five judges voting each round
+  // ---- the cypher, seen from above: a ring of people, two breakers taking turns in the middle, five judges voting.
+  // Everyone is drawn from simple shapes: a head, shoulders, two arms and two legs. A move is a function that
+  // says where those joints are at a moment in time; the drawn joints chase those targets, so one move flows into the next.
   (() => {
     const canvas = q('#h-cypher'), ctx = canvas.getContext('2d');
     const roundLabel = q('#h-round'), pips = q('#h-pips');
     pips.innerHTML = '<i></i>'.repeat(5);
-    const TAU = Math.PI * 2, TURN = 3.4, RED = css('--red') || '#e5484d', BLUE = css('--blue') || '#3e7fe6', FG = css('--fg') || '#f1f2f4';
+    const TAU = Math.PI * 2, TURN = 4.6, FREEZE = 0.9;
+    const RED = css('--red') || '#e5484d', BLUE = css('--blue') || '#3e7fe6', FG = css('--fg') || '#f1f2f4';
     let W = 0, H = 0, seed = 7;
     const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
-    const crowd = [...Array(64)].map((_, i) => ({ a: (i / 64) * TAU + rand() * 0.05, r: 0.86 + rand() * 0.1, s: 1.4 + rand() * 1.8, ph: rand() * TAU }));
-    // each movement is a path through the circle, in units of its radius
+    const turn2 = ([x, y], a) => [x * Math.cos(a) - y * Math.sin(a), x * Math.sin(a) + y * Math.cos(a)];
+    const add = (a, b) => [a[0] + b[0], a[1] + b[1]];
+    const polar = (r, a) => [r * Math.cos(a), r * Math.sin(a)];
+
+    // A pose, in body lengths around the breaker's spot: c centre, rot which way the shoulders lie,
+    // head, hands [left, right], feet [left, right]. "facing" turns the whole pose.
+    const facingPose = (local, facing) => ({
+      c: turn2(local.c, facing), rot: local.rot + facing, head: turn2(local.head, facing),
+      hands: local.hands.map((h) => turn2(h, facing)), feet: local.feet.map((f) => turn2(f, facing)), low: local.low || 0,
+    });
     const MOVES = {
-      toprock: (t) => [0.3 * Math.sin(t * 2.4) + 0.05 * Math.sin(t * 7), -0.16 + 0.07 * Math.sin(t * 4.8)],
-      footwork: (t) => { const r = 0.3 + 0.07 * Math.sin(t * 5); return [r * Math.cos(t * 4.2), 0.16 + r * 0.5 * Math.sin(t * 4.2)]; },
-      power: (t) => { const r = 0.14 + 0.2 * Math.abs(Math.sin(t * 1.1)); return [r * Math.cos(t * 11), r * Math.sin(t * 11)]; },
+      // standing: weight rocks from side to side, one foot steps out front and the arms swing against it
+      toprock(t, face) {
+        const b = t * 6.2, sway = Math.sin(b);
+        return facingPose({
+          c: [0.5 * Math.sin(b / 2), 0.1 * Math.cos(b)], rot: 0.3 * sway,
+          head: [0.5 * Math.sin(b / 2) + 0.05 * sway, 0.06],
+          hands: [[0.5 * Math.sin(b / 2) - 0.72, 0.42 * sway], [0.5 * Math.sin(b / 2) + 0.72, -0.42 * sway]],
+          feet: [[0.5 * Math.sin(b / 2) - 0.2 + 0.25 * Math.max(0, sway), 0.62 * Math.max(0, sway)], [0.5 * Math.sin(b / 2) + 0.2 - 0.25 * Math.max(0, -sway), 0.62 * Math.max(0, -sway)]],
+        }, face + 0.5 * Math.sin(t * 0.9));
+      },
+      // down on the floor: the hands stay near one spot and the body and legs walk a circle around them
+      footwork(t) {
+        const w = t * 5.4, c = polar(0.5, w), kick = 0.3 * Math.sin(w * 2);
+        return { c, rot: w + Math.PI / 2, head: polar(0.2, w), low: 1,
+          hands: [polar(0.24, w + 2.3), polar(0.24, w - 2.3)],
+          feet: [add(c, polar(1.15, w + 0.45 + kick)), add(c, polar(0.95, w - 0.5 + kick))] };
+      },
+      // spinning on the back and shoulders: the whole body turns fast with the legs flung wide in a V
+      power(t) {
+        const w = t * 12.5, c = polar(0.1, t * 3);
+        return { c, rot: w, head: add(c, polar(0.42, w + Math.PI / 2)), low: 1,
+          hands: [add(c, polar(0.5, w + 2.6)), add(c, polar(0.5, w + 0.55))],
+          feet: [add(c, polar(1.5, w - Math.PI / 2 - 0.6)), add(c, polar(1.5, w - Math.PI / 2 + 0.6))] };
+      },
     };
+    // held shapes to end a set on: one hand planted, the legs stacked in the air
+    const FREEZES = [
+      { c: [0, 0], rot: 0.5, head: [0.12, 0.46], hands: [[-0.78, 0.22], [0.42, 0.6]], feet: [[-0.5, -1.15], [0.82, -0.6]], low: 1 },
+      { c: [0, 0], rot: -0.9, head: [-0.4, 0.3], hands: [[-0.75, -0.1], [-0.2, 0.75]], feet: [[0.95, -0.25], [0.6, -0.95]], low: 1 },
+      { c: [0, 0], rot: 0.1, head: [0, 0.5], hands: [[-0.55, 0.62], [0.55, 0.62]], feet: [[-0.9, -1.0], [0.25, -1.35]], low: 1 },
+    ];
     const ORDER = ['toprock', 'footwork', 'power'];
-    const dancers = [{ c: RED, home: Math.PI * 0.94, x: -0.8, y: 0.1, trail: [] }, { c: BLUE, home: Math.PI * 0.06, x: 0.8, y: 0.1, trail: [] }];
+
+    const blank = () => ({ c: [0, 0], rot: 0, head: [0, 0], hands: [[-0.6, 0], [0.6, 0]], feet: [[-0.2, 0], [0.2, 0]], low: 0 });
+    const dancers = [RED, BLUE].map((c, i) => ({ c, home: Math.PI * (i ? 0.06 : 0.94), spot: polar(0.74, Math.PI * (i ? 0.06 : 0.94)), now: blank(), trails: [[], []] }));
+    const crowd = [...Array(26)].map((_, i) => ({ a: (i / 26) * TAU + (rand() - 0.5) * 0.09, r: 0.95 + rand() * 0.07, s: 0.72 + rand() * 0.3, ph: rand() * TAU, claps: rand() < 0.4 }));
     const bursts = [];
-    let turn = -1, plan = [], frozen = false, votes = [];
+    let turn = -1, plan = [], frozen = false, freeze = FREEZES[0], freezeFace = 0, votes = [];
 
     function resize() {
       const dpr = Math.min(2, devicePixelRatio || 1), box = canvas.getBoundingClientRect();
@@ -200,72 +241,121 @@
         const lean = rand();
         votes = [...Array(5)].map(() => (rand() < 0.25 + lean * 0.5 ? 'red' : 'blue'));
         [...pips.children].forEach((p, i) => setTimeout(() => { p.className = votes[i]; }, i * 90));
-        setTimeout(() => [...pips.children].forEach((p) => { p.className = ''; }), 1500);
+        setTimeout(() => [...pips.children].forEach((p) => { p.className = ''; }), 1700);
       }
       roundLabel.textContent = `Round ${round + 1} · ${sideNow ? 'Blue' : 'Red'}`;
       const first = Math.floor(rand() * 3);
-      plan = [ORDER[first], ORDER[(first + 1 + Math.floor(rand() * 2)) % 3]];
+      plan = ['toprock', ORDER[1 + (first % 2)], ORDER[2 - (first % 2)]];      // every set opens standing, then goes down
+      freeze = FREEZES[Math.floor(rand() * FREEZES.length)];
+      freezeFace = rand() * TAU;
       frozen = false;
     }
 
+    // one person from above: legs, arms, shoulders, head. S is a body length in pixels.
+    function person(ctx, p, at, S, colour, alpha = 1) {
+      const P = (v) => [at[0] + v[0] * S, at[1] + v[1] * S];
+      const axis = polar(1, p.rot), c = P(p.c);
+      const limb = (from, to, width, bend) => {
+        const a = P(from), b = P(to), mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
+        const nx = -(b[1] - a[1]) * bend, ny = (b[0] - a[0]) * bend;       // a knee or an elbow: the midpoint pushed sideways
+        ctx.lineWidth = width * S;
+        ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.quadraticCurveTo(mx + nx, my + ny, b[0], b[1]); ctx.stroke();
+        ctx.beginPath(); ctx.arc(b[0], b[1], width * S * 0.62, 0, TAU); ctx.fill();
+      };
+      ctx.globalAlpha = alpha;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = ctx.fillStyle = colour;
+      ctx.globalAlpha = alpha * 0.62;                                       // legs sit lowest, so they are drawn dimmer
+      p.feet.forEach((f, i) => limb(add(p.c, [axis[0] * (i ? 0.2 : -0.2), axis[1] * (i ? 0.2 : -0.2)]), f, 0.21, i ? -0.22 : 0.22));
+      ctx.globalAlpha = alpha * 0.82;
+      p.hands.forEach((h, i) => limb(add(p.c, [axis[0] * (i ? 0.44 : -0.44), axis[1] * (i ? 0.44 : -0.44)]), h, 0.15, i ? 0.25 : -0.25));
+      ctx.globalAlpha = alpha;
+      ctx.beginPath(); ctx.ellipse(c[0], c[1], 0.52 * S, (0.27 + 0.07 * p.low) * S, p.rot, 0, TAU); ctx.fill();
+      const h = P(p.head);
+      ctx.fillStyle = FG;
+      ctx.beginPath(); ctx.arc(h[0], h[1], 0.23 * S, 0, TAU); ctx.fill();
+      ctx.lineWidth = 0.06 * S; ctx.stroke();
+      ctx.globalAlpha = 1;
+    }
+
     function frame(now) {
-      const t = now / 1000, cx = W / 2, cy = H / 2 - 6, R = Math.min(W, H) * 0.44;
+      const t = now / 1000, cx = W / 2, cy = H / 2 - 6, R = Math.min(W, H) * 0.44, S = R * 0.2;
       const n = Math.floor(t / TURN), into = t - n * TURN;
       if (n !== turn) newTurn(n);
       const beat = Math.pow(Math.max(0, Math.sin(t * Math.PI * 1.75)), 6);
 
       ctx.clearRect(0, 0, W, H);
       ctx.globalCompositeOperation = 'source-over';
-      ctx.strokeStyle = 'rgb(255 255 255 / .06)';
+      ctx.strokeStyle = 'rgb(255 255 255 / .07)';
       ctx.lineWidth = 1;
       ctx.beginPath(); ctx.arc(cx, cy, R * 0.74, 0, TAU); ctx.stroke();
+
+      // the crowd: shoulders turned to the middle, leaning in on the beat, some of them clapping
       crowd.forEach((p) => {
-        const r = R * (p.r + 0.012 * beat * Math.sin(p.ph + t));
-        ctx.fillStyle = `rgb(241 242 244 / ${0.16 + 0.3 * beat * (0.5 + 0.5 * Math.sin(p.ph))})`;
-        ctx.beginPath(); ctx.arc(cx + r * Math.cos(p.a), cy + r * Math.sin(p.a), p.s * (1 + 0.5 * beat), 0, TAU); ctx.fill();
+        const lean = 0.03 * beat * (0.5 + 0.5 * Math.sin(p.ph)), at = add([cx, cy], polar(R * (p.r - lean), p.a));
+        const inward = p.a + Math.PI, reach = p.claps ? 0.25 + 0.3 * beat : 0.12, gap = p.claps ? 0.5 - 0.38 * beat : 0.6;
+        person(ctx, { c: [0, 0], rot: inward + Math.PI / 2, head: polar(0.05, inward), low: 0,
+          hands: [add(polar(reach, inward), polar(gap, inward + Math.PI / 2)), add(polar(reach, inward), polar(gap, inward - Math.PI / 2))],
+          feet: [polar(0.2, inward + 1.9), polar(0.2, inward - 1.9)] }, at, S * 0.46 * p.s, '#8a92a1', 0.42 + 0.25 * beat);
       });
 
       const active = n % 2;
       dancers.forEach((d, i) => {
-        let tx, ty, ease = 0.16;
-        if (i !== active) {                            // waiting at the edge, nodding to the beat
-          tx = 0.74 * Math.cos(d.home); ty = 0.74 * Math.sin(d.home) - 0.03 * beat; ease = 0.07;
-        } else if (into > TURN - 0.75) {               // every set ends in a freeze
-          if (!frozen) { frozen = true; bursts.push({ x: d.x, y: d.y, c: d.c, t }); }
-          tx = d.fx; ty = d.fy; ease = 0.5;
+        const toMiddle = Math.atan2(-d.spot[1], -d.spot[0]) - Math.PI / 2;
+        let spot, target, ease = 0.2;
+        if (i !== active) {                            // waiting at the edge of the circle, rocking to the beat
+          spot = polar(0.74, d.home);
+          target = MOVES.toprock(t * 0.55 + i, toMiddle);
+          target.c = [target.c[0] * 0.3, target.c[1] * 0.3]; target.head = [target.head[0] * 0.3, target.head[1] * 0.3];
+          target.hands = target.hands.map((h) => [h[0] * 0.75, h[1] * 0.75]); target.feet = target.feet.map((f) => [f[0] * 0.6, f[1] * 0.6]);
+          ease = 0.1;
+        } else if (into > TURN - FREEZE) {             // every set ends in a freeze
+          spot = d.spot;
+          if (!frozen) { frozen = true; bursts.push({ at: [...d.spot], c: d.c, t }); }
+          target = facingPose(freeze, freezeFace); ease = 0.34;
         } else {
-          [tx, ty] = MOVES[plan[into < (TURN - 0.75) / 2 ? 0 : 1]](t);
-          d.fx = tx; d.fy = ty;
+          const third = (TURN - FREEZE) / 3, move = plan[Math.min(2, Math.floor(into / third))];
+          spot = polar(0.14, t * 0.5 + i * 3);
+          target = MOVES[move](t, toMiddle);
+          if (move === 'power') ease = 0.45;           // a spin has to be followed closely or it smears into a blob
+          else if (move === 'footwork') ease = 0.3;
         }
-        d.x += (tx - d.x) * ease; d.y += (ty - d.y) * ease;
-        d.trail.push([d.x, d.y]);
-        if (d.trail.length > (i === active ? 46 : 8)) d.trail.splice(0, d.trail.length - (i === active ? 46 : 8));
+        // the spot and every joint chase their targets: this is what turns separate moves into one run
+        const follow = (cur, to, k) => { cur[0] += (to[0] - cur[0]) * k; cur[1] += (to[1] - cur[1]) * k; };
+        follow(d.spot, spot, i === active ? 0.05 : 0.04);
+        const p = d.now;
+        follow(p.c, target.c, ease); follow(p.head, target.head, ease);
+        p.hands.forEach((h, k) => follow(h, target.hands[k], ease));
+        p.feet.forEach((f, k) => follow(f, target.feet[k], ease));
+        let turnBy = (target.rot - p.rot) % TAU;                              // shoulders take the short way round
+        if (turnBy > Math.PI) turnBy -= TAU; else if (turnBy < -Math.PI) turnBy += TAU;
+        p.rot += turnBy * Math.min(1, ease * 1.4);
+        p.low += ((target.low || 0) - p.low) * 0.15;
+
+        const at = [cx + d.spot[0] * R, cy + d.spot[1] * R];
+        // the feet leave a streak, which is most of what a fast move looks like from above
+        p.feet.forEach((f, k) => {
+          const trail = d.trails[k];
+          trail.push([at[0] + f[0] * S, at[1] + f[1] * S]);
+          if (trail.length > (i === active ? 16 : 1)) trail.splice(0, trail.length - (i === active ? 16 : 1));
+          ctx.strokeStyle = d.c; ctx.lineCap = 'round';
+          for (let j = 1; j < trail.length; j++) {
+            const a = j / trail.length;
+            ctx.globalAlpha = a * a * 0.3; ctx.lineWidth = S * 0.2 * a;
+            ctx.beginPath(); ctx.moveTo(trail[j - 1][0], trail[j - 1][1]); ctx.lineTo(trail[j][0], trail[j][1]); ctx.stroke();
+          }
+        });
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = 'rgb(0 0 0 / .22)';                                   // a soft shadow pins the figure to the floor
+        ctx.beginPath(); ctx.ellipse(at[0] + p.c[0] * S + 3, at[1] + p.c[1] * S + 5, 0.7 * S, 0.5 * S, 0, 0, TAU); ctx.fill();
+        person(ctx, p, at, S, d.c);
       });
 
-      ctx.globalCompositeOperation = 'lighter';
-      ctx.lineCap = 'round';
-      dancers.forEach((d) => {
-        for (let k = 1; k < d.trail.length; k++) {
-          const a = k / d.trail.length;
-          ctx.strokeStyle = d.c; ctx.globalAlpha = a * a * 0.9; ctx.lineWidth = 1 + a * 9;
-          ctx.beginPath();
-          ctx.moveTo(cx + d.trail[k - 1][0] * R, cy + d.trail[k - 1][1] * R);
-          ctx.lineTo(cx + d.trail[k][0] * R, cy + d.trail[k][1] * R);
-          ctx.stroke();
-        }
-        ctx.globalAlpha = 1;
-        ctx.shadowColor = d.c; ctx.shadowBlur = 26;
-        ctx.fillStyle = d.c;
-        ctx.beginPath(); ctx.arc(cx + d.x * R, cy + d.y * R, 8, 0, TAU); ctx.fill();
-        ctx.shadowBlur = 0;
-        ctx.fillStyle = FG;
-        ctx.beginPath(); ctx.arc(cx + d.x * R, cy + d.y * R, 3, 0, TAU); ctx.fill();
-      });
       for (let k = bursts.length - 1; k >= 0; k--) {     // the ring a freeze sends out
         const b = bursts[k], age = (t - b.t) / 0.9;
         if (age > 1) { bursts.splice(k, 1); continue; }
         ctx.strokeStyle = b.c; ctx.globalAlpha = (1 - age) * 0.8; ctx.lineWidth = 2;
-        ctx.beginPath(); ctx.arc(cx + b.x * R, cy + b.y * R, 10 + age * R * 0.42, 0, TAU); ctx.stroke();
+        ctx.beginPath(); ctx.arc(cx + b.at[0] * R, cy + b.at[1] * R, S * 1.2 + age * R * 0.42, 0, TAU); ctx.stroke();
       }
       ctx.globalAlpha = 1;
     }
