@@ -97,18 +97,21 @@ function renderStatus(status, activity) {
   $('#headline').textContent = LIVE ? 'Check in progress'
     : broken ? `${broken} scraper${broken === 1 ? ' needs' : 's need'} attention`
       : idle ? `${idle} scraper${idle === 1 ? ' is' : 's are'} not running` : 'All scrapers healthy';
+  const news = added.events || added.battles
+    ? `<span class="good">+${added.events.toLocaleString()} event${added.events === 1 ? '' : 's'}, +${added.battles.toLocaleString()} battle${added.battles === 1 ? '' : 's'}.</span>`
+    : '<span class="good">No new events or battles.</span>';
   $('#headline-sub').innerHTML = LIVE ? `Started ${ago(LIVE.started)}. Totals update when it finishes.`
-    : `Last check ${ago(status.last_run)}. <b class="next" title="${esc(next.toLocaleString())}">Next check in ${countdown(next)}.</b>`;
+    : `Last run ${ago(status.last_run)}. ${news} <b class="next" title="${esc(next.toLocaleString())}">Next check in ${countdown(next)}.</b>`;
   $('#review-count').textContent = status.need_review || '';
-  $('#totals').innerHTML = [
+  const tiles = (list) => list.map(([b, s, extra]) => `<div><b>${b}</b><span>${s}</span>${extra ? `<small>${extra}</small>` : ''}</div>`).join('');
+  $('#totals').innerHTML = tiles([
     [status.battles.toLocaleString(), 'battles'],
-    added.events || added.battles
-      ? [`${added.events.toLocaleString()} / ${added.battles.toLocaleString()}`, 'events / battles added last run']
-      : ['<span class="good">No new</span>', 'events or battles last run'],
-    [backlog.toLocaleString(), 'events in backlog',
+    [status.events.toLocaleString(), 'events'],
+  ]);
+  $('#backlog').innerHTML = tiles([
+    [backlog.toLocaleString(), `event${backlog === 1 ? '' : 's'} in backlog`,
       backlog ? `${runs} more run${runs === 1 ? '' : 's'} over the next ${span(runs * status.hours_between_runs)}` : ''],
-    [(status.need_review || 0).toLocaleString(), 'nulls'],
-  ].map(([b, s, extra]) => `<div><b>${b}</b><span>${s}</span>${extra ? `<small>${extra}</small>` : ''}</div>`).join('');
+  ]);
 
   $('#sources-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => {
     const [cls, label] = LIVE && LIVE.current === key ? ['running', 'Running'] : health(s, status);
