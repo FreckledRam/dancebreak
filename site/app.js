@@ -209,17 +209,6 @@ function renderStatus(status, activity) {
   $('#headline-sub').innerHTML = LIVE ? `Started ${ago(LIVE.started)}. Totals update when it finishes.`
     : `Most recent data ${ago(latest)}. ${news} Next scrape in <b class="next" title="${esc(next.toLocaleString())}">${countdown(next)}</b>.`;
   document.querySelectorAll('.review-count').forEach((el) => { el.textContent = status.need_review || ''; });
-  const T = status.totals || {};
-  const plus = (n, what) => (n ? `<small class="up">+${n.toLocaleString()} this week</small>` : `<small>None new this week</small>`);
-  const newest = T.newest_date ? new Date(T.newest_date + 'T12:00:00').toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' }) : '-';
-  $('#totals').innerHTML = [
-    ['hero', status.battles.toLocaleString(), 'battles', plus(T.week_battles, 'battles')],
-    ['', status.events.toLocaleString(), 'events', plus(T.week_events, 'events')],
-    ['', (T.decisions || 0).toLocaleString(), 'judge decisions', '<small>one judge, one round</small>'],
-    ['', (T.breakers || 0).toLocaleString(), 'breakers', '<small>&nbsp;</small>'],
-    ['', (T.judges || 0).toLocaleString(), 'judges', '<small>&nbsp;</small>'],
-    ['date', newest, 'newest event', `<small>${T.first_year ? `records from ${T.first_year}` : '&nbsp;'}</small>`],
-  ].map(([cls, b, label, extra]) => `<div class="${cls}"><b>${b}</b><span>${label}</span>${extra}</div>`).join('');
 
   $('#sources-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => {
     const [cls, label] = LIVE && LIVE.current === key ? ['running', 'Running'] : health(s, status);
