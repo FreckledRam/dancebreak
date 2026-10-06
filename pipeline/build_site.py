@@ -114,6 +114,15 @@ def runs(activity: list) -> list:
     return [{k: v for k, v in r.items() if not k.startswith("_")} for r in out[:12]]
 
 
+def news_state() -> dict | None:
+    """When the News tab was last refreshed, and which of its sources failed that time."""
+    path = store.DATA / "news.json"
+    if not path.exists():
+        return None
+    news = json.loads(path.read_text(encoding="utf-8"))
+    return {"updated": news.get("updated"), "errors": sorted(news.get("errors") or {})}
+
+
 def main() -> None:
     if OUT.exists():
         shutil.rmtree(OUT)
@@ -181,6 +190,7 @@ def main() -> None:
         "run_minute": 17,
         "last_run_added": last_run_added(activity),
         "queue": state.queue(),
+        "news": news_state(),
     }
     (OUT / "status.json").write_text(json.dumps(status, ensure_ascii=False), encoding="utf-8")
 

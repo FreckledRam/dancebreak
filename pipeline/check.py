@@ -19,6 +19,8 @@ from . import analytics, http, state, store
 
 SOURCES = ["and8", "wdsf", "breakkonnect"]
 SETTLE_DAYS = 2          # leave an event alone until its results have had time to be posted
+MAX_ATTEMPTS = 3         # an event that fails this many runs in a row is set aside, so it cannot block its scraper for good
+CANARIES = 3             # known events tried by the pre-scrape check before it decides the site has changed
 # rough seconds per event, only used to draw the estimated progress bar on the site
 PACE = {"and8": 45, "wdsf": 12, "breakkonnect": 8}
 RUN = {"running": False, "started": None, "current": None, "sources": {}}
@@ -129,16 +131,25 @@ def preflight(module, key: str, fetch, events: list[dict], index: dict) -> None:
              and (store.BATTLES / key / f"{e['id']}.json").exists()]
     if not known:
         return                      # nothing collected yet to test against
-    canary = min(known, key=lambda e: index[e["id"]].get("battles", 0))     # the smallest one: fewest requests
-    stored = load_json(store.BATTLES / key / f"{canary['id']}.json", {})
     shape = lambda battles: sorted((analytics.key(b["red"]), analytics.key(b["blue"]), b["system"]) for b in battles)
-    try:
-        fresh, _ = module.collect(fetch, dict(canary))
-    except Exception as exc:
-        raise NotSafeToScrape(f"a test scrape of a known event ({canary['name']}) failed. {plain_reason(exc)}") from exc
-    if shape(fresh) != shape(stored["battles"]):
-        raise NotSafeToScrape(f"a test scrape of a known event ({canary['name']}) no longer matches what was "
-                              "collected before, so the site has probably changed")
+    # The smallest known events first (fewest requests). One that still reads the same is enough: a site
+    # sometimes corrects a single old event, and that alone must not stop the scraper for good.
+    first_problem = None
+    for canary in sorted(known, key=lambda e: index[e["id"]].get("battles", 0))[:CANARIES]:
+        stored = load_json(store.BATTLES / key / f"{canary['id']}.json", {})
+        try:
+            fresh, _ = module.collect(fetch, dict(canary))
+        except Exception as exc:
+            first_problem = first_problem or NotSafeToScrape(
+                f"a test scrape of a known event ({canary['name']}) failed. {plain_reason(exc)}")
+            first_problem.__cause__ = first_problem.__cause__ or exc
+            continue
+        if shape(fresh) == shape(stored["battles"]):
+            return
+        first_problem = first_problem or NotSafeToScrape(
+            f"a test scrape of a known event ({canary['name']}) no longer matches what was "
+            "collected before, so the site has probably changed")
+    raise first_problem
 
 
 def run_source(key: str, fetch, st: dict, review: list, full: bool, limit: int) -> None:
@@ -225,10 +236,19 @@ def run_source(key: str, fetch, st: dict, review: list, full: bool, limit: int) 
                 http.snapshot(key, ev["id"], page, html)
             for (_, _), linked in seed_links:
                 index[linked["id"]]["status"] = "pending"
-            index[ev["id"]].update(status="failed", error=f"{type(exc).__name__}: {exc}")
+            entry = index[ev["id"]]
+            entry.update(status="failed", error=f"{type(exc).__name__}: {exc}", attempts=entry.get("attempts", 0) + 1)
+            set_aside = entry["attempts"] >= MAX_ATTEMPTS
+            if set_aside:
+                # It has now cancelled this scraper several runs running. Take it out of the queue and list it
+                # on the Null page for a person to look at, so the events behind it can be collected.
+                entry["status"] = "skipped"
+                flag(review, key, ev, [{"stage": "", "url": ev.get("url"),
+                                        "reason": f"set aside after {MAX_ATTEMPTS} failed attempts. {plain_reason(exc)}"}])
             finish(f"Run cancelled: error scraping event: {ev['name']}. {plain_reason(exc)} "
-                   "Nothing from this run was saved.", index[ev["id"]]["error"], 0, 0,
-                   failed=1, failed_event=ev["name"], cancelled=True)
+                   "Nothing from this run was saved."
+                   + (" This event has now been set aside so the next run can carry on without it." if set_aside else ""),
+                   entry["error"], 0, 0, failed=1, failed_event=ev["name"], cancelled=True)
             return
         staged.append((ev, battles, problems))
         RUN["sources"][key]["done"] = n
@@ -245,6 +265,7 @@ def run_source(key: str, fetch, st: dict, review: list, full: bool, limit: int) 
         entry = index[ev["id"]]
         entry["name"] = ev["name"]
         entry.pop("error", None)
+        entry.pop("attempts", None)
         already = seed_overlap(battles, seeds)
         if already:
             path, data = already

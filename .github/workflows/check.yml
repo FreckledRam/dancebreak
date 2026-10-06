@@ -3,6 +3,7 @@ name: Check sources
 on:
   schedule:
     - cron: "17 10 * * *"
+    - cron: "17 16 * * *"     # second chance: GitHub sometimes drops a scheduled run. Does nothing if the first one ran.
   workflow_dispatch:
     inputs:
       max:
@@ -28,22 +29,40 @@ jobs:
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
+      - name: Has today's run already happened?
+        id: gate
+        if: github.event.schedule == '17 16 * * *'
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, datetime
+          checked = [s.get("last_checked") for s in json.load(open("data/state.json"))["sources"].values() if s.get("last_checked")]
+          last = max(checked, default="2000-01-01T00:00:00Z")
+          hours = (datetime.datetime.now(datetime.timezone.utc) - datetime.datetime.fromisoformat(last.replace("Z", "+00:00"))).total_seconds() / 3600
+          print(f"skip={'true' if hours < 12 else 'false'}")
+          PY
       - uses: astral-sh/setup-uv@v5
+        if: steps.gate.outputs.skip != 'true'
       - run: uv sync
+        if: steps.gate.outputs.skip != 'true'
       - run: uv run pytest -q
+        if: steps.gate.outputs.skip != 'true'
       - name: Identify the bot for commits
+        if: steps.gate.outputs.skip != 'true'
         run: |
           git config user.name "dancebreak-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Upcoming events and headlines for the News tab
+        if: steps.gate.outputs.skip != 'true'
         continue-on-error: true   # the news is extra; a failure here must not stop the scrape
         run: uv run python -m pipeline.news
       - name: Check sources and collect new events
+        if: steps.gate.outputs.skip != 'true'
         env:
           PUSH_PROGRESS: "1"      # save and push every 10 events
           PYTHONUNBUFFERED: "1"   # print each event as it happens
         run: uv run python -m pipeline.check --max "${{ inputs.max || '10' }}" ${{ inputs.full && '--full' || '' }}
       - name: Save results
+        if: steps.gate.outputs.skip != 'true'
         run: |
           git add data snapshots 2>/dev/null || git add data
           git diff --cached --quiet || git commit -m "Scheduled check: $(date -u +%Y-%m-%dT%H:%MZ)"

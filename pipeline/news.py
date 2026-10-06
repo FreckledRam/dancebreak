@@ -26,6 +26,7 @@ AND8_NEW_PER_RUN = 60                       # event pages read per run to answer
 MONTHS_AHEAD = 6
 MAX_UPCOMING, MAX_HEADLINES, MAX_FEATURES = 80, 14, 6
 HEADLINE_DAYS = 14
+KEEP_DAYS = 30               # when a source fails, its last articles are shown for this long and no longer
 
 AND8_EVENTS = "https://and8.dance/en/events/overview"
 BK_IMAGES = "https://images-ivn6elc3dq-uc.a.run.app"
@@ -199,7 +200,7 @@ def parse_google_news(xml: str, today: date) -> list[dict]:
             continue
         key = re.sub(r"[^a-z0-9]", "", title.lower())[:48]
         # a title of a few words is a profile or tag page, not an article
-        if len(title.split()) < 5 or key in seen or not link or (today - when).days > HEADLINE_DAYS:
+        if len(title.split()) < 5 or key in seen or not link.startswith("https://") or (today - when).days > HEADLINE_DAYS:
             continue
         if "worlddancesport" in source.lower() or source == "WDSF":
             continue                                    # those come with pictures from the federation's own page
@@ -254,7 +255,8 @@ def main() -> None:
             articles[key] = collect(fetch, today)
         except Exception as exc:
             errors[key] = str(exc)[:200]
-            articles[key] = old.get(key, [])
+            fresh_enough = (today - timedelta(days=KEEP_DAYS)).isoformat()
+            articles[key] = [a for a in old.get(key, []) if a.get("date", "") >= fresh_enough]
         print(f"{key}: {len(articles[key])}{' (kept from last run)' if key in errors else ''}")
 
     store.write_json(CACHE, cache)

@@ -138,7 +138,7 @@ function progressCell(key, q, done, pct) {
 
 // Healthy: last run worked. Error: it could not read the site. Not running: no recent run at all.
 function health(s, status) {
-  const stale = !s.last_checked || Date.now() - new Date(s.last_checked) > 2.5 * status.hours_between_runs * 3600e3;
+  const stale = !s.last_checked || Date.now() - new Date(s.last_checked) > 1.6 * status.hours_between_runs * 3600e3;
   // yellow: it ran but hit a problem. red: it is not running at all.
   if (stale || (s.status !== 'ok' && s.status !== 'broken')) return ['stopped', 'Not running'];
   return s.status === 'broken' ? ['error', 'Error'] : ['ok', 'Healthy'];
@@ -228,6 +228,13 @@ function renderStatus(status, activity) {
   </tr>`;
   }).join('');
 
+  // the News tab is refreshed by the same daily run; say so, and say when part of it could not be
+  const feed = status.news, feedNames = { and8: 'And8 events', wdsf: 'WDSF events', breakkonnect: 'Break Konnect events', features: 'WDSF articles', headlines: 'headlines' };
+  const feedOld = feed && feed.updated && Date.now() - new Date(feed.updated) > 1.6 * status.hours_between_runs * 3600e3;
+  $('#news-note').innerHTML = !feed ? ''
+    : feed.errors.length ? `<span class="status warn">News</span> Could not refresh ${feed.errors.map((k) => feedNames[k] || k).join(', ')} on the last run. The News tab is showing the last good copy of those.`
+      : feedOld ? `<span class="status stopped">News</span> The News tab was last refreshed ${ago(feed.updated)}.`
+        : `<span class="status ok">News</span> The News tab was refreshed ${ago(feed.updated)}.`;
   const showQueue = Boolean(LIVE) || backlog > 0;
   $('#queue-table').hidden = !showQueue;
   $('#queue-note').textContent = LIVE ? 'A check is running now. Progress is an estimate.'
@@ -591,7 +598,7 @@ function scoreTables(rounds, b) {
 // ---- review
 const PROBLEM = [
   [/page (says|lists)|decided/, 'Battles missing'], [/no battles found/, 'Stage empty'], [/layout not mapped/, 'Bracket too big'],
-  [/could not tell/, 'Category unclear'], [/no export column/, 'More rounds or judges than the sheet holds'],
+  [/set aside/, 'Could not be scraped'], [/could not tell/, 'Category unclear'], [/no export column/, 'More rounds or judges than the sheet holds'],
 ];
 const REVIEW_SHOWN = 12;
 let REVIEW = [], reviewAll = false;

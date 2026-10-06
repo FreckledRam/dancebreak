@@ -93,3 +93,26 @@ def test_quiet_run_does_no_test_scrape(world):
     world.calls.clear()
     src = world.run()                                           # nothing new listed
     assert src["status"] == "ok" and world.calls == []
+
+
+def test_an_event_that_keeps_failing_is_set_aside_so_the_rest_can_be_collected(world):
+    world.listed = [event(1), event(2)]
+    world.results = {"2": RuntimeError("boom"), "1": [battle("A", "B")]}
+    for _ in range(check.MAX_ATTEMPTS - 1):
+        assert world.run()["status"] == "broken"
+        assert world.index()["2"]["status"] == "failed"             # still retried next run
+    src = world.run()                                               # the last straw
+    assert "set aside" in src["note"] and world.index()["2"]["status"] == "skipped"
+    assert world.saved() == []
+    src = world.run()                                               # the scraper is no longer blocked
+    assert src["status"] == "ok" and world.saved() == ["1.json"]
+
+
+def test_one_corrected_old_event_does_not_stop_the_scraper(world):
+    world.listed = [event(1), event(2)]
+    world.results = {"1": [battle("A", "B")], "2": [battle("C", "D"), battle("E", "F")]}
+    world.run()                                                 # both collected; event 1 is the smallest
+    world.listed = [event(1), event(2), event(3)]
+    world.results = {"1": [battle("A", "RENAMED")], "2": [battle("C", "D"), battle("E", "F")], "3": [battle("G", "H")]}
+    src = world.run()                                           # event 1 reads differently now, event 2 still matches
+    assert src["status"] == "ok" and world.saved() == ["1.json", "2.json", "3.json"]

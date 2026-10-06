@@ -28,6 +28,17 @@ jobs:
       - uses: astral-sh/setup-uv@v5
       - run: uv sync --no-dev
       - run: uv run python -m pipeline.build_site
+      - name: Refuse to publish a broken page
+        run: |
+          for f in site/*.js; do node --check "$f"; done
+          python3 - <<'PY'
+          import json, re, sys
+          for name in ("status", "battles", "analytics", "review"):
+              json.load(open(f"site/data/{name}.json"))                  # each must be whole, readable JSON
+          html = open("site/index.html", encoding="utf-8").read()
+          missing = [f for f in re.findall(r'(?:src|href)="([\w.-]+\.(?:js|css))', html) if not __import__("os").path.exists("site/" + f)]
+          sys.exit(f"index.html asks for files that are not there: {missing}" if missing else 0)
+          PY
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
