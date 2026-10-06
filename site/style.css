@@ -64,6 +64,7 @@ h2 { font-weight: 600; font-size: 17px; line-height: 1; letter-spacing: -.01em; 
 .panel tr:last-child td { border-bottom: 0; }
 .panel #queue-note { margin: 0; }
 .panel .note { margin: 12px 0 0; }
+.panel #headline-sub { font-size: 17px; margin-top: 4px; }
 .sub .good { color: var(--ok); }
 .nums small { display: block; color: var(--muted); font-size: 13px; }
 
