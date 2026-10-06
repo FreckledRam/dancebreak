@@ -104,7 +104,7 @@ function renderStatus(status, activity) {
     [status.battles.toLocaleString(), 'battles'],
     added.events || added.battles
       ? [`${added.events.toLocaleString()} / ${added.battles.toLocaleString()}`, 'events / battles added last run']
-      : ['No new', 'events or battles last run'],
+      : ['<span class="good">No new</span>', 'events or battles last run'],
     [backlog.toLocaleString(), 'events in backlog',
       backlog ? `${runs} more run${runs === 1 ? '' : 's'} over the next ${span(runs * status.hours_between_runs)}` : ''],
     [(status.need_review || 0).toLocaleString(), 'nulls'],
