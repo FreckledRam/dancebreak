@@ -1,22 +1,15 @@
-// The tab bar's extras: the Data health menu, the phone menu, site search, and "next" links between tabs.
+// The tab bar's extras: the phone menu, site search, and "next" links between tabs.
 (() => {
-  const header = $('header'), menuBtn = $('#menu-btn'), healthBtn = $('#health-btn'), healthPop = $('#health-pop');
+  const header = $('header'), menuBtn = $('#menu-btn');
   const searchBox = $('#nav-search'), findBtn = $('#find-btn');
   const find = $('#find'), results = $('#find-results');
 
   // ---- menus
   function closeMenus() {
-    healthPop.hidden = true; healthBtn.setAttribute('aria-expanded', 'false');
     header.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false');
     results.hidden = true;
   }
   window.closeNavMenus = closeMenus;
-  healthBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const open = healthPop.hidden;
-    closeMenus();
-    healthPop.hidden = !open; healthBtn.setAttribute('aria-expanded', String(open));
-  });
   // the magnifying glass opens into a search bar, and closes again when left empty
   function openSearch(open) {
     searchBox.classList.toggle('open', open);

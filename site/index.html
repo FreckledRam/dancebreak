@@ -41,15 +41,7 @@
         </div>
         <div class="nav-pop" id="find-results" hidden></div>
       </div>
-      <div class="nav-health">
-        <button class="tab" id="health-btn" aria-expanded="false" aria-controls="health-pop"><span id="nav-dot" class="status" hidden></span>Data health<em class="review-count"></em></button>
-        <div class="nav-pop" id="health-pop" hidden>
-          <span class="nav-label">Data health</span>
-          <a href="#dataset"><b>Dataset</b><small>Every battle, with each judge's score</small></a>
-          <a href="#sources"><b>Scraper health</b><small>Did today's collection run, and what did it add</small></a>
-          <a href="#review"><b>Null<em class="review-count"></em></b><small>What is missing from the data, and why</small></a>
-        </div>
-      </div>
+      <a class="tab" id="health-btn" href="#sources"><span id="nav-dot" class="status" hidden></span>Data health<em class="review-count"></em></a>
     </div>
   </nav>
 </header>
@@ -170,7 +162,7 @@
   </section>
 
   <section id="sources" hidden>
-    <h1 class="twin"><i class="nav-glass" aria-hidden="true"></i><a href="#dataset" data-view="dataset">Dataset</a><a href="#sources" data-view="sources">Scraper health<em id="health-word"></em></a><a href="#review" data-view="review">Null<em class="review-count"></em></a></h1>
+    <h1 class="twin"><i class="nav-glass" aria-hidden="true"></i><a href="#dataset" data-view="dataset">Dataset</a><a href="#sources" data-view="sources"><span id="health-word" class="status" hidden></span>Scraper health</a><a href="#review" data-view="review">Null<em class="review-count"></em></a></h1>
     <div class="view" data-view="dataset" id="dataset" hidden>
     <h1 class="oneline"><span id="dataset-title">&nbsp;</span><span class="added" id="dataset-added" hidden></span></h1>
     <div class="filters">

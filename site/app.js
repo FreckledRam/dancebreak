@@ -25,8 +25,6 @@ function showTab() {
   document.querySelectorAll(`#${tab} .twin a`).forEach((a) => a.classList.toggle('on', a.dataset.view === view));
   document.querySelectorAll('main section').forEach((s) => { s.hidden = s.id !== tab; });
   document.querySelectorAll('nav a.tab').forEach((a) => a.classList.toggle('on', a.hash === '#' + tab));
-  document.querySelectorAll('nav .nav-pop a').forEach((a) => a.classList.toggle('on', a.hash === '#' + view));
-  $('#health-btn').classList.toggle('on', tab === 'sources');      // Dataset, Scraper health and Null live in its menu
   window.closeNavMenus?.();
   moveGlass();
   // the tab bar must not move under the pointer: stay where we are, unless we are further down than the new tab's top
@@ -238,10 +236,9 @@ function renderStatus(status, activity) {
   dot.className = `status ${LIVE ? 'running' : idle ? 'stopped' : broken ? 'error' : 'ok'}`;
   dot.title = $('#headline').textContent;
   dot.hidden = false;
-  // the same state as a word, beside Scraper health in that page's title
-  const word = $('#health-word');
-  word.textContent = LIVE ? 'Running' : idle ? 'Not running' : broken ? 'Error' : 'Healthy';
-  word.className = dot.className.replace('status ', '');
+  // the same dot before Scraper health in that page's title
+  const mark = $('#health-word');
+  mark.className = dot.className; mark.title = dot.title; mark.hidden = false;
   $('#headline').closest('.panel').classList.toggle('healthy', !LIVE && !idle && !broken);
   const news = added.events || added.battles
     ? `<span class="good">+${added.events.toLocaleString()} event${added.events === 1 ? '' : 's'}, +${added.battles.toLocaleString()} battle${added.battles === 1 ? '' : 's'}.</span>`
