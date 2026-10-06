@@ -1,12 +1,5 @@
 /* Home: the explainer. Everything is scoped under #home or the h- prefix. */
 
-/* on the home page the masthead steps back and the hero takes the size */
-body[data-tab="home"] header { padding-top: 26px; }
-body[data-tab="home"] .brand { padding-bottom: 22px; column-gap: 12px; }
-body[data-tab="home"] .brand .title { font-size: 24px; letter-spacing: -.035em; }
-body[data-tab="home"] .brand .mark i { width: 5px; }
-body[data-tab="home"] .brand .mark i + i { margin-top: 6px; margin-bottom: -3px; }
-html:has(body[data-tab="home"]), body[data-tab="home"] { overflow-x: clip; }
 
 #home { position: relative; }
 #home h1, #home h2, #home h3, #home p { margin: 0; }

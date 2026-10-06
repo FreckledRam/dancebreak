@@ -124,7 +124,7 @@ document.addEventListener('click', (e) => {
   Object.keys(colFilters).forEach((k) => delete colFilters[k]);
   qualityCode = null; sortCol = null; $('#q').value = name; page = 0;
   filter();
-  location.hash = '#dataset';
+  goTab('dataset');
 });
 
 const NAMES = {};      // person key -> the spelling used most often

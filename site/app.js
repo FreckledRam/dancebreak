@@ -19,11 +19,57 @@ function showTab() {
   document.body.dataset.tab = tab;
   document.querySelectorAll('main section').forEach((s) => { s.hidden = s.id !== tab; });
   document.querySelectorAll('nav a').forEach((a) => a.classList.toggle('on', a.hash === '#' + tab));
-  scrollTo(0, 0);     // the tab name is also an element id, so the browser would scroll past the header
+  moveGlass();
+  // the tab bar must not move under the pointer: stay where we are, unless we are further down than the new tab's top
+  if (scrollY > stickPoint()) scrollTo(0, stickPoint());
 }
+
+// the header is sticky and slides up until only the tab bar is left; this is the scroll position where that happens
+function stickPoint() {
+  return Math.max(0, $('nav').offsetTop - 8);
+}
+
+// the glass behind the lit tab. Its leading edge is given the shorter transition, so it stretches on the way.
+function moveGlass() {
+  const nav = $('nav'), glass = $('.nav-glass'), on = nav.querySelector('a.on');
+  if (!on) return;
+  const n = nav.getBoundingClientRect(), a = on.getBoundingClientRect(), left = a.left - n.left;
+  glass.classList.toggle('to-right', left > parseFloat(glass.style.getPropertyValue('--l') || 0));
+  glass.classList.toggle('to-left', left < parseFloat(glass.style.getPropertyValue('--l') || 0));
+  glass.style.setProperty('--l', `${left}px`);
+  glass.style.setProperty('--r', `${n.right - a.right}px`);
+  glass.style.setProperty('--t', `${a.top - n.top}px`);
+  glass.style.setProperty('--h', `${a.height}px`);
+  glass.style.setProperty('--tint', getComputedStyle(on).color);
+}
+
+// Changing tab by setting the address would make the browser jump to the section of that name first.
+// So tabs are changed here, and the address is updated without that jump.
+function goTab(tab) {
+  if (location.hash.slice(1) === tab || (!location.hash && tab === 'home')) { scrollTo({ top: Math.min(scrollY, stickPoint()), behavior: 'smooth' }); return; }
+  history.pushState(null, '', '#' + tab);
+  dispatchEvent(new HashChangeEvent('hashchange'));
+}
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a || e.metaKey || e.ctrlKey || e.shiftKey || !document.querySelector(`main > section${a.hash}`)) return;
+  e.preventDefault();
+  goTab(a.hash.slice(1));
+});
 addEventListener('hashchange', showTab);
 showTab();
-addEventListener('load', () => scrollTo(0, 0));
+function settleHeader() {
+  $('header').style.top = `-${stickPoint()}px`;
+  moveGlass();
+}
+settleHeader();
+requestAnimationFrame(() => $('.nav-glass').classList.add('live'));
+addEventListener('resize', settleHeader);
+document.fonts?.ready.then(settleHeader);
+// a tab label can change width after the data loads (the status dot, the Null count)
+const navWatch = new ResizeObserver(settleHeader);
+document.querySelectorAll('nav a').forEach((a) => navWatch.observe(a));
+addEventListener('load', () => { scrollTo(0, 0); settleHeader(); });
 
 // ---- news: upcoming events and headlines. Pictures load from the site that owns them, at thumbnail size.
 const NEWS_SOURCES = { and8: 'And8', wdsf: 'WDSF', breakkonnect: 'Break Konnect' };
@@ -617,7 +663,7 @@ const openNullCard = (e) => {
   Object.keys(colFilters).forEach((k) => delete colFilters[k]);
   $('#q').value = ''; qualityCode = code; page = 0;
   filter();
-  location.hash = '#dataset';
+  goTab('dataset');
 };
 $('#quality-cards').addEventListener('click', openNullCard);
 $('#quality-cards').addEventListener('keydown', openNullCard);
