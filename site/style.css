@@ -444,3 +444,21 @@ main > section, main .view { scroll-margin-top: 100000px; }
 .pair > .panel:first-child { order: 2; }      /* Recent runs on the left, Queue on the right, both the same size */
 .pair > .panel { min-width: 0; margin-bottom: 22px; overflow-x: auto; }
 @media (max-width: 900px) { .pair { grid-template-columns: 1fr; gap: 0; } .pair > .panel:first-child { order: 0; } }
+
+/* ---- rows get side padding, so nothing sits against the edge of a highlighted or opened row */
+#battles > thead th:first-child, #battles > tbody > tr.row > td:first-child,
+table.rank > thead th:first-child, table.rank > tbody > tr.row > td:first-child,
+#review-table th:first-child, #review-table td:first-child { padding-left: 16px; }
+#battles > thead th:last-child, #battles > tbody > tr.row > td:last-child,
+table.rank > thead th:last-child, table.rank > tbody > tr.row > td:last-child,
+#review-table th:last-child, #review-table td:last-child { padding-right: 16px; }
+#battles > tbody > tr.row > td { padding-top: 13px; padding-bottom: 13px; }
+#battles > tbody > tr.row > td:first-child, table.rank > tbody > tr.row > td:first-child { border-radius: 8px 0 0 8px; }
+#battles > tbody > tr.row > td:last-child, table.rank > tbody > tr.row > td:last-child { border-radius: 0 8px 8px 0; }
+#battles > tbody > tr.detail > td { padding: 20px 24px 26px; border-radius: 8px; }
+table.rank > tbody > tr.detail > td { border-radius: 8px; }
+#battles .rounds { gap: 14px 40px; }
+#battles .rounds td { padding: 6px 0; }
+#battles .rounds td.w { padding: 6px 12px; }
+#battles .raw th, #battles .raw td { padding: 7px 20px 7px 0; }
+.rounds h4, .raw h4 { margin: 14px 0 8px; }
