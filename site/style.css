@@ -469,3 +469,7 @@ table.rank > tbody > tr.detail > td { border-radius: 8px; }
 #runs-table td, #runs-table th { padding-right: 14px; }
 #runs-table td:last-child, #runs-table th:last-child { padding-right: 2px; }
 #runs-table td:nth-child(2) { width: 100%; }
+
+/* the logo's third bar: the Events green, standing between the heights of the red and the blue */
+header .brand .mark { gap: 5px; }
+header .brand .mark i:nth-child(3) { background: var(--events); margin-top: 3px; margin-bottom: 2px; }
