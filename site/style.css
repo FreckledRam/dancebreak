@@ -30,7 +30,6 @@ h2 { font-weight: 600; font-size: 17px; line-height: 1; letter-spacing: -.01em; 
 .nums b { display: block; font-weight: 700; font-size: 26px; line-height: 1.2; letter-spacing: -.025em; font-variant-numeric: tabular-nums; }
 .nums div > span { color: var(--muted); font-size: 13px; }
 .nums.top { margin: 0 0 26px; }
-#backlog { margin: 10px 0 6px; }
 .sub .good { color: var(--ok); }
 .nums small { display: block; color: var(--muted); font-size: 13px; }
 

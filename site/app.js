@@ -108,11 +108,6 @@ function renderStatus(status, activity) {
     [status.battles.toLocaleString(), 'battles'],
     [status.events.toLocaleString(), 'events'],
   ]);
-  $('#backlog').innerHTML = tiles([
-    [backlog.toLocaleString(), `event${backlog === 1 ? '' : 's'} in backlog`,
-      backlog ? `${runs} more run${runs === 1 ? '' : 's'} over the next ${span(runs * status.hours_between_runs)}` : ''],
-  ]);
-
   $('#sources-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => {
     const [cls, label] = LIVE && LIVE.current === key ? ['running', 'Running'] : health(s, status);
     return `<tr>
