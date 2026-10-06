@@ -311,8 +311,8 @@ header nav .sep { align-self: center; margin: 0 8px; }
 .nav-glass.live.to-right { transition-duration: .62s, .3s, .35s, .35s, .4s, .4s; }
 .nav-glass.live.to-left { transition-duration: .3s, .62s, .35s, .35s, .4s, .4s; }
 /* a tab's content arrives softly instead of snapping in */
-main section:not([hidden]) { animation: tab-in .32s cubic-bezier(.2,.7,.2,1); }
-@keyframes tab-in { from { opacity: 0; transform: translateY(8px); } }
+main section:not([hidden]) { animation: tab-in .85s cubic-bezier(.22,.61,.36,1); }
+@keyframes tab-in { from { opacity: 0; transform: translateY(14px); } 35% { opacity: .25; } }
 @media (max-width: 680px) {
   header { padding-top: 18px; }
   header .brand { padding-bottom: 12px; }
@@ -410,7 +410,7 @@ h1.twin em { font-style: normal; font-size: 15px; font-weight: 600; letter-spaci
 #health-word[hidden] { display: none; }
 #health-word::before { width: 12px; height: 12px; margin-right: 12px; vertical-align: 2px; }
 #review-title { font-size: 28px; font-weight: 700; letter-spacing: -.025em; margin: 6px 0; }
-.view:not([hidden]) { animation: tab-in .32s cubic-bezier(.2,.7,.2,1); }
+.view:not([hidden]) { animation: tab-in .85s cubic-bezier(.22,.61,.36,1); }
 @media (prefers-reduced-motion: reduce) { .view:not([hidden]) { animation: none; } }
 #events-table td:first-child { max-width: 330px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 #events-table tr.detail td:first-child { max-width: none; overflow: visible; white-space: normal; }
