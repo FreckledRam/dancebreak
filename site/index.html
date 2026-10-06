@@ -30,29 +30,38 @@
 
 <main>
   <section id="sources" hidden>
-    <div class="nums top" id="totals"></div>
-    <h1 id="headline">&nbsp;</h1>
-    <p class="sub" id="headline-sub">&nbsp;</p>
+    <div class="panel">
+      <h2>Totals</h2>
+      <div class="nums" id="totals"></div>
+    </div>
 
-    <h2>Scrapers</h2>
-    <table id="sources-table" class="stack">
-      <thead><tr><th>Scraper</th><th>Status</th><th>Last new data</th><th>Newest event</th><th class="num">Battles</th></tr></thead>
-      <tbody></tbody>
-    </table>
-    <p class="note" id="sources-note"></p>
+    <div class="panel">
+      <h2>Scraper health</h2>
+      <h1 id="headline">&nbsp;</h1>
+      <p class="sub" id="headline-sub">&nbsp;</p>
+      <table id="sources-table" class="stack">
+        <thead><tr><th>Scraper</th><th>Status</th><th>Last new data</th><th>Newest event</th><th class="num">Battles</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="note" id="sources-note"></p>
+    </div>
 
-    <h2>Queue</h2>
-    <p class="muted" id="queue-note"></p>
-    <table id="queue-table" class="stack" hidden>
-      <thead><tr><th>Scraper</th><th>Progress</th><th class="num">Waiting</th><th>Cleared in</th><th>Up next</th></tr></thead>
-      <tbody></tbody>
-    </table>
+    <div class="panel">
+      <h2>Queue</h2>
+      <p class="muted" id="queue-note"></p>
+      <table id="queue-table" class="stack" hidden>
+        <thead><tr><th>Scraper</th><th>Progress</th><th class="num">Waiting</th><th>Cleared in</th><th>Up next</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
 
-    <h2>Recent runs</h2>
-    <table id="runs-table">
-      <thead><tr><th>When</th><th>Result</th><th class="num">Events added</th><th class="num">Battles added</th></tr></thead>
-      <tbody></tbody>
-    </table>
+    <div class="panel">
+      <h2>Recent runs</h2>
+      <table id="runs-table">
+        <thead><tr><th>When</th><th>Result</th><th class="num">Events added</th><th class="num">Battles added</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
   </section>
 
   <section id="dataset" hidden>
