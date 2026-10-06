@@ -101,6 +101,7 @@ function renderStatus(status, activity) {
   dot.className = `status ${LIVE ? 'running' : idle ? 'stopped' : broken ? 'error' : 'ok'}`;
   dot.title = $('#headline').textContent;
   dot.hidden = false;
+  $('#headline').closest('.panel').classList.toggle('healthy', !LIVE && !idle && !broken);
   const news = added.events || added.battles
     ? `<span class="good">+${added.events.toLocaleString()} event${added.events === 1 ? '' : 's'}, +${added.battles.toLocaleString()} battle${added.battles === 1 ? '' : 's'}.</span>`
     : '<span class="good">No new events or battles.</span>';

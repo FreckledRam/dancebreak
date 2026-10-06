@@ -54,13 +54,14 @@ h1.oneline { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
 .panel { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 20px 24px 22px; margin-bottom: 16px; }
 .panel h2 { margin: 0 0 14px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 .panel h1 { font-size: 28px; }
+.panel.healthy { background: color-mix(in srgb, var(--ok) 14%, var(--soft)); border-color: color-mix(in srgb, var(--ok) 35%, var(--line)); }
 .panel h2:has(#last-run) { display: flex; justify-content: space-between; gap: 12px; }
 #last-run { text-transform: none; letter-spacing: 0; font-weight: 400; font-size: 13px; }
 .panel .nums { margin: 0; display: grid; grid-template-columns: 1.5fr 1fr 1.2fr 1fr .8fr 1.3fr; gap: 22px 24px; align-items: end; }
 .panel .nums .date b { font-size: 28px; white-space: nowrap; }
 @media (max-width: 900px) { .panel .nums { grid-template-columns: 1fr 1fr; } }
 .panel .nums b { font-size: 36px; font-weight: 700; line-height: 1.05; letter-spacing: -.035em; }
-.panel .nums .hero b { font-size: 52px; color: var(--accent); }
+.panel .nums .hero b { font-size: 52px; }
 .panel .nums div > span { font-size: 14px; color: var(--fg); font-weight: 500; }
 .panel .nums small { margin-top: 2px; }
 .panel .nums small.up { color: var(--ok); font-weight: 500; }
