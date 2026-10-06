@@ -14,12 +14,17 @@ function ago(iso) {
 }
 
 // ---- tabs
+const TABS = ['sources', 'dataset', 'breakers', 'judges', 'events', 'news', 'home'];
+const VIEW_OF = { systems: 'judges', review: 'sources' };
 function showTab() {
-  const tab = ['sources', 'dataset', 'breakers', 'judges', 'systems', 'review', 'news', 'home'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'home';
+  // Systems and Null are views inside the Judges and Data health tabs, each with its own address
+  const hash = location.hash.slice(1);
+  const tab = VIEW_OF[hash] || (TABS.includes(hash) ? hash : 'home'), view = VIEW_OF[hash] ? hash : tab;
   document.body.dataset.tab = tab;
+  document.querySelectorAll(`#${tab} .view`).forEach((v) => { v.hidden = v.dataset.view !== view; });
+  document.querySelectorAll(`#${tab} .twin a`).forEach((a) => a.classList.toggle('on', a.dataset.view === view));
   document.querySelectorAll('main section').forEach((s) => { s.hidden = s.id !== tab; });
   document.querySelectorAll('nav a').forEach((a) => a.classList.toggle('on', a.hash === '#' + tab));
-  $('#health-btn').classList.toggle('on', tab === 'sources' || tab === 'review');     // those two live in its menu
   window.closeNavMenus?.();
   moveGlass();
   // the tab bar must not move under the pointer: stay where we are, unless we are further down than the new tab's top
@@ -36,9 +41,14 @@ function stickPoint() {
 
 // the glass behind the lit tab. Its leading edge is given the shorter transition, so it stretches on the way.
 function moveGlass() {
-  const nav = $('nav'), glass = $('.nav-glass'), on = nav.querySelector('.tab.on');
-  if (!on) return;
-  const n = nav.getBoundingClientRect(), a = on.getBoundingClientRect(), left = a.left - n.left;
+  slideGlass($('nav'), $('nav .tab.on'));
+  document.querySelectorAll('main section:not([hidden]) .twin').forEach((t) => slideGlass(t, t.querySelector('a.on')));
+}
+function slideGlass(box, on) {
+  const glass = box.querySelector('.nav-glass');
+  const n = box.getBoundingClientRect(), a = on?.getBoundingClientRect();
+  if (!on || !a.width) return;
+  const left = a.left - n.left;
   glass.classList.toggle('to-right', left > parseFloat(glass.style.getPropertyValue('--l') || 0));
   glass.classList.toggle('to-left', left < parseFloat(glass.style.getPropertyValue('--l') || 0));
   glass.style.setProperty('--l', `${left}px`);
@@ -57,7 +67,7 @@ function goTab(tab) {
 }
 document.addEventListener('click', (e) => {
   const a = e.target.closest('a[href^="#"]');
-  if (!a || e.metaKey || e.ctrlKey || e.shiftKey || !document.querySelector(`main > section${a.hash}`)) return;
+  if (!a || e.metaKey || e.ctrlKey || e.shiftKey || !(TABS.includes(a.hash.slice(1)) || VIEW_OF[a.hash.slice(1)])) return;
   e.preventDefault();
   goTab(a.hash.slice(1));
 });
@@ -70,7 +80,7 @@ function settleHeader() {
   moveGlass();
 }
 settleHeader();
-requestAnimationFrame(() => $('.nav-glass').classList.add('live'));
+requestAnimationFrame(() => document.querySelectorAll('.nav-glass').forEach((g) => g.classList.add('live')));
 addEventListener('resize', settleHeader);
 document.fonts?.ready.then(settleHeader);
 // a tab label can change width after the data loads (the status dot, the Null count)
@@ -226,6 +236,10 @@ function renderStatus(status, activity) {
   dot.className = `status ${LIVE ? 'running' : idle ? 'stopped' : broken ? 'error' : 'ok'}`;
   dot.title = $('#headline').textContent;
   dot.hidden = false;
+  // the same state as a word, beside Scraper health in that page's title
+  const word = $('#health-word');
+  word.textContent = LIVE ? 'Running' : idle ? 'Not running' : broken ? 'Error' : 'Healthy';
+  word.className = dot.className.replace('status ', '');
   $('#headline').closest('.panel').classList.toggle('healthy', !LIVE && !idle && !broken);
   const news = added.events || added.battles
     ? `<span class="good">+${added.events.toLocaleString()} event${added.events === 1 ? '' : 's'}, +${added.battles.toLocaleString()} battle${added.battles === 1 ? '' : 's'}.</span>`

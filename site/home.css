@@ -234,7 +234,7 @@
 .h-tabs span { display: block; margin-top: 6px; font-size: 14px; color: var(--muted); }
 .h-tabs a.c-breakers b { color: var(--breakers); }
 .h-tabs a.c-judges b { color: var(--judges); }
-.h-tabs a.c-systems b { color: var(--systems); }
+.h-tabs a.c-events b { color: var(--events); }
 .h-thanks { margin-top: 56px !important; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; max-width: 52em; }
 .h-thanks b { color: var(--fg); }
 

@@ -331,7 +331,7 @@ header nav .tab { position: relative; z-index: 1; height: auto; padding: 7px 13p
 header nav .tab:hover, header nav .tab.on { color: var(--fg); }
 header nav a.tab.c-breakers { color: var(--breakers); }
 header nav a.tab.c-judges { color: var(--judges); }
-header nav a.tab.c-systems { color: var(--systems); }
+header nav a.tab.c-events { color: var(--events); }
 header nav .sep { align-self: center; margin: 0 8px; }
 /* the lit tab is a drop of glass that slides to wherever you click: its leading edge moves first, the rest catches up */
 .nav-glass { position: absolute; z-index: 0; left: var(--l, 0); right: var(--r, 100%); top: var(--t, 0); height: var(--h, 0); border-radius: 999px; pointer-events: none;
@@ -359,11 +359,10 @@ main section:not([hidden]) { animation: tab-in .32s cubic-bezier(.2,.7,.2,1); }
 /* ---- tab bar: groups, the Data health menu, search, and the phone menu */
 header nav .nav-label { display: none; }
 header nav .nav-side { flex: 1; justify-content: flex-end; gap: 6px; min-width: 0; }
-header nav .nav-search, header nav .nav-health { position: relative; display: block; }
+header nav .nav-search { position: relative; display: block; }
 header nav .nav-search { flex: 0 1 250px; min-width: 120px; }
 #find { width: 100%; height: 36px; border-radius: 999px; font-size: 14px; background-color: rgb(255 255 255 / .04); }
 #health-btn em, .nav-pop em { font-style: normal; font-weight: 600; color: var(--warn); margin-left: 6px; }
-#health-btn::after { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 0 3px 8px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); opacity: .6; }
 header nav .nav-pop { position: absolute; z-index: 30; top: calc(100% + 10px); right: 0; display: block; width: 300px; padding: 8px; border-radius: 16px;
   background: rgb(22 24 28 / .86); -webkit-backdrop-filter: blur(22px) saturate(170%); backdrop-filter: blur(22px) saturate(170%);
   border: 1px solid rgb(255 255 255 / .12); box-shadow: inset 0 1px 0 rgb(255 255 255 / .12), 0 22px 50px rgb(0 0 0 / .6); animation: pop-in .18s ease-out; }
@@ -403,21 +402,37 @@ header nav .nav-pop a:hover, header nav .nav-pop a.at, header nav .nav-pop a.on 
   header nav { display: none; }
   header.open nav { display: flex; flex-direction: column; align-items: stretch; gap: 0; position: absolute; left: 0; right: 0; top: 100%; margin: 0; padding: 14px 24px 26px;
     max-height: calc(100vh - 70px); overflow-y: auto; background: rgb(14 15 17 / .94); -webkit-backdrop-filter: blur(22px); backdrop-filter: blur(22px); border-bottom: 1px solid var(--line); animation: pop-in .2s ease-out; }
-  header nav .nav-glass, header nav .sep, #health-btn { display: none; }
+  header nav .nav-glass, header nav .sep { display: none; }
   header nav > div, header nav .nav-main { flex-direction: column; align-items: stretch; gap: 0; }
   header nav .nav-side { display: contents; }
   header nav .nav-search { flex: none; order: -1; }
-  header nav .nav-health { order: 2; }
+
   #find { height: 44px; font-size: 16px; }
   header nav .nav-label { display: block; margin: 20px 0 4px; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
   header nav .tab { padding: 10px 0; font-size: 20px; font-weight: 600; border-radius: 0; }
   header nav .tab.on::before { content: ""; position: absolute; left: -12px; top: 50%; width: 4px; height: 20px; margin-top: -10px; border-radius: 2px; background: currentColor; }
-  header nav #health-pop, header nav #health-pop[hidden] { display: block; position: static; width: auto; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; animation: none; }
-  header nav #health-pop a { padding: 10px 0; }
-  header nav #health-pop b { font-size: 20px; }
-  header nav #health-pop a.on b { color: var(--accent); }
   #find-results { position: static; width: auto; margin-top: 8px; }
   .tour { grid-template-columns: 1fr; }
   .tour a.next { text-align: left; }
   .tour i { display: none; }
 }
+
+/* ---- Events takes the green; Systems now sits beside Judges in that tab's title */
+:root { --events: var(--systems); }
+h1.c-events { color: var(--events); }
+/* two words in one title: the lit one sits in the same glass as the tab bar's, and it slides between them */
+h1.twin { position: relative; display: inline-flex; gap: 2px; margin: -6px 0 10px -16px; }
+h1.twin a { position: relative; z-index: 1; padding: 6px 16px 8px; border-radius: 999px; color: var(--muted); transition: color .3s; }
+h1.twin a:hover { text-decoration: none; color: var(--fg); }
+h1.twin a.on { color: var(--fg); }
+#judges h1.twin a.on { color: var(--judges); }
+h1.twin em { font-style: normal; font-size: 15px; font-weight: 600; letter-spacing: 0; margin-left: 10px; vertical-align: middle; color: var(--warn); }
+#health-word.ok { color: var(--ok); }
+#health-word.error { color: var(--warn); }
+#health-word.stopped { color: var(--bad); }
+#health-word.running { color: var(--accent); }
+#review-title { font-size: 28px; font-weight: 700; letter-spacing: -.025em; margin: 6px 0; }
+.view:not([hidden]) { animation: tab-in .32s cubic-bezier(.2,.7,.2,1); }
+@media (prefers-reduced-motion: reduce) { .view:not([hidden]) { animation: none; } }
+#events-table td:first-child { max-width: 330px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#events-table tr.detail td:first-child { max-width: none; overflow: visible; white-space: normal; }

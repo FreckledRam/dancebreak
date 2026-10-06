@@ -31,7 +31,7 @@
       <a class="tab" href="#dataset">Dataset</a>
       <a class="tab c-breakers" href="#breakers">Breakers</a>
       <a class="tab c-judges" href="#judges">Judges</a>
-      <a class="tab c-systems" href="#systems">Systems</a>
+      <a class="tab c-events" href="#events">Events</a>
       <span class="sep" aria-hidden="true"></span>
       <a class="tab" href="#news">News</a>
     </div>
@@ -40,14 +40,7 @@
         <input id="find" type="search" placeholder="Search breaker, judge or event" autocomplete="off" aria-label="Search the site">
         <div class="nav-pop" id="find-results" hidden></div>
       </div>
-      <div class="nav-health">
-        <button class="tab" id="health-btn" aria-expanded="false" aria-controls="health-pop"><span id="nav-dot" class="status" hidden></span>Data health<em class="review-count"></em></button>
-        <div class="nav-pop" id="health-pop" hidden>
-          <span class="nav-label">Data health</span>
-          <a href="#sources"><b>Scraper status</b><small>Did today's collection run, and what did it add</small></a>
-          <a href="#review"><b>Null<em class="review-count"></em></b><small>What is missing from the data, and why</small></a>
-        </div>
-      </div>
+      <a class="tab" id="health-btn" href="#sources"><span id="nav-dot" class="status" hidden></span>Data health<em class="review-count"></em></a>
     </div>
   </nav>
 </header>
@@ -157,8 +150,8 @@
       <div class="h-tabs">
         <a class="rv" href="#dataset"><b>Dataset</b><span>Every battle. Search, sort, filter, open one to see each judge's score, download as CSV.</span></a>
         <a class="rv c-breakers" href="#breakers"><b>Breakers</b><span>An Elo rating for every breaker, from every recorded 1 vs 1 battle.</span></a>
-        <a class="rv c-judges" href="#judges"><b>Judges</b><span>How often each judge sides with the panel, and how often they stand alone.</span></a>
-        <a class="rv c-systems" href="#systems"><b>Systems</b><span>How each judging system behaves across the battles that used it.</span></a>
+        <a class="rv c-judges" href="#judges"><b>Judges and systems</b><span>How often each judge sides with the panel, and how each judging system behaves.</span></a>
+        <a class="rv c-events" href="#events"><b>Events</b><span>Every event: its size, the strength of its field, and how closely it was judged.</span></a>
         <a class="rv" href="#news"><b>News</b><span>Upcoming events around the world and the latest headlines.</span></a>
         <a class="rv" href="#sources"><b>Scraper status</b><span>Whether today's collection ran, and what it added.</span></a>
         <a class="rv" href="#review"><b>Null</b><span>What is missing from the data, and why.</span></a>
@@ -168,6 +161,8 @@
   </section>
 
   <section id="sources" hidden>
+    <h1 class="twin"><i class="nav-glass" aria-hidden="true"></i><a href="#sources" data-view="sources">Scraper health<em id="health-word"></em></a><a href="#review" data-view="review">Null<em class="review-count"></em></a></h1>
+    <div class="view" data-view="sources">
     <div class="panel">
       <h2>Totals</h2>
       <div class="nums" id="totals"></div>
@@ -198,6 +193,21 @@
         <thead><tr><th>When</th><th>Result</th><th class="num">Events added</th><th class="num">Battles added</th></tr></thead>
         <tbody></tbody>
       </table>
+    </div>
+    </div>
+    <div class="view" data-view="review" id="review" hidden>
+    <h2 id="review-title">&nbsp;</h2>
+    <p class="sub">What is missing from the data, and why. Everything else was collected and published automatically.</p>
+
+    <div class="nullgrid" id="quality-cards"></div>
+
+    <h2 id="problems">Collection problems</h2>
+    <p class="sub">Stages the scraper could not collect cleanly.</p>
+    <table id="review-table">
+      <thead><tr><th>Event</th><th>Stage</th><th>Problem</th><th></th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <p class="note" id="review-more"></p>
     </div>
   </section>
 
@@ -254,35 +264,35 @@
   </section>
 
   <section id="judges" hidden>
-    <h1 class="c-judges">Judges</h1>
-    <p class="sub">How each judge votes compared with the rest of the panel. Click a judge for the systems they have judged.</p>
-    <div class="filters"><input id="jq" type="search" placeholder="Search judge" autocomplete="off"></div>
-    <div class="scroll"><table id="judges-table" class="rank"></table></div>
-    <div class="pager" id="judges-pager"></div>
-    <p class="note">With majority: share of a judge's round votes that matched the panel's majority. Lone dissent: share where they were the only judge on their side. Votes for red: 50% would be even.</p>
+    <h1 class="twin"><i class="nav-glass" aria-hidden="true"></i><a href="#judges" data-view="judges">Judges</a><a href="#systems" data-view="systems">Systems</a></h1>
+    <div class="view" data-view="judges">
+      <p class="sub">How each judge votes compared with the rest of the panel. Click a judge for the systems they have judged.</p>
+      <div class="filters"><input id="jq" type="search" placeholder="Search judge" autocomplete="off"></div>
+      <div class="scroll"><table id="judges-table" class="rank"></table></div>
+      <div class="pager" id="judges-pager"></div>
+      <p class="note">With majority: share of a judge's round votes that matched the panel's majority. Lone dissent: share where they were the only judge on their side. Votes for red: 50% would be even.</p>
+    </div>
+    <div class="view" data-view="systems" hidden>
+      <p class="sub">How each judging system behaves in practice across the battles that used it.</p>
+      <div class="scroll"><table id="systems-table" class="rank"></table></div>
+      <p class="note">Judges and Rounds are averages per battle. Unanimous: rounds where every judge picked the same side. One-vote: rounds decided by a single judge. Red wins: share of decided battles won by the red side.</p>
+    </div>
   </section>
 
-  <section id="systems" hidden>
-    <h1 class="c-systems">Judging systems</h1>
-    <p class="sub">How each system behaves in practice across the battles that used it.</p>
-    <div class="scroll"><table id="systems-table" class="rank"></table></div>
-    <p class="note">Judges and Rounds are averages per battle. Unanimous: rounds where every judge picked the same side. One-vote: rounds decided by a single judge. Red wins: share of decided battles won by the red side.</p>
+  <section id="events" hidden>
+    <h1 class="c-events">Events</h1>
+    <p class="sub">Every event in the dataset: how big it was, how strong the field, and how closely it was judged. Click an event for its winners and its panel.</p>
+    <div class="filters">
+      <input id="eq" type="search" placeholder="Search event" autocomplete="off">
+      <div class="seg" id="esrc" role="group" aria-label="Source">
+        <button data-v="" class="on">All</button><button data-v="and8">And8</button><button data-v="wdsf">WDSF</button><button data-v="breakkonnect">Break Konnect</button><button data-v="seed">Original</button>
+      </div>
+    </div>
+    <div class="scroll"><table id="events-table" class="rank"></table></div>
+    <div class="pager" id="events-pager"></div>
+    <p class="note">Field: the average Elo rating today of the eight highest-rated breakers who entered, shown when at least four are ranked. Unanimous: rounds where every judge picked the same side. One-vote: rounds decided by a single judge.</p>
   </section>
 
-  <section id="review" hidden>
-    <h1 id="review-title">&nbsp;</h1>
-    <p class="sub">What is missing from the data, and why. Everything else was collected and published automatically.</p>
-
-    <div class="nullgrid" id="quality-cards"></div>
-
-    <h2 id="problems">Collection problems</h2>
-    <p class="sub">Stages the scraper could not collect cleanly.</p>
-    <table id="review-table">
-      <thead><tr><th>Event</th><th>Stage</th><th>Problem</th><th></th></tr></thead>
-      <tbody></tbody>
-    </table>
-    <p class="note" id="review-more"></p>
-  </section>
 </main>
 
 <div id="modal" hidden>

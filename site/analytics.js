@@ -124,6 +124,30 @@ function breakerDetail(b) {
   <p class="key"><a data-find="${esc(b.name)}">All ${mine.length} battles in the dataset</a></p>`;
 }
 
+// an event's winners and panel, worked out from the dataset rows already loaded
+function eventDetail(ev) {
+  if (!DATA) return '<span class="muted">Loading battles…</span>';
+  const C = DATA.C, mine = DATA.rows.filter((r) => r[C.event] === ev.name && r[C.system] !== UNCERTAIN);
+  const wins = {}, panel = {}, stages = {};
+  for (const r of mine) {
+    for (const [k, name] of [[r[C.rk], r[C.red]], [r[C.bk], r[C.blue]]]) {
+      const w = (wins[k] ??= { k, name: NAMES[k] || name, w: 0, n: 0 });
+      w.n++; w.w += r[C.winner] === name;
+    }
+    for (const n of String(r[C.judge_names] || '').split(', ').filter(Boolean)) panel[n] = (panel[n] || 0) + 1;
+    stages[r[C.stage]] = (stages[r[C.stage]] || 0) + 1;
+  }
+  const top = Object.values(wins).sort((a, c) => c.w - a.w || a.n - c.n).slice(0, 8);
+  const judges = Object.entries(panel).sort((a, c) => c[1] - a[1]);
+  const link = ev.url ? ` · <a href="${esc(ev.url)}" target="_blank" rel="noopener">Source page</a>` : '';
+  return `<div class="cols">
+    <div><h4>Most battles won</h4><table>${top.map((w) => `<tr><td><a class="plink" data-breaker="${esc(w.k)}">${esc(w.name)}</a></td><td class="num">${w.w} of ${w.n}</td></tr>`).join('')}</table></div>
+    <div><h4>The panel</h4><table>${judges.map(([n, c]) => `<tr><td><a class="plink" data-judge="${esc(n)}">${esc(n)}</a></td><td class="num">${c}</td></tr>`).join('') || '<tr><td class="muted">Not recorded</td></tr>'}</table></div>
+    <div><h4>Stages</h4><table>${Object.entries(stages).slice(0, 10).map(([s, n]) => `<tr><td>${esc(s || '(none)')}</td><td class="num">${n}</td></tr>`).join('')}${Object.keys(stages).length > 10 ? `<tr><td class="muted">and ${Object.keys(stages).length - 10} more</td><td></td></tr>` : ''}</table></div>
+  </div>
+  <p class="key"><a data-find="${esc(ev.name)}">All ${mine.length} battles in the dataset</a>${link}</p>`;
+}
+
 function judgeDetail(j) {
   return `<div class="cols"><div><h4>Battles judged by system</h4><table>${j.systems.map(([s, n]) => `<tr><td><a class="plink" href="#systems">${esc(s)}</a></td><td class="num">${n.toLocaleString()}</td></tr>`).join('')}</table></div></div>
   <p class="key"><a data-find="${esc(j.name)}">All battles this judge sat on</a></p>`;
@@ -142,7 +166,7 @@ document.addEventListener('click', (e) => {
 const NAMES = {};      // person key -> the spelling used most often
 
 // A name anywhere on the site opens that person. Set once the rankings have loaded.
-const OPEN = { breaker: null, judge: null };
+const OPEN = { breaker: null, judge: null, event: null };
 function findInDataset(text) {
   if (!DATA) return;
   Object.keys(colFilters).forEach((k) => delete colFilters[k]);
@@ -215,6 +239,37 @@ get('data/analytics.json').then((A) => {
     return judges.open(j.k);
   };
   window.ANALYTICS = A;
+
+  const events = rankTable($('#events-table'), $('#events-pager'), [
+    ['name', 'Event', { fmt: (r) => `<b>${esc(r.name)}</b>` }],
+    ['date', 'Date', { fmt: (r) => `<span style="white-space:nowrap">${r.date || r.year || '<span class="muted">-</span>'}</span>` }],
+    ['field', 'Field', { num: true, tip: 'Average Elo today of the eight highest-rated breakers who entered' }],
+    ['battles', 'Battles', { num: true }],
+    ['breakers', 'Breakers', { num: true }],
+    ['judges', 'Judges', { num: true }],
+    ['system', 'System', { fmt: (r) => `<a class="plink" href="#systems">${esc(r.system)}</a>` }],
+    ['unanimous', 'Unanimous', pctCell('unanimous')],
+    ['one_vote', 'One-vote', pctCell('one_vote')],
+  ], { onRow: eventDetail });
+  const showEvents = () => {
+    const q = $('#eq').value.trim().toLowerCase(), src = $('#esrc .on').dataset.v;
+    events.set(A.events.filter((e) => (!src || e.source === src) && (!q || e.name.toLowerCase().includes(q))));
+  };
+  $('#eq').oninput = showEvents;
+  $('#esrc').onclick = (e) => {
+    if (!e.target.dataset || e.target.dataset.v === undefined) return;
+    $('#esrc .on').classList.remove('on'); e.target.classList.add('on');
+    showEvents();
+  };
+  showEvents();
+  OPEN.event = (name) => {
+    if (!A.events.some((e) => e.name === name)) return false;
+    $('#eq').value = name;
+    $('#esrc .on').classList.remove('on'); $('#esrc [data-v=""]').classList.add('on');
+    showEvents();
+    goTab('events');
+    return events.open(name);
+  };
 
   rankTable($('#systems-table'), null, [
     ['system', 'System', { fmt: (r) => `<b>${esc(r.system)}</b>` }],

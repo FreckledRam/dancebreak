@@ -1,21 +1,14 @@
-// The tab bar's extras: the Data health menu, the phone menu, site search, and "next" links between tabs.
+// The tab bar's extras: the phone menu, site search, and "next" links between tabs.
 (() => {
-  const header = $('header'), healthBtn = $('#health-btn'), healthPop = $('#health-pop'), menuBtn = $('#menu-btn');
+  const header = $('header'), menuBtn = $('#menu-btn');
   const find = $('#find'), results = $('#find-results');
 
   // ---- menus
   function closeMenus() {
-    healthPop.hidden = true; healthBtn.setAttribute('aria-expanded', 'false');
     header.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false');
     results.hidden = true;
   }
   window.closeNavMenus = closeMenus;
-  healthBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const open = healthPop.hidden;
-    closeMenus();
-    healthPop.hidden = !open; healthBtn.setAttribute('aria-expanded', String(open));
-  });
   menuBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     const open = !header.classList.contains('open');
@@ -48,7 +41,7 @@
     hits = [
       ...(A ? best(A.breakers, q, (b) => b.n, 5).map((b) => ({ kind: 'Breaker', name: b.name, note: `${b.n} battles`, size: b.n, go: () => OPEN.breaker(b.k) })) : []),
       ...(A ? best(A.judges, q, (j) => j.battles, 3).map((j) => ({ kind: 'Judge', name: j.name, note: `${j.battles.toLocaleString()} battles judged`, size: j.battles, go: () => OPEN.judge(j.k) })) : []),
-      ...best(eventNames(), q, (e) => e.n, 4).map((e) => ({ kind: 'Event', name: e.name, note: `${e.n} battles`, size: e.n, go: () => findInDataset(e.name) })),
+      ...best(eventNames(), q, (e) => e.n, 4).map((e) => ({ kind: 'Event', name: e.name, note: `${e.n} battles`, size: e.n, go: () => OPEN.event(e.name) || findInDataset(e.name) })),
     ];
     // across the three kinds: an exact name first, then a name that starts with it, then whoever has the most battles
     const fit = (h) => (h.name.toLowerCase() === q ? 2 : h.name.toLowerCase().startsWith(q) ? 1 : 0);
@@ -78,8 +71,8 @@
   const TOUR = [
     ['dataset', 'Dataset', 'Every battle, with each judge\'s score'],
     ['breakers', 'Breakers', 'An Elo rating for every breaker'],
-    ['judges', 'Judges', 'How each judge votes against the panel'],
-    ['systems', 'Systems', 'How each judging system behaves'],
+    ['judges', 'Judges', 'How each judge votes, and how each system behaves'],
+    ['events', 'Events', 'Size, field strength and closeness of every event'],
     ['news', 'News', 'Upcoming events and headlines'],
   ];
   TOUR.forEach(([id], i) => {

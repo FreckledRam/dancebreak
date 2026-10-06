@@ -61,7 +61,7 @@ def margins(b: dict) -> list[float]:
 
 
 def build(battles: list[dict]) -> dict:
-    """battles: store.all_battles(). Returns the data behind the Breakers, Judges and Systems tabs."""
+    """battles: store.all_battles(). Returns the data behind the Breakers, Judges, Systems and Events pages."""
     order = lambda b: (b["date"] or f"{b['year'] or 1900}-07-01", b["event"])
     by_event = defaultdict(list)
     for b in battles:
@@ -203,5 +203,46 @@ def build(battles: list[dict]) -> dict:
         "margin": round(s["margin"] / s["margins"], 1) if s["margins"] else None,
     } for name, s in sorted(S.items(), key=lambda kv: -kv[1]["battles"])]
 
-    return {"min_battles": MIN_BATTLES, "breakers": breakers, "judges": judges, "systems": systems,
+    # ---- events: how big, how strong and how close each one was
+    E = {}
+    for b in battles:
+        e = E.setdefault(b["event"], {"battles": 0, "date": None, "year": None, "source": b["source"], "url": b.get("event_url"),
+                                      "systems": Counter(), "breakers": set(), "judges": set(), "rounds": 0, "unanimous": 0,
+                                      "one_vote": 0, "red_wins": 0, "decided": 0})
+        e["battles"] += 1
+        e["date"] = max(filter(None, (e["date"], b["date"])), default=None)
+        e["year"] = e["year"] or b["year"]
+        e["systems"][b["system"]] += 1
+        e["breakers"].update(key(n) for n in (b["red"], b["blue"]) if n.strip())
+        e["judges"].update(key(n) for n in b["judges"] if n.strip())
+        rounds = defaultdict(list)
+        for rnd, _, side in votes(b):
+            rounds[rnd].append(side)
+        for sides in rounds.values():
+            red, blue = sides.count("red"), sides.count("blue")
+            if len(sides) < 2:
+                continue
+            e["rounds"] += 1
+            e["unanimous"] += max(red, blue) == len(sides)
+            e["one_vote"] += abs(red - blue) == 1
+        w = key(b["winner"])
+        if w in (key(b["red"]), key(b["blue"])):
+            e["decided"] += 1
+            e["red_wins"] += w == key(b["red"])
+    events = []
+    for name, e in E.items():
+        # field strength: the average rating today of the eight highest-rated breakers who entered
+        field = sorted((P[k]["elo"] for k in e["breakers"] if k in P and P[k]["n"] >= MIN_BATTLES), reverse=True)[:8]
+        events.append({
+            "k": name, "name": name, "date": e["date"], "year": e["year"], "source": e["source"], "url": e["url"],
+            "system": e["systems"].most_common(1)[0][0], "battles": e["battles"],
+            "breakers": len(e["breakers"]), "judges": len(e["judges"]),
+            "field": round(sum(field) / len(field)) if len(field) >= 4 else None,
+            "unanimous": round(100 * e["unanimous"] / e["rounds"], 1) if e["rounds"] else None,
+            "one_vote": round(100 * e["one_vote"] / e["rounds"], 1) if e["rounds"] else None,
+            "red_wins": round(100 * e["red_wins"] / e["decided"], 1) if e["decided"] else None,
+        })
+    events.sort(key=lambda x: (x["date"] or f"{x['year'] or 0}", x["name"]), reverse=True)
+
+    return {"min_battles": MIN_BATTLES, "breakers": breakers, "judges": judges, "systems": systems, "events": events,
             "decisions": sum(len(votes(b)) for b in battles)}
