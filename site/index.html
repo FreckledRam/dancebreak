@@ -19,12 +19,16 @@
 <header>
   <span class="brand">Settle It In The Cypher</span>
   <nav>
-    <a href="#sources">Scraper status</a>
-    <a href="#dataset">Dataset</a>
-    <a href="#breakers">Breakers</a>
-    <a href="#judges">Judges</a>
-    <a href="#systems">Systems</a>
-    <a href="#review">Null<em id="review-count"></em></a>
+    <div>
+      <a href="#sources">Scraper status</a>
+      <a href="#breakers" class="c-breakers">Breakers</a>
+      <a href="#judges" class="c-judges">Judges</a>
+      <a href="#systems" class="c-systems">Systems</a>
+    </div>
+    <div>
+      <a href="#dataset">Dataset</a>
+      <a href="#review">Null<em id="review-count"></em></a>
+    </div>
   </nav>
 </header>
 
@@ -84,7 +88,7 @@
   </section>
 
   <section id="breakers" hidden>
-    <h1>Breaker rankings</h1>
+    <h1 class="c-breakers">Breaker rankings</h1>
     <p class="sub">Elo rating from every recorded 1 vs 1 battle. A breaker is ranked after 5 battles. Click a breaker for their history.</p>
     <div class="filters">
       <input id="bq" type="search" placeholder="Search breaker" autocomplete="off">
@@ -96,7 +100,7 @@
   </section>
 
   <section id="judges" hidden>
-    <h1>Judges</h1>
+    <h1 class="c-judges">Judges</h1>
     <p class="sub">How each judge votes compared with the rest of the panel. Click a judge for the systems they have judged.</p>
     <div class="filters"><input id="jq" type="search" placeholder="Search judge" autocomplete="off"></div>
     <div class="scroll"><table id="judges-table" class="rank"></table></div>
@@ -105,7 +109,7 @@
   </section>
 
   <section id="systems" hidden>
-    <h1>Judging systems</h1>
+    <h1 class="c-systems">Judging systems</h1>
     <p class="sub">How each system behaves in practice across the battles that used it.</p>
     <div class="scroll"><table id="systems-table" class="rank"></table></div>
     <p class="note">Judges and Rounds are averages per battle. Unanimous: rounds where every judge picked the same side. One-vote: rounds decided by a single judge. Red wins: share of decided battles won by the red side.</p>
