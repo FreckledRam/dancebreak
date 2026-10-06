@@ -227,6 +227,75 @@ function filter() {
   draw();
 }
 
+// ---- download the battles currently shown, with every score column, as one CSV
+const COLUMN_NAMES = { year: 'Date', event: 'Event', stage: 'Stage', red: 'Red', blue: 'Blue', system: 'System', source: 'Source' };
+
+function activeFilters() {
+  const out = [];
+  const q = $('#q').value.trim();
+  if (q) out.push(['Search', q]);
+  for (const col in colFilters) {
+    const values = [...colFilters[col]].map((v) => label(col, v));
+    out.push([COLUMN_NAMES[col] || col, values.length > 6 ? `${values.slice(0, 6).join(', ')} and ${values.length - 6} more` : values.join(', ') || 'none selected']);
+  }
+  const check = qualityCode && STATUS && (STATUS.quality || []).find((x) => x.code === qualityCode);
+  if (check) out.push(['Null check', check.label]);
+  if (sortCol) out.push(['Sorted by', `${COLUMN_NAMES[sortCol] || sortCol}, ${sortDir === 1 ? 'ascending' : 'descending'}`]);
+  return out;
+}
+
+function openDownload() {
+  const filters = activeFilters(), systems = new Set(rows.map((r) => r[DATA.C.system]));
+  $('#modal-title').textContent = `Download ${rows.length.toLocaleString()} row${rows.length === 1 ? '' : 's'}`;
+  $('#modal-body').innerHTML = `
+    <p>One row per battle, with every judge's scores.</p>
+    <h4>Filters applied</h4>
+    ${filters.length ? `<table>${filters.map(([k, v]) => `<tr><td class="muted">${esc(k)}</td><td>${esc(v)}</td></tr>`).join('')}</table>`
+      : '<p class="muted">None. This is the whole dataset.</p>'}
+    ${systems.size > 1 ? `<p class="note">These battles use ${systems.size} judging systems. Each has its own score columns, so columns a battle does not use are left blank.</p>` : ''}`;
+  $('#modal-ok').disabled = !rows.length;
+  $('#modal-ok').textContent = 'Download';
+  $('#modal').hidden = false;
+}
+
+const csvCell = (v) => { const t = String(v ?? ''); return /[",\n\r]/.test(t) ? `"${t.replace(/"/g, '""')}"` : t; };
+const scoreKey = (k) => { const m = k.match(/^(tie)?(?:r(\d+))?j(\d+)/); return m ? [m[1] ? 99 : +(m[2] || 0), +m[3]] : null; };
+
+async function downloadCsv() {
+  const C = DATA.C, picked = rows.slice();
+  $('#modal-ok').disabled = true;
+  const files = [...new Set(picked.map((r) => DATA.files[r[C.file]]))];
+  for (let i = 0; i < files.length; i += 8) {       // a few files at a time
+    $('#modal-ok').textContent = `Preparing ${Math.round((100 * i) / files.length)}%`;
+    await Promise.all(files.slice(i, i + 8).map(async (f) => { eventCache[f] ??= await get('data/events/' + f); }));
+  }
+  const battles = picked.map((r) => eventCache[DATA.files[r[C.file]]].battles[r[C.idx]]);
+  // columns: details first in the order they appear, then score columns by round and judge
+  const meta = [], scores = [], seen = new Set();
+  for (const b of battles) for (const k of Object.keys(b.cells)) { if (!seen.has(k)) { seen.add(k); (scoreKey(k) ? scores : meta).push(k); } }
+  const position = Object.fromEntries(scores.map((k, i) => [k, i]));
+  scores.sort((a, b) => { const x = scoreKey(a), y = scoreKey(b); return x[0] - y[0] || x[1] - y[1] || position[a] - position[b]; });
+  const header = ['date', 'system', ...meta, ...scores, 'source', 'source url'];
+  const lines = [header.map(csvCell).join(',')];
+  picked.forEach((r, i) => {
+    const cells = battles[i].cells;
+    lines.push([r[C.date] || r[C.year] || '', r[C.system], ...meta.map((k) => cells[k]), ...scores.map((k) => cells[k]),
+      SOURCE_NAMES[r[C.source]] || r[C.source], r[C.url] || ''].map(csvCell).join(','));
+  });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(new Blob(['﻿' + lines.join('\n') + '\n'], { type: 'text/csv;charset=utf-8' }));
+  link.download = `breaking_battles_${picked.length}_rows.csv`;
+  link.click();
+  URL.revokeObjectURL(link.href);
+  $('#modal').hidden = true;
+}
+
+$('#download-csv').onclick = () => DATA && openDownload();
+$('#modal-ok').onclick = downloadCsv;
+$('#modal-cancel').onclick = () => { $('#modal').hidden = true; };
+$('#modal').addEventListener('click', (e) => { if (e.target.id === 'modal') $('#modal').hidden = true; });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') $('#modal').hidden = true; });
+
 // ---- column menu: sort and pick values, like a spreadsheet header
 const MENU_LIMIT = 200;
 

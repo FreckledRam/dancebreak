@@ -62,6 +62,7 @@
     <div class="filters">
       <input id="q" type="search" placeholder="Search breaker, judge or event" autocomplete="off">
       <button id="clear-filters" hidden>Clear filters</button>
+      <button id="download-csv">Download CSV</button>
     </div>
     <p class="note"><span id="count"></span><span id="quality-note"></span> · Download: <span id="downloads"></span></p>
     <div class="scroll">
@@ -119,6 +120,14 @@
     </table>
   </section>
 </main>
+
+<div id="modal" hidden>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <h3 id="modal-title"></h3>
+    <div id="modal-body"></div>
+    <div class="dialog-actions"><button id="modal-cancel">Cancel</button><button id="modal-ok" class="primary">Download</button></div>
+  </div>
+</div>
 
 <footer>
   <p>Data from <a href="https://and8.dance">And8</a>, <a href="https://www.worlddancesport.org">WDSF</a> and <a href="https://breakkonnect.com">Break Konnect</a>. <a id="repo" href="https://github.com/FreckledRam/dancebreak">Code and data on GitHub</a>.</p>
