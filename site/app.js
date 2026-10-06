@@ -44,11 +44,9 @@ function nextRun(status) {
 
 function progressCell(key, q, done, pct) {
   const live = liveProgress(key);
-  if (live) {
-    return `<div class="progress"><div class="bar live"><i style="width:${live.pct}%"></i></div><span class="note">Scraping ${live.todo} event${live.todo === 1 ? '' : 's'}, about ${live.left} min left</span></div>`;
-  }
+  if (live) return `<div class="progress"><div class="bar live"><i style="width:${live.pct}%"></i></div><span class="note">${live.done}/${live.todo} events</span></div>`;
   if (!q.waiting) return '<span class="muted">Up to date</span>';
-  return `<div class="progress"><div class="bar"><i style="width:${pct}%"></i></div><span class="note">${done.toLocaleString()} of ${q.seen.toLocaleString()} events processed</span></div>`;
+  return `<div class="progress"><div class="bar"><i style="width:${pct}%"></i></div><span class="note">${done.toLocaleString()}/${q.seen.toLocaleString()} events</span></div>`;
 }
 
 // Healthy: last run worked. Error: it could not read the site. Not running: no recent run at all.
@@ -81,7 +79,7 @@ function liveProgress(key) {
   const elapsed = (Date.now() - new Date(src.started)) / 1000;
   const pct = Math.min(95, Math.max(3, Math.round((100 * elapsed) / Math.max(src.eta_seconds, 60))));
   const left = Math.max(1, Math.round((src.eta_seconds - elapsed) / 60));
-  return { pct, left, todo: src.todo };
+  return { pct, left, todo: src.todo, done: Math.min(src.todo, Math.max(src.done || 0, Math.floor((src.todo * pct) / 100))) };
 }
 
 function renderStatus(status, activity) {
@@ -123,9 +121,13 @@ function renderStatus(status, activity) {
 
   $('#sources-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => {
     const [cls, label] = LIVE && LIVE.current === key ? ['running', 'Running'] : health(s, status);
+    const quiet = s.last_checked ? Math.round((Date.now() - new Date(s.last_checked)) / 3600e3) : null;
+    const why = cls === 'stopped'
+      ? (quiet === null ? 'This scraper has never run.' : `No scrape in the last ${quiet < 48 ? `${quiet} hours` : `${Math.round(quiet / 24)} days`}. The schedule may have stopped.`)
+      : cls === 'error' ? s.note : '';
     return `<tr>
     <td><b><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a></b></td>
-    <td data-label="Status"><div><span class="status ${cls}">${label}</span>${s.note ? `<div class="note">${esc(s.note)}</div>` : ''}</div></td>
+    <td data-label="Status"><div><span class="status ${cls}">${label}</span>${why ? `<div class="note" ${s.detail ? `title="${esc(s.detail)}"` : ''}>${esc(why)}</div>` : ''}</div></td>
     <td data-label="Last new data">${ago(s.last_changed)}</td>
     <td data-label="Newest event">${s.newest_event ? `<div>${esc(s.newest_event)}<small>${esc(s.newest_date || '')}</small></div>` : '<span class="muted">-</span>'}</td>
     <td data-label="Battles" class="num">${(status.battles_by_source[key] || 0).toLocaleString()}</td>
@@ -143,13 +145,17 @@ function renderStatus(status, activity) {
     const live = liveProgress(key);
     const done = q.seen - q.waiting;
     const pct = q.seen ? Math.round((100 * done) / q.seen) : 0;
-    const upNext = q.next.slice(0, 3).map((e) => `${esc(e.name)} <span class="muted">${esc(e.date)}</span>`).join('<br>');
+    const [state] = live ? ['running'] : health(s, status);
+    // how long until this scraper's own queue is empty
+    const cleared = live ? `About ${live.left} min`
+      : !q.waiting ? '<span class="muted">Up to date</span>'
+        : state === 'stopped' ? '<span class="muted">Not until it runs again</span>'
+          : state === 'error' ? '<span class="muted">Not until the error is fixed</span>'
+            : `About ${span(n * status.hours_between_runs)}`;
     return `<tr>
     <td>${esc(s.name)}</td>
     <td data-label="Progress">${progressCell(key, q, done, pct)}</td>
-    <td data-label="Waiting" class="num">${(live ? live.todo : q.waiting).toLocaleString()}</td>
-    <td data-label="Cleared in">${live ? `about ${live.left} min` : n ? `${span(n * status.hours_between_runs)} <span class="muted">${n} run${n === 1 ? '' : 's'}</span>` : '<span class="muted">Up to date</span>'}</td>
-    <td data-label="Up next">${upNext ? `<div>${upNext}</div>` : '<span class="muted">-</span>'}</td>
+    <td data-label="Cleared in">${cleared}</td>
   </tr>`;
   }).join('');
 

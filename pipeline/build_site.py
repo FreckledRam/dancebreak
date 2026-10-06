@@ -86,15 +86,27 @@ def runs(activity: list) -> list:
         same = last and (a.get("run") == last["run"] if a.get("run") or last["run"]
                          else last["_t"] - t < timedelta(minutes=20))
         if not same:
-            last = {"time": a["time"], "run": a.get("run"), "_t": t, "events": 0, "battles": 0, "ok": True, "note": ""}
+            last = {"time": a["time"], "run": a.get("run"), "_t": t, "events": 0, "battles": 0, "ok": True, "note": "",
+                    "_down": set(), "_failed": {}}
             out.append(last)
         m = re.search(r"from (\d+) events", a["text"])
         last["events"] += a["events"] if "events" in a else int(m.group(1)) if m else 0
         last["battles"] += a.get("battles", 0)
         last["_t"] = t
-        if "failed" in a["text"] or "Could not" in a["text"]:
-            last["ok"] = False
-            last["note"] = f"{state.SOURCES.get(a['source'], {}).get('name', a['source'])}: {a['text']}"
+        name = state.SOURCES.get(a["source"], {}).get("name", a["source"])
+        old = re.search(r"(\d+) failed to parse", a["text"])
+        failed = a.get("failed") or (int(old.group(1)) if old else 0)
+        if a.get("listing_failed") or "Could not" in a["text"]:
+            last["_down"].add(name)
+        elif failed:
+            count, event = last["_failed"].get(name, (0, None))
+            last["_failed"][name] = (count + failed, event or a.get("failed_event"))
+    for r in out:       # one short sentence per scraper that had trouble
+        notes = [f"Could not reach {name}." for name in sorted(r["_down"])]
+        for name, (count, event) in r["_failed"].items():
+            which = f": {event}" if event and count == 1 else ""
+            notes.append(f"Error scraping {count} {name} event{'' if count == 1 else 's'}{which}.")
+        r["ok"], r["note"] = not notes, " ".join(notes)
     return [{k: v for k, v in r.items() if not k.startswith("_")} for r in out[:12]]
 
 

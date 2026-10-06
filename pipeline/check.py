@@ -82,6 +82,16 @@ def check_columns(battles: list[dict]) -> list[dict]:
     return problems
 
 
+def plain_reason(exc: Exception) -> str:
+    """Why a scrape failed, in words anyone can follow. The technical detail is kept separately."""
+    name = type(exc).__name__
+    if name == "ParseError":
+        return "The page layout was not recognised, so the site has probably changed."
+    if "failed after" in str(exc) or name in ("ConnectError", "ReadTimeout", "ConnectTimeout", "HTTPStatusError", "TransportError"):
+        return "The site did not respond."
+    return "Something unexpected went wrong."
+
+
 def save_progress(key, index, st, review, message: str) -> None:
     """Write everything collected so far and, on GitHub, push it, so a run that dies keeps its work."""
     if index is not None:
@@ -140,7 +150,7 @@ def run_source(key: str, fetch, st: dict, review: list, full: bool, limit: int) 
             except Exception as exc:
                 entry["status"] = "failed"
                 entry["error"] = f"{type(exc).__name__}: {exc}"
-                errors.append(f"{ev['name']}: {entry['error']}")
+                errors.append({"event": ev["name"], "why": plain_reason(exc), "detail": entry["error"]})
                 for name, html in pages.items():        # keep what was fetched so the parser can be repaired
                     http.snapshot(key, ev["id"], name, html)
                 traceback.print_exc()
@@ -181,7 +191,13 @@ def run_source(key: str, fetch, st: dict, review: list, full: bool, limit: int) 
     src["events_seen"] = len(index)
     src["events_pending"] = sum(1 for e in index.values() if e["status"] in ("pending", "failed"))
     src["status"] = "broken" if errors else "ok"
-    src["note"] = errors[0] if errors else None
+    if errors:
+        first = errors[0]
+        more = f" and {len(errors) - 1} more" if len(errors) > 1 else ""
+        src["note"] = f"Error scraping event: {first['event']}{more}. {first['why']}"
+        src["detail"] = first["detail"]
+    else:
+        src["note"] = src["detail"] = None
     store.write_json(INDEX / f"{key}.json", index)
 
     parts = [f"{len(listed)} events listed"]
@@ -193,7 +209,8 @@ def run_source(key: str, fetch, st: dict, review: list, full: bool, limit: int) 
         parts.append(f"{len(errors)} failed to parse")
     if src["events_pending"]:
         parts.append(f"{src['events_pending']} waiting")
-    state.log("check", ", ".join(parts) + ".", key, battles=added_battles, events=added_events, run=RUN["started"])
+    state.log("check", ", ".join(parts) + ".", key, battles=added_battles, events=added_events, run=RUN["started"],
+              failed=len(errors), failed_event=errors[0]["event"] if errors else None)
 
 
 def main() -> None:
@@ -212,9 +229,11 @@ def main() -> None:
             run_source(key, fetch, st, review, args.full, args.max)
         except Exception as exc:                 # the listing itself could not be read
             traceback.print_exc()
-            st["sources"][key].update(status="broken", note=f"{type(exc).__name__}: {exc}",
-                                      last_checked=state.now())
-            state.log("check", f"Could not read the event listing: {exc}", key)
+            name = state.SOURCES[key]["name"]
+            st["sources"][key].update(
+                status="broken", last_checked=state.now(), detail=f"{type(exc).__name__}: {exc}",
+                note=f"Could not load the list of events from {name}. {plain_reason(exc)}")
+            state.log("check", f"Could not load the list of events: {exc}", key, listing_failed=True, run=RUN["started"])
         print(f"{key}: {fetch.requests} requests")
     store.export_tsvs()
     RUN.update(running=False, current=None)
