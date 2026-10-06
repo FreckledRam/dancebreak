@@ -405,7 +405,7 @@ function draw() {
   $('#battles tbody').innerHTML = rows.slice(page * PAGE, (page + 1) * PAGE).map((r) => `<tr class="row" data-f="${r[C.file]}" data-i="${r[C.idx]}">
     <td style="white-space:nowrap">${r[C.date] || r[C.year] || ''}</td><td>${esc(r[C.event])}</td><td>${esc(r[C.stage])}</td>
     ${name(r, 'red')}${name(r, 'blue')}
-    <td>${r[C.system] === UNCERTAIN ? '<span class="status warn">Uncertain</span>' : esc(r[C.system])}</td>
+    <td>${r[C.system] === UNCERTAIN ? '<span class="muted">Uncertain</span>' : esc(r[C.system])}</td>
     <td>${r[C.url] ? `<a href="${esc(r[C.url])}" target="_blank" rel="noopener">${esc(SOURCE_NAMES[r[C.source]] || r[C.source])}</a>` : `<span class="muted">${esc(SOURCE_NAMES[r[C.source]] || r[C.source])}</span>`}</td>
   </tr>`).join('') || '<tr><td colspan="7" class="muted">No battles match.</td></tr>';
 }
