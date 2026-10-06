@@ -505,22 +505,38 @@ function renderReview() {
 }
 
 function renderQuality(status) {
-  const n = status.need_review || 0;
+  const n = status.need_review || 0, total = status.battles + (status.uncertain || 0);
   $('#review-title').textContent = n ? `${n.toLocaleString()} null${n === 1 ? '' : 's'}` : 'No nulls';
-  $('#quality-table tbody').innerHTML = (status.quality || []).map((q) => `<tr>
-    <td><b>${esc(q.label)}</b></td><td class="num">${q.count.toLocaleString()}</td><td class="muted">${esc(q.fix)}</td>
-    <td class="num">${q.count ? `<a data-code="${q.code}" style="cursor:pointer">View</a>` : ''}</td></tr>`).join('');
+  // one card per kind of gap: how many, what it is, why it happened, what fixes it
+  const card = (q) => `<article class="nullcard ${q.count ? (q.action ? 'act' : 'info') : 'clear'}" ${q.count && q.code ? `data-code="${q.code}" tabindex="0"` : ''} ${q.href ? `data-href="${q.href}" tabindex="0"` : ''}>
+    <b>${q.count.toLocaleString()}</b>
+    <h3>${esc(q.label)}</h3>
+    <p>${esc(q.why)}</p>
+    <p class="fix">${esc(q.fix)}</p>
+    ${q.count ? `<span class="go">${q.href ? 'See the list' : `View ${q.count === 1 ? 'it' : 'them'} in the dataset`}</span>` : '<span class="go">None right now</span>'}
+    ${q.count && !q.href && q.count / total >= 0.01 ? `<i class="share" title="${((100 * q.count) / total).toFixed(2)}% of all battles"><i style="width:${Math.max(1.5, (100 * q.count) / total)}%"></i></i>` : ''}
+  </article>`;
+  const problems = { label: 'Collection problems', count: status.review || 0, action: true, href: '#problems',
+    why: 'Stages where the scraper found fewer battles than the page lists, found none, or could not tell if the category was breaking.',
+    fix: 'Listed below with a link to each source page.' };
+  const checks = status.quality || [];
+  $('#quality-cards').innerHTML = [...checks.filter((q) => q.action), problems, ...checks.filter((q) => !q.action)].map(card).join('');
 }
 
 // "View" on a missing-values row opens the dataset filtered to those battles
-$('#quality-table').addEventListener('click', (e) => {
-  const code = e.target.dataset.code;
+const openNullCard = (e) => {
+  const el = e.target.closest('.nullcard');
+  if (!el || (e.type === 'keydown' && e.key !== 'Enter')) return;
+  if (el.dataset.href) { document.querySelector(el.dataset.href).scrollIntoView({ behavior: 'smooth' }); return; }
+  const code = el.dataset.code;
   if (!code || !DATA) return;
   Object.keys(colFilters).forEach((k) => delete colFilters[k]);
   $('#q').value = ''; qualityCode = code; page = 0;
   filter();
   location.hash = '#dataset';
-});
+};
+$('#quality-cards').addEventListener('click', openNullCard);
+$('#quality-cards').addEventListener('keydown', openNullCard);
 
 Promise.all([get('data/status.json'), Promise.resolve([])]).then(([s, a]) => {
   renderStatus(s, a);

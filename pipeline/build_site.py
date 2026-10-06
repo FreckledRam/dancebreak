@@ -36,12 +36,24 @@ def last_run_added(activity: list) -> dict:
 
 # Things worth a look in the data itself: code -> (what is missing, how it gets fixed)
 QUALITY = {
-    "g": ("A judge has no score in a round", "Re-collect, or confirm the source has none"),
-    "j": ("No judges recorded", "Check the source page"),
-    "w": ("No winner recorded", "Check the source page"),
-    "n": ("Breaker name blank", "Check the source page"),
-    "i": ("System uncertain", "Only votes were visible, so the judging system is not known; held out until confirmed"),
-    "d": ("No date or source link", "Original rows; the backfill links them to the source"),
+    "i": ("System uncertain",
+          "The page showed only who each judge voted for, so the judging system cannot be read from it.",
+          "Held out of the dataset until someone confirms the system."),
+    "g": ("Judge score missing",
+          "A judge has no score in a round the battle says was fought.",
+          "Collect it again, or confirm the source never published one."),
+    "j": ("No judges",
+          "The battle was recorded without any judge names.",
+          "Check the source page."),
+    "w": ("No winner",
+          "The winner field is empty.",
+          "Check the source page."),
+    "n": ("Breaker name blank",
+          "The red or blue side has no name.",
+          "Check the source page."),
+    "d": ("No date or source link",
+          "Rows from the original hand-collected dataset carry a year but no date, and no link to the page they came from.",
+          "The backfill will link them to their source."),
 }
 UNCERTAIN = "Uncertain"     # the System value shown for battles whose system is not confirmed
 SYSCOL = 9
@@ -146,8 +158,9 @@ def main() -> None:
         "last_run": next((a["time"] for a in activity if a["kind"] == "check"), None),
         "sources": st["sources"],
         "review": len(review),
-        "quality": [{"code": code, "label": label, "fix": fix, "count": sum(code in r[QCOL] for r in rows)}
-                    for code, (label, fix) in QUALITY.items()],
+        "quality": [{"code": code, "label": label, "why": why, "fix": fix, "action": code in NEEDS_REVIEW,
+                     "count": sum(code in r[QCOL] for r in rows)}
+                    for code, (label, why, fix) in QUALITY.items()],
         "need_review": len(review) + sum(any(c in r[QCOL] for c in NEEDS_REVIEW) for r in rows),
         "runs": runs(activity),
         # pace of the scheduled run (check.yml: minute 17 of every 6th hour UTC, 10 events per source)
