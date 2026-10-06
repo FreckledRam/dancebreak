@@ -103,12 +103,31 @@ td:last-child, th:last-child { padding-right: 0; }
 
 /* dataset */
 .filters { display: flex; gap: 10px; margin: 18px 0 10px; }
-input, button { font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px 12px; }
-input:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
+/* controls: one flat style everywhere, no browser-default chrome */
+input, button, select { font: inherit; color: var(--fg); -webkit-appearance: none; appearance: none; margin: 0;
+  background: var(--soft); border: 1px solid var(--line); border-radius: 10px; height: 40px; padding: 0 14px;
+  transition: border-color .15s, background .15s, box-shadow .15s; }
+input::placeholder { color: var(--muted); }
+input:hover, button:hover:not(:disabled) { border-color: #3a3f48; }
+input:focus, button:focus-visible { outline: 0; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
+input[type=search] { padding-left: 38px; background-repeat: no-repeat; background-position: 13px center; background-size: 15px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238e95a1' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.6-3.6'/%3E%3C/svg%3E"); }
+input[type=search]::-webkit-search-decoration, input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration { -webkit-appearance: none; }
+input[type=checkbox] { width: 16px; height: 16px; padding: 0; border-radius: 5px; flex: none; cursor: pointer; background: var(--bg); position: relative; top: 2px; }
+input[type=checkbox]:checked { background: var(--accent); border-color: var(--accent);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2306231f' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 8.3 2.7 2.7L12 5.4'/%3E%3C/svg%3E"); }
+/* a short set of choices shown side by side instead of a dropdown */
+.seg { display: inline-flex; padding: 3px; gap: 2px; background: var(--soft); border: 1px solid var(--line); border-radius: 10px; height: 40px; }
+.seg button { height: auto; border: 0; background: none; border-radius: 7px; padding: 0 14px; color: var(--muted); font-weight: 500; }
+.seg button:hover:not(.on) { color: var(--fg); }
+.seg button.on { background: #2a2e36; color: var(--fg); box-shadow: 0 1px 2px rgba(0,0,0,.4); }
 #q { flex: 1; }
 button { cursor: pointer; white-space: nowrap; }
-button:hover:not(:disabled) { border-color: var(--rule); }
-button:disabled { color: var(--muted); cursor: default; }
+button:disabled { color: var(--muted); cursor: default; opacity: .5; }
+.filters { flex-wrap: wrap; }
+#bq, #jq { width: 280px; max-width: 100%; }
+.pager button { height: 34px; }
 .scroll { overflow-x: auto; }
 #battles tbody tr.row { cursor: pointer; }
 #battles tbody tr.row:hover td, #battles tbody tr.open td { background: var(--soft); }
@@ -129,10 +148,10 @@ th.filtered::after { opacity: 1; }
 
 #colmenu { position: absolute; z-index: 10; width: 280px; max-width: calc(100vw - 16px); padding: 8px; background: var(--soft);
   border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,.6); font-size: 14px; }
-#colmenu button { display: block; width: 100%; text-align: left; border: 0; padding: 7px 8px; background: none; }
+#colmenu button { display: block; width: 100%; height: 34px; text-align: left; border: 0; border-radius: 7px; padding: 0 8px; background: none; }
 #colmenu button:hover, #colmenu label:hover { background: var(--line); }
 #colmenu hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
-#colmenu input[type=search] { width: 100%; }
+#colmenu input[type=search] { width: 100%; height: 36px; background-color: var(--bg); }
 .menu-links { display: flex; gap: 16px; padding: 8px 8px 4px; font-size: 13px; }
 .menu-links a { cursor: pointer; }
 .menu-values { max-height: 260px; overflow-y: auto; }
@@ -183,7 +202,6 @@ footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 4
 }
 
 /* rankings */
-select { font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px 12px; }
 table.rank th { cursor: pointer; user-select: none; }
 table.rank th:hover { color: var(--fg); }
 table.rank th[data-dir="asc"], table.rank th[data-dir="desc"] { color: var(--accent); }

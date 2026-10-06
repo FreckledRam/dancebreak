@@ -142,10 +142,15 @@ get('data/analytics.json').then((A) => {
     ['to', 'Active', { fmt: years }],
   ], { onRow: breakerDetail });
   const showBreakers = () => {
-    const q = $('#bq').value.trim().toLowerCase(), d = $('#bdiv').value;
+    const q = $('#bq').value.trim().toLowerCase(), d = $('#bdiv .on').dataset.v;
     breakers.set(A.breakers.filter((b) => (!d || b.div === d) && (!q || b.name.toLowerCase().includes(q))));
   };
-  $('#bq').oninput = showBreakers; $('#bdiv').onchange = showBreakers;
+  $('#bq').oninput = showBreakers;
+  $('#bdiv').onclick = (e) => {
+    if (!e.target.dataset || e.target.dataset.v === undefined) return;
+    $('#bdiv .on').classList.remove('on'); e.target.classList.add('on');
+    showBreakers();
+  };
   showBreakers();
 
   const judges = rankTable($('#judges-table'), $('#judges-pager'), [

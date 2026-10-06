@@ -97,7 +97,9 @@
     <p class="sub">Elo rating from every recorded 1 vs 1 battle. A breaker is ranked after 5 battles. Click a breaker for their history.</p>
     <div class="filters">
       <input id="bq" type="search" placeholder="Search breaker" autocomplete="off">
-      <select id="bdiv"><option value="">All divisions</option><option>B-Boys</option><option>B-Girls</option><option>Open</option></select>
+      <div class="seg" id="bdiv" role="group" aria-label="Division">
+        <button data-v="" class="on">All</button><button data-v="B-Boys">B-Boys</button><button data-v="B-Girls">B-Girls</button><button data-v="Open">Open</button>
+      </div>
     </div>
     <div class="scroll"><table id="breakers-table" class="rank"></table></div>
     <div class="pager" id="breakers-pager"></div>
