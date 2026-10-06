@@ -277,3 +277,4 @@
 #home .j-tabs button { border-radius: 0; border-width: 0 0 2px; background: none; box-shadow: none; }
 #home .j-row input { height: 26px; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; }
 #home .j-row input:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 45%, transparent); }
+.j-more { margin-top: auto; padding-top: 22px; font-size: 14px; font-weight: 600; }

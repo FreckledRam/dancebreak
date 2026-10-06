@@ -110,7 +110,7 @@
       <div class="j-body">
         <div class="j-you"><p class="j-blurb">${S.blurb}</p>${controls}<div class="j-cells" ${S.cats.length ? '' : 'hidden'}><div></div><p>This is how the dataset stores it: <b>r1</b> is round 1, <b>j3</b> is the judge in seat 3, then the quality in four letters. Negative favours red, positive favours blue.</p></div></div>
         <div class="j-panel"><h4>The panel</h4><div class="j-seats">${OTHERS.map((_, i) => `<div class="j-seat${i === 2 ? ' you' : ''}"><span>${i === 2 ? 'You' : `Seat ${i + 1}`}</span><b></b></div>`).join('')}</div>
-          <div class="j-tally"><i></i><i></i></div><p class="j-result"></p><p class="j-why"></p></div>
+          <div class="j-tally"><i></i><i></i></div><p class="j-result"></p><p class="j-why"></p><a class="j-more" href="#systems">See how each system behaves across real battles</a></div>
       </div>`;
     update();
   }

@@ -19,19 +19,24 @@ function showTab() {
   document.body.dataset.tab = tab;
   document.querySelectorAll('main section').forEach((s) => { s.hidden = s.id !== tab; });
   document.querySelectorAll('nav a').forEach((a) => a.classList.toggle('on', a.hash === '#' + tab));
+  $('#health-btn').classList.toggle('on', tab === 'sources' || tab === 'review');     // those two live in its menu
+  window.closeNavMenus?.();
   moveGlass();
   // the tab bar must not move under the pointer: stay where we are, unless we are further down than the new tab's top
   if (scrollY > stickPoint()) scrollTo(0, stickPoint());
 }
 
+const NARROW = matchMedia('(max-width: 900px)');
+
 // the header is sticky and slides up until only the tab bar is left; this is the scroll position where that happens
 function stickPoint() {
+  if (NARROW.matches) return 0;       // on a phone the tabs are behind the menu button and the whole header stays
   return Math.max(0, $('nav').offsetTop - 8);
 }
 
 // the glass behind the lit tab. Its leading edge is given the shorter transition, so it stretches on the way.
 function moveGlass() {
-  const nav = $('nav'), glass = $('.nav-glass'), on = nav.querySelector('a.on');
+  const nav = $('nav'), glass = $('.nav-glass'), on = nav.querySelector('.tab.on');
   if (!on) return;
   const n = nav.getBoundingClientRect(), a = on.getBoundingClientRect(), left = a.left - n.left;
   glass.classList.toggle('to-right', left > parseFloat(glass.style.getPropertyValue('--l') || 0));
@@ -70,7 +75,7 @@ addEventListener('resize', settleHeader);
 document.fonts?.ready.then(settleHeader);
 // a tab label can change width after the data loads (the status dot, the Null count)
 const navWatch = new ResizeObserver(settleHeader);
-document.querySelectorAll('nav a').forEach((a) => navWatch.observe(a));
+document.querySelectorAll('nav .tab').forEach((a) => navWatch.observe(a));
 addEventListener('load', () => { scrollTo(0, 0); settleHeader(); });
 
 // ---- news: upcoming events and headlines. Pictures load from the site that owns them, at thumbnail size.
@@ -230,7 +235,7 @@ function renderStatus(status, activity) {
   $('#last-run').innerHTML = LIVE ? '' : `Last run ${ago(status.last_run)}`;
   $('#headline-sub').innerHTML = LIVE ? `Started ${ago(LIVE.started)}. Totals update when it finishes.`
     : `Most recent data ${ago(latest)}. ${news} Next scrape in <b class="next" title="${esc(next.toLocaleString())}">${countdown(next)}</b>.`;
-  $('#review-count').textContent = status.need_review || '';
+  document.querySelectorAll('.review-count').forEach((el) => { el.textContent = status.need_review || ''; });
   const T = status.totals || {};
   const plus = (n, what) => (n ? `<small class="up">+${n.toLocaleString()} this week</small>` : `<small>None new this week</small>`);
   const newest = T.newest_date ? new Date(T.newest_date + 'T12:00:00').toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' }) : '-';
@@ -539,10 +544,10 @@ function draw() {
   $('#prev').disabled = page === 0;
   $('#next').disabled = page >= pages - 1;
   const name = (r, side) => `<td class="side ${r[C.winner] && r[C.winner] === r[C[side]] ? 'win' : ''}"><i class="tick ${side}"></i>${esc(r[C[side]])}</td>`;
-  $('#battles tbody').innerHTML = rows.slice(page * PAGE, (page + 1) * PAGE).map((r) => `<tr class="row" data-f="${r[C.file]}" data-i="${r[C.idx]}">
+  $('#battles tbody').innerHTML = rows.slice(page * PAGE, (page + 1) * PAGE).map((r) => `<tr class="row" data-f="${r[C.file]}" data-i="${r[C.idx]}" data-rk="${esc(r[C.rk])}" data-bk="${esc(r[C.bk])}">
     <td style="white-space:nowrap">${r[C.date] || r[C.year] || ''}</td><td>${esc(r[C.event])}</td><td>${esc(r[C.stage])}</td>
     ${name(r, 'red')}${name(r, 'blue')}
-    <td>${r[C.system] === UNCERTAIN ? '<span class="muted">Uncertain</span>' : esc(r[C.system])}</td>
+    <td>${r[C.system] === UNCERTAIN ? '<span class="muted">Uncertain</span>' : `<a class="plink" href="#systems" title="How this system behaves">${esc(r[C.system])}</a>`}</td>
     <td>${r[C.url] ? `<a href="${esc(r[C.url])}" target="_blank" rel="noopener">${esc(SOURCE_NAMES[r[C.source]] || r[C.source])}</a>` : `<span class="muted">${esc(SOURCE_NAMES[r[C.source]] || r[C.source])}</span>`}</td>
   </tr>`).join('') || '<tr><td colspan="7" class="muted">No battles match.</td></tr>';
 }
@@ -560,7 +565,7 @@ $('#battles tbody').addEventListener('click', async (e) => {
   document.querySelectorAll('#battles tr.open').forEach((r) => r.classList.remove('open'));
   const detail = document.createElement('tr');
   detail.className = 'detail';
-  detail.innerHTML = `<td colspan="7">${battleDetail(eventCache[file].battles[tr.dataset.i])}</td>`;
+  detail.innerHTML = `<td colspan="7">${battleDetail(eventCache[file].battles[tr.dataset.i], tr.dataset)}</td>`;
   tr.classList.add('open');
   tr.after(detail);
 });
@@ -581,24 +586,26 @@ const roundOrder = (rounds) => Object.keys(rounds).sort((a, c) => (a === 'tie') 
 
 // Each judge's overall call per round as a bar: left of centre for red, right for blue.
 // Scored systems use the size of the margin; vote-only systems get a full-length bar.
-function battleDetail(b) {
-  const rounds = scoreCells(b), keys = roundOrder(rounds);
-  if (!keys.length) return '<span class="muted">No judge-level scores recorded.</span>';
+function battleDetail(b, keys = {}) {
+  const judge = (j) => { const n = b.judges[j - 1]; return n ? `<a class="plink" data-judge="${esc(n)}" title="Open this judge">${esc(n)}</a>` : 'Judge ' + j; };
+  const breaker = (name, k) => (k ? `<a class="plink" data-breaker="${esc(k)}" title="Open this breaker">${esc(name)}</a>` : esc(name));
+  const rounds = scoreCells(b), order = roundOrder(rounds);
+  if (!order.length) return '<span class="muted">No judge-level scores recorded.</span>';
   const overall = (cell) => cell.over ?? cell.vote;
-  const numbers = keys.flatMap((r) => Object.values(rounds[r]).map(overall)).filter((v) => v !== undefined && !isNaN(v)).map((v) => Math.abs(v));
+  const numbers = order.flatMap((r) => Object.values(rounds[r]).map(overall)).filter((v) => v !== undefined && !isNaN(v)).map((v) => Math.abs(v));
   const max = Math.max(...numbers, 0.0001);
   const bar = (v) => {
     if (v === undefined || v === '') return ['', '<span class="muted">-</span>'];
     if (isNaN(v)) return [v === 'red' ? 'red' : v === 'blue' ? 'blue' : '', v === 'tie' ? 'tie' : '', 50];
     return [+v < 0 ? 'red' : +v > 0 ? 'blue' : '', String(Math.abs(+v)), (50 * Math.abs(+v)) / max];
   };
-  const blocks = keys.map((r) => `<div><h4>${roundName(r)}</h4><table>${Object.keys(rounds[r]).sort((a, c) => a - c).map((j) => {
+  const blocks = order.map((r) => `<div><h4>${roundName(r)}</h4><table>${Object.keys(rounds[r]).sort((a, c) => a - c).map((j) => {
     const [side, text, width] = bar(overall(rounds[r][j]));
-    return `<tr><td>${esc(b.judges[j - 1] || 'Judge ' + j)}</td><td class="w"><span class="div ${side}"><i style="width:${width || 0}%"></i></span></td><td class="num">${text}</td></tr>`;
+    return `<tr><td>${judge(j)}</td><td class="w"><span class="div ${side}"><i style="width:${width || 0}%"></i></span></td><td class="num">${text}</td></tr>`;
   }).join('')}</table></div>`).join('');
   const link = b.url ? ` · <a href="${esc(b.url)}" target="_blank" rel="noopener">Source page</a>` : '';
   return `<div class="rounds">${blocks}</div>
-    <p class="key"><i style="background:var(--red)"></i>${esc(b.red)}<i style="background:var(--blue)"></i>${esc(b.blue)} · <a data-act="raw">All scores as numbers</a>${link}</p>
+    <p class="key"><i style="background:var(--red)"></i>${breaker(b.red, keys.rk)}<i style="background:var(--blue)"></i>${breaker(b.blue, keys.bk)} · <a data-act="raw">All scores as numbers</a>${link}</p>
     <div class="raw" hidden>${scoreTables(rounds, b)}</div>`;
 }
 

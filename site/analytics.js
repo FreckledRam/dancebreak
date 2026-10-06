@@ -32,7 +32,11 @@ function rankTable(el, pagerEl, cols, { pageSize = 50, onRow, sort, dir = -1, co
     }
     const tr = e.target.closest('tr.row');
     if (!tr || !onRow || e.target.closest('tr.detail') || e.target.closest('a')) return;
+    toggle(tr);
+  });
+  function toggle(tr, keepOpen) {
     const wasOpen = tr.classList.contains('open');
+    if (wasOpen && keepOpen) return;
     el.querySelectorAll('tr.detail').forEach((d) => d.remove());
     el.querySelectorAll('tr.open').forEach((r) => r.classList.remove('open'));
     openKey = null;
@@ -43,9 +47,17 @@ function rankTable(el, pagerEl, cols, { pageSize = 50, onRow, sort, dir = -1, co
     detail.innerHTML = `<td colspan="${cols.length}">${onRow(row)}</td>`;
     tr.classList.add('open'); openKey = row.k;
     tr.after(detail);
-  });
+  }
   pagerEl?.addEventListener('click', (e) => { if (e.target.dataset.go) { page += +e.target.dataset.go; draw(); } });
-  return { set(next) { rows = next; page = 0; openKey = null; draw(); } };
+  return {
+    set(next) { rows = next; page = 0; openKey = null; draw(); },
+    // show one row's detail, wherever it is in the current order
+    open(k) {
+      const tr = [...el.querySelectorAll('tr.row')].find((r) => r.dataset.key === String(k));
+      if (tr) toggle(tr, true);
+      return Boolean(tr);
+    },
+  };
 }
 
 const pctCell = (k) => ({ num: true, fmt: (r) => (r[k] === null || r[k] === undefined ? '<span class="muted">-</span>' : `${r[k]}%`) });
@@ -94,26 +106,26 @@ function breakerDetail(b) {
     const red = r[C.rk] === b.k, me = red ? r[C.red] : r[C.blue], foe = red ? r[C.blue] : r[C.red];
     const won = r[C.winner] === me, lost = r[C.winner] === foe;
     const fk = red ? r[C.bk] : r[C.rk];
-    const s = (systems[r[C.system]] ??= { w: 0, l: 0 }), f = (foes[fk] ??= { name: NAMES[fk] || foe, w: 0, l: 0 });
+    const s = (systems[r[C.system]] ??= { w: 0, l: 0 }), f = (foes[fk] ??= { k: fk, name: NAMES[fk] || foe, w: 0, l: 0 });
     if (won) { s.w++; f.w++; } else if (lost) { s.l++; f.l++; }
   }
   const latest = [...mine].sort((a, c) => String(c[C.date] || c[C.year] || '').localeCompare(String(a[C.date] || a[C.year] || ''))).slice(0, 8);
   const rivals = Object.values(foes).sort((a, c) => c.w + c.l - (a.w + a.l)).slice(0, 6);
   return `${eloChart(b.hist)}
   <div class="cols">
-    <div><h4>Record by system</h4><table>${Object.entries(systems).sort((a, c) => c[1].w + c[1].l - a[1].w - a[1].l).map(([s, v]) => `<tr><td>${esc(s)}</td><td class="num">${v.w}–${v.l}</td></tr>`).join('')}</table></div>
-    <div><h4>Most faced</h4><table>${rivals.map((f) => `<tr><td>${esc(f.name)}</td><td class="num">${f.w}–${f.l}</td></tr>`).join('')}</table></div>
+    <div><h4>Record by system</h4><table>${Object.entries(systems).sort((a, c) => c[1].w + c[1].l - a[1].w - a[1].l).map(([s, v]) => `<tr><td><a class="plink" href="#systems">${esc(s)}</a></td><td class="num">${v.w}–${v.l}</td></tr>`).join('')}</table></div>
+    <div><h4>Most faced</h4><table>${rivals.map((f) => `<tr><td><a class="plink" data-breaker="${esc(f.k)}">${esc(f.name)}</a></td><td class="num">${f.w}–${f.l}</td></tr>`).join('')}</table></div>
     <div class="wide"><h4>Latest battles</h4><table>${latest.map((r) => {
       const red = r[C.rk] === b.k, me = red ? r[C.red] : r[C.blue], foe = red ? r[C.blue] : r[C.red];
       const res = r[C.winner] === me ? 'Won' : r[C.winner] === foe ? 'Lost' : 'Tie';
-      return `<tr><td class="muted" style="white-space:nowrap">${r[C.date] || r[C.year] || ''}</td><td style="white-space:nowrap">${res} vs ${esc(NAMES[red ? r[C.bk] : r[C.rk]] || foe)}</td><td class="muted">${esc(r[C.event])}</td></tr>`;
+      return `<tr><td class="muted" style="white-space:nowrap">${r[C.date] || r[C.year] || ''}</td><td style="white-space:nowrap">${res} vs <a class="plink" data-breaker="${esc(red ? r[C.bk] : r[C.rk])}">${esc(NAMES[red ? r[C.bk] : r[C.rk]] || foe)}</a></td><td class="muted">${esc(r[C.event])}</td></tr>`;
     }).join('')}</table></div>
   </div>
   <p class="key"><a data-find="${esc(b.name)}">All ${mine.length} battles in the dataset</a></p>`;
 }
 
 function judgeDetail(j) {
-  return `<div class="cols"><div><h4>Battles judged by system</h4><table>${j.systems.map(([s, n]) => `<tr><td>${esc(s)}</td><td class="num">${n.toLocaleString()}</td></tr>`).join('')}</table></div></div>
+  return `<div class="cols"><div><h4>Battles judged by system</h4><table>${j.systems.map(([s, n]) => `<tr><td><a class="plink" href="#systems">${esc(s)}</a></td><td class="num">${n.toLocaleString()}</td></tr>`).join('')}</table></div></div>
   <p class="key"><a data-find="${esc(j.name)}">All battles this judge sat on</a></p>`;
 }
 
@@ -128,6 +140,23 @@ document.addEventListener('click', (e) => {
 });
 
 const NAMES = {};      // person key -> the spelling used most often
+
+// A name anywhere on the site opens that person. Set once the rankings have loaded.
+const OPEN = { breaker: null, judge: null };
+function findInDataset(text) {
+  if (!DATA) return;
+  Object.keys(colFilters).forEach((k) => delete colFilters[k]);
+  qualityCode = null; sortCol = null; $('#q').value = text; page = 0;
+  filter();
+  goTab('dataset');
+}
+document.addEventListener('click', (e) => {
+  const el = e.target.closest?.('[data-breaker], [data-judge]');
+  if (!el) return;
+  e.preventDefault();
+  if (el.dataset.breaker !== undefined) { if (!OPEN.breaker?.(el.dataset.breaker)) findInDataset(el.textContent); }
+  else if (!OPEN.judge?.(el.dataset.judge)) findInDataset(el.dataset.judge);
+});
 
 get('data/analytics.json').then((A) => {
   let rank = 0;
@@ -156,6 +185,14 @@ get('data/analytics.json').then((A) => {
     showBreakers();
   };
   showBreakers();
+  OPEN.breaker = (k) => {
+    if (!NAMES[k]) return false;
+    $('#bq').value = NAMES[k];
+    $('#bdiv .on').classList.remove('on'); $('#bdiv [data-v=""]').classList.add('on');
+    showBreakers();
+    goTab('breakers');
+    return breakers.open(k);
+  };
 
   const judges = rankTable($('#judges-table'), $('#judges-pager'), [
     ['name', 'Judge', { fmt: (r) => `<b>${esc(r.name)}</b>` }],
@@ -169,6 +206,15 @@ get('data/analytics.json').then((A) => {
   const showJudges = () => { const q = $('#jq').value.trim().toLowerCase(); judges.set(A.judges.filter((j) => !q || j.name.toLowerCase().includes(q))); };
   $('#jq').oninput = showJudges;
   showJudges();
+  OPEN.judge = (name) => {
+    const j = A.judges.find((x) => x.k === name) || A.judges.find((x) => x.name.toLowerCase() === String(name).toLowerCase());
+    if (!j) return false;
+    $('#jq').value = j.name;
+    showJudges();
+    goTab('judges');
+    return judges.open(j.k);
+  };
+  window.ANALYTICS = A;
 
   rankTable($('#systems-table'), null, [
     ['system', 'System', { fmt: (r) => `<b>${esc(r.system)}</b>` }],

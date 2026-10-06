@@ -21,20 +21,33 @@
     <span class="mark" aria-hidden="true"><i></i><i></i></span>
     <span class="title">Settle it <span>in the</span> Cypher</span>
   </a>
-  <nav>
+  <button class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button>
+  <nav id="nav">
     <i class="nav-glass" aria-hidden="true"></i>
-    <div>
-      <a href="#home">Home</a>
-      <a href="#sources"><span id="nav-dot" class="status" hidden></span>Scraper status</a>
+    <div class="nav-main">
+      <a class="tab" href="#home">Home</a>
       <span class="sep" aria-hidden="true"></span>
-      <a href="#dataset">Dataset</a>
-      <a href="#review">Null<em id="review-count"></em></a>
-      <a href="#news">News</a>
+      <span class="nav-label">Explore</span>
+      <a class="tab" href="#dataset">Dataset</a>
+      <a class="tab c-breakers" href="#breakers">Breakers</a>
+      <a class="tab c-judges" href="#judges">Judges</a>
+      <a class="tab c-systems" href="#systems">Systems</a>
+      <span class="sep" aria-hidden="true"></span>
+      <a class="tab" href="#news">News</a>
     </div>
-    <div>
-      <a href="#breakers" class="c-breakers">Breakers</a>
-      <a href="#judges" class="c-judges">Judges</a>
-      <a href="#systems" class="c-systems">Systems</a>
+    <div class="nav-side">
+      <div class="nav-search">
+        <input id="find" type="search" placeholder="Search breaker, judge or event" autocomplete="off" aria-label="Search the site">
+        <div class="nav-pop" id="find-results" hidden></div>
+      </div>
+      <div class="nav-health">
+        <button class="tab" id="health-btn" aria-expanded="false" aria-controls="health-pop"><span id="nav-dot" class="status" hidden></span>Data health<em class="review-count"></em></button>
+        <div class="nav-pop" id="health-pop" hidden>
+          <span class="nav-label">Data health</span>
+          <a href="#sources"><b>Scraper status</b><small>Did today's collection run, and what did it add</small></a>
+          <a href="#review"><b>Null<em class="review-count"></em></b><small>What is missing from the data, and why</small></a>
+        </div>
+      </div>
     </div>
   </nav>
 </header>
@@ -283,6 +296,6 @@
 <footer>
   <p>Data from <a href="https://and8.dance">And8</a>, <a href="https://www.worlddancesport.org">WDSF</a> and <a href="https://breakkonnect.com">Break Konnect</a>. <a id="repo" href="https://github.com/FreckledRam/dancebreak">Code and data on GitHub</a>.</p>
 </footer>
-<script>document.write('<script src="app.js?v=' + Date.now() + '"><\/script><script src="analytics.js?v=' + Date.now() + '"><\/script><script src="home.js?v=' + Date.now() + '"><\/script>');</script>
+<script>document.write('<script src="app.js?v=' + Date.now() + '"><\/script><script src="analytics.js?v=' + Date.now() + '"><\/script><script src="home.js?v=' + Date.now() + '"><\/script><script src="nav.js?v=' + Date.now() + '"><\/script>');</script>
 </body>
 </html>
