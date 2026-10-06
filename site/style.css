@@ -463,3 +463,9 @@ table.rank > tbody > tr.detail > td { border-radius: 8px; }
 #battles .raw th, #battles .raw td { padding: 7px 20px 7px 0; }
 .rounds h4, .raw h4 { margin: 14px 0 8px; }
 #judges h1.twin a.on[data-view="systems"] { color: #a78bfa; }      /* Judges is red; Systems gets its own violet */
+
+/* Recent runs must fit its half of the row without a sideways scrollbar */
+.pair > .panel { overflow-x: visible; }
+#runs-table td, #runs-table th { padding-right: 14px; }
+#runs-table td:last-child, #runs-table th:last-child { padding-right: 2px; }
+#runs-table td:nth-child(2) { width: 100%; }

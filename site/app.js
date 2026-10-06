@@ -263,7 +263,7 @@ function renderStatus(status, activity) {
 
 
   $('#runs-table tbody').innerHTML = (status.runs || []).map((r) => `<tr>
-    <td style="white-space:nowrap">${esc(new Date(r.time).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' }))}</td>
+    <td style="white-space:nowrap">${esc(new Date(r.time).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }))}</td>
     <td><span class="status ${r.ok ? 'ok' : 'error'}">${r.ok ? 'OK' : 'Error'}</span>${r.note ? `<small>${esc(r.note)}</small>` : ''}</td>
     <td class="num">${r.events.toLocaleString()}</td><td class="num">${r.battles.toLocaleString()}</td>
   </tr>`).join('') || '<tr><td colspan="4" class="muted">No runs yet.</td></tr>';
