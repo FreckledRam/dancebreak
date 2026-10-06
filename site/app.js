@@ -54,8 +54,9 @@ function progressCell(key, q, done, pct) {
 // Healthy: last run worked. Error: it could not read the site. Not running: no recent run at all.
 function health(s, status) {
   const stale = !s.last_checked || Date.now() - new Date(s.last_checked) > 2.5 * status.hours_between_runs * 3600e3;
-  if (s.status === 'broken') return ['broken', 'Error'];
-  return stale || s.status !== 'ok' ? ['', 'Not running'] : ['ok', 'Healthy'];
+  // yellow: it ran but hit a problem. red: it is not running at all.
+  if (stale || (s.status !== 'ok' && s.status !== 'broken')) return ['stopped', 'Not running'];
+  return s.status === 'broken' ? ['error', 'Error'] : ['ok', 'Healthy'];
 }
 
 let STATUS = null, ACTIVITY = [], LIVE = null;
@@ -93,13 +94,13 @@ function renderStatus(status, activity) {
 
   const added = status.last_run_added || { events: 0, battles: 0 };
   const states = Object.entries(status.sources).map(([key, src]) => (LIVE && LIVE.current === key ? 'running' : health(src, status)[0]));
-  const broken = states.filter((x) => x === 'broken').length, idle = states.filter((x) => x === '').length;
+  const broken = states.filter((x) => x === 'error').length, idle = states.filter((x) => x === 'stopped').length;
   $('#headline').textContent = LIVE ? 'Check in progress'
-    : broken ? `${broken} scraper${broken === 1 ? ' needs' : 's need'} attention`
-      : idle ? `${idle} scraper${idle === 1 ? ' is' : 's are'} not running` : 'All scrapers healthy';
+    : idle ? `${idle} scraper${idle === 1 ? ' is' : 's are'} not running`
+      : broken ? `${broken} scraper${broken === 1 ? ' has' : 's have'} an error` : 'All scrapers healthy';
   // the dot beside the tab: green and pulsing when every scraper is healthy
   const dot = $('#nav-dot');
-  dot.className = `status ${LIVE ? 'running' : broken ? 'broken' : idle ? '' : 'ok'}`;
+  dot.className = `status ${LIVE ? 'running' : idle ? 'stopped' : broken ? 'error' : 'ok'}`;
   dot.title = $('#headline').textContent;
   dot.hidden = false;
   const news = added.events || added.battles
@@ -157,7 +158,7 @@ function renderStatus(status, activity) {
 
   $('#runs-table tbody').innerHTML = (status.runs || []).map((r) => `<tr>
     <td style="white-space:nowrap">${esc(new Date(r.time).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' }))}</td>
-    <td><span class="status ${r.ok ? 'ok' : 'broken'}">${r.ok ? 'OK' : 'Error'}</span>${r.note ? `<small>${esc(r.note)}</small>` : ''}</td>
+    <td><span class="status ${r.ok ? 'ok' : 'error'}">${r.ok ? 'OK' : 'Error'}</span>${r.note ? `<small>${esc(r.note)}</small>` : ''}</td>
     <td class="num">${r.events.toLocaleString()}</td><td class="num">${r.battles.toLocaleString()}</td>
   </tr>`).join('') || '<tr><td colspan="4" class="muted">No runs yet.</td></tr>';
 
