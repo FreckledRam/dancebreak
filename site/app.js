@@ -176,7 +176,7 @@ function renderAdded(status) {
   if (!since) return;
   const added = runs.slice(0, last + 1).reduce((sum, r) => sum + r.battles, 0);
   const when = new Date(since.time).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' });
-  $('#dataset-added').textContent = `+${added.toLocaleString()} battles since ${when}`;
+  $('#dataset-added').textContent = `+${added.toLocaleString()} since ${when}`;
 }
 
 // ---- dataset
@@ -396,7 +396,9 @@ function draw() {
   page = Math.min(Math.max(page, 0), pages - 1);
   const confirmed = DATA.rows.reduce((n, r) => n + (r[C.system] !== UNCERTAIN), 0);
   const held = DATA.rows.length - confirmed;
-  $('#dataset-title').textContent = `${confirmed.toLocaleString()} battles`;
+  const filtered = rows.length !== confirmed || wantsUncertain();
+  $('#dataset-title').textContent = filtered
+    ? `${rows.length.toLocaleString()} of ${confirmed.toLocaleString()} battles` : `${confirmed.toLocaleString()} battles`;
   const plain = rows.length === confirmed && !wantsUncertain();
   $('#count').textContent = plain
     ? `All battles${held ? `, plus ${held.toLocaleString()} held out as system uncertain` : ''}`

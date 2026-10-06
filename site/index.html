@@ -73,15 +73,12 @@
   </section>
 
   <section id="dataset" hidden>
-    <h1 id="dataset-title">&nbsp;</h1>
-    <p class="added" id="dataset-added" hidden></p>
-    <p class="sub">Click a column heading to sort or filter. Click a battle to see every judge's score.</p>
+    <h1 class="oneline"><span id="dataset-title">&nbsp;</span><span class="added" id="dataset-added" hidden></span></h1>
     <div class="filters">
       <input id="q" type="search" placeholder="Search breaker, judge or event" autocomplete="off">
       <button id="clear-filters" hidden>Clear filters</button>
       <button id="download-csv">Download CSV</button>
     </div>
-    <p class="note"><span id="count"></span><span id="quality-note"></span> · Download: <span id="downloads"></span></p>
     <div class="scroll">
       <table id="battles">
         <thead><tr><th data-sort="year">Date</th><th data-sort="event">Event</th><th data-sort="stage">Stage</th><th data-sort="red">Red</th><th data-sort="blue">Blue</th><th data-sort="system">System</th><th data-sort="source">Source</th></tr></thead>
@@ -89,6 +86,8 @@
       </table>
     </div>
     <div class="pager"><button id="prev">Previous</button><span id="page"></span><button id="next">Next</button></div>
+    <p class="note foot"><span id="count"></span><span id="quality-note"></span> · Download by system: <span id="downloads"></span></p>
+    <p class="note">Click a column heading to sort or filter. Click a battle to see every judge's score.</p>
   </section>
 
   <section id="breakers" hidden>
