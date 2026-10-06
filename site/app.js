@@ -196,7 +196,7 @@ function renderStatus(status, activity) {
   dot.className = `status ${LIVE ? 'running' : idle ? 'stopped' : broken ? 'error' : 'ok'}`;
   dot.title = $('#headline').textContent;
   dot.hidden = false;
-  // the same dot before Scraper health in that page's title
+  // the same dot before Scrapers in that page's title
   const mark = $('#health-word');
   mark.className = dot.className; mark.title = dot.title; mark.hidden = false;
   $('#headline').closest('.panel').classList.toggle('healthy', !LIVE && !idle && !broken);
