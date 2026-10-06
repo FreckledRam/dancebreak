@@ -172,7 +172,7 @@
     </div>
     <div class="scroll">
       <table id="battles">
-        <thead><tr><th title="When the event took place" data-sort="year">Date</th><th title="The competition the battle was part of" data-sort="event">Event</th><th title="The category and round of the bracket" data-sort="stage">Stage</th><th title="The breaker on the red side. Bold means they won" data-sort="red">Red</th><th title="The breaker on the blue side. Bold means they won" data-sort="blue">Blue</th><th title="The judging system used to score the battle" data-sort="system">System</th><th title="The site the scores were collected from" data-sort="source">Source</th><th title="Footage of the battle on YouTube, where a link is known">Video</th></tr></thead>
+        <thead><tr><th title="The year the event took place. Sorting by it puts battles in date order" data-sort="year">Year</th><th title="Month and day (MM-DD). Older events record only the year" data-sort="md">Month</th><th title="The competition the battle was part of" data-sort="event">Event</th><th title="The category and round of the bracket" data-sort="stage">Stage</th><th title="The breaker on the red side. Bold means they won" data-sort="red">Red</th><th title="The breaker on the blue side. Bold means they won" data-sort="blue">Blue</th><th title="The judging system used to score the battle" data-sort="system">System</th><th title="The site the scores were collected from" data-sort="source">Source</th><th title="Footage of the battle on YouTube, where a link is known">Video</th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
@@ -181,8 +181,9 @@
     <p class="note">Click a column heading to sort or filter. Click a battle to see every judge's score.</p>
     </div>
     <div class="view" data-view="sources">
+      <div class="panel"><div class="nums" id="scrape-nums"></div></div>
     <div class="panel">
-      <h2>Scraper health <span id="last-run"></span></h2>
+      <h2>Scraper health</h2>
       <h1 id="headline">&nbsp;</h1>
       <p class="sub" id="headline-sub">&nbsp;</p>
       <table id="sources-table" class="stack">
@@ -257,6 +258,7 @@
     </div>
     <div class="view" data-view="systems" hidden>
       <p class="sub">How each judging system behaves in practice across the battles that used it.</p>
+      <div class="filters" id="systems-tools"></div>
       <div class="scroll"><table id="systems-table" class="rank"></table></div>
       <p class="note">Judges and Rounds are averages per battle. Unanimous: rounds where every judge picked the same side. One-vote: rounds decided by a single judge. Red wins: share of decided battles won by the red side.</p>
     </div>

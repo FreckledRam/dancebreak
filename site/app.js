@@ -203,11 +203,17 @@ function renderStatus(status, activity) {
   const news = added.events || added.battles
     ? `<span class="good">+${added.events.toLocaleString()} event${added.events === 1 ? '' : 's'}, +${added.battles.toLocaleString()} battle${added.battles === 1 ? '' : 's'}.</span>`
     : '<span class="good">No new events or battles.</span>';
-  // the soonest "Last new data" in the table below
+  // the page opens on the few numbers that say whether collection is keeping up
   const latest = Object.values(status.sources).map((x) => x.last_changed).filter(Boolean).sort().pop();
-  $('#last-run').innerHTML = LIVE ? '' : `Last run ${ago(status.last_run)}`;
-  $('#headline-sub').innerHTML = LIVE ? `Started ${ago(LIVE.started)}. Totals update when it finishes.`
-    : `Most recent data ${ago(latest)}. ${news} Next scrape in <b class="next" title="${esc(next.toLocaleString())}">${countdown(next)}</b>.`;
+  const got = added.events || added.battles;
+  $('#scrape-nums').innerHTML = [
+    ['Last scrape', LIVE ? 'Running now' : ago(status.last_run), LIVE ? `started ${ago(LIVE.started)}` : 'once a day'],
+    ['Next scrape', `<span title="${esc(next.toLocaleString())}">${countdown(next)}</span>`, next.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })],
+    ['New data', ago(latest), 'last time a scrape found any'],
+    ['Last run added', got ? `+${added.battles.toLocaleString()}` : '0', got ? `battles from ${added.events.toLocaleString()} event${added.events === 1 ? '' : 's'}` : 'nothing new to collect'],
+    ['In queue', backlog.toLocaleString(), backlog ? `about ${runs} run${runs === 1 ? '' : 's'} to clear` : 'all caught up'],
+  ].map(([label, value, note]) => `<div><b>${value}</b><span>${label}</span><small>${note}</small></div>`).join('');
+  $('#headline-sub').hidden = true;
   document.querySelectorAll('.review-count').forEach((el) => { el.textContent = status.need_review || ''; });
 
   $('#sources-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => {
@@ -295,6 +301,9 @@ const label = (col, v) => (col === 'source' ? SOURCE_NAMES[v] || v : v === '' ||
 function setupDataset(data) {
   DATA = data;
   const C = Object.fromEntries(data.cols.map((c, i) => [c, i]));
+  // the date as two columns: the year, and the month and day (MM-DD) where the event has a full date
+  data.cols.push('md'); C.md = data.cols.length - 1;
+  data.rows.forEach((r) => r.push(r[C.date] ? r[C.date].slice(5) : ''));
   DATA.C = C;
   DATA.text = data.rows.map((r) => [r[C.event], r[C.stage], r[C.red], r[C.blue], r[C.judge_names]].join(' ').toLowerCase());
   $('#downloads').innerHTML = SYSTEMS.map((s) => `<a href="data/export/${s}DataRaw.tsv" download>${s}</a>`).join(', ');
@@ -351,7 +360,7 @@ function filter() {
 }
 
 // ---- download the battles currently shown, with every score column, as one CSV
-const COLUMN_NAMES = { year: 'Date', event: 'Event', stage: 'Stage', red: 'Red', blue: 'Blue', system: 'System', source: 'Source' };
+const COLUMN_NAMES = { year: 'Year', md: 'Month', event: 'Event', stage: 'Stage', red: 'Red', blue: 'Blue', system: 'System', source: 'Source' };
 
 function activeFilters() {
   const out = [];
@@ -398,11 +407,11 @@ async function downloadCsv() {
   for (const b of battles) for (const k of Object.keys(b.cells)) { if (!seen.has(k)) { seen.add(k); (scoreKey(k) ? scores : meta).push(k); } }
   const position = Object.fromEntries(scores.map((k, i) => [k, i]));
   scores.sort((a, b) => { const x = scoreKey(a), y = scoreKey(b); return x[0] - y[0] || x[1] - y[1] || position[a] - position[b]; });
-  const header = ['date', 'system', ...meta, ...scores, 'source', 'source url', 'video url'];
+  const header = ['year', 'month', 'system', ...meta, ...scores, 'source', 'source url', 'video url'];
   const lines = [header.map(csvCell).join(',')];
   picked.forEach((r, i) => {
     const cells = battles[i].cells;
-    lines.push([r[C.date] || r[C.year] || '', r[C.system], ...meta.map((k) => cells[k]), ...scores.map((k) => cells[k]),
+    lines.push([r[C.year] || '', r[C.md] || '', r[C.system], ...meta.map((k) => cells[k]), ...scores.map((k) => cells[k]),
       SOURCE_NAMES[r[C.source]] || r[C.source], r[C.url] || '', r[C.video] || ''].map(csvCell).join(','));
   });
   const link = document.createElement('a');
@@ -514,12 +523,12 @@ function draw() {
   $('#next').disabled = page >= pages - 1;
   const name = (r, side) => `<td class="side ${r[C.winner] && r[C.winner] === r[C[side]] ? 'win' : ''}"><i class="tick ${side}"></i>${esc(r[C[side]])}</td>`;
   $('#battles tbody').innerHTML = rows.slice(page * PAGE, (page + 1) * PAGE).map((r) => `<tr class="row" data-f="${r[C.file]}" data-i="${r[C.idx]}" data-rk="${esc(r[C.rk])}" data-bk="${esc(r[C.bk])}">
-    <td style="white-space:nowrap">${r[C.date] || r[C.year] || ''}</td><td>${esc(r[C.event])}</td><td>${esc(r[C.stage])}</td>
+    <td>${r[C.year] || '<span class="muted">-</span>'}</td><td style="white-space:nowrap">${r[C.md] || '<span class="muted">-</span>'}</td><td>${esc(r[C.event])}</td><td>${esc(r[C.stage])}</td>
     ${name(r, 'red')}${name(r, 'blue')}
     <td>${r[C.system] === UNCERTAIN ? '<span class="muted">Uncertain</span>' : `<a class="plink" href="#systems" title="How this system behaves">${esc(r[C.system])}</a>`}</td>
     <td>${r[C.url] ? `<a href="${esc(r[C.url])}" target="_blank" rel="noopener">${esc(SOURCE_NAMES[r[C.source]] || r[C.source])}</a>` : `<span class="muted">${esc(SOURCE_NAMES[r[C.source]] || r[C.source])}</span>`}</td>
     <td>${r[C.video] ? `<a class="watch" href="${esc(r[C.video])}" target="_blank" rel="noopener" title="Watch this battle on YouTube">Watch</a>` : '<span class="muted">-</span>'}</td>
-  </tr>`).join('') || '<tr><td colspan="8" class="muted">No battles match.</td></tr>';
+  </tr>`).join('') || '<tr><td colspan="9" class="muted">No battles match.</td></tr>';
 }
 
 $('#battles tbody').addEventListener('click', async (e) => {
@@ -535,7 +544,7 @@ $('#battles tbody').addEventListener('click', async (e) => {
   document.querySelectorAll('#battles tr.open').forEach((r) => r.classList.remove('open'));
   const detail = document.createElement('tr');
   detail.className = 'detail';
-  detail.innerHTML = `<td colspan="8">${battleDetail(eventCache[file].battles[tr.dataset.i], tr.dataset)}</td>`;
+  detail.innerHTML = `<td colspan="9">${battleDetail(eventCache[file].battles[tr.dataset.i], tr.dataset)}</td>`;
   tr.classList.add('open');
   tr.after(detail);
 });
