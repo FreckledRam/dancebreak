@@ -1,14 +1,30 @@
-// The tab bar's extras: the phone menu, site search, and "next" links between tabs.
+// The tab bar's extras: the Data health menu, the phone menu, site search, and "next" links between tabs.
 (() => {
-  const header = $('header'), menuBtn = $('#menu-btn');
+  const header = $('header'), menuBtn = $('#menu-btn'), healthBtn = $('#health-btn'), healthPop = $('#health-pop');
+  const searchBox = $('#nav-search'), findBtn = $('#find-btn');
   const find = $('#find'), results = $('#find-results');
 
   // ---- menus
   function closeMenus() {
+    healthPop.hidden = true; healthBtn.setAttribute('aria-expanded', 'false');
     header.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false');
     results.hidden = true;
   }
   window.closeNavMenus = closeMenus;
+  healthBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = healthPop.hidden;
+    closeMenus();
+    healthPop.hidden = !open; healthBtn.setAttribute('aria-expanded', String(open));
+  });
+  // the magnifying glass opens into a search bar, and closes again when left empty
+  function openSearch(open) {
+    searchBox.classList.toggle('open', open);
+    findBtn.setAttribute('aria-expanded', String(open));
+    if (open) find.focus(); else { find.value = ''; results.hidden = true; find.blur(); }
+  }
+  findBtn.addEventListener('click', (e) => { e.stopPropagation(); openSearch(!searchBox.classList.contains('open')); });
+  find.addEventListener('blur', () => setTimeout(() => { if (!find.value && document.activeElement !== find) searchBox.classList.remove('open'); }, 150));
   menuBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     const open = !header.classList.contains('open');
@@ -17,8 +33,8 @@
   });
   document.addEventListener('click', (e) => { if (!e.target.closest('nav')) closeMenus(); });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') { closeMenus(); find.blur(); }
-    if (e.key === '/' && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) { e.preventDefault(); find.focus(); }
+    if (e.key === 'Escape') { closeMenus(); openSearch(false); }
+    if (e.key === '/' && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) { e.preventDefault(); openSearch(true); }
   });
 
   // ---- search: breakers, judges and events in one box
@@ -53,7 +69,7 @@
   }
   function choose(i) {
     const hit = hits[i], text = find.value.trim();
-    find.value = ''; find.blur(); closeMenus();
+    closeMenus(); openSearch(false);
     if (hit) hit.go(); else if (text) findInDataset(text);
   }
   find.addEventListener('input', search);
@@ -69,7 +85,6 @@
 
   // ---- each tab ends by pointing at the next one, so the site can be walked through without the tab bar
   const TOUR = [
-    ['dataset', 'Dataset', 'Every battle, with each judge\'s score'],
     ['breakers', 'Breakers', 'An Elo rating for every breaker'],
     ['judges', 'Judges', 'How each judge votes, and how each system behaves'],
     ['events', 'Events', 'Size, field strength and closeness of every event'],

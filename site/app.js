@@ -14,17 +14,19 @@ function ago(iso) {
 }
 
 // ---- tabs
-const TABS = ['sources', 'dataset', 'breakers', 'judges', 'events', 'news', 'home'];
-const VIEW_OF = { systems: 'judges', review: 'sources' };
+const TABS = ['sources', 'breakers', 'judges', 'events', 'news', 'home'];
+const VIEW_OF = { systems: 'judges', review: 'sources', dataset: 'sources' };
 function showTab() {
-  // Systems and Null are views inside the Judges and Data health tabs, each with its own address
+  // Systems is a view inside the Judges tab; Dataset and Null are views inside Data health. Each has its own address.
   const hash = location.hash.slice(1);
   const tab = VIEW_OF[hash] || (TABS.includes(hash) ? hash : 'home'), view = VIEW_OF[hash] ? hash : tab;
   document.body.dataset.tab = tab;
   document.querySelectorAll(`#${tab} .view`).forEach((v) => { v.hidden = v.dataset.view !== view; });
   document.querySelectorAll(`#${tab} .twin a`).forEach((a) => a.classList.toggle('on', a.dataset.view === view));
   document.querySelectorAll('main section').forEach((s) => { s.hidden = s.id !== tab; });
-  document.querySelectorAll('nav a').forEach((a) => a.classList.toggle('on', a.hash === '#' + tab));
+  document.querySelectorAll('nav a.tab').forEach((a) => a.classList.toggle('on', a.hash === '#' + tab));
+  document.querySelectorAll('nav .nav-pop a').forEach((a) => a.classList.toggle('on', a.hash === '#' + view));
+  $('#health-btn').classList.toggle('on', tab === 'sources');      // Dataset, Scraper health and Null live in its menu
   window.closeNavMenus?.();
   moveGlass();
   // the tab bar must not move under the pointer: stay where we are, unless we are further down than the new tab's top

@@ -359,9 +359,19 @@ main section:not([hidden]) { animation: tab-in .32s cubic-bezier(.2,.7,.2,1); }
 /* ---- tab bar: groups, the Data health menu, search, and the phone menu */
 header nav .nav-label { display: none; }
 header nav .nav-side { flex: 1; justify-content: flex-end; gap: 6px; min-width: 0; }
-header nav .nav-search { position: relative; display: block; }
-header nav .nav-search { flex: 0 1 250px; min-width: 120px; }
-#find { width: 100%; height: 36px; border-radius: 999px; font-size: 14px; background-color: rgb(255 255 255 / .04); }
+header nav .nav-search, header nav .nav-health { position: relative; display: block; }
+header nav .nav-search { flex: none; }
+/* the magnifying glass is a closed drop of glass; opened, it stretches into the search bar */
+.nav-search .pill { display: flex; align-items: center; width: 38px; height: 38px; border-radius: 999px; overflow: hidden; border: 1px solid transparent;
+  transition: width .6s cubic-bezier(.3,1.45,.4,1), background .35s, border-color .35s, box-shadow .35s; }
+.nav-search.open .pill { width: 300px; background: linear-gradient(180deg, rgb(255 255 255 / .15), rgb(255 255 255 / .05) 55%, rgb(255 255 255 / .09)); border-color: rgb(255 255 255 / .2);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / .38), inset 0 -8px 14px rgb(255 255 255 / .04), 0 8px 22px rgb(0 0 0 / .4); -webkit-backdrop-filter: blur(10px) saturate(190%); backdrop-filter: blur(10px) saturate(190%); }
+#find-btn { flex: none; display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 50%; background: none; box-shadow: none; color: var(--muted); transition: color .2s, transform .5s cubic-bezier(.3,1.6,.4,1); }
+#find-btn:hover, .nav-search.open #find-btn { color: var(--fg); }
+.nav-search.open #find-btn { transform: rotate(90deg) scale(.92); }
+header nav #find { flex: 1; min-width: 0; height: 36px; padding: 0 14px 0 2px; border: 0; border-radius: 0; background: none; box-shadow: none; font-size: 14px; opacity: 0; transition: opacity .3s; }
+header nav .nav-search.open #find { opacity: 1; transition-delay: .12s; }
+#health-btn::after { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 0 3px 8px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); opacity: .6; }
 #health-btn em, .nav-pop em { font-style: normal; font-weight: 600; color: var(--warn); margin-left: 6px; }
 header nav .nav-pop { position: absolute; z-index: 30; top: calc(100% + 10px); right: 0; display: block; width: 300px; padding: 8px; border-radius: 16px;
   background: rgb(22 24 28 / .86); -webkit-backdrop-filter: blur(22px) saturate(170%); backdrop-filter: blur(22px) saturate(170%);
@@ -374,6 +384,8 @@ header nav .nav-pop a:hover, header nav .nav-pop a.at, header nav .nav-pop a.on 
 .nav-pop small, .nav-pop span { font-size: 12px; color: var(--muted); }
 .nav-pop p { margin: 0; padding: 10px 12px; font-size: 13px; }
 #find-results { width: 340px; }
+#dataset-title { font-size: 28px; }
+@media (prefers-reduced-motion: reduce) { .nav-search .pill, #find-btn { transition: none; } }
 #find-results a { display: grid; grid-template-columns: 62px 1fr; column-gap: 8px; align-items: baseline; }
 #find-results small { grid-row: span 2; text-transform: uppercase; letter-spacing: .08em; font-size: 10px; font-weight: 600; }
 .menu-btn { display: none; }
@@ -402,12 +414,18 @@ header nav .nav-pop a:hover, header nav .nav-pop a.at, header nav .nav-pop a.on 
   header nav { display: none; }
   header.open nav { display: flex; flex-direction: column; align-items: stretch; gap: 0; position: absolute; left: 0; right: 0; top: 100%; margin: 0; padding: 14px 24px 26px;
     max-height: calc(100vh - 70px); overflow-y: auto; background: rgb(14 15 17 / .94); -webkit-backdrop-filter: blur(22px); backdrop-filter: blur(22px); border-bottom: 1px solid var(--line); animation: pop-in .2s ease-out; }
-  header nav .nav-glass, header nav .sep { display: none; }
+  header nav .nav-glass, header nav .sep, #health-btn { display: none; }
   header nav > div, header nav .nav-main { flex-direction: column; align-items: stretch; gap: 0; }
   header nav .nav-side { display: contents; }
   header nav .nav-search { flex: none; order: -1; }
 
-  #find { height: 44px; font-size: 16px; }
+  .nav-search .pill, .nav-search.open .pill { width: 100%; height: 46px; background: rgb(255 255 255 / .06); border-color: var(--line); box-shadow: none; }
+  header nav #find, header nav .nav-search.open #find { opacity: 1; font-size: 16px; height: 44px; }
+  header nav .nav-health { order: 2; }
+  header nav #health-pop, header nav #health-pop[hidden] { display: block; position: static; width: auto; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; animation: none; }
+  header nav #health-pop a { padding: 10px 0; }
+  header nav #health-pop b { font-size: 20px; }
+  header nav #health-pop a.on b { color: var(--accent); }
   header nav .nav-label { display: block; margin: 20px 0 4px; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
   header nav .tab { padding: 10px 0; font-size: 20px; font-weight: 600; border-radius: 0; }
   header nav .tab.on::before { content: ""; position: absolute; left: -12px; top: 50%; width: 4px; height: 20px; margin-top: -10px; border-radius: 2px; background: currentColor; }
@@ -436,3 +454,4 @@ h1.twin em { font-style: normal; font-size: 15px; font-weight: 600; letter-spaci
 @media (prefers-reduced-motion: reduce) { .view:not([hidden]) { animation: none; } }
 #events-table td:first-child { max-width: 330px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 #events-table tr.detail td:first-child { max-width: none; overflow: visible; white-space: normal; }
+header nav .nav-search .pill { gap: 0; }
