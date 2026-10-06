@@ -11,13 +11,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script>
   // always load the newest styles and script instead of a copy the browser saved earlier
-  document.write('<link rel="stylesheet" href="style.css?v=' + Date.now() + '">');
+  document.write('<link rel="stylesheet" href="style.css?v=' + Date.now() + '"><link rel="stylesheet" href="home.css?v=' + Date.now() + '">');
 </script>
-<noscript><link rel="stylesheet" href="style.css"></noscript>
+<noscript><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="home.css"></noscript>
 </head>
 <body>
 <header>
-  <a class="brand" href="#sources">
+  <a class="brand" href="#home">
     <span class="mark" aria-hidden="true"><i></i><i></i></span>
     <span class="title">Settle it <span>in the</span> Cypher</span>
   </a>
@@ -38,6 +38,120 @@
 </header>
 
 <main>
+  <section id="home" hidden>
+    <div class="h-hero">
+      <div class="h-hero-text">
+        <p class="h-eyebrow">A live dataset of competitive breaking</p>
+        <h1 class="h-title"><span><i>Every battle.</i></span><span class="h-outline"><i>Every judge.</i></span><span><i>Every score.</i></span></h1>
+        <p class="h-lede">A breaking battle is won on the opinion of a panel of judges. This site collects what those judges scored, round by round, from across the web, and puts it in one open place.</p>
+        <div class="h-cta"><a class="h-btn primary" href="#dataset">Open the dataset</a><button class="h-btn" data-to="h-origins">Start from the beginning</button></div>
+        <p class="h-credit">Explainer adapted from <cite>Intro Overview of Competitive Breaking and the Dataset</cite>, a presentation by <b>Vincent Qiu</b>.</p>
+      </div>
+      <div class="h-stage" aria-hidden="true">
+        <canvas id="h-cypher"></canvas>
+        <div class="h-stage-foot"><span id="h-round">Round 1</span><span class="h-pips" id="h-pips"></span></div>
+      </div>
+    </div>
+
+    <div class="h-stats" id="h-stats">
+      <div><b data-stat="battles">0</b><span>battles</span></div>
+      <div><b data-stat="decisions">0</b><span>judge decisions</span></div>
+      <div><b data-stat="breakers">0</b><span>breakers</span></div>
+      <div><b data-stat="judges">0</b><span>judges</span></div>
+      <div><b data-stat="events">0</b><span>events</span></div>
+    </div>
+
+    <div class="h-marquee" aria-hidden="true"><div><span>Toprock</span><span>Footwork</span><span>Powermoves</span><span>Freezes</span><span>Toprock</span><span>Footwork</span><span>Powermoves</span><span>Freezes</span></div></div>
+
+    <div class="h-sec" id="h-origins">
+      <header class="rv"><em>01</em><h2>It started at a party.</h2><p>Competition was part of breaking from its first night.</p></header>
+      <ol class="h-time" id="h-time">
+        <i class="h-fill"></i>
+        <li class="rv"><b>1970s</b><h3>The Bronx, New York City</h3><p>Black and Latin American teens host parties at home and in public parks. The energy of funk and soul pushes some dancers toward more dynamic movement. They borrow from gymnastics and martial arts, then invent moves that belong to nothing else. The drive is to stand out and be seen as the coolest in the room.</p></li>
+        <li class="rv"><b>Crews</b><h3>An alternative to the street</h3><p>Breaking grows up alongside the art and music of hip hop, offering young people in under-resourced neighborhoods something other than gang activity and violence. Dancers form crews and battle rival crews at public events and nightclubs.</p></li>
+        <li class="rv"><b>Early 1980s</b><h3>The world notices</h3><p>Breakers appear on television and in movies. Crews are flown across the country and around the world to show the new phenomenon, and the people watching take up the dance too.</p></li>
+        <li class="rv"><b>Late 1980s</b><h3>The drop</h3><p>Commercialization moves faster than it can last, and public interest falls sharply. Rap music keeps its place in the mainstream. Hip hop dance moves on from breaking.</p></li>
+        <li class="rv"><b>After</b><h3>Carrying the torch</h3><p>The most passionate breakers keep organizing events, teaching the dance and motivating the next generation. Over time the informal battles become official competitions, with trophies and prize money.</p></li>
+        <li class="rv"><b>2024</b><h3>Paris</h3><p>Breaking is contested at the Summer Olympic Games, with a governing body and a standard judging system for the first time.</p></li>
+      </ol>
+    </div>
+
+    <div class="h-sec">
+      <header class="rv"><em>02</em><h2>Four kinds of movement.</h2><p>Each holds more individual moves than anyone could list, and every breaker has invented their own.</p></header>
+      <div class="h-moves">
+        <article class="rv"><svg viewBox="0 0 120 120" class="m-top"><line class="floor" x1="14" y1="100" x2="106" y2="100"/><g class="body"><circle cx="60" cy="30" r="8"/><line x1="60" y1="40" x2="60" y2="72"/><line class="l1" x1="60" y1="72" x2="48" y2="98"/><line class="l2" x1="60" y1="72" x2="72" y2="98"/></g></svg><h3>Toprock</h3><p>Movements performed while standing.</p></article>
+        <article class="rv"><svg viewBox="0 0 120 120" class="m-foot"><line class="floor" x1="14" y1="100" x2="106" y2="100"/><ellipse class="orbit" cx="60" cy="84" rx="40" ry="14"/><g class="sweep"><line x1="60" y1="84" x2="100" y2="84"/><circle cx="100" cy="84" r="5"/></g><circle class="hub" cx="60" cy="74" r="8"/></svg><h3>Footwork</h3><p>Movements performed down on the ground, on the hands and feet.</p></article>
+        <article class="rv"><svg viewBox="0 0 120 120" class="m-power"><circle class="a1" cx="60" cy="60" r="42"/><circle class="a2" cx="60" cy="60" r="29"/><circle class="a3" cx="60" cy="60" r="16"/><circle class="core" cx="60" cy="60" r="4"/></svg><h3>Powermoves</h3><p>Dynamic movements involving spinning and flipping.</p></article>
+        <article class="rv"><svg viewBox="0 0 120 120" class="m-freeze"><line class="floor" x1="14" y1="100" x2="106" y2="100"/><g class="pose"><polyline points="60,98 60,66 84,44 96,58"/><polyline points="60,66 38,50 30,26"/><circle cx="60" cy="98" r="4"/></g><rect class="hold" x="30" y="108" width="60" height="3" rx="1.5"/></svg><h3>Freezes</h3><p>Static held poses.</p></article>
+      </div>
+    </div>
+
+    <div class="h-sec">
+      <header class="rv"><em>03</em><h2>How a competition runs.</h2><p>One on one, or crew against crew, in front of a panel of 3, 5, 7 or 9 judges who are usually experienced breakers themselves.</p></header>
+      <div class="h-stages">
+        <article class="rv">
+          <small>Stage one</small><h3>The showcase</h3>
+          <p>Every entrant performs alone. Each judge scores each showcase, typically from 0 to 10 or 0 to 100. The top scores go through.</p>
+          <div class="h-bars" id="h-bars"></div>
+          <p class="h-cap">Top 8 advance</p>
+        </article>
+        <article class="rv">
+          <small>Stage two</small><h3>The bracket</h3>
+          <p>Single elimination. Two competitors take turns for a set number of rounds, then the judges pick a winner. Lose once and you are out.</p>
+          <svg class="h-bracket" viewBox="0 0 320 170" id="h-bracket"></svg>
+          <p class="h-cap">Until one is left</p>
+        </article>
+      </div>
+      <div class="h-quote rv">
+        <h3>No league.<br>No rulebook.</h3>
+        <div>
+          <p>Basketball has FIBA. Tennis has the ITF. Gymnastics has the FIG. Breaking has no single authority deciding who can enter, what scores, or how a battle is won. It is a patchwork of events, from local grassroots jams to shows run by multinational corporations, and every event can set its own rules.</p>
+          <p>To reach the Olympic Games it needed a governing body and one set of rules. The World DanceSport Federation, the governing body of competitive ballroom dance, took that role. With no history in the breaking community, its authority has stayed mostly within its own events.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="h-sec">
+      <header class="rv"><em>04</em><h2>You be the judge.</h2><p>The traditional way: when the battle ends, each judge points left or right, or crosses their arms for a tie. Most votes wins. It is simple, and it is criticized for being <b>not consistent</b>, <b>not transparent</b> and <b>not measurable</b>. So other systems were tried. Pick one and take seat 3.</p></header>
+      <div class="h-judge rv" id="h-judge"></div>
+    </div>
+
+    <div class="h-sec">
+      <header class="rv"><em>05</em><h2>Where the scores come from.</h2><p>Results live on the platforms that ran the judging. This site reads them once a day and joins them into one dataset. It used to be a slow job done by hand.</p></header>
+      <div class="h-flow rv">
+        <div class="h-srcs" id="h-srcs">
+          <a href="https://and8.dance" target="_blank" rel="noopener"><b>And8</b><span>Builds and runs the judging technology, so every event that uses it lands here.</span><em data-src="and8"></em></a>
+          <a href="https://www.worlddancesport.org" target="_blank" rel="noopener"><b>WDSF</b><span>Holds the results of all of the federation's own events.</span><em data-src="wdsf"></em></a>
+          <a href="https://breakkonnect.com" target="_blank" rel="noopener"><b>Break Konnect</b><span>An event platform used mostly by smaller, local grassroots events.</span><em data-src="breakkonnect"></em></a>
+          <a href="https://github.com/settleitinthecypher/settleitinthecypher.github.io" target="_blank" rel="noopener"><b>Original collection</b><span>The hand-built dataset this site was seeded from.</span><em data-src="seed"></em></a>
+        </div>
+        <svg class="h-pipes" viewBox="0 0 100 400" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,50 C60,50 40,200 100,200"/><path d="M0,150 C60,150 40,200 100,200"/><path d="M0,250 C60,250 40,200 100,200"/><path d="M0,350 C60,350 40,200 100,200"/>
+        </svg>
+        <a class="h-sink" href="#dataset"><b data-stat="battles">0</b><span>battles in one dataset</span><em>Open it</em></a>
+      </div>
+      <ul class="h-notes">
+        <li class="rv"><b>Results, not footage.</b> The dataset is the scores judges submitted. Video of the battles lives on YouTube, filmed by whoever each organizer hired.</li>
+        <li class="rv"><b>1 vs 1 only.</b> Solo battles are the most prestigious format and the one used at the Olympic Games. Crew battles add many more variables.</li>
+        <li class="rv"><b>Not everything is reachable.</b> Many events run outside these networks, and their scores are usually not published anywhere.</li>
+      </ul>
+    </div>
+
+    <div class="h-sec">
+      <header class="rv"><em>06</em><h2>Find your way around.</h2></header>
+      <div class="h-tabs">
+        <a class="rv" href="#dataset"><b>Dataset</b><span>Every battle. Search, sort, filter, open one to see each judge's score, download as CSV.</span></a>
+        <a class="rv c-breakers" href="#breakers"><b>Breakers</b><span>An Elo rating for every breaker, from every recorded 1 vs 1 battle.</span></a>
+        <a class="rv c-judges" href="#judges"><b>Judges</b><span>How often each judge sides with the panel, and how often they stand alone.</span></a>
+        <a class="rv c-systems" href="#systems"><b>Systems</b><span>How each judging system behaves across the battles that used it.</span></a>
+        <a class="rv" href="#news"><b>News</b><span>Upcoming events around the world and the latest headlines.</span></a>
+        <a class="rv" href="#sources"><b>Scraper status</b><span>Whether today's collection ran, and what it added.</span></a>
+        <a class="rv" href="#review"><b>Null</b><span>What is missing from the data, and why.</span></a>
+      </div>
+      <p class="h-thanks rv">The history, dance, competition and judging explanations on this page are adapted from <cite>Intro Overview of Competitive Breaking and the Dataset</cite>, a presentation by <b>Vincent Qiu</b>. The original dataset was compiled by <a href="https://github.com/settleitinthecypher/settleitinthecypher.github.io" target="_blank" rel="noopener">settleitinthecypher</a>.</p>
+    </div>
+  </section>
+
   <section id="sources" hidden>
     <div class="panel">
       <h2>Totals</h2>
@@ -167,6 +281,6 @@
 <footer>
   <p>Data from <a href="https://and8.dance">And8</a>, <a href="https://www.worlddancesport.org">WDSF</a> and <a href="https://breakkonnect.com">Break Konnect</a>. <a id="repo" href="https://github.com/FreckledRam/dancebreak">Code and data on GitHub</a>.</p>
 </footer>
-<script>document.write('<script src="app.js?v=' + Date.now() + '"><\/script><script src="analytics.js?v=' + Date.now() + '"><\/script>');</script>
+<script>document.write('<script src="app.js?v=' + Date.now() + '"><\/script><script src="analytics.js?v=' + Date.now() + '"><\/script><script src="home.js?v=' + Date.now() + '"><\/script>');</script>
 </body>
 </html>

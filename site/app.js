@@ -15,7 +15,8 @@ function ago(iso) {
 
 // ---- tabs
 function showTab() {
-  const tab = ['sources', 'dataset', 'breakers', 'judges', 'systems', 'review', 'news'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'sources';
+  const tab = ['sources', 'dataset', 'breakers', 'judges', 'systems', 'review', 'news', 'home'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'home';
+  document.body.dataset.tab = tab;
   document.querySelectorAll('main section').forEach((s) => { s.hidden = s.id !== tab; });
   document.querySelectorAll('nav a').forEach((a) => a.classList.toggle('on', a.hash === '#' + tab));
   scrollTo(0, 0);     // the tab name is also an element id, so the browser would scroll past the header
