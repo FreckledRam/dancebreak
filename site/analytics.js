@@ -1,7 +1,7 @@
 // Breakers, Judges and Systems tabs: rankings and statistics computed by pipeline/analytics.py
 
 // A paged table that works like a spreadsheet. cols: [key, heading, {num, fmt, tip, csv}].
-// Clicking a heading opens a menu: sort ascending or descending, and filter that column (text that it
+// Clicking a heading opens a menu: put the column in order either way, and filter it (text that it
 // contains, or a lowest and highest number). The rows left can be downloaded as a CSV.
 // csv: [[heading, fn], ...] when a column should be written as different columns than it is shown.
 function rankTable(el, pagerEl, cols, { pageSize = 50, onRow, sort, dir = -1, tools, file = 'table' } = {}) {
@@ -108,9 +108,11 @@ function rankTable(el, pagerEl, cols, { pageSize = 50, onRow, sort, dir = -1, to
     menu.id = 'colmenu';
     menu.dataset.col = `${file}:${k}`;
     const ticked = (i) => !filters[k] || filters[k].on?.has(i);
+    const first = rows.find((r) => !blank(r[k]))?.[k], opts = cols.find((c) => c[0] === k)[2] || {};
+    const words = orderWords(opts.group || k === 'to' ? 'date' : typeof first === 'number' ? 'number' : 'text');
     menu.innerHTML = `
-      <button data-act="asc" class="${chosen && sortKey === k && sortDir === 1 ? 'on' : ''}">Sort ascending</button>
-      <button data-act="desc" class="${chosen && sortKey === k && sortDir === -1 ? 'on' : ''}">Sort descending</button>
+      <button data-act="asc" class="${chosen && sortKey === k && sortDir === 1 ? 'on' : ''}">${words[0]}</button>
+      <button data-act="desc" class="${chosen && sortKey === k && sortDir === -1 ? 'on' : ''}">${words[1]}</button>
       <button data-act="unsort" class="${chosen && sortKey === k ? '' : 'on'}">Default order</button>
       <hr>
       ${groups ? `<div class="menu-links"><a data-act="all">Select all</a><a data-act="none">Clear</a></div>

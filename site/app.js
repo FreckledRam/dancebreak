@@ -36,6 +36,12 @@ function sweepSeen() {
 ['scroll', 'resize', 'hashchange', 'load', 'pageshow'].forEach((ev) => addEventListener(ev, () => requestAnimationFrame(sweepSeen), { passive: true }));
 [300, 1200, 3000].forEach((ms) => setTimeout(sweepSeen, ms));
 
+// The two directions a column can be put in, in plain words: numbers run lowest to highest,
+// dates oldest to newest, and words A to Z.
+function orderWords(kind) {
+  return kind === 'date' ? ['Oldest to newest', 'Newest to oldest'] : kind === 'text' ? ['A to Z', 'Z to A'] : ['Lowest to highest', 'Highest to lowest'];
+}
+
 // ---- tabs
 const TABS = ['sources', 'breakers', 'judges', 'events', 'news', 'home'];
 const VIEW_OF = { systems: 'judges', review: 'sources', dataset: 'sources' };
@@ -360,6 +366,7 @@ function filter() {
 }
 
 // ---- download the battles currently shown, with every score column, as one CSV
+const datasetKind = (col) => (col === 'year' || col === 'md' ? 'date' : col === 'judges' ? 'number' : 'text');
 const COLUMN_NAMES = { year: 'Year', md: 'Month', event: 'Event', stage: 'Stage', red: 'Red', blue: 'Blue', system: 'System', source: 'Source' };
 
 function activeFilters() {
@@ -372,7 +379,7 @@ function activeFilters() {
   }
   const check = qualityCode && STATUS && (STATUS.quality || []).find((x) => x.code === qualityCode);
   if (check) out.push(['Null check', check.label]);
-  if (sortCol) out.push(['Sorted by', `${COLUMN_NAMES[sortCol] || sortCol}, ${sortDir === 1 ? 'ascending' : 'descending'}`]);
+  if (sortCol) out.push(['Order', `${COLUMN_NAMES[sortCol] || sortCol}, ${orderWords(datasetKind(sortCol))[sortDir === 1 ? 0 : 1].toLowerCase()}`]);
   return out;
 }
 
@@ -453,8 +460,8 @@ function openColumnMenu(th) {
   menu.id = 'colmenu';
   menu.dataset.col = col;
   menu.innerHTML = `
-    <button data-act="asc" class="${sortCol === col && sortDir === 1 ? 'on' : ''}">Sort ascending</button>
-    <button data-act="desc" class="${sortCol === col && sortDir === -1 ? 'on' : ''}">Sort descending</button>
+    <button data-act="asc" class="${sortCol === col && sortDir === 1 ? 'on' : ''}">${orderWords(datasetKind(col))[0]}</button>
+    <button data-act="desc" class="${sortCol === col && sortDir === -1 ? 'on' : ''}">${orderWords(datasetKind(col))[1]}</button>
     <button data-act="unsort" class="${sortCol === col ? '' : 'on'}">Default order</button>
     <hr>
     <input type="search" placeholder="Find a value" autocomplete="off">
