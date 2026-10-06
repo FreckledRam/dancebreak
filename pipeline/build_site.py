@@ -40,11 +40,13 @@ QUALITY = {
     "j": ("No judges recorded", "Check the source page"),
     "w": ("No winner recorded", "Check the source page"),
     "n": ("Breaker name blank", "Check the source page"),
-    "i": ("Judging system is a guess", "Only votes were visible; confirm Traditional or Round-by-Round"),
+    "i": ("System uncertain", "Only votes were visible, so the judging system is not known; held out until confirmed"),
     "d": ("No date or source link", "Original rows; the backfill links them to the source"),
 }
+UNCERTAIN = "Uncertain"     # the System value shown for battles whose system is not confirmed
+SYSCOL = 9
 QCOL = 14                  # position of the quality codes in a site row
-NEEDS_REVIEW = "gjwn"       # counted in the Review total; the rest are for information
+NEEDS_REVIEW = "gjwni"      # counted in the Null total; the rest are for information
 
 
 def quality_codes(b: dict, ev: dict) -> str:
@@ -59,7 +61,7 @@ def quality_codes(b: dict, ev: dict) -> str:
         codes += "w"
     if not b["red"].strip() or not b["blue"].strip():
         codes += "n"
-    if ev["source"] != "seed" and b["system"] in ("Traditional", "RoundByRound"):
+    if store.system_uncertain({**b, "source": ev["source"]}):
         codes += "i"
     if not ev.get("date") or not (b.get("url") or ev.get("url")):
         codes += "d"
@@ -102,10 +104,13 @@ def main() -> None:
         dest = OUT / "events" / rel
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(json.dumps(ev, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-        per_source[ev["source"]] = per_source.get(ev["source"], 0) + len(ev["battles"])
         for i, b in enumerate(ev["battles"]):
+            unsure = store.system_uncertain({**b, "source": ev["source"]})
+            if not unsure:
+                per_source[ev["source"]] = per_source.get(ev["source"], 0) + 1
+            # uncertain battles are listed under their own System value, never under the scraper's guess
             rows.append([len(files) - 1, i, ev.get("year"), ev.get("date"), ev["event"], b["stage"],
-                         b["red"], b["blue"], b["winner"], b["system"], len(b["judges"]),
+                         b["red"], b["blue"], b["winner"], UNCERTAIN if unsure else b["system"], len(b["judges"]),
                          ev["source"], b.get("url") or ev.get("url"), ", ".join(b["judges"]),
                          quality_codes(b, ev), analytics.key(b["red"]), analytics.key(b["blue"])])
 
@@ -119,7 +124,8 @@ def main() -> None:
     review_path = store.DATA / "review.json"
     review = json.loads(review_path.read_text(encoding="utf-8")) if review_path.exists() else []
     (OUT / "review.json").write_text(json.dumps(review, ensure_ascii=False), encoding="utf-8")
-    stats = analytics.build(store.all_battles())
+    stats = analytics.build(store.confirmed_battles())
+    confirmed = [r for r in rows if r[SYSCOL] != UNCERTAIN]
     (OUT / "analytics.json").write_text(json.dumps(stats, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     week_ago = datetime.now(timezone.utc) - timedelta(days=7)
     recent = [r for r in runs(activity) if datetime.fromisoformat(r["time"].replace("Z", "+00:00")) > week_ago]
@@ -133,7 +139,8 @@ def main() -> None:
             "newest_date": max((r[3] for r in rows if r[3]), default=None),
         },
         "built": state.now(),
-        "battles": len(rows),
+        "battles": len(confirmed),
+        "uncertain": len(rows) - len(confirmed),
         "events": len(files),
         "battles_by_source": per_source,
         "last_run": next((a["time"] for a in activity if a["kind"] == "check"), None),

@@ -84,7 +84,7 @@ document.addEventListener('mousemove', (e) => {
 // a breaker's record, opponents and latest battles, worked out from the dataset rows already loaded
 function breakerDetail(b) {
   if (!DATA) return '<span class="muted">Loading battles…</span>';
-  const C = DATA.C, mine = DATA.rows.filter((r) => r[C.rk] === b.k || r[C.bk] === b.k);
+  const C = DATA.C, mine = DATA.rows.filter((r) => (r[C.rk] === b.k || r[C.bk] === b.k) && r[C.system] !== UNCERTAIN);
   const systems = {}, foes = {};
   for (const r of mine) {
     const red = r[C.rk] === b.k, me = red ? r[C.red] : r[C.blue], foe = red ? r[C.blue] : r[C.red];

@@ -83,6 +83,24 @@ def all_battles() -> list[dict]:
     return out
 
 
+VOTE_ONLY = ("Traditional", "RoundByRound")
+
+
+def system_uncertain(b: dict) -> bool:
+    """A scraped battle whose judging system could not be read off the page.
+
+    When a page shows only who each judge voted for, Traditional and Round-by-Round look the same, and a
+    site may also be hiding slider or category scores. Such a battle is kept, but held out of the
+    confirmed dataset (exports, totals, rankings) until someone confirms its system.
+    b: a battle from all_battles(), which carries its event's source.
+    """
+    return b["source"] != "seed" and b["system"] in VOTE_ONLY
+
+
+def confirmed_battles() -> list[dict]:
+    return [b for b in all_battles() if not system_uncertain(b)]
+
+
 def judges_of(cells: dict) -> list[str]:
     return [cells[f"judge {i} name"] for i in range(1, 10) if cells.get(f"judge {i} name")]
 
@@ -96,7 +114,7 @@ def export_tsvs() -> dict[str, int]:
     """Write one TSV per judging system in the org's column layout."""
     hdrs = headers()
     by_system: dict[str, list[dict]] = {s: [] for s in SYSTEMS}
-    for b in all_battles():
+    for b in confirmed_battles():
         by_system[b["system"]].append(b)
     EXPORT.mkdir(parents=True, exist_ok=True)
     counts = {}

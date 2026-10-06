@@ -206,9 +206,15 @@ function setupDataset(data) {
   filter();
 }
 
+// Battles whose judging system is not confirmed are held out of the dataset. They show only when
+// asked for: by ticking "Uncertain" in the System column menu, or from the Null tab.
+const UNCERTAIN = 'Uncertain';
+const wantsUncertain = () => Boolean(qualityCode) || Boolean(colFilters.system && colFilters.system.has(UNCERTAIN));
+
 function passes(r, i, words, skipCol) {
   const C = DATA.C;
   if (qualityCode && !r[C.q].includes(qualityCode)) return false;
+  if (r[C.system] === UNCERTAIN && skipCol !== 'system' && !wantsUncertain()) return false;
   for (const col in colFilters) {
     if (col !== skipCol && !colFilters[col].has(String(r[C[col]] ?? ''))) return false;
   }
@@ -345,7 +351,9 @@ function openColumnMenu(th) {
 
   const search = menu.querySelector('input[type=search]');
   const shown = () => values.filter((v) => label(col, v).toLowerCase().includes(search.value.toLowerCase()));
-  const picked = () => colFilters[col] || new Set(values);
+  // with no filter set, everything is ticked except Uncertain
+  const byDefault = () => new Set(values.filter((v) => !(col === 'system' && v === UNCERTAIN)));
+  const picked = () => colFilters[col] || byDefault();
 
   function list() {
     const hits = shown(), sel = picked();
@@ -356,7 +364,8 @@ function openColumnMenu(th) {
       ? `Showing ${MENU_LIMIT} of ${hits.length.toLocaleString()}. Type to narrow.` : '';
   }
   function apply(set) {
-    if (set.size === values.length) delete colFilters[col]; else colFilters[col] = set;
+    const d = byDefault();
+    if (set.size === d.size && [...d].every((v) => set.has(v))) delete colFilters[col]; else colFilters[col] = set;
     page = 0; filter(); list();
   }
   search.oninput = list;
@@ -382,8 +391,13 @@ function draw() {
   const C = DATA.C;
   const pages = Math.max(1, Math.ceil(rows.length / PAGE));
   page = Math.min(Math.max(page, 0), pages - 1);
-  $('#dataset-title').textContent = `${DATA.rows.length.toLocaleString()} battles`;
-  $('#count').textContent = rows.length === DATA.rows.length ? 'All battles' : `${rows.length.toLocaleString()} match`;
+  const confirmed = DATA.rows.reduce((n, r) => n + (r[C.system] !== UNCERTAIN), 0);
+  const held = DATA.rows.length - confirmed;
+  $('#dataset-title').textContent = `${confirmed.toLocaleString()} battles`;
+  const plain = rows.length === confirmed && !wantsUncertain();
+  $('#count').textContent = plain
+    ? `All battles${held ? `, plus ${held.toLocaleString()} held out as system uncertain` : ''}`
+    : `${rows.length.toLocaleString()} match`;
   $('#page').textContent = `Page ${page + 1} of ${pages}`;
   $('#prev').disabled = page === 0;
   $('#next').disabled = page >= pages - 1;
@@ -391,7 +405,7 @@ function draw() {
   $('#battles tbody').innerHTML = rows.slice(page * PAGE, (page + 1) * PAGE).map((r) => `<tr class="row" data-f="${r[C.file]}" data-i="${r[C.idx]}">
     <td style="white-space:nowrap">${r[C.date] || r[C.year] || ''}</td><td>${esc(r[C.event])}</td><td>${esc(r[C.stage])}</td>
     ${name(r, 'red')}${name(r, 'blue')}
-    <td>${esc(r[C.system])}</td>
+    <td>${r[C.system] === UNCERTAIN ? '<span class="status warn">Uncertain</span>' : esc(r[C.system])}</td>
     <td>${r[C.url] ? `<a href="${esc(r[C.url])}" target="_blank" rel="noopener">${esc(SOURCE_NAMES[r[C.source]] || r[C.source])}</a>` : `<span class="muted">${esc(SOURCE_NAMES[r[C.source]] || r[C.source])}</span>`}</td>
   </tr>`).join('') || '<tr><td colspan="7" class="muted">No battles match.</td></tr>';
 }
