@@ -104,8 +104,11 @@ function renderStatus(status, activity) {
   const news = added.events || added.battles
     ? `<span class="good">+${added.events.toLocaleString()} event${added.events === 1 ? '' : 's'}, +${added.battles.toLocaleString()} battle${added.battles === 1 ? '' : 's'}.</span>`
     : '<span class="good">No new events or battles.</span>';
+  // the soonest "Last new data" in the table below
+  const latest = Object.values(status.sources).map((x) => x.last_changed).filter(Boolean).sort().pop();
+  $('#last-run').innerHTML = LIVE ? '' : `Last run ${ago(status.last_run)}`;
   $('#headline-sub').innerHTML = LIVE ? `Started ${ago(LIVE.started)}. Totals update when it finishes.`
-    : `Last run ${ago(status.last_run)}. ${news} Next scrape in <b class="next" title="${esc(next.toLocaleString())}">${countdown(next)}</b>.`;
+    : `Most recent data ${ago(latest)}. ${news} Next scrape in <b class="next" title="${esc(next.toLocaleString())}">${countdown(next)}</b>.`;
   $('#review-count').textContent = status.need_review || '';
   const T = status.totals || {};
   const plus = (n, what) => (n ? `<small class="up">+${n.toLocaleString()} this week</small>` : `<small>None new this week</small>`);
