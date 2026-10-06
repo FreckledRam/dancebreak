@@ -23,11 +23,12 @@
 #home .h-title { font-weight: 800; font-size: clamp(46px, 7.4vw, 92px); line-height: .96; letter-spacing: -.055em; margin: 18px 0 26px; }
 .h-title span { display: block; overflow: hidden; padding-bottom: .08em; }
 .h-title i { display: block; font-style: normal; }
-.h-js .h-title i { transform: translateY(108%); animation: h-rise .9s cubic-bezier(.16,.8,.2,1) forwards; }
+.h-js .h-title i { animation: h-rise .9s cubic-bezier(.16,.8,.2,1) both; }
+.h-js .h-title.set i { animation: none; transform: none; }
 .h-title span:nth-child(2) i { animation-delay: .12s; }
 .h-title span:nth-child(3) i { animation-delay: .24s; }
 .h-title .h-outline i { color: var(--bg); -webkit-text-stroke: .034em var(--fg); paint-order: stroke fill; }
-@keyframes h-rise { to { transform: none; } }
+@keyframes h-rise { from { transform: translateY(108%); } }
 
 .h-lede { font-size: 19px; line-height: 1.5; color: #c4c9d2; max-width: 30em; }
 .h-cta { display: flex; gap: 12px; flex-wrap: wrap; margin: 28px 0 22px; }

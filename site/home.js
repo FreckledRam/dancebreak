@@ -5,17 +5,16 @@
   document.documentElement.classList.add('h-js');
   const q = (s) => home.querySelector(s);
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // the headline rises into place; if that animation never runs, it is put there anyway
+  setTimeout(() => home.querySelector('.h-title').classList.add('set'), 1600);
   const shown = () => !home.hidden;
   const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
   // ---- things arrive as they are scrolled to
-  const seen = new IntersectionObserver((entries) => {
-    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); seen.unobserve(e.target); } });
-  }, { rootMargin: '0px 0px -12% 0px' });
   home.querySelectorAll('.rv').forEach((el) => {
     const i = [...el.parentElement.children].filter((c) => c.classList.contains('rv')).indexOf(el);
     if (el.parentElement.matches('.h-moves, .h-tabs, .h-notes, .h-stages')) el.style.setProperty('--d', `${i * 0.08}s`);
-    seen.observe(el);
+    whenSeen(el, () => el.classList.add('in'));
   });
   home.querySelectorAll('[data-to]').forEach((b) => b.addEventListener('click', () =>
     document.getElementById(b.dataset.to).scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'start' })));
@@ -35,9 +34,7 @@
   // ---- numbers count up the first time they are seen
   function countUp(el, to) {
     if (still || !to) { el.textContent = (to || 0).toLocaleString(); return; }
-    const io = new IntersectionObserver(([e]) => {
-      if (!e.isIntersecting) return;
-      io.disconnect();
+    whenSeen(el, () => {
       const t0 = performance.now(), ms = 1500;
       const step = (now) => {
         const p = Math.min(1, (now - t0) / ms);
@@ -46,7 +43,6 @@
       };
       requestAnimationFrame(step);
     });
-    io.observe(el);
   }
   fetch('data/status.json', { cache: 'no-cache' }).then((r) => r.json()).then((s) => {
     const T = s.totals || {};

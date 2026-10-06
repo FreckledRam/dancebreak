@@ -106,8 +106,10 @@
 
     paper.innerHTML = mast + ticker + front + floor + stories + circle + calendar + world;
 
-    const seen = new IntersectionObserver((entries) => entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); seen.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' });
-    paper.querySelectorAll('.nv').forEach((el) => seen.observe(el));
+    paper.querySelectorAll('.nv').forEach((el) => whenSeen(el, () => el.classList.add('in')));
+    requestAnimationFrame(sweepSeen);
+    // the masthead letters drop into place; if that animation never runs, they are put there anyway
+    setTimeout(() => paper.querySelector('.np-name')?.classList.add('set'), 1800);
     runClock();
   }
 

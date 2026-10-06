@@ -13,6 +13,29 @@ function ago(iso) {
   return `<span title="${esc(new Date(iso).toLocaleString())}">${text}</span>`;
 }
 
+// Run cb the first time el is on screen. The browser's observer is asked first, but it is not trusted alone:
+// every scroll, resize, tab change and a few moments after load, anything still waiting is measured directly.
+// (An element that waits for a signal that never comes would stay invisible, which has happened on refresh.)
+const WAITING = [];
+const SEEN = 'IntersectionObserver' in window
+  ? new IntersectionObserver((entries) => entries.forEach((e) => { if (e.isIntersecting) seenNow(e.target); }), { rootMargin: '0px 0px -8% 0px' }) : null;
+function seenNow(el) {
+  const i = WAITING.findIndex((w) => w[0] === el);
+  if (i < 0) return;
+  const [, cb] = WAITING.splice(i, 1)[0];
+  SEEN?.unobserve(el);
+  cb(el);
+}
+function whenSeen(el, cb) { WAITING.push([el, cb]); SEEN?.observe(el); }
+function sweepSeen() {
+  for (const [el] of [...WAITING]) {
+    const r = el.getBoundingClientRect();
+    if (r.width && r.top < innerHeight * 0.94 && r.bottom > 0) seenNow(el);
+  }
+}
+['scroll', 'resize', 'hashchange', 'load', 'pageshow'].forEach((ev) => addEventListener(ev, () => requestAnimationFrame(sweepSeen), { passive: true }));
+[300, 1200, 3000].forEach((ms) => setTimeout(sweepSeen, ms));
+
 // ---- tabs
 const TABS = ['sources', 'breakers', 'judges', 'events', 'news', 'home'];
 const VIEW_OF = { systems: 'judges', review: 'sources', dataset: 'sources' };
