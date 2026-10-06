@@ -21,11 +21,12 @@ header { padding-top: 26px; border-bottom: 1px solid var(--line); }
 nav { display: flex; justify-content: space-between; gap: 24px; }
 nav div { display: flex; gap: 24px; }
 /* each analytics tab has its own colour, used for its tab and its page title */
-:root { --breakers: #a78bfa; --judges: #f472b6; --systems: #a3e635; }
+:root { --breakers: var(--blue); --judges: var(--red); --systems: #a3e635; }
+nav .sep { width: 1px; height: 18px; background: var(--rule); align-self: flex-start; margin-top: 3px; }
 nav a.c-breakers, h1.c-breakers { color: var(--breakers); }
 nav a.c-judges, h1.c-judges { color: var(--judges); }
 nav a.c-systems, h1.c-systems { color: var(--systems); }
-nav a.c-breakers:not(.on), nav a.c-judges:not(.on), nav a.c-systems:not(.on) { opacity: .75; }
+nav a.c-breakers:not(.on), nav a.c-judges:not(.on), nav a.c-systems:not(.on) { opacity: .85; }
 nav a.c-breakers:hover, nav a.c-judges:hover, nav a.c-systems:hover { opacity: 1; }
 nav a.c-breakers.on { color: var(--breakers); border-bottom-color: var(--breakers); }
 nav a.c-judges.on { color: var(--judges); border-bottom-color: var(--judges); }
