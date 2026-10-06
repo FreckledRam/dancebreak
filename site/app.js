@@ -37,7 +37,7 @@ function countdown(to) {
 // runs start at the same minute of every Nth hour, UTC
 function nextRun(status) {
   const now = new Date();
-  const t = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, status.run_minute));
+  const t = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), status.run_hour || 0, status.run_minute));
   while (t <= now) t.setUTCHours(t.getUTCHours() + status.hours_between_runs);
   return t;
 }

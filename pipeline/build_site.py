@@ -174,9 +174,10 @@ def main() -> None:
                     for code, (label, why, fix) in QUALITY.items()],
         "need_review": len(review) + sum(any(c in r[QCOL] for c in NEEDS_REVIEW) for r in rows),
         "runs": runs(activity),
-        # pace of the scheduled run (check.yml: minute 17 of every 6th hour UTC, 10 events per source)
+        # pace of the scheduled run (check.yml: once a day at 10:17 UTC, 10 events per source)
         "events_per_run": 10,
-        "hours_between_runs": 6,
+        "hours_between_runs": 24,
+        "run_hour": 10,
         "run_minute": 17,
         "last_run_added": last_run_added(activity),
         "queue": state.queue(),
