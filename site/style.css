@@ -440,6 +440,7 @@ th[data-sort][title], table.rank th[title] { cursor: pointer; }
 main > section, main .view { scroll-margin-top: 100000px; }
 
 /* Queue and Recent runs share a row */
-.pair { display: grid; grid-template-columns: 1fr 1.4fr; gap: 22px; align-items: start; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; }
+.pair > .panel:first-child { order: 2; }      /* Recent runs on the left, Queue on the right, both the same size */
 .pair > .panel { min-width: 0; margin-bottom: 22px; overflow-x: auto; }
-@media (max-width: 900px) { .pair { grid-template-columns: 1fr; gap: 0; } }
+@media (max-width: 900px) { .pair { grid-template-columns: 1fr; gap: 0; } .pair > .panel:first-child { order: 0; } }
