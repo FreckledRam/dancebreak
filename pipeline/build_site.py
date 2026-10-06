@@ -37,13 +37,13 @@ def last_run_added(activity: list) -> dict:
 # Things worth a look in the data itself: code -> (what is missing, how it gets fixed)
 QUALITY = {
     "i": ("System uncertain",
-          "The page showed only who each judge voted for, so the judging system cannot be read from it.",
+          "Only votes were visible, so the system cannot be read from the page.",
           "Held out of the dataset until someone confirms the system."),
     "g": ("Judge score missing",
-          "A judge has no score in a round the battle says was fought.",
+          "A judge has no score in a round that was fought.",
           "Collect it again, or confirm the source never published one."),
     "j": ("No judges",
-          "The battle was recorded without any judge names.",
+          "Recorded without any judge names.",
           "Check the source page."),
     "w": ("No winner",
           "The winner field is empty.",
@@ -52,7 +52,7 @@ QUALITY = {
           "The red or blue side has no name.",
           "Check the source page."),
     "d": ("No date or source link",
-          "Rows from the original hand-collected dataset carry a year but no date, and no link to the page they came from.",
+          "Original hand-collected rows: a year but no date, and no link to the page.",
           "The backfill will link them to their source."),
 }
 UNCERTAIN = "Uncertain"     # the System value shown for battles whose system is not confirmed

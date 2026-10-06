@@ -247,25 +247,22 @@ button.primary:disabled { opacity: .6; color: #06231f; }
 
 #nav-dot[hidden] { display: none; }
 
-/* null page: one card per kind of gap */
-.nullgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px; }
-.nullcard { position: relative; display: flex; flex-direction: column; background: var(--soft); border: 1px solid var(--line); border-radius: 14px;
-  padding: 20px 22px 22px; overflow: hidden; transition: border-color .15s, transform .15s; }
+/* null page: one compact card per kind of gap */
+.nullgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
+.nullcard { position: relative; background: var(--soft); border: 1px solid var(--line); border-radius: 12px;
+  padding: 12px 14px 12px 18px; overflow: hidden; transition: border-color .15s, transform .15s; }
 .nullcard::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--tone); }
 .nullcard.act { --tone: var(--warn); }
 .nullcard.info { --tone: var(--rule); }
 .nullcard.clear { --tone: var(--ok); opacity: .7; }
 .nullcard[tabindex] { cursor: pointer; }
-.nullcard[tabindex]:hover, .nullcard[tabindex]:focus-visible { border-color: var(--tone); transform: translateY(-2px); outline: 0; }
-.nullcard b { font-size: 46px; font-weight: 800; line-height: 1; letter-spacing: -.045em; color: var(--tone); font-variant-numeric: tabular-nums; }
+.nullcard[tabindex]:hover, .nullcard[tabindex]:focus-visible { border-color: var(--tone); transform: translateY(-1px); outline: 0; }
+.nullcard div { display: flex; align-items: baseline; gap: 10px; }
+.nullcard b { font-size: 26px; font-weight: 800; line-height: 1.1; letter-spacing: -.04em; color: var(--tone); font-variant-numeric: tabular-nums; }
 .nullcard.info b { color: var(--fg); }
-.nullcard h3 { margin: 10px 0 6px; font-size: 17px; font-weight: 600; letter-spacing: -.01em; }
-.nullcard p { margin: 0 0 6px; color: var(--muted); font-size: 14px; }
-.nullcard p.fix { color: var(--fg); }
-.nullcard .go { margin-top: auto; padding-top: 10px; font-size: 13px; font-weight: 500; color: var(--accent); }
-.nullcard.clear .go { color: var(--muted); }
-.nullcard .share { display: block; height: 4px; border-radius: 2px; background: var(--line); margin-top: 12px; overflow: hidden; }
-.nullcard .share i { display: block; height: 100%; background: var(--tone); border-radius: 2px; }
+.nullcard h3 { margin: 0; font-size: 14px; font-weight: 600; }
+.nullcard p { margin: 4px 0 0; color: var(--muted); font-size: 12.5px; line-height: 1.4; }
 #review h2 { margin-bottom: 4px; scroll-margin-top: 20px; }
 @media (max-width: 900px) { .nullgrid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .nullgrid { grid-template-columns: 1fr; } }
+
+#review h2 { margin-top: 28px; }
