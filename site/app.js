@@ -109,7 +109,15 @@ document.fonts?.ready.then(settleHeader);
 // a tab label can change width after the data loads (the status dot, the Null count)
 const navWatch = new ResizeObserver(settleHeader);
 document.querySelectorAll('nav .tab').forEach((a) => navWatch.observe(a));
-addEventListener('load', () => { scrollTo(0, 0); settleHeader(); });
+// A refresh must land at the very top, with the masthead showing. Browsers can move the page after it has
+// loaded (jumping to the section named in the address, or restoring where you were), so the top is
+// insisted on for the first moments, and only until the visitor scrolls for themselves.
+let visitorMoved = false;
+['wheel', 'touchstart', 'keydown', 'mousedown'].forEach((ev) => addEventListener(ev, () => { visitorMoved = true; }, { once: true, passive: true }));
+const toTop = () => { if (!visitorMoved && scrollY) scrollTo(0, 0); };
+addEventListener('load', () => { toTop(); settleHeader(); [60, 200, 500, 1000, 1800].forEach((ms) => setTimeout(toTop, ms)); });
+addEventListener('pageshow', toTop);
+toTop();
 
 // ---- source status
 function span(hours) {

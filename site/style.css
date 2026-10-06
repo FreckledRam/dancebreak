@@ -435,3 +435,6 @@ p.note { margin-top: 24px; line-height: 1.65; }
 #dataset h1.oneline { margin-bottom: 4px; }
 th[title] { cursor: help; }
 th[data-sort][title], table.rank th[title] { cursor: pointer; }
+
+/* a tab's name is also its section's id; this stops the browser's own jump-to-section from hiding the masthead */
+main > section, main .view { scroll-margin-top: 100000px; }
