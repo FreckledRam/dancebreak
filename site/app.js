@@ -241,8 +241,8 @@ function renderStatus(status, activity) {
   const feedOld = feed && feed.updated && Date.now() - new Date(feed.updated) > 1.6 * status.hours_between_runs * 3600e3;
   $('#news-note').innerHTML = !feed ? ''
     : feed.errors.length ? `<span class="status warn">News</span> Could not refresh ${feed.errors.map((k) => feedNames[k] || k).join(', ')} on the last run. The News tab is showing the last good copy of those.`
-      : feedOld ? `<span class="status stopped">News</span> The News tab was last refreshed ${ago(feed.updated)}.`
-        : `<span class="status ok">News</span> The News tab was refreshed ${ago(feed.updated)}.`;
+      : feedOld ? `<span class="status stopped">News tab last refreshed</span> ${ago(feed.updated)}.`
+        : `<span class="status ok">News tab refreshed</span> ${ago(feed.updated)}.`;
   const showQueue = Boolean(LIVE) || backlog > 0;
   $('#queue-table').hidden = !showQueue;
   $('#queue-note').textContent = LIVE ? 'A check is running now. Progress is an estimate.'
