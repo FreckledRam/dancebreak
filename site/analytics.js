@@ -2,9 +2,11 @@
 
 // A paged table that works like a spreadsheet. cols: [key, heading, {num, fmt, tip, csv}].
 // Clicking a heading opens a menu: put the column in order either way, and filter it (text that it
-// contains, or a lowest and highest number). The rows left can be downloaded as a CSV.
+// contains, or ticked groups of values). The rows left can be downloaded as CSV, Excel or PDF.
 // csv: [[heading, fn], ...] when a column should be written as different columns than it is shown.
-function rankTable(el, pagerEl, cols, { pageSize = 50, onRow, sort, dir = -1, tools, file = 'table', title } = {}) {
+// outside: () => [[what, value], ...] for the search box and buttons above the table, which narrow the rows
+// before they get here; total: () => how many rows there are with none of that. Both are for the download prompt.
+function rankTable(el, pagerEl, cols, { pageSize = 50, onRow, sort, dir = -1, tools, file = 'table', title, outside, total } = {}) {
   let rows = [], page = 0, sortKey = sort, sortDir = dir, openKey = null, chosen = false;    // chosen: the visitor picked the order
   const filters = {};                 // column key -> { text } (contains) or { groups, on } (ticked groups of values)
   const blank = (v) => v === null || v === undefined || v === '';
@@ -83,16 +85,31 @@ function rankTable(el, pagerEl, cols, { pageSize = 50, onRow, sort, dir = -1, to
     bar.querySelector('[data-act="save"]').textContent = sorted.length === rows.length ? 'Download as' : `Download ${sorted.length.toLocaleString()} rows as`;
   }
 
+  const wordsFor = (k) => {
+    const first = rows.find((r) => !blank(r[k]))?.[k], opts = cols.find((c) => c[0] === k)[2] || {};
+    return orderWords(opts.group || k === 'to' ? 'date' : typeof first === 'number' ? 'number' : 'text');
+  };
+  // everything narrowing or ordering the rows, in words, for the download prompt
+  function applied() {
+    const out = outside ? outside() : [], heading = (k) => { const h = cols.find((c) => c[0] === k)[1]; return h === '#' ? 'Rank' : h; };
+    for (const [k, f] of Object.entries(filters)) {
+      const picked = f.text !== undefined ? [`contains "${f.text}"`] : f.groups.filter((g, i) => f.on.has(i)).map((g) => g.label);
+      out.push([heading(k), picked.length > 6 ? `${picked.slice(0, 6).join(', ')} and ${picked.length - 6} more` : picked.join(', ') || 'none selected']);
+    }
+    if (chosen) out.push(['Order', `${heading(sortKey)}, ${wordsFor(sortKey)[sortDir === 1 ? 0 : 1].toLowerCase()}`]);
+    return out;
+  }
   // the rows as shown (every page of them), in the order shown
-  function download(format) {
+  function download() {
     const out = cols.flatMap(([k, h, o = {}]) => o.csv || [[h, (r) => r[k]]]), shown = view();
-    const data = shown.map((r) => out.map(([, fn]) => fn(r) ?? ''));
-    saveTable(format, `breaking_${file}_${data.length}_rows`, title || file, out.map(([h]) => h), data,
-      shown.length === rows.length ? '' : `filtered from ${rows.length.toLocaleString()}`);
+    askDownload({
+      title: title || file, name: `breaking_${file}`, count: shown.length, total: total ? total() : rows.length, filters: applied(),
+      make: () => ({ header: out.map(([h]) => h), rows: shown.map((r) => out.map(([, fn]) => fn(r) ?? '')) }),
+    });
   }
   bar.addEventListener('click', (e) => {
     const act = e.target.dataset.act;
-    if (act === 'save') { e.stopPropagation(); formatMenu(e.target, download); }
+    if (act === 'save') download();
     if (act === 'clear') { Object.keys(filters).forEach((k) => delete filters[k]); sortKey = sort; sortDir = dir; chosen = false; page = 0; draw(); }
   });
 
@@ -105,8 +122,7 @@ function rankTable(el, pagerEl, cols, { pageSize = 50, onRow, sort, dir = -1, to
     menu.id = 'colmenu';
     menu.dataset.col = `${file}:${k}`;
     const ticked = (i) => !filters[k] || filters[k].on?.has(i);
-    const first = rows.find((r) => !blank(r[k]))?.[k], opts = cols.find((c) => c[0] === k)[2] || {};
-    const words = orderWords(opts.group || k === 'to' ? 'date' : typeof first === 'number' ? 'number' : 'text');
+    const words = wordsFor(k);
     menu.innerHTML = `
       <button data-act="asc" class="${chosen && sortKey === k && sortDir === 1 ? 'on' : ''}">${words[0]}</button>
       <button data-act="desc" class="${chosen && sortKey === k && sortDir === -1 ? 'on' : ''}">${words[1]}</button>
@@ -321,7 +337,8 @@ get('data/analytics.json').then((A) => {
     ['events', 'Events', { num: true, tip: 'Number of events they have battled at' }],
     ['div', 'Division', { tip: 'The category they most often enter' }],
     ['to', 'Active', { fmt: years, tip: 'First and last year they appear in the dataset', csv: ACTIVE }],
-  ], { onRow: breakerDetail, tools: $('#breakers .filters'), file: 'breakers', title: 'Breaker rankings' });
+  ], { onRow: breakerDetail, tools: $('#breakers .filters'), file: 'breakers', title: 'Breaker rankings', total: () => A.breakers.length,
+    outside: () => [['Search', $('#bq').value.trim()], ['Division', $('#bdiv .on').dataset.v && $('#bdiv .on').textContent]].filter((f) => f[1]) });
   const showBreakers = () => {
     const q = $('#bq').value.trim().toLowerCase(), d = $('#bdiv .on').dataset.v;
     breakers.set(A.breakers.filter((b) => (!d || b.div === d) && (!q || b.name.toLowerCase().includes(q))));
@@ -350,7 +367,8 @@ get('data/analytics.json').then((A) => {
     ['alone', 'Lone dissent', { ...pctCell('alone'), tip: 'How often they were the only judge on their side' }],
     ['red', 'Votes for red', { ...pctCell('red'), tip: 'Share of their votes that went to the red side. 50% would be even' }],
     ['to', 'Active', { fmt: years, tip: 'First and last year they appear in the dataset', csv: ACTIVE }],
-  ], { onRow: judgeDetail, sort: 'battles', tools: $('#judges [data-view="judges"] .filters'), file: 'judges', title: 'Judges' });
+  ], { onRow: judgeDetail, sort: 'battles', tools: $('#judges [data-view="judges"] .filters'), file: 'judges', title: 'Judges', total: () => A.judges.length,
+    outside: () => [['Search', $('#jq').value.trim()]].filter((f) => f[1]) });
   const showJudges = () => { const q = $('#jq').value.trim().toLowerCase(); judges.set(A.judges.filter((j) => !q || j.name.toLowerCase().includes(q))); };
   $('#jq').oninput = showJudges;
   showJudges();
@@ -375,7 +393,8 @@ get('data/analytics.json').then((A) => {
     ['system', 'System', { fmt: (r) => `<a class="plink" href="#systems">${esc(r.system)}</a>`, tip: 'The judging system used most at this event' }],
     ['unanimous', 'Unanimous', { ...pctCell('unanimous'), tip: 'Rounds where every judge picked the same side' }],
     ['one_vote', 'One-vote', { ...pctCell('one_vote'), tip: 'Rounds decided by a single judge' }],
-  ], { onRow: eventDetail, tools: $('#events .filters'), file: 'events', title: 'Events' });
+  ], { onRow: eventDetail, tools: $('#events .filters'), file: 'events', title: 'Events', total: () => A.events.length,
+    outside: () => [['Search', $('#eq').value.trim()], ['Source', $('#esrc .on').dataset.v && $('#esrc .on').textContent]].filter((f) => f[1]) });
   // Older events have a year and no day. Sorting uses one value for both, so they fall in with their year.
   A.events.forEach((e) => { e.when = e.date || (e.year ? String(e.year) : null); e.md = e.date ? e.date.slice(5) : null; });
   const showEvents = () => {

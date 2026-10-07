@@ -1,7 +1,7 @@
 // Saving a table as a file: CSV, Excel (.xlsx) or PDF. Written here with no outside library, so it keeps
-// working for as long as the site does.
-//   saveTable(format, name, title, header, rows, note)   rows: arrays of numbers and strings
-const EXPORT_FORMATS = [['csv', 'CSV', 'Opens anywhere'], ['xlsx', 'Excel', 'A .xlsx workbook'], ['pdf', 'PDF', 'Through the print window']];
+// working for as long as the site does. Every download on the site goes through askDownload, which first
+// says how many rows, how big a file and which filters, and waits for a yes.
+const EXPORT_FORMATS = [['csv', 'CSV'], ['xlsx', 'Excel'], ['pdf', 'PDF']];
 const PDF_ROWS = 2000;      // a PDF of more rows than this is hundreds of pages; the other two formats take everything
 
 function saveBlob(blob, filename) {
@@ -12,12 +12,12 @@ function saveBlob(blob, filename) {
   setTimeout(() => URL.revokeObjectURL(link.href), 2000);
 }
 
-function saveTable(format, name, title, header, rows, note = '') {
-  if (format === 'xlsx') return saveBlob(xlsxBlob(header, rows), `${name}.xlsx`);
-  if (format === 'pdf') return printTable(title, header, rows, note);
+// rows: arrays of numbers and strings
+function tableBlob(format, header, rows) {
+  if (format === 'xlsx') return xlsxBlob(header, rows);
   const cell = (v) => { const t = String(v ?? ''); return /[",\n\r]/.test(t) ? `"${t.replace(/"/g, '""')}"` : t; };
   const lines = [header, ...rows].map((r) => r.map(cell).join(','));
-  return saveBlob(new Blob(['﻿' + lines.join('\n') + '\n'], { type: 'text/csv;charset=utf-8' }), `${name}.csv`);
+  return new Blob(['\ufeff' + lines.join('\n') + '\n'], { type: 'text/csv;charset=utf-8' });
 }
 
 // ---- Excel. A .xlsx file is a zip of a few small XML files; this writes one sheet, with numbers as numbers.
@@ -111,25 +111,76 @@ function printTable(title, header, rows, note = '') {
   setTimeout(() => { frame.contentWindow.focus(); frame.contentWindow.print(); setTimeout(done, 60000); }, 150);
 }
 
-// a small menu of the three formats, opened from a "Download as" button
-function formatMenu(button, onPick) {
-  const already = document.getElementById('colmenu')?.dataset.col === 'download';
-  document.getElementById('colmenu')?.remove();
-  if (already) return;
-  const menu = document.createElement('div');
-  menu.id = 'colmenu';
-  menu.dataset.col = 'download';
-  menu.innerHTML = EXPORT_FORMATS.map(([key, label, hint]) => `<button data-format="${key}">${label}<small>${hint}</small></button>`).join('');
-  document.body.append(menu);
-  const box = button.getBoundingClientRect();
-  menu.style.width = '220px';
-  menu.style.top = `${box.bottom + scrollY + 4}px`;
-  menu.style.left = `${Math.max(8, Math.min(box.right + scrollX - 220, scrollX + innerWidth - 228))}px`;
-  menu.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const pick = e.target.closest('[data-format]');
-    if (!pick) return;
-    menu.remove();
-    onPick(pick.dataset.format);
-  });
+// ---- the question asked before any download: this many rows, this big a file, these filters. Go ahead?
+//   askDownload({ title, name, count, total, filters, about, note, formats, make })
+//   filters: [[what, value], ...] as the visitor set them      about(format): a line on what the file holds
+//   make(format, progress): { header, rows } for a table, or { blob, filename, count } for a file that already
+//   exists. It may be a promise; the file is made first so that its real size can be shown.
+//   formats: false when there is no choice of file type
+let saveFormat = 'csv', asking = null;
+const byId = (id) => document.getElementById(id);
+const sizeWords = (n) => (n < 1024 ? `${n} bytes` : n < 1048576 ? `${(n / 1024).toFixed(n < 10240 ? 1 : 0)} KB` : `${(n / 1048576).toFixed(1)} MB`);
+
+function askDownload(request) {
+  asking = { filters: [], ...request };
+  drawDownload();
 }
+function closeDownload() { asking = null; byId('modal').hidden = true; }
+
+async function drawDownload() {
+  const a = asking, format = a.formats === false ? null : saveFormat, turn = (a.turn = (a.turn || 0) + 1);
+  const safe = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const current = () => asking === a && a.turn === turn;
+  const ok = byId('modal-ok');
+  a.ready = null;
+  byId('modal-body').innerHTML = `
+    ${format ? `<div class="seg formats" role="group" aria-label="File type">${EXPORT_FORMATS.map(([key, label]) => `<button data-format="${key}" class="${key === format ? 'on' : ''}">${label}</button>`).join('')}</div>` : ''}
+    <p>${[a.about?.(format), format === 'pdf' ? 'Pick "Save as PDF" in the print window that opens.' : ''].filter(Boolean).join(' ')}</p>
+    <table><tr><td class="muted">Rows</td><td id="dl-rows"></td></tr><tr><td class="muted">File size</td><td id="dl-size"></td></tr></table>
+    <h4>Filters applied</h4>
+    ${a.filters.length ? `<table>${a.filters.map(([k, v]) => `<tr><td class="muted">${safe(k)}</td><td>${safe(v)}</td></tr>`).join('')}</table>`
+      : '<p class="muted">None. This is every row.</p>'}
+    ${a.note ? `<p class="note">${safe(a.note)}</p>` : ''}`;
+  const say = (n) => n.toLocaleString();
+  const counted = (n) => {
+    if (n === undefined) { byId('modal-title').textContent = 'Download'; byId('dl-rows').textContent = 'Counting…'; return; }
+    const kept = format === 'pdf' ? Math.min(n, PDF_ROWS) : n;
+    byId('modal-title').textContent = `Download ${say(kept)} row${kept === 1 ? '' : 's'}`;
+    byId('dl-rows').textContent = kept < n ? `${say(kept)}, the first of ${say(n)}. A PDF holds no more; CSV and Excel hold them all`
+      : a.total > n ? `${say(n)} of ${say(a.total)}` : say(n);
+  };
+  counted(a.count);
+  byId('dl-size').textContent = 'Working it out…';
+  ok.disabled = true;
+  ok.textContent = format === 'pdf' ? 'Open print window' : 'Download';
+  byId('modal').hidden = false;
+  try {
+    const made = await a.make(format, (done) => { if (current()) byId('dl-size').textContent = `Working it out… ${Math.round(100 * done)}%`; });
+    if (!current()) return;
+    if (!made.blob && format !== 'pdf') made.blob = tableBlob(format, made.header, made.rows);
+    const n = made.count ?? made.rows.length;
+    counted(n);
+    byId('dl-size').textContent = made.blob ? sizeWords(made.blob.size) : 'Set in the print window, by the paper size chosen there';
+    a.ready = made;
+    ok.disabled = !n;
+  } catch {
+    if (current()) byId('dl-size').textContent = 'Could not prepare the file. Check the connection and try again.';
+  }
+}
+
+byId('modal-ok').onclick = () => {
+  const a = asking, made = a?.ready;
+  if (!made) return;
+  if (made.blob) saveBlob(made.blob, made.filename || `${a.name}_${made.rows.length}_rows.${saveFormat}`);
+  else printTable(a.title, made.header, made.rows, a.filters.map(([k, v]) => `${k}: ${v}`).join('; '));
+  closeDownload();
+};
+byId('modal-body').addEventListener('click', (e) => {
+  const pick = e.target.closest('[data-format]');
+  if (!pick || !asking) return;
+  saveFormat = pick.dataset.format;
+  drawDownload();
+});
+byId('modal-cancel').onclick = closeDownload;
+byId('modal').addEventListener('click', (e) => { if (e.target.id === 'modal') closeDownload(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && asking) closeDownload(); });

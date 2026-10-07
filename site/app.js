@@ -365,7 +365,7 @@ function filter() {
   draw();
 }
 
-// ---- download the battles currently shown, with every score column, as one CSV
+// ---- download the battles currently shown, with every score column
 const datasetKind = (col) => (col === 'year' || col === 'md' ? 'date' : col === 'judges' ? 'number' : 'text');
 const COLUMN_NAMES = { year: 'Year', md: 'Month', event: 'Event', stage: 'Stage', red: 'Red', blue: 'Blue', system: 'System', source: 'Source' };
 
@@ -384,40 +384,30 @@ function activeFilters() {
 }
 
 function openDownload() {
-  const filters = activeFilters(), systems = new Set(rows.map((r) => r[DATA.C.system]));
-  $('#modal-title').textContent = `Download ${rows.length.toLocaleString()} row${rows.length === 1 ? '' : 's'}`;
-  $('#modal-body').innerHTML = `
-    <div class="seg formats" role="group" aria-label="File type">${EXPORT_FORMATS.map(([key, label]) => `<button data-format="${key}" class="${key === saveFormat ? 'on' : ''}">${label}</button>`).join('')}</div>
-    <p>${saveFormat === 'pdf' ? `The table as shown: one row per battle, without the score columns.${rows.length > PDF_ROWS ? ` A PDF holds the first ${PDF_ROWS.toLocaleString()} rows; filter the table to choose which.` : ''} Pick "Save as PDF" in the print window that opens.` : 'One row per battle, with every judge\'s scores.'}</p>
-    <h4>Filters applied</h4>
-    ${filters.length ? `<table>${filters.map(([k, v]) => `<tr><td class="muted">${esc(k)}</td><td>${esc(v)}</td></tr>`).join('')}</table>`
-      : '<p class="muted">None. This is the whole dataset.</p>'}
-    ${systems.size > 1 ? `<p class="note">These battles use ${systems.size} judging systems. Each has its own score columns, so columns a battle does not use are left blank.</p>` : ''}`;
-  $('#modal-ok').disabled = !rows.length;
-  $('#modal-ok').textContent = saveFormat === 'pdf' ? 'Open print window' : 'Download';
-  $('#modal').hidden = false;
+  const C = DATA.C, picked = rows.slice(), systems = new Set(picked.map((r) => r[C.system]));
+  // battles whose system is uncertain stay out of the table until asked for, so they are not part of "every row"
+  const total = wantsUncertain() ? DATA.rows.length : DATA.rows.reduce((n, r) => n + (r[C.system] !== UNCERTAIN), 0);
+  askDownload({
+    title: 'Battles', name: 'breaking_battles', count: picked.length, total, filters: activeFilters(),
+    about: (format) => (format === 'pdf' ? 'The table as shown: one row per battle, without the score columns.' : 'One row per battle, with every judge\'s scores.'),
+    note: systems.size > 1 ? `These battles use ${systems.size} judging systems. Each has its own score columns, so columns a battle does not use are left blank.` : '',
+    make: (format, progress) => datasetTable(picked, format, progress),
+  });
 }
 
-const csvCell = (v) => { const t = String(v ?? ''); return /[",\n\r]/.test(t) ? `"${t.replace(/"/g, '""')}"` : t; };
 const scoreKey = (k) => { const m = k.match(/^(tie)?(?:r(\d+))?j(\d+)/); return m ? [m[1] ? 99 : +(m[2] || 0), +m[3]] : null; };
 
-let saveFormat = 'csv';
-
-async function downloadDataset() {
-  const C = DATA.C, picked = rows.slice(), name = `breaking_battles_${picked.length}_rows`;
-  if (saveFormat === 'pdf') {
+async function datasetTable(picked, format, progress) {
+  const C = DATA.C;
+  if (format === 'pdf') {
     // a page is only so wide: the PDF is the table as it is shown, without the score columns
     const who = (r, side) => `${r[C[side]]}${r[C.winner] && r[C.winner] === r[C[side]] ? ' (won)' : ''}`;
-    saveTable('pdf', name, 'Battles', ['Year', 'Month', 'Event', 'Stage', 'Red', 'Blue', 'System', 'Source'],
-      picked.map((r) => [r[C.year] || '', r[C.md] || '', r[C.event], r[C.stage], who(r, 'red'), who(r, 'blue'), r[C.system], SOURCE_NAMES[r[C.source]] || r[C.source]]),
-      activeFilters().map(([k, v]) => `${k}: ${v}`).join('; '));
-    $('#modal').hidden = true;
-    return;
+    return { header: ['Year', 'Month', 'Event', 'Stage', 'Red', 'Blue', 'System', 'Source'],
+      rows: picked.map((r) => [r[C.year] || '', r[C.md] || '', r[C.event], r[C.stage], who(r, 'red'), who(r, 'blue'), r[C.system], SOURCE_NAMES[r[C.source]] || r[C.source]]) };
   }
-  $('#modal-ok').disabled = true;
-  const files = [...new Set(picked.map((r) => DATA.files[r[C.file]]))];
+  const files = [...new Set(picked.map((r) => DATA.files[r[C.file]]))].filter((f) => !eventCache[f]);
   for (let i = 0; i < files.length; i += 8) {       // a few files at a time
-    $('#modal-ok').textContent = `Preparing ${Math.round((100 * i) / files.length)}%`;
+    progress(i / files.length);
     await Promise.all(files.slice(i, i + 8).map(async (f) => { eventCache[f] ??= await get('data/events/' + f); }));
   }
   const battles = picked.map((r) => eventCache[DATA.files[r[C.file]]].battles[r[C.idx]]);
@@ -426,29 +416,32 @@ async function downloadDataset() {
   for (const b of battles) for (const k of Object.keys(b.cells)) { if (!seen.has(k)) { seen.add(k); (scoreKey(k) ? scores : meta).push(k); } }
   const position = Object.fromEntries(scores.map((k, i) => [k, i]));
   scores.sort((a, b) => { const x = scoreKey(a), y = scoreKey(b); return x[0] - y[0] || x[1] - y[1] || position[a] - position[b]; });
-  const header = ['year', 'month', 'system', ...meta, ...scores, 'source', 'source url', 'video url'];
   // in a workbook a score is a number, so it can be added up; in a CSV everything is text already
-  const asNumber = (v) => (saveFormat === 'xlsx' && /^-?\d+(\.\d+)?$/.test(v ?? '') ? +v : v ?? '');
-  const out = picked.map((r, i) => {
-    const cells = battles[i].cells;
-    return [r[C.year] || '', r[C.md] || '', r[C.system], ...meta.map((k) => cells[k] ?? ''), ...scores.map((k) => asNumber(cells[k])),
-      SOURCE_NAMES[r[C.source]] || r[C.source], r[C.url] || '', r[C.video] || ''];
-  });
-  saveTable(saveFormat, name, 'Battles', header, out);
-  $('#modal').hidden = true;
+  const asNumber = (v) => (format === 'xlsx' && /^-?\d+(\.\d+)?$/.test(v ?? '') ? +v : v ?? '');
+  return { header: ['year', 'month', 'system', ...meta, ...scores, 'source', 'source url', 'video url'],
+    rows: picked.map((r, i) => {
+      const cells = battles[i].cells;
+      return [r[C.year] || '', r[C.md] || '', r[C.system], ...meta.map((k) => cells[k] ?? ''), ...scores.map((k) => asNumber(cells[k])),
+        SOURCE_NAMES[r[C.source]] || r[C.source], r[C.url] || '', r[C.video] || ''];
+    }) };
 }
 
 $('#download-csv').onclick = () => DATA && openDownload();
-$('#modal-ok').onclick = downloadDataset;
-$('#modal-body').addEventListener('click', (e) => {
-  const pick = e.target.closest('[data-format]');
-  if (!pick) return;
-  saveFormat = pick.dataset.format;
-  openDownload();
+// one system's whole file, in the layout the original site used
+$('#downloads').addEventListener('click', (e) => {
+  const link = e.target.closest('a');
+  if (!link) return;
+  e.preventDefault();
+  const system = link.textContent;
+  askDownload({
+    title: system, formats: false, filters: [['System', system]],
+    about: () => 'Every battle scored with this system, as tab-separated text. The search and filters on the table above do not apply to it.',
+    make: async () => {
+      const blob = await (await fetch(link.href, { cache: 'no-cache' })).blob();
+      return { blob, filename: `${system}DataRaw.tsv`, count: (await blob.text()).split('\n').filter(Boolean).length - 1 };
+    },
+  });
 });
-$('#modal-cancel').onclick = () => { $('#modal').hidden = true; };
-$('#modal').addEventListener('click', (e) => { if (e.target.id === 'modal') $('#modal').hidden = true; });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') $('#modal').hidden = true; });
 
 // ---- column menu: sort and pick values, like a spreadsheet header
 const MENU_LIMIT = 200;
