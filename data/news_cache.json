@@ -327,6 +327,10 @@
   "5663": {
    "breaking": false,
    "place": "Karlsruhe, Germany"
+  },
+  "5717": {
+   "breaking": true,
+   "place": ""
   }
  }
 }

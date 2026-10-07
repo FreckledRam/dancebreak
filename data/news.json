@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-06T17:18:41Z",
+ "updated": "2026-10-07T17:25:33Z",
  "upcoming": [
   {
    "source": "and8",
@@ -153,6 +153,16 @@
   },
   {
    "source": "and8",
+   "id": "5717",
+   "name": "JDSF Breaking Japan Open 2026",
+   "start": "2026-10-18",
+   "end": "2026-10-18",
+   "url": "https://and8.dance/en/e/5717",
+   "place": "Yokohama Red Brick Warehouse, Japan",
+   "image": null
+  },
+  {
+   "source": "and8",
    "id": "5694",
    "name": "Break Rumble Criollo Style Medellin, Colombia 2026",
    "start": "2026-10-23",
@@ -176,7 +186,7 @@
    "id": "4898",
    "name": "Legacy Jam",
    "start": "2026-10-24",
-   "end": "2026-10-25",
+   "end": "2026-10-24",
    "url": "https://breakkonnect.com/event/4898",
    "place": "Toronto, ON, Canada",
    "image": "https://images-ivn6elc3dq-uc.a.run.app/bd281036-4d16-42ec-8ea6-4759e19502c8/480/300"
@@ -741,7 +751,7 @@
    "title": "Breaking Through Barriers, B-Girl Yell Says, 'With Consistent Effort, Possibilities Are Endless'",
    "source": "news.sbs.co.kr",
    "date": "2026-10-04",
-   "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5VRTg5YkxsYV9wNkFlMWpNWEpkZllsTHk1bXF1NHNzV1BrX011aU5HX0EwWUZxa1duQ003LU9GMkVBU01Zc1lhYUdvc2I4SXp5MXBBZ0lhZm5hOXBYNnBZS205cmR2Zw?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE84d0dMRHVlZHZNbDBuRWZsRG4xOVRUMXNTanFMdVFQUHhmTGM1LVVmVnVTVEVsNktsR1BmYV9sajdQYVdZM053RWFhal9HbDhzVnA4enQ2SzJRUjJlMU5McERZMFhFTFFTb1Q3WGRB?oc=5",
    "image": null
   },
   {
@@ -759,13 +769,6 @@
    "image": null
   },
   {
-   "title": "[PHOTOS] No 'Last Dance' yet: Veteran B-Boy Hongten spins On",
-   "source": "The Korea Times",
-   "date": "2026-10-03",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPdXdZNHpPalZiU3JXQ1E2V291RXJSMTNKZEphWUl6UnRiQ2xBcmUxbTNKd0w1TTQ3RmVvMFA5ck5hVTd5dk5QZmQtWWtyaDZDV2o1eXFtMFktblp2Y1JEaFl0TmhNSmNicUY5a01PT1c1dWVBTEI3cTBmZHBVWUNHZFFxTXNuSXZIZ0ttQXdNZ0xNUU93aW0wS0t0ZTF2dENEVEtDYmdoM1RLam9vLTdObXJ1Vm_SAbQBQVVfeXFMT3V3WTR6T2pWYlNyV0NRNldvdUVyUjEzSmRKYVlJelJ0YkNsQXJlMW0zSndMNU00N0ZlbzBQOXJOYVU3eXZOUGZkLVlrcmg2Q1dqNXlxbTBZLW5admNSRGhZdE5oTUpjYnFGOWtNT09XNXVlQUxCN3EwZmRwVVlDR2RRcU1zbkl2SGdLbUF3TWdMTVFPd2ltMEtLdGUxdnRDRFRLQ2JnaDNUS2pvby03Tm1ydVZv?oc=5",
-   "image": null
-  },
-  {
    "title": "(Asiad) Kim Hong-yul wins 2nd straight silver in breaking at Asian Games",
    "source": "Yonhap News Agency",
    "date": "2026-10-03",
@@ -773,10 +776,24 @@
    "image": null
   },
   {
+   "title": "[PHOTOS] No 'Last Dance' yet: Veteran B-boy Hongten spins On",
+   "source": "The Korea Times",
+   "date": "2026-10-03",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNbVUtT19MZkpnTFNRaERBTUlEclE0WG9fd2FJdl81MXdoWXJwQXV0TTBNQzJIX3E4d01pcE5pQ2RiQ0xqYzUxU2RmcG1CNUU0ZmNyQ3hETDBISHBuUW9FTnpmWVBqT1NjaWdfMngzUFRFeGx3bDJLR3JwcEdEVldqS2lONGFzQUVwTzlPckZOT3FMeHRNUGxncmVpMEttRWJBOHFfVk5wc0FnZmx5X1840gG0AUFVX3lxTE91d1k0ek9qVmJTcldDUTZXb3VFclIxM0pkSmFZSXpSdGJDbEFyZTFtM0p3TDVNNDdGZW8wUDlyTmFVN3l2TlBmZC1Za3JoNkNXajV5cW0wWS1uWnZjUkRoWXROaE1KY2JxRjlrTU9PVzV1ZUFMQjdxMGZkcFVZQ0dkUXFNc25JdkhnS21Bd01nTE1RT3dpbTBLS3RlMXZ0Q0RUS0NiZ2gzVEtqb28tN05tcnVWbw?oc=5",
+   "image": null
+  },
+  {
    "title": "'41-Year-Old Legend' B-Boy Hong10 Showcases Timeless Skills on 'Silver Stage'",
    "source": "news.sbs.co.kr",
    "date": "2026-10-03",
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9IS25ab0F1ZU1PaDJGeEdQdlU0bVoxMlpJcXRYTVQwaUdkQnN5cF9qSnVXT0cwTDYybUVsLTdManc3WEM0eU5MRDJ3RHlubFlyYUMwbzRGZlhONFIzWVUybHMzUWl6bXpjU19Hc3d3?oc=5",
+   "image": null
+  },
+  {
+   "title": "South Korea Breaking Team Eyes First Asian Games Gold",
+   "source": "조선일보",
+   "date": "2026-10-01",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQWjJaVk0xNUtOTWhBcnBPQ0dxX0trOG1FRUtEb012Zm5jdXVFaERUZFpvdUF1ZFJqVDhNWUMwb2QzY3BXRGtfX1o1ODRPYzZiTzVianY4U0VaTFcxV0tQV2R5QXNaLTllMHRSQ0hTLV9qVjUtS0xjVnRQMG94YW8ydGlhenA3UQ?oc=5",
    "image": null
   },
   {
