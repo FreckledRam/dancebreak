@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-08T17:24:04Z",
+ "updated": "2026-10-09T16:59:46Z",
  "upcoming": [
   {
    "source": "and8",
@@ -213,6 +213,16 @@
   },
   {
    "source": "and8",
+   "id": "5712",
+   "name": "West Tusca-Ny Battle",
+   "start": "2026-10-25",
+   "end": "2026-10-25",
+   "url": "https://and8.dance/en/e/5712",
+   "place": "Fly Space, Italy",
+   "image": null
+  },
+  {
+   "source": "and8",
    "id": "5653",
    "name": "Thriller Jam Vol.5",
    "start": "2026-10-31",
@@ -299,6 +309,16 @@
    "end": "2026-11-07",
    "url": "https://and8.dance/en/e/5648",
    "place": "Tokyo, Japan",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5719",
+   "name": "Primal Instincts Crew Anniversary Jam",
+   "start": "2026-11-08",
+   "end": "2026-11-08",
+   "url": "https://and8.dance/en/e/5719",
+   "place": "London, Great Britain",
    "image": null
   },
   {
@@ -707,42 +727,42 @@
    "title": "Break to Believe: B-Boy Shigekix and B-Girl Royal Crowned Asian Games Champions in Aichi-Nagoya",
    "source": "WDSF",
    "date": "2026-10-03",
-   "url": "https://www.worlddancesport.org/News/Break-to-Believe-B-Boy-Shigekix-and-B-Girl-Royal-Crowned-Asian-Games-Champions-in-Aichi-Nagoya-3921",
+   "url": "https://www.worlddancesport.org/News/break-to-believe-shigekix-royal-asian-games-champions-aichi-nagoya-2026-3921",
    "image": "https://www.worlddancesport.org/media/9774d333-9708-43c3-87b5-b4d800f4e0b6/480x280/landscape/hal09691.jpg"
   },
   {
    "title": "Just Dance! Breaking Sets An Unforgettable Opening Day at the Asian Games in Aichi-Nagoya",
    "source": "WDSF",
    "date": "2026-10-02",
-   "url": "https://www.worlddancesport.org/News/Just-Dance-Breaking-Sets-An-Unforgettable-Opening-Day-at-the-Asian-Games-in-Aichi-Nagoya-3920",
+   "url": "https://www.worlddancesport.org/News/just-dance-breaking-opening-day-asian-games-aichi-nagoya-2026-3920",
    "image": "https://www.worlddancesport.org/media/c3e0645f-384f-4c6c-a47b-b4d700e8e792/480x280/landscape/hal01272.jpg"
   },
   {
    "title": "Watch Live: Experience the Breaking Action at the 20th Asian Games from Aichi-Nagoya!",
    "source": "WDSF",
    "date": "2026-10-01",
-   "url": "https://www.worlddancesport.org/News/Watch-Live-Experience-the-Breaking-Action-at-the-20th-Asian-Games-from-Aichi-Nagoya-3919",
+   "url": "https://www.worlddancesport.org/News/watch-live-breaking-20th-asian-games-3919",
    "image": "https://www.worlddancesport.org/media/b3947bc9-b59b-4359-bb7b-b4d600be1948/480x280/landscape/img_9887.png"
   },
   {
    "title": "All You Need to Know Ahead of the Breaking Competition at the 20th Asian Games",
    "source": "WDSF",
    "date": "2026-10-01",
-   "url": "https://www.worlddancesport.org/News/All-You-Need-to-Know-Ahead-of-the-Breaking-Competition-at-the-20th-Asian-Games-3918",
+   "url": "https://www.worlddancesport.org/News/newsbreaking-20th-asian-games-preview-3918",
    "image": "https://www.worlddancesport.org/media/0d7ae19f-f3ad-493e-9586-b4d6006c3cc1/480x280/landscape/all%20info%20you%20must%20know%20%281%29.jpg.jpeg"
   },
   {
    "title": "Official Announcement: Confirmed Athlete List for Breaking at the 2026 Asian Games",
    "source": "WDSF",
    "date": "2026-09-18",
-   "url": "https://www.worlddancesport.org/News/Official-Announcement-Confirmed-Athlete-List-for-Breaking-at-the-2026-Asian-Games-3908",
+   "url": "https://www.worlddancesport.org/News/confirmed-athletes-breaking-2026-asian-games-3908",
    "image": "https://www.worlddancesport.org/media/a490150f-877a-4b25-95ab-b4c900b5a2f7/480x280/landscape/2026-wdsf-asian-games-athletes_16x9.jpg.jpeg"
   },
   {
    "title": "The Countdown is On: Paris Prepares to Crown the World’s Best in Breaking and Hip Hop Freestyle as Registration Opens for the 2026 WDSF World Championships",
    "source": "WDSF",
    "date": "2026-09-16",
-   "url": "https://www.worlddancesport.org/News/The-Countdown-is-On-Paris-Prepares-to-Crown-the-World’s-Best-in-Breaking-and-Hip-Hop-Freestyle-as-Registration-Opens-for-the-2026-WDSF-World-Championships-3906",
+   "url": "https://www.worlddancesport.org/News/wdsf-world-championships-paris-2026-breaking-hip-hop-freestyle-3906",
    "image": "https://www.worlddancesport.org/media/2e7cfb03-93f2-4e24-83b4-b4c700f5624a/480x280/landscape/kv%2016_9%20en.jpg"
   }
  ],
@@ -787,13 +807,6 @@
    "source": "news.sbs.co.kr",
    "date": "2026-10-03",
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9IS25ab0F1ZU1PaDJGeEdQdlU0bVoxMlpJcXRYTVQwaUdkQnN5cF9qSnVXT0cwTDYybUVsLTdManc3WEM0eU5MRDJ3RHlubFlyYUMwbzRGZlhONFIzWVUybHMzUWl6bXpjU19Hc3d3?oc=5",
-   "image": null
-  },
-  {
-   "title": "South Korea Breaking Team Eyes First Asian Games Gold",
-   "source": "조선일보",
-   "date": "2026-10-01",
-   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQWjJaVk0xNUtOTWhBcnBPQ0dxX0trOG1FRUtEb012Zm5jdXVFaERUZFpvdUF1ZFJqVDhNWUMwb2QzY3BXRGtfX1o1ODRPYzZiTzVianY4U0VaTFcxV0tQV2R5QXNaLTllMHRSQ0hTLV9qVjUtS0xjVnRQMG94YW8ydGlhenA3UQ?oc=5",
    "image": null
   }
  ],
