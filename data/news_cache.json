@@ -4,10 +4,6 @@
    "breaking": true,
    "place": "Dortmund, Germany"
   },
-  "5417": {
-   "breaking": true,
-   "place": "Asten, Austria"
-  },
   "5639": {
    "breaking": true,
    "place": "Aarau, Switzerland"
@@ -339,6 +335,18 @@
   "5719": {
    "breaking": true,
    "place": "London, Great Britain"
+  },
+  "5721": {
+   "breaking": true,
+   "place": "Hildesheim, Germany"
+  },
+  "5705": {
+   "breaking": true,
+   "place": ""
+  },
+  "5720": {
+   "breaking": true,
+   "place": "Thessaloniki, Greece"
   }
  }
 }

@@ -1,16 +1,6 @@
 {
- "updated": "2026-10-09T16:59:46Z",
+ "updated": "2026-10-10T15:52:33Z",
  "upcoming": [
-  {
-   "source": "and8",
-   "id": "5417",
-   "name": "Breaking Austrian (Youth) Open 2026",
-   "start": "2026-10-09",
-   "end": "2026-10-09",
-   "url": "https://and8.dance/en/e/5417",
-   "place": "Asten, Austria",
-   "image": null
-  },
   {
    "source": "and8",
    "id": "5609",
@@ -483,6 +473,16 @@
   },
   {
    "source": "and8",
+   "id": "5721",
+   "name": "Underground Heat 2",
+   "start": "2026-11-22",
+   "end": "2026-11-22",
+   "url": "https://and8.dance/en/e/5721",
+   "place": "Hildesheim, Germany",
+   "image": null
+  },
+  {
+   "source": "and8",
    "id": "5688",
    "name": "Red Bull BC One Camp Toronto 2026",
    "start": "2026-11-26",
@@ -499,6 +499,16 @@
    "end": "2026-11-29",
    "url": "https://and8.dance/en/e/5326",
    "place": "Toronto, Canada",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5705",
+   "name": "WORLD OF DANCE - MILAN",
+   "start": "2026-11-29",
+   "end": "2026-11-29",
+   "url": "https://and8.dance/en/e/5705",
+   "place": "Live Music Club, Italy",
    "image": null
   },
   {
@@ -579,6 +589,16 @@
    "end": "2026-12-12",
    "url": "https://and8.dance/en/e/5611",
    "place": "Lordz Dance Academy, Switzerland",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5720",
+   "name": "Battle Of The Best 2026",
+   "start": "2026-12-13",
+   "end": "2026-12-13",
+   "url": "https://and8.dance/en/e/5720",
+   "place": "Thessaloniki, Greece",
    "image": null
   },
   {
@@ -768,6 +788,13 @@
  ],
  "headlines": [
   {
+   "title": "Meet the B-Girl taking South African breaking to the world stage",
+   "source": "Time Out Worldwide",
+   "date": "2026-10-10",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOSEFKendrbUNFdlhReE1wdnk3ZExGcTNKbFZkSW1sQWpUTmQtaVEyZEpTajg0cGR6QlJQTWVuaUhBaTlMeWR4SzdLbEhpbVdxSzluRDl2akpuaGs4Nm5SRmdVZkNabk5nRGl3WUowMFZYa3ZMdG5Dejc1cXRMaW9VSU1rN2pmQ2MxdG1tbTRXblFOMEJ1bUV4NmljQ2lKZE5tc2REOWJMOGNXYjlSWWY0?oc=5",
+   "image": null
+  },
+  {
    "title": "Breaking Through Barriers, B-Girl Yell Says, 'With Consistent Effort, Possibilities Are Endless'",
    "source": "news.sbs.co.kr",
    "date": "2026-10-04",
@@ -789,13 +816,6 @@
    "image": null
   },
   {
-   "title": "(Asiad) Kim Hong-yul wins 2nd straight silver in breaking at Asian Games",
-   "source": "Yonhap News Agency",
-   "date": "2026-10-03",
-   "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1kYXQzOVFlWDI1MDJ0Tk9UUUs3eTR2NWFwTUozSXgzRGV4VThJYUdZbGNqQ1pqOUQ0N2xXUnpNNDlHR1c0UUhiUm5uazZXUlkxT0I5NVgwSkRXdw?oc=5",
-   "image": null
-  },
-  {
    "title": "[PHOTOS] No 'Last Dance' yet: Veteran B-boy Hongten spins On",
    "source": "The Korea Times",
    "date": "2026-10-03",
@@ -807,6 +827,13 @@
    "source": "news.sbs.co.kr",
    "date": "2026-10-03",
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9IS25ab0F1ZU1PaDJGeEdQdlU0bVoxMlpJcXRYTVQwaUdkQnN5cF9qSnVXT0cwTDYybUVsLTdManc3WEM0eU5MRDJ3RHlubFlyYUMwbzRGZlhONFIzWVUybHMzUWl6bXpjU19Hc3d3?oc=5",
+   "image": null
+  },
+  {
+   "title": "South Korea Breaking Team Eyes First Asian Games Gold",
+   "source": "조선일보",
+   "date": "2026-10-01",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQWjJaVk0xNUtOTWhBcnBPQ0dxX0trOG1FRUtEb012Zm5jdXVFaERUZFpvdUF1ZFJqVDhNWUMwb2QzY3BXRGtfX1o1ODRPYzZiTzVianY4U0VaTFcxV0tQV2R5QXNaLTllMHRSQ0hTLV9qVjUtS0xjVnRQMG94YW8ydGlhenA3UQ?oc=5",
    "image": null
   }
  ],
