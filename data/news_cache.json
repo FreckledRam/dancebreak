@@ -1,9 +1,5 @@
 {
  "and8": {
-  "5609": {
-   "breaking": true,
-   "place": "Dortmund, Germany"
-  },
   "5639": {
    "breaking": true,
    "place": "Aarau, Switzerland"
@@ -11,22 +7,6 @@
   "5679": {
    "breaking": true,
    "place": ""
-  },
-  "5696": {
-   "breaking": true,
-   "place": "Veitshöchheim, Germany"
-  },
-  "5693": {
-   "breaking": true,
-   "place": ""
-  },
-  "5598": {
-   "breaking": true,
-   "place": "Oslo, Norway"
-  },
-  "5414": {
-   "breaking": true,
-   "place": "Asten, Austria"
   },
   "5676": {
    "breaking": true,
