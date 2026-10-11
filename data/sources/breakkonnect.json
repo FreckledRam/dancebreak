@@ -664,5 +664,10 @@
   "date": "2025-06-01",
   "status": "nothing_to_collect",
   "battles": 0
+ },
+ "4707": {
+  "name": "INFAMOUS FIGUREZ III",
+  "date": "2026-10-10",
+  "status": "pending"
  }
 }

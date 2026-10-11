@@ -835,6 +835,7 @@
  "5417": {
   "name": "Breaking Austrian (Youth) Open 2026",
   "date": "2026-10-09",
-  "status": "pending"
+  "status": "collected",
+  "battles": 36
  }
 }
