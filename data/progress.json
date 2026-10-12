@@ -1,7 +1,7 @@
 {
- "running": true,
+ "running": false,
  "started": "2026-10-12T19:48:18Z",
- "current": "breakkonnect",
+ "current": null,
  "sources": {
   "and8": {
    "todo": 2,
@@ -11,10 +11,10 @@
   },
   "breakkonnect": {
    "todo": 1,
-   "done": 0,
+   "done": 1,
    "started": "2026-10-12T19:51:42Z",
    "eta_seconds": 8
   }
  },
- "updated": "2026-10-12T19:51:42Z"
+ "updated": "2026-10-12T19:51:44Z"
 }
