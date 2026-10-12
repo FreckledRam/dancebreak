@@ -1,21 +1,5 @@
 {
  "and8": {
-  "5639": {
-   "breaking": true,
-   "place": "Aarau, Switzerland"
-  },
-  "5679": {
-   "breaking": true,
-   "place": ""
-  },
-  "5676": {
-   "breaking": true,
-   "place": "Oberhausbergen, France"
-  },
-  "5684": {
-   "breaking": true,
-   "place": ""
-  },
   "5715": {
    "breaking": true,
    "place": ""
@@ -327,6 +311,10 @@
   "5720": {
    "breaking": true,
    "place": "Thessaloniki, Greece"
+  },
+  "5723": {
+   "breaking": true,
+   "place": ""
   }
  }
 }
