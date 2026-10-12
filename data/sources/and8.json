@@ -830,7 +830,8 @@
  "5414": {
   "name": "Streetdance Battle Series 2026 - Vol. 2",
   "date": "2026-10-10",
-  "status": "pending"
+  "status": "collected",
+  "battles": 52
  },
  "5417": {
   "name": "Breaking Austrian (Youth) Open 2026",
@@ -841,6 +842,7 @@
  "5679": {
   "name": "P.O.W Princes.sses of War 2026",
   "date": "2026-10-10",
-  "status": "pending"
+  "status": "collected",
+  "battles": 56
  }
 }
