@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-12T19:48:18Z",
+ "updated": "2026-10-13T17:35:36Z",
  "upcoming": [
   {
    "source": "and8",
@@ -90,6 +90,16 @@
    "url": "https://breakkonnect.com/event/4898",
    "place": "Toronto, ON, Canada",
    "image": "https://images-ivn6elc3dq-uc.a.run.app/bd281036-4d16-42ec-8ea6-4759e19502c8/480/300"
+  },
+  {
+   "source": "breakkonnect",
+   "id": "4958",
+   "name": "Prime Time Breaks VII",
+   "start": "2026-10-24",
+   "end": "2026-10-25",
+   "url": "https://breakkonnect.com/event/4958",
+   "place": "Stratford, NJ, USA",
+   "image": "https://images-ivn6elc3dq-uc.a.run.app/6b4f6a62-42ff-4ee2-b7ae-5c4699a933b5/480/300"
   },
   {
    "source": "and8",
@@ -339,6 +349,16 @@
    "end": "2026-11-22",
    "url": "https://and8.dance/en/e/5472",
    "place": "Taoyuan, Taiwan",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5724",
+   "name": "DMA Urban Cypher 2026",
+   "start": "2026-11-21",
+   "end": "2026-11-21",
+   "url": "https://and8.dance/en/e/5724",
+   "place": "Augsburg, Germany",
    "image": null
   },
   {
@@ -643,6 +663,16 @@
   },
   {
    "source": "and8",
+   "id": "5722",
+   "name": "Southbreak Jam 2027 - 11 Years Anniversary",
+   "start": "2027-07-03",
+   "end": "2027-07-03",
+   "url": "https://and8.dance/en/e/5722",
+   "place": "Chania, Greece",
+   "image": null
+  },
+  {
+   "source": "and8",
    "id": "5608",
    "name": "The Legits Blast 2027 presents Outbreak Europe 2027",
    "start": "2027-07-18",
@@ -729,24 +759,10 @@
    "image": null
   },
   {
-   "title": "Kim Hong-yul wins 2nd straight silver in breaking at Asian Games",
-   "source": "The Korea Times",
+   "title": "(Asiad) Kim Hong-yul wins 2nd straight silver in breaking at Asian Games",
+   "source": "Yonhap News Agency",
    "date": "2026-10-03",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQRVRyeWlhU0ZCSEVLSnpVTXI5MjItVzBNankzTkhuT2NpOFVyOFVwUUl2NkwxeG03Vm93YkRPTFRaOVhwT2Z5amlpa3NqRUJsQ29Ob09ManBDelc4Q0w5dW42bVU1TXVpZ05FQ1BmYmxYVWhMQzcyX1RNWGlNaVpWWVM1aEt3MjEtSWNBMW51bnoyNXlnVEZ6dDFpS0J3SEVLazNwWTJNME44b2R2UHfSAbMBQVVfeXFMT1dsUENSV3N6enM0d00yVllYOE5zUndocnNfUnVPU2RmdnRxbkVoZWRYc0toc0c2blpiY1VHUTBrXzk1cndxeWlEdFRHZHBwUHUyTU5EYkZreHhObjB2dnVvOEhVYndoZ3FWQ2gzMERaWEY0bHc1b2VXdl9Cc1lKXzFPcU1vWF9ub0JLTHVBYVRBbnNvdjh1c1BWbDNvclN4cHNRbm9nck5EN2VVVG5FMkpxVUE?oc=5",
-   "image": null
-  },
-  {
-   "title": "World champions B-Boy Shigekix of Japan and Chinese debutante B-Girl Royal win Asian Games breaking gold medals",
-   "source": "News.com.au",
-   "date": "2026-10-03",
-   "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxQUXFaZzhjMFl1akVlUXVaRGxZZE5KWUN1TFZpeV9tWmxuODl2Y3ZpRjRwSUVWSnNVZ0NSc0lvT1RCdTJJSHpOVTZYcDRSSkhIQ3RCeGJOR2VLRzVMdkxsZkpBMXN3QW9GS0gyUExpWlNDVVQxUEpOc1dNV3RBSEcwVlE4NGZCZEdtaVpVcWVkaVZTYkNlOVVWMXUzLTZRaExQbW1fbEtnUEhzdUk2YXEwV0xBVEl0VGNobjdMeFRsTTQ5MHBuLTJOemFoWUJpUW4ySnp3UmcxQVdjRTJka1RDeHF1am14S3VPTGxsMnBVc2ZYNkhSWFF4VmxJSUFOdVM4SXBOSnBmdkNFZ9IBjwJBVV95cUxNRS1sMVhBMUxqQlZhc0Y4NWktcEdIcHhVMHpRRU9sbk12TU5SUjBXWDNRUFJaRmdEU3BvSnBtWVNGTDB0Z01QckEzSl9zaWFNZ2xOcWpYUHoyaEdvZWxxMkozT2hlY3RjWVpCUldhQUFxS2FvZnJZNHYtOVdRN1JIU2lwdTZKak1SSVktR21YZnluYk5FWVhjMmhIWkRMRnNXRDhuYS1zdFZUajFkVG9pWEpnQWtFREIxN3RMM1RpZF9jU0NIXy1LRGhfd3hpU2dIbVNfd1hKQ0ZFZTcwQlhhejRhUnRyc3hDUWFtNFU5TzFjWmpGR2FsdFVteXpRQ2FObVRuUVRrTVdBRzZucXpR?oc=5",
-   "image": null
-  },
-  {
-   "title": "Kim Hong-yeol Loses to Shige Kicks Again, Wins Silver",
-   "source": "조선일보",
-   "date": "2026-10-03",
-   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxONG5od0M2czJZUFZTZHMxb1FjZjkxOGVJcXcyTmRZT1prbEcxRnlwSjU0LXktYWxqZUNkZHlKaGxQbUxmLXEyTjdnRnAxblBCS2loSUpsX1cwSTdrVEpCLUNoblFDZFlZZFVrc3pGbUxsdnd6TVZUd2d4ZUVVS0F6a00wT09mQQ?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1kYXQzOVFlWDI1MDJ0Tk9UUUs3eTR2NWFwTUozSXgzRGV4VThJYUdZbGNqQ1pqOUQ0N2xXUnpNNDlHR1c0UUhiUm5uazZXUlkxT0I5NVgwSkRXdw?oc=5",
    "image": null
   },
   {
@@ -754,6 +770,13 @@
    "source": "The Korea Times",
    "date": "2026-10-03",
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNbVUtT19MZkpnTFNRaERBTUlEclE0WG9fd2FJdl81MXdoWXJwQXV0TTBNQzJIX3E4d01pcE5pQ2RiQ0xqYzUxU2RmcG1CNUU0ZmNyQ3hETDBISHBuUW9FTnpmWVBqT1NjaWdfMngzUFRFeGx3bDJLR3JwcEdEVldqS2lONGFzQUVwTzlPckZOT3FMeHRNUGxncmVpMEttRWJBOHFfVk5wc0FnZmx5X1840gG0AUFVX3lxTE91d1k0ek9qVmJTcldDUTZXb3VFclIxM0pkSmFZSXpSdGJDbEFyZTFtM0p3TDVNNDdGZW8wUDlyTmFVN3l2TlBmZC1Za3JoNkNXajV5cW0wWS1uWnZjUkRoWXROaE1KY2JxRjlrTU9PVzV1ZUFMQjdxMGZkcFVZQ0dkUXFNc25JdkhnS21Bd01nTE1RT3dpbTBLS3RlMXZ0Q0RUS0NiZ2gzVEtqb28tN05tcnVWbw?oc=5",
+   "image": null
+  },
+  {
+   "title": "World champions B-Boy Shigekix of Japan and Chinese debutante B-Girl Royal win Asian Games breaking gold medals",
+   "source": "The Australian",
+   "date": "2026-10-03",
+   "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxOcW9wQWF2OHpDbUxmbzJGMWM3MDZSNWd5Vm14RnUweDFXUmVVb2hQLWMtVWc4QzdDb1ZoYnB4U19SRHZITW5JcklXNmRmWjRiYVZIVmJaYXNrMVpQWnBuNXRuTzlXcnBvZzdSODNVMGE2RWhhejZVVGJOMkYtQWxwb3ZuZldBMS1BNW9PdXlIcXBuLW9GUUN5ZlNuOVNYTm8zNjJkTE5tRmVLZHhreFpfaUJua3lIWmczaEp2bjB1UWZPWUVlWFNwRXUwNEh2VHI4eGZVNzdMOVlEYW8wOEZsWlBYeFBuNGFjV3hCMDRQREZfdUhaV0Zqb1RwVG1nZmh4aTFSVHgxaGtNNkdwZ2ltZUtvTmtRQQ?oc=5",
    "image": null
   },
   {

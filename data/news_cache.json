@@ -315,6 +315,14 @@
   "5723": {
    "breaking": true,
    "place": ""
+  },
+  "5724": {
+   "breaking": true,
+   "place": "Augsburg, Germany"
+  },
+  "5722": {
+   "breaking": true,
+   "place": "Chania, Greece"
   }
  }
 }
