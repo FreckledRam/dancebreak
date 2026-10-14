@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-13T17:35:36Z",
+ "updated": "2026-10-14T15:07:44Z",
  "upcoming": [
   {
    "source": "and8",
@@ -612,6 +612,16 @@
    "image": null
   },
   {
+   "source": "breakkonnect",
+   "id": "4959",
+   "name": "DC at 20",
+   "start": "2027-05-08",
+   "end": "2027-05-08",
+   "url": "https://breakkonnect.com/event/4959",
+   "place": "Dumaguete City, Negros Oriental, Philippines",
+   "image": "https://images-ivn6elc3dq-uc.a.run.app/4bc2dae2-ac5a-41f9-92fd-131b5e827033/480/300"
+  },
+  {
    "source": "and8",
    "id": "5640",
    "name": "World Breaking Classic World Final 2027",
@@ -690,6 +700,16 @@
    "url": "https://and8.dance/en/e/5637",
    "place": "Stuttgart, Germany",
    "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5575",
+   "name": "UK B-Boy Championships - World Finals 2027",
+   "start": "2027-08-14",
+   "end": "2027-08-15",
+   "url": "https://and8.dance/en/e/5575",
+   "place": "Aviva Studios, Great Britain",
+   "image": null
   }
  ],
  "features": [
@@ -738,6 +758,13 @@
  ],
  "headlines": [
   {
+   "title": "All you need to know about breaking",
+   "source": "Red Bull",
+   "date": "2026-10-11",
+   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9qQ1NQeXJFcUNEcndCWWc4dVY5dGxOYmFjTTMxUjVELUhUVlhaX2RlN0JHTk1UY2R3cHlfclgzZkpieHpvSjh1SkpqN1ZNbW8yTmxRSjZtODFPQnM2X202cDVzRVh4MmRsMkRoUEZHSFVWU001?oc=5",
+   "image": null
+  },
+  {
    "title": "Meet the B-Girl taking South African breaking to the world stage",
    "source": "Time Out Worldwide",
    "date": "2026-10-10",
@@ -784,13 +811,6 @@
    "source": "news.sbs.co.kr",
    "date": "2026-10-03",
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9IS25ab0F1ZU1PaDJGeEdQdlU0bVoxMlpJcXRYTVQwaUdkQnN5cF9qSnVXT0cwTDYybUVsLTdManc3WEM0eU5MRDJ3RHlubFlyYUMwbzRGZlhONFIzWVUybHMzUWl6bXpjU19Hc3d3?oc=5",
-   "image": null
-  },
-  {
-   "title": "South Korea Breaking Team Eyes First Asian Games Gold",
-   "source": "조선일보",
-   "date": "2026-10-01",
-   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQWjJaVk0xNUtOTWhBcnBPQ0dxX0trOG1FRUtEb012Zm5jdXVFaERUZFpvdUF1ZFJqVDhNWUMwb2QzY3BXRGtfX1o1ODRPYzZiTzVianY4U0VaTFcxV0tQV2R5QXNaLTllMHRSQ0hTLV9qVjUtS0xjVnRQMG94YW8ydGlhenA3UQ?oc=5",
    "image": null
   }
  ],
