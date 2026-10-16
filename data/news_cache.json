@@ -323,6 +323,26 @@
   "5722": {
    "breaking": true,
    "place": "Chania, Greece"
+  },
+  "5729": {
+   "breaking": true,
+   "place": "Floirac, France"
+  },
+  "5730": {
+   "breaking": true,
+   "place": "Stuttgart, Germany"
+  },
+  "5728": {
+   "breaking": true,
+   "place": "Moscow, Russia"
+  },
+  "5727": {
+   "breaking": true,
+   "place": "Daugavpils, Latvia"
+  },
+  "5726": {
+   "breaking": true,
+   "place": "Lille, France"
   }
  }
 }

@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-15T15:00:20Z",
+ "updated": "2026-10-16T14:50:52Z",
  "upcoming": [
   {
    "source": "and8",
@@ -73,6 +73,16 @@
   },
   {
    "source": "and8",
+   "id": "5729",
+   "name": "BK 270 Battle",
+   "start": "2026-10-24",
+   "end": "2026-10-24",
+   "url": "https://and8.dance/en/e/5729",
+   "place": "Floirac, France",
+   "image": null
+  },
+  {
+   "source": "and8",
    "id": "5711",
    "name": "Break Battle X Vol. 2 - NBL 4",
    "start": "2026-10-24",
@@ -109,6 +119,16 @@
    "end": "2026-10-24",
    "url": "https://and8.dance/en/e/5481",
    "place": "Ferney-Voltaire, France",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5730",
+   "name": "Tuffstyle Battle 2026",
+   "start": "2026-10-24",
+   "end": "2026-10-24",
+   "url": "https://and8.dance/en/e/5730",
+   "place": "Stuttgart, Germany",
    "image": null
   },
   {
@@ -212,6 +232,16 @@
    "image": null
   },
   {
+   "source": "breakkonnect",
+   "id": "4971",
+   "name": "Pass The Torch VOL. II",
+   "start": "2026-11-07",
+   "end": "2026-11-08",
+   "url": "https://breakkonnect.com/event/4971",
+   "place": "New York, NY, USA",
+   "image": "https://images-ivn6elc3dq-uc.a.run.app/2d8ecc01-6921-443a-9e56-fe249265812a/480/300"
+  },
+  {
    "source": "and8",
    "id": "5648",
    "name": "Spin Control World Final 2026",
@@ -259,6 +289,16 @@
    "end": "2026-11-13",
    "url": "https://www.worlddancesport.org/Events/Dakar-Senegal-12112026-13112026-8597",
    "place": "Dakar, Senegal",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5728",
+   "name": "Russian Open Breaking Championships 2026",
+   "start": "2026-11-13",
+   "end": "2026-11-15",
+   "url": "https://and8.dance/en/e/5728",
+   "place": "Moscow, Russia",
    "image": null
   },
   {
@@ -433,6 +473,16 @@
   },
   {
    "source": "and8",
+   "id": "5727",
+   "name": "Open Latvian Breaking Championship 2026",
+   "start": "2026-11-28",
+   "end": "2026-11-28",
+   "url": "https://and8.dance/en/e/5727",
+   "place": "Daugavpils, Latvia",
+   "image": null
+  },
+  {
+   "source": "and8",
    "id": "5326",
    "name": "Red Bull BC One World Final Toronto 2026",
    "start": "2026-11-29",
@@ -479,6 +529,16 @@
    "end": "2026-12-12",
    "url": "https://and8.dance/en/e/5683",
    "place": "Hamburg, Germany",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5726",
+   "name": "BBoy & BGirl France 2026",
+   "start": "2026-12-12",
+   "end": "2026-12-12",
+   "url": "https://and8.dance/en/e/5726",
+   "place": "Lille, France",
    "image": null
   },
   {
@@ -714,6 +774,13 @@
  ],
  "features": [
   {
+   "title": "Official Announcement: Allocated Athletes for Breaking at the Dakar 2026 Youth Olympic Games",
+   "source": "WDSF",
+   "date": "2026-10-15",
+   "url": "https://www.worlddancesport.org/News/newsallocated-athletes-breaking-dakar-2026-youth-olympics-3928",
+   "image": "https://www.worlddancesport.org/media/206fa606-f053-4186-9bc6-b4e400fe4cad/480x280/landscape/2026-yog_confirmed-athletes-graphic_16x9.jpg.jpeg"
+  },
+  {
    "title": "Break to Believe: B-Boy Shigekix and B-Girl Royal Crowned Asian Games Champions in Aichi-Nagoya",
    "source": "WDSF",
    "date": "2026-10-03",
@@ -747,16 +814,16 @@
    "date": "2026-09-18",
    "url": "https://www.worlddancesport.org/News/confirmed-athletes-breaking-2026-asian-games-3908",
    "image": "https://www.worlddancesport.org/media/a490150f-877a-4b25-95ab-b4c900b5a2f7/480x280/landscape/2026-wdsf-asian-games-athletes_16x9.jpg.jpeg"
-  },
-  {
-   "title": "The Countdown is On: Paris Prepares to Crown the World’s Best in Breaking and Hip Hop Freestyle as Registration Opens for the 2026 WDSF World Championships",
-   "source": "WDSF",
-   "date": "2026-09-16",
-   "url": "https://www.worlddancesport.org/News/wdsf-world-championships-paris-2026-breaking-hip-hop-freestyle-3906",
-   "image": "https://www.worlddancesport.org/media/2e7cfb03-93f2-4e24-83b4-b4c700f5624a/480x280/landscape/kv%2016_9%20en.jpg"
   }
  ],
  "headlines": [
+  {
+   "title": "Everything you need to know about the Red Bull BC One World Final",
+   "source": "Red Bull",
+   "date": "2026-10-12",
+   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPcDhIRkNvcXFrdmEtZ0RNaXZGSEJrOW1KSE1PVWZVNFBaVTJkdzFnTnpjS2ZlZzZKS1FHUjZ0ZFdUcThlSVdxVmNVV0tqdjlXZ0taUVRjdVlOQlZpc1o4RzVuWlpZeEoxTGxzUURwcXpuZWtNUzNjODlIeVA3b3hqT1NaX2hPNkM4?oc=5",
+   "image": null
+  },
   {
    "title": "All you need to know about breaking",
    "source": "Red Bull",
@@ -779,17 +846,10 @@
    "image": null
   },
   {
-   "title": "Kim Hong-yul wins 2nd straight silver in breaking at Asian Games",
-   "source": "The Korea Times",
+   "title": "(Asiad) Kim Hong-yul wins 2nd straight silver in breaking at Asian Games",
+   "source": "Yonhap News Agency",
    "date": "2026-10-03",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQRVRyeWlhU0ZCSEVLSnpVTXI5MjItVzBNankzTkhuT2NpOFVyOFVwUUl2NkwxeG03Vm93YkRPTFRaOVhwT2Z5amlpa3NqRUJsQ29Ob09ManBDelc4Q0w5dW42bVU1TXVpZ05FQ1BmYmxYVWhMQzcyX1RNWGlNaVpWWVM1aEt3MjEtSWNBMW51bnoyNXlnVEZ6dDFpS0J3SEVLazNwWTJNME44b2R2UHfSAbMBQVVfeXFMT1dsUENSV3N6enM0d00yVllYOE5zUndocnNfUnVPU2RmdnRxbkVoZWRYc0toc0c2blpiY1VHUTBrXzk1cndxeWlEdFRHZHBwUHUyTU5EYkZreHhObjB2dnVvOEhVYndoZ3FWQ2gzMERaWEY0bHc1b2VXdl9Cc1lKXzFPcU1vWF9ub0JLTHVBYVRBbnNvdjh1c1BWbDNvclN4cHNRbm9nck5EN2VVVG5FMkpxVUE?oc=5",
-   "image": null
-  },
-  {
-   "title": "World champions B-Boy Shigekix of Japan and Chinese debutante B-Girl Royal win Asian Games breaking gold medals",
-   "source": "The Australian",
-   "date": "2026-10-03",
-   "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxOcW9wQWF2OHpDbUxmbzJGMWM3MDZSNWd5Vm14RnUweDFXUmVVb2hQLWMtVWc4QzdDb1ZoYnB4U19SRHZITW5JcklXNmRmWjRiYVZIVmJaYXNrMVpQWnBuNXRuTzlXcnBvZzdSODNVMGE2RWhhejZVVGJOMkYtQWxwb3ZuZldBMS1BNW9PdXlIcXBuLW9GUUN5ZlNuOVNYTm8zNjJkTE5tRmVLZHhreFpfaUJua3lIWmczaEp2bjB1UWZPWUVlWFNwRXUwNEh2VHI4eGZVNzdMOVlEYW8wOEZsWlBYeFBuNGFjV3hCMDRQREZfdUhaV0Zqb1RwVG1nZmh4aTFSVHgxaGtNNkdwZ2ltZUtvTmtRQQ?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1kYXQzOVFlWDI1MDJ0Tk9UUUs3eTR2NWFwTUozSXgzRGV4VThJYUdZbGNqQ1pqOUQ0N2xXUnpNNDlHR1c0UUhiUm5uazZXUlkxT0I5NVgwSkRXdw?oc=5",
    "image": null
   },
   {
@@ -797,6 +857,13 @@
    "source": "The Korea Times",
    "date": "2026-10-03",
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNbVUtT19MZkpnTFNRaERBTUlEclE0WG9fd2FJdl81MXdoWXJwQXV0TTBNQzJIX3E4d01pcE5pQ2RiQ0xqYzUxU2RmcG1CNUU0ZmNyQ3hETDBISHBuUW9FTnpmWVBqT1NjaWdfMngzUFRFeGx3bDJLR3JwcEdEVldqS2lONGFzQUVwTzlPckZOT3FMeHRNUGxncmVpMEttRWJBOHFfVk5wc0FnZmx5X1840gG0AUFVX3lxTE91d1k0ek9qVmJTcldDUTZXb3VFclIxM0pkSmFZSXpSdGJDbEFyZTFtM0p3TDVNNDdGZW8wUDlyTmFVN3l2TlBmZC1Za3JoNkNXajV5cW0wWS1uWnZjUkRoWXROaE1KY2JxRjlrTU9PVzV1ZUFMQjdxMGZkcFVZQ0dkUXFNc25JdkhnS21Bd01nTE1RT3dpbTBLS3RlMXZ0Q0RUS0NiZ2gzVEtqb28tN05tcnVWbw?oc=5",
+   "image": null
+  },
+  {
+   "title": "World champions B-Boy Shigekix of Japan and Chinese debutante B-Girl Royal win Asian Games breaking gold medals",
+   "source": "The Australian",
+   "date": "2026-10-03",
+   "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxOcW9wQWF2OHpDbUxmbzJGMWM3MDZSNWd5Vm14RnUweDFXUmVVb2hQLWMtVWc4QzdDb1ZoYnB4U19SRHZITW5JcklXNmRmWjRiYVZIVmJaYXNrMVpQWnBuNXRuTzlXcnBvZzdSODNVMGE2RWhhejZVVGJOMkYtQWxwb3ZuZldBMS1BNW9PdXlIcXBuLW9GUUN5ZlNuOVNYTm8zNjJkTE5tRmVLZHhreFpfaUJua3lIWmczaEp2bjB1UWZPWUVlWFNwRXUwNEh2VHI4eGZVNzdMOVlEYW8wOEZsWlBYeFBuNGFjV3hCMDRQREZfdUhaV0Zqb1RwVG1nZmh4aTFSVHgxaGtNNkdwZ2ltZUtvTmtRQQ?oc=5",
    "image": null
   },
   {
