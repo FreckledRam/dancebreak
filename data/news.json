@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-16T14:50:52Z",
+ "updated": "2026-10-17T13:42:46Z",
  "upcoming": [
   {
    "source": "and8",
@@ -150,6 +150,16 @@
    "url": "https://and8.dance/en/e/5712",
    "place": "Fly Space, Italy",
    "image": null
+  },
+  {
+   "source": "breakkonnect",
+   "id": "4973",
+   "name": "Battle of the Boroughs",
+   "start": "2026-10-31",
+   "end": "2026-10-31",
+   "url": "https://breakkonnect.com/event/4973",
+   "place": "Yonkers, NY, USA",
+   "image": "https://images-ivn6elc3dq-uc.a.run.app/384985ce-32e9-484f-868c-b7742d798b4f/480/300"
   },
   {
    "source": "and8",
@@ -383,6 +393,16 @@
   },
   {
    "source": "and8",
+   "id": "5731",
+   "name": "Breakdance Dream Cup 2026",
+   "start": "2026-11-21",
+   "end": "2026-11-21",
+   "url": "https://and8.dance/en/e/5731",
+   "place": "Kawasaki, Japan",
+   "image": null
+  },
+  {
+   "source": "and8",
    "id": "5472",
    "name": "Breaking News 2026",
    "start": "2026-11-21",
@@ -423,6 +443,16 @@
   },
   {
    "source": "and8",
+   "id": "5734",
+   "name": "Superbreak 2026",
+   "start": "2026-11-21",
+   "end": "2026-11-22",
+   "url": "https://and8.dance/en/e/5734",
+   "place": "Kawasaki, Japan",
+   "image": null
+  },
+  {
+   "source": "and8",
    "id": "5703",
    "name": "Autumn Breaks 2026",
    "start": "2026-11-22",
@@ -438,7 +468,7 @@
    "start": "2026-11-22",
    "end": "2026-11-22",
    "url": "https://and8.dance/en/e/5713",
-   "place": "",
+   "place": "Het Depot, Belgium",
    "image": null
   },
   {
@@ -469,6 +499,16 @@
    "end": "2026-11-28",
    "url": "https://and8.dance/en/e/5688",
    "place": "Toronto, Canada",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5735",
+   "name": "Castle Rock Jam - Kids Edition 2026",
+   "start": "2026-11-28",
+   "end": "2026-11-28",
+   "url": "https://and8.dance/en/e/5735",
+   "place": "Burghausen, Germany",
    "image": null
   },
   {
@@ -760,16 +800,6 @@
    "url": "https://and8.dance/en/e/5637",
    "place": "Stuttgart, Germany",
    "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5575",
-   "name": "UK B-Boy Championships - World Finals 2027",
-   "start": "2027-08-14",
-   "end": "2027-08-15",
-   "url": "https://and8.dance/en/e/5575",
-   "place": "Aviva Studios, Great Britain",
-   "image": null
   }
  ],
  "features": [
@@ -832,6 +862,13 @@
    "image": null
   },
   {
+   "title": "The Hooligans break down barriers for student dancers",
+   "source": "The Cavalier Daily",
+   "date": "2026-10-10",
+   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNYXpZRDF5Z3BrRjJKdFdYWDRmOVFwQk1wSlRENDdxUXRVdE52SWV6Ynk0OWZ0Y3kxcTFpNjdpSzZJRlk0VzJmV2tBUkpNZy12ZjRmZHhlMDhucko0MG52WlN6ZGxscU5wY2hDMzAxaXJ2QjVFQnA4SF81OGd2T0ZIbTVyNzdFMnh2elFnUGN1YUFPZ0F6bGQ0YVVhMEI4QjNVbWtCTjlLTDNhaUNkNzduWGpRbmxsNHlOZ0xuZWU4Ty14dk90cW1CazBn?oc=5",
+   "image": null
+  },
+  {
    "title": "Meet the B-Girl taking South African breaking to the world stage",
    "source": "Time Out Worldwide",
    "date": "2026-10-10",
@@ -839,38 +876,17 @@
    "image": null
   },
   {
+   "title": "Asian breakers rally behind 'innovative' Raygun",
+   "source": "Inside The Games",
+   "date": "2026-10-05",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNWGp3aEUwd1BESkFmLTVpWXM1YWlUSjRHYXc3c2hMb1BNQ1l0Z1VMckRMaXVZVTR2NVZUTEJtYy1EN1RwbmFvVlc5RjRGMFBsLUlpZzQ2M1oyLW1sQ2hFOW1UNjVxMmNIcno2bGJTamJUajNGODNvUjMyejhkQUxIaWQxNmw5ek9Dclgxal9B?oc=5",
+   "image": null
+  },
+  {
    "title": "Breaking Through Barriers, B-Girl Yell Says, 'With Consistent Effort, Possibilities Are Endless'",
    "source": "news.sbs.co.kr",
    "date": "2026-10-04",
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE84d0dMRHVlZHZNbDBuRWZsRG4xOVRUMXNTanFMdVFQUHhmTGM1LVVmVnVTVEVsNktsR1BmYV9sajdQYVdZM053RWFhal9HbDhzVnA4enQ2SzJRUjJlMU5McERZMFhFTFFTb1Q3WGRB?oc=5",
-   "image": null
-  },
-  {
-   "title": "(Asiad) Kim Hong-yul wins 2nd straight silver in breaking at Asian Games",
-   "source": "Yonhap News Agency",
-   "date": "2026-10-03",
-   "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1kYXQzOVFlWDI1MDJ0Tk9UUUs3eTR2NWFwTUozSXgzRGV4VThJYUdZbGNqQ1pqOUQ0N2xXUnpNNDlHR1c0UUhiUm5uazZXUlkxT0I5NVgwSkRXdw?oc=5",
-   "image": null
-  },
-  {
-   "title": "[PHOTOS] No 'Last Dance' yet: Veteran B-boy Hongten spins On",
-   "source": "The Korea Times",
-   "date": "2026-10-03",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNbVUtT19MZkpnTFNRaERBTUlEclE0WG9fd2FJdl81MXdoWXJwQXV0TTBNQzJIX3E4d01pcE5pQ2RiQ0xqYzUxU2RmcG1CNUU0ZmNyQ3hETDBISHBuUW9FTnpmWVBqT1NjaWdfMngzUFRFeGx3bDJLR3JwcEdEVldqS2lONGFzQUVwTzlPckZOT3FMeHRNUGxncmVpMEttRWJBOHFfVk5wc0FnZmx5X1840gG0AUFVX3lxTE91d1k0ek9qVmJTcldDUTZXb3VFclIxM0pkSmFZSXpSdGJDbEFyZTFtM0p3TDVNNDdGZW8wUDlyTmFVN3l2TlBmZC1Za3JoNkNXajV5cW0wWS1uWnZjUkRoWXROaE1KY2JxRjlrTU9PVzV1ZUFMQjdxMGZkcFVZQ0dkUXFNc25JdkhnS21Bd01nTE1RT3dpbTBLS3RlMXZ0Q0RUS0NiZ2gzVEtqb28tN05tcnVWbw?oc=5",
-   "image": null
-  },
-  {
-   "title": "World champions B-Boy Shigekix of Japan and Chinese debutante B-Girl Royal win Asian Games breaking gold medals",
-   "source": "The Australian",
-   "date": "2026-10-03",
-   "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxOcW9wQWF2OHpDbUxmbzJGMWM3MDZSNWd5Vm14RnUweDFXUmVVb2hQLWMtVWc4QzdDb1ZoYnB4U19SRHZITW5JcklXNmRmWjRiYVZIVmJaYXNrMVpQWnBuNXRuTzlXcnBvZzdSODNVMGE2RWhhejZVVGJOMkYtQWxwb3ZuZldBMS1BNW9PdXlIcXBuLW9GUUN5ZlNuOVNYTm8zNjJkTE5tRmVLZHhreFpfaUJua3lIWmczaEp2bjB1UWZPWUVlWFNwRXUwNEh2VHI4eGZVNzdMOVlEYW8wOEZsWlBYeFBuNGFjV3hCMDRQREZfdUhaV0Zqb1RwVG1nZmh4aTFSVHgxaGtNNkdwZ2ltZUtvTmtRQQ?oc=5",
-   "image": null
-  },
-  {
-   "title": "'41-Year-Old Legend' B-Boy Hong10 Showcases Timeless Skills on 'Silver Stage'",
-   "source": "news.sbs.co.kr",
-   "date": "2026-10-03",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9IS25ab0F1ZU1PaDJGeEdQdlU0bVoxMlpJcXRYTVQwaUdkQnN5cF9qSnVXT0cwTDYybUVsLTdManc3WEM0eU5MRDJ3RHlubFlyYUMwbzRGZlhONFIzWVUybHMzUWl6bXpjU19Hc3d3?oc=5",
    "image": null
   }
  ],

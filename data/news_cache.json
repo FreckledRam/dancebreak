@@ -343,6 +343,18 @@
   "5726": {
    "breaking": true,
    "place": "Lille, France"
+  },
+  "5734": {
+   "breaking": true,
+   "place": "Kawasaki, Japan"
+  },
+  "5731": {
+   "breaking": true,
+   "place": "Kawasaki, Japan"
+  },
+  "5735": {
+   "breaking": true,
+   "place": "Burghausen, Germany"
   }
  }
 }
