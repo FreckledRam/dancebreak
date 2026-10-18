@@ -844,5 +844,10 @@
   "date": "2026-10-10",
   "status": "collected",
   "battles": 56
+ },
+ "5717": {
+  "name": "JDSF Breaking Japan Open 2026",
+  "date": "2026-10-18",
+  "status": "pending"
  }
 }

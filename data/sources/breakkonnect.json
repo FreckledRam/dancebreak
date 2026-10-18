@@ -676,5 +676,15 @@
   "date": "2026-05-23",
   "status": "nothing_to_collect",
   "battles": 0
+ },
+ "4665": {
+  "name": "UNBREAKABLE 5",
+  "date": "2026-10-17",
+  "status": "pending"
+ },
+ "4734": {
+  "name": "Massive Monkees Day 2026",
+  "date": "2026-05-24",
+  "status": "pending"
  }
 }

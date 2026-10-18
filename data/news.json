@@ -1,16 +1,6 @@
 {
- "updated": "2026-10-17T13:42:46Z",
+ "updated": "2026-10-18T14:00:25Z",
  "upcoming": [
-  {
-   "source": "and8",
-   "id": "5660",
-   "name": "Battle of the Year Homecoming Jam 2026",
-   "start": "2026-10-17",
-   "end": "2026-10-17",
-   "url": "https://and8.dance/en/e/5660",
-   "place": "Hannover, Germany",
-   "image": null
-  },
   {
    "source": "and8",
    "id": "5715",
@@ -19,26 +9,6 @@
    "end": "2026-10-18",
    "url": "https://and8.dance/en/e/5715",
    "place": "Before Club +, Colombia",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5396",
-   "name": "Skill Ground Session 2026",
-   "start": "2026-10-17",
-   "end": "2026-10-17",
-   "url": "https://and8.dance/en/e/5396",
-   "place": "Záhorská Bystrica, Slovakia",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5647",
-   "name": "Spin Control Taiwan Jam 2026",
-   "start": "2026-10-17",
-   "end": "2026-10-17",
-   "url": "https://and8.dance/en/e/5647",
-   "place": "Taipei, Taiwan",
    "image": null
   },
   {
@@ -672,6 +642,16 @@
    "image": null
   },
   {
+   "source": "breakkonnect",
+   "id": "4977",
+   "name": "Just for The Record 3",
+   "start": "2027-02-06",
+   "end": "2027-02-07",
+   "url": "https://breakkonnect.com/event/4977",
+   "place": "Chamblee, GA, USA",
+   "image": "https://images-ivn6elc3dq-uc.a.run.app/33263e2b-929c-494a-bee9-dcc7d35d74c4/480/300"
+  },
+  {
    "source": "and8",
    "id": "5554",
    "name": "Funk Fusion Jam 2027",
@@ -800,6 +780,16 @@
    "url": "https://and8.dance/en/e/5637",
    "place": "Stuttgart, Germany",
    "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5575",
+   "name": "UK B-Boy Championships - World Finals 2027",
+   "start": "2027-08-14",
+   "end": "2027-08-15",
+   "url": "https://and8.dance/en/e/5575",
+   "place": "Aviva Studios, Great Britain",
+   "image": null
   }
  ],
  "features": [
@@ -848,6 +838,13 @@
  ],
  "headlines": [
   {
+   "title": "Hong10 and Yeri open 'Street World Fighter' final with special breaking performance - CHOSUNBIZ",
+   "source": "Chosunbiz",
+   "date": "2026-10-16",
+   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNRXFjRVZwSmx4NDkyVWpQQ3pUVDJ3LUtNQ3Z4OG54OHNRWHd1RzVTRDA4ZTVGbDQwY0lRWHBhSVNSdWVsZHJabEdLTEFVaGJEaXEtVW1SVkFPUGhUNkxIZTdwMVJYVnZDLV9RYmVZa2t0QTBjbW5SWDJiTzk2dmU4V2tURElpckp5VVZaeUFUZU1GU2lYZi1WcHB3M3HSAZwBQVVfeXFMTUVxY0VWcEpseDQ5MlVqUEN6VFQydy1LTUN2eDhueDhzUVh3dUc1U0QwOGU1Rmw0MGNJUVhwYUlTUnVlbGRyWmxHS0xBVWhiRGlxLVVtUlZBT1BoVDZMSGU3cDFSWFZ2Qy1fUWJlWWtrdEEwY21uUlgyYk85NnZlOFdrVERJaXJKeVVWWnlBVGVNRlNpWGYtVnBwdzNx?oc=5",
+   "image": null
+  },
+  {
    "title": "Everything you need to know about the Red Bull BC One World Final",
    "source": "Red Bull",
    "date": "2026-10-12",
@@ -862,13 +859,6 @@
    "image": null
   },
   {
-   "title": "The Hooligans break down barriers for student dancers",
-   "source": "The Cavalier Daily",
-   "date": "2026-10-10",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNYXpZRDF5Z3BrRjJKdFdYWDRmOVFwQk1wSlRENDdxUXRVdE52SWV6Ynk0OWZ0Y3kxcTFpNjdpSzZJRlk0VzJmV2tBUkpNZy12ZjRmZHhlMDhucko0MG52WlN6ZGxscU5wY2hDMzAxaXJ2QjVFQnA4SF81OGd2T0ZIbTVyNzdFMnh2elFnUGN1YUFPZ0F6bGQ0YVVhMEI4QjNVbWtCTjlLTDNhaUNkNzduWGpRbmxsNHlOZ0xuZWU4Ty14dk90cW1CazBn?oc=5",
-   "image": null
-  },
-  {
    "title": "Meet the B-Girl taking South African breaking to the world stage",
    "source": "Time Out Worldwide",
    "date": "2026-10-10",
@@ -880,13 +870,6 @@
    "source": "Inside The Games",
    "date": "2026-10-05",
    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNWGp3aEUwd1BESkFmLTVpWXM1YWlUSjRHYXc3c2hMb1BNQ1l0Z1VMckRMaXVZVTR2NVZUTEJtYy1EN1RwbmFvVlc5RjRGMFBsLUlpZzQ2M1oyLW1sQ2hFOW1UNjVxMmNIcno2bGJTamJUajNGODNvUjMyejhkQUxIaWQxNmw5ek9Dclgxal9B?oc=5",
-   "image": null
-  },
-  {
-   "title": "Breaking Through Barriers, B-Girl Yell Says, 'With Consistent Effort, Possibilities Are Endless'",
-   "source": "news.sbs.co.kr",
-   "date": "2026-10-04",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE84d0dMRHVlZHZNbDBuRWZsRG4xOVRUMXNTanFMdVFQUHhmTGM1LVVmVnVTVEVsNktsR1BmYV9sajdQYVdZM053RWFhal9HbDhzVnA4enQ2SzJRUjJlMU5McERZMFhFTFFTb1Q3WGRB?oc=5",
    "image": null
   }
  ],
