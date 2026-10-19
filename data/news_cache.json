@@ -1,17 +1,5 @@
 {
  "and8": {
-  "5715": {
-   "breaking": true,
-   "place": ""
-  },
-  "5623": {
-   "breaking": false,
-   "place": "Chemnitz, Germany"
-  },
-  "5616": {
-   "breaking": true,
-   "place": ""
-  },
   "5694": {
    "breaking": true,
    "place": ""
@@ -276,10 +264,6 @@
    "breaking": false,
    "place": "Karlsruhe, Germany"
   },
-  "5717": {
-   "breaking": true,
-   "place": ""
-  },
   "5712": {
    "breaking": true,
    "place": ""
@@ -343,6 +327,10 @@
   "5735": {
    "breaking": true,
    "place": "Burghausen, Germany"
+  },
+  "5718": {
+   "breaking": false,
+   "place": ""
   }
  }
 }

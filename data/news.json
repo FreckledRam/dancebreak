@@ -1,36 +1,6 @@
 {
- "updated": "2026-10-18T14:00:25Z",
+ "updated": "2026-10-19T16:58:45Z",
  "upcoming": [
-  {
-   "source": "and8",
-   "id": "5715",
-   "name": "BogoFlava Jam Vol. 5",
-   "start": "2026-10-17",
-   "end": "2026-10-18",
-   "url": "https://and8.dance/en/e/5715",
-   "place": "Before Club +, Colombia",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5616",
-   "name": "Triple X Battle 2026",
-   "start": "2026-10-17",
-   "end": "2026-10-18",
-   "url": "https://and8.dance/en/e/5616",
-   "place": "Rail Entertainment Studio, Greece",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5717",
-   "name": "JDSF Breaking Japan Open 2026",
-   "start": "2026-10-18",
-   "end": "2026-10-18",
-   "url": "https://and8.dance/en/e/5717",
-   "place": "Yokohama Red Brick Warehouse, Japan",
-   "image": null
-  },
   {
    "source": "and8",
    "id": "5694",
@@ -794,6 +764,13 @@
  ],
  "features": [
   {
+   "title": "Meet the Dakar 2026 Youth Olympic Games Athletes: The Story of B-Girl Hiyo, the WDSF Breaking Youth World Champion",
+   "source": "WDSF",
+   "date": "2026-10-19",
+   "url": "https://www.worlddancesport.org/News/meet-dakar-2026-bgirl-hiyo-interview-3932",
+   "image": "https://www.worlddancesport.org/media/821bbde6-4781-48ed-bacf-b4e80106fa99/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_hiyo.jpg.jpeg"
+  },
+  {
    "title": "Official Announcement: Allocated Athletes for Breaking at the Dakar 2026 Youth Olympic Games",
    "source": "WDSF",
    "date": "2026-10-15",
@@ -827,13 +804,6 @@
    "date": "2026-10-01",
    "url": "https://www.worlddancesport.org/News/newsbreaking-20th-asian-games-preview-3918",
    "image": "https://www.worlddancesport.org/media/0d7ae19f-f3ad-493e-9586-b4d6006c3cc1/480x280/landscape/all%20info%20you%20must%20know%20%281%29.jpg.jpeg"
-  },
-  {
-   "title": "Official Announcement: Confirmed Athlete List for Breaking at the 2026 Asian Games",
-   "source": "WDSF",
-   "date": "2026-09-18",
-   "url": "https://www.worlddancesport.org/News/confirmed-athletes-breaking-2026-asian-games-3908",
-   "image": "https://www.worlddancesport.org/media/a490150f-877a-4b25-95ab-b4c900b5a2f7/480x280/landscape/2026-wdsf-asian-games-athletes_16x9.jpg.jpeg"
   }
  ],
  "headlines": [
@@ -841,7 +811,7 @@
    "title": "Hong10 and Yeri open 'Street World Fighter' final with special breaking performance - CHOSUNBIZ",
    "source": "Chosunbiz",
    "date": "2026-10-16",
-   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNRXFjRVZwSmx4NDkyVWpQQ3pUVDJ3LUtNQ3Z4OG54OHNRWHd1RzVTRDA4ZTVGbDQwY0lRWHBhSVNSdWVsZHJabEdLTEFVaGJEaXEtVW1SVkFPUGhUNkxIZTdwMVJYVnZDLV9RYmVZa2t0QTBjbW5SWDJiTzk2dmU4V2tURElpckp5VVZaeUFUZU1GU2lYZi1WcHB3M3HSAZwBQVVfeXFMTUVxY0VWcEpseDQ5MlVqUEN6VFQydy1LTUN2eDhueDhzUVh3dUc1U0QwOGU1Rmw0MGNJUVhwYUlTUnVlbGRyWmxHS0xBVWhiRGlxLVVtUlZBT1BoVDZMSGU3cDFSWFZ2Qy1fUWJlWWtrdEEwY21uUlgyYk85NnZlOFdrVERJaXJKeVVWWnlBVGVNRlNpWGYtVnBwdzNx?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQcndoWk5WQUhvdFl0VlRET2JZNkt4R0lUUGFWMkpLNkotU3d5UEM1WHphd2hCb202b2hDVHZrUGIzaS1kMjZBN2F6RVEyZFAwdzNaZXFBQ2hUdmJPWjI2dm5tdE5kRlphajA4SWVlV3c3Z24xdG01QVdvMkdlbElQSktSZmFsaFM20gGcAUFVX3lxTE1FcWNFVnBKbHg0OTJValBDelRUMnctS01Ddng4bng4c1FYd3VHNVNEMDhlNUZsNDBjSVFYcGFJU1J1ZWxkclpsR0tMQVVoYkRpcS1VbVJWQU9QaFQ2TEhlN3AxUlhWdkMtX1FiZVlra3RBMGNtblJYMmJPOTZ2ZThXa1RESWlySnlVVlp5QVRlTUZTaVhmLVZwcHczcQ?oc=5",
    "image": null
   },
   {
@@ -859,17 +829,17 @@
    "image": null
   },
   {
+   "title": "The Hooligans break down barriers for student dancers",
+   "source": "The Cavalier Daily",
+   "date": "2026-10-10",
+   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPQ1c1aE5zZ0ExRjVlUVAyR2dLdEdTa2tFcmQwbGNDMUdpeVd1NC1ZWjktUUxaNWNWakJZZzVFZmJXUXFQRjVYZjJseXhFRW5UVXpnLXh6dDAyY2d3WTFXVWpZX3Z0SUYxZ28yeFcwTEZKY2xZMlRHaTIwXzZMOUc1ckJFcm81Wm14enpPbHRLdUFseEYyZk40LVlCbVlBOHVZ?oc=5",
+   "image": null
+  },
+  {
    "title": "Meet the B-Girl taking South African breaking to the world stage",
    "source": "Time Out Worldwide",
    "date": "2026-10-10",
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOSEFKendrbUNFdlhReE1wdnk3ZExGcTNKbFZkSW1sQWpUTmQtaVEyZEpTajg0cGR6QlJQTWVuaUhBaTlMeWR4SzdLbEhpbVdxSzluRDl2akpuaGs4Nm5SRmdVZkNabk5nRGl3WUowMFZYa3ZMdG5Dejc1cXRMaW9VSU1rN2pmQ2MxdG1tbTRXblFOMEJ1bUV4NmljQ2lKZE5tc2REOWJMOGNXYjlSWWY0?oc=5",
-   "image": null
-  },
-  {
-   "title": "Asian breakers rally behind 'innovative' Raygun",
-   "source": "Inside The Games",
-   "date": "2026-10-05",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNWGp3aEUwd1BESkFmLTVpWXM1YWlUSjRHYXc3c2hMb1BNQ1l0Z1VMckRMaXVZVTR2NVZUTEJtYy1EN1RwbmFvVlc5RjRGMFBsLUlpZzQ2M1oyLW1sQ2hFOW1UNjVxMmNIcno2bGJTamJUajNGODNvUjMyejhkQUxIaWQxNmw5ek9Dclgxal9B?oc=5",
    "image": null
   }
  ],
