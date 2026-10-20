@@ -848,11 +848,13 @@
  "5717": {
   "name": "JDSF Breaking Japan Open 2026",
   "date": "2026-10-18",
-  "status": "pending"
+  "status": "collected",
+  "battles": 32
  },
  "5715": {
   "name": "BogoFlava Jam Vol. 5",
   "date": "2026-10-18",
-  "status": "pending"
+  "status": "collected",
+  "battles": 45
  }
 }
