@@ -5,6 +5,14 @@ Each battle keeps every non-empty cell of its row in the org's wide format
 (`cells`, keyed by column name such as r2j5phys), so the org's TSVs can be
 regenerated exactly. Columns and their order per judging system live in
 data/schema/headers.json.
+
+A battle (see README, "What an event file looks like"):
+    system   which sheet it belongs to (a key of headers.json, or PointsPerRound)
+    red, blue, winner, judges, stage, id, url
+             what the site and the rankings read
+    cells    the battle as one row of its system's sheet, written to data/export
+Names and the winner are in both places ("breaker 1 (red)", "breaker 2 (blue)", "winner", "judge N name").
+A hand edit must change both; tests/test_data_files.py fails if they disagree.
 """
 from __future__ import annotations
 

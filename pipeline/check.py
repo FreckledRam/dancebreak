@@ -28,6 +28,13 @@ PROGRESS = store.DATA / "progress.json"
 SAVE_EVERY = 10          # events between saves, so a long run shows progress and keeps its work if cut off
 REVIEW = store.DATA / "review.json"
 INDEX = store.DATA / "sources"
+# data/sources/<source>.json: every event a scraper has listed, by the site's id, with a "status":
+#   pending             waiting to be collected (set it back to this to re-collect an event; that replaces its file)
+#   failed              the last attempt failed; retried next run, set aside after MAX_ATTEMPTS
+#   skipped             set aside after repeated failures (listed on the Null page), or removed by hand
+#   collected           saved to data/battles/<source>/<id>.json and never scraped again
+#   nothing_to_collect  the event had no 1 vs 1 breaking battles
+#   in_original         already in the original collection; only its date and link were added
 
 
 def name_key(name: str, year) -> tuple[str, str]:

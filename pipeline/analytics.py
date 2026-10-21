@@ -2,7 +2,10 @@
 
 People are matched by name only: spelling, case and punctuation differences are folded together,
 but two different people who share a name are counted as one, and one person with two different
-stage names is counted as two.
+stage names is counted as two. To merge or split people, edit the names in data/battles (README,
+"Fixing the data"); the site shows each person under the spelling used most often.
+
+Elo reads only each battle's `winner`. Judge statistics read the score cells (see votes()).
 """
 from __future__ import annotations
 
@@ -10,7 +13,9 @@ import re
 import unicodedata
 from collections import Counter, defaultdict
 
-START, K, K_NEW, NEW_BATTLES = 1500, 24, 40, 10     # Elo: new breakers move faster for their first battles
+# Elo: everyone starts at START; a win against an equal moves a rating by about K/2 (K_NEW/2 for a breaker's
+# first NEW_BATTLES battles, so newcomers find their level quickly). Change these to change every ranking.
+START, K, K_NEW, NEW_BATTLES = 1500, 24, 40, 10
 MIN_BATTLES = 5                                    # below this a breaker is listed but not ranked
 
 
@@ -21,6 +26,8 @@ def key(name: str) -> str:
 
 
 def division(stage: str) -> str:
+    """B-Girls, B-Boys or Open, guessed from the stage name (the sites do not say). A breaker's division is
+    the one they battle in most."""
     s = stage.lower()
     if re.search(r"b-?\s?girl|women|female|ladies", s):
         return "B-Girls"
