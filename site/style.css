@@ -54,6 +54,9 @@ h1.oneline { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
 .panel { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 20px 24px 22px; margin-bottom: 16px; }
 .panel h2 { margin: 0 0 14px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 .panel h1 { font-size: 28px; }
+/* recent runs: every run, in a box that scrolls past the first ten or so */
+.runs-scroll { max-height: 420px; overflow-y: auto; overscroll-behavior: contain; }
+.runs-scroll thead th { position: sticky; top: 0; background: var(--soft); z-index: 1; }
 .panel.healthy { background: color-mix(in srgb, var(--ok) 8%, var(--soft)); border-color: color-mix(in srgb, var(--ok) 22%, var(--line)); }
 .panel h2:has(#last-run) { display: flex; justify-content: space-between; gap: 12px; }
 #last-run { text-transform: none; letter-spacing: 0; font-weight: 400; font-size: 13px; }
@@ -64,6 +67,11 @@ h1.oneline { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
 .panel .nums .hero b { font-size: 52px; }
 .panel .nums div > span { font-size: 14px; color: var(--fg); font-weight: 500; }
 .panel .nums small { margin-top: 2px; }
+.span-pick { appearance: none; font: inherit; line-height: inherit; color: inherit; background: none; border: 0; padding: 0 14px 0 0; margin: 0; cursor: pointer;
+  field-sizing: content; height: auto; display: inline-block; vertical-align: top;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: right 5px center, right 1px center; background-size: 4px 4px; background-repeat: no-repeat; }
+.span-pick:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 .panel .nums small.up { color: var(--ok); font-weight: 500; }
 .panel table { margin-top: 16px; }
 .panel tr:last-child td { border-bottom: 0; }

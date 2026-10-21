@@ -41,7 +41,7 @@ def save(state: dict) -> None:
 def log(kind: str, text: str, source: str | None = None, **extra) -> None:
     entries = json.loads(ACTIVITY.read_text(encoding="utf-8")) if ACTIVITY.exists() else []
     entries.insert(0, {"time": now(), "kind": kind, "source": source, "text": text, **extra})
-    store.write_json(ACTIVITY, entries[:500])
+    store.write_json(ACTIVITY, entries[:5000])   # a year or more of daily runs, for the Added picker on Scrapers
 
 
 def queue() -> dict:

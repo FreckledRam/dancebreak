@@ -159,6 +159,9 @@ function health(s, status) {
 }
 
 let STATUS = null, ACTIVITY = [], LIVE = null;
+// "Added" on Scrapers: which stretch of runs it sums (days; 0 = the last run, null = every logged run)
+const ADDED_SPANS = [[0, 'Last run'], [7, 'Last 7 days'], [30, 'Last 30 days'], [182, 'Last 6 months'], [365, 'Last year'], [null, 'All time']];
+let addedSpan = 0;
 
 // During a run the pipeline pushes data/progress.json to the repository. Read it from there so the
 // page can show a run in progress without the site being rebuilt or the page reloaded.
@@ -185,6 +188,7 @@ function liveProgress(key) {
 
 function renderStatus(status, activity) {
   STATUS = status; ACTIVITY = activity;
+  if (document.activeElement && document.activeElement.id === 'added-span') return;   // a redraw would close the open picker
   const runsFor = (n) => Math.ceil(n / status.events_per_run);
   const queue = status.queue || {};
   const backlog = Object.values(queue).reduce((sum, q) => sum + q.waiting, 0);
@@ -211,14 +215,14 @@ function renderStatus(status, activity) {
     : '<span class="good">No new events or battles.</span>';
   // the page opens on the few numbers that say whether collection is keeping up
   const latest = Object.values(status.sources).map((x) => x.last_changed).filter(Boolean).sort().pop();
-  const got = added.events || added.battles;
   $('#scrape-nums').innerHTML = [
     ['Last scrape', LIVE ? 'Running now' : ago(status.last_run), LIVE ? `started ${ago(LIVE.started)}` : 'once a day'],
     ['Next scrape', `<span title="${esc(next.toLocaleString())}">${countdown(next)}</span>`, next.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })],
     ['New data', ago(latest), 'last time a scrape found any'],
-    ['Last run added', got ? `+${added.battles.toLocaleString()}` : '0', got ? `battles from ${added.events.toLocaleString()} event${added.events === 1 ? '' : 's'}` : 'nothing new to collect'],
+    ['ADDED', ...addedTile(status, added)],
     ['In queue', backlog.toLocaleString(), backlog ? `about ${runs} run${runs === 1 ? '' : 's'} to clear` : 'all caught up'],
-  ].map(([label, value, note]) => `<div><b>${value}</b><span>${label}</span><small>${note}</small></div>`).join('');
+  ].map(([label, value, note]) => `<div><b>${value}</b><span>${label === 'ADDED' ? addedPicker() : label}</span><small>${note}</small></div>`).join('');
+  $('#added-span').onchange = (e) => { addedSpan = e.target.value === '' ? null : +e.target.value; e.target.blur(); renderStatus(STATUS, ACTIVITY); };
   $('#headline-sub').hidden = true;
   document.querySelectorAll('.review-count').forEach((el) => { el.textContent = status.need_review || ''; });
 
@@ -282,6 +286,25 @@ function renderStatus(status, activity) {
 
   renderQuality(status);
   renderAdded(status);
+}
+
+// the Added tile: battles and events over the chosen stretch of runs
+function addedTile(status, last) {
+  let { events, battles } = last;
+  if (addedSpan !== 0) {
+    const since = addedSpan === null ? 0 : Date.now() - addedSpan * 864e5;
+    const runs = (status.runs || []).filter((r) => new Date(r.time) >= since);
+    events = runs.reduce((sum, r) => sum + r.events, 0);
+    battles = runs.reduce((sum, r) => sum + r.battles, 0);
+  }
+  const got = events || battles;
+  return [got ? `+${battles.toLocaleString()}` : '0',
+    got ? `battles from ${events.toLocaleString()} event${events === 1 ? '' : 's'}` : 'nothing new to collect'];
+}
+
+function addedPicker() {
+  return `<select id="added-span" class="span-pick" title="Which runs to count">${ADDED_SPANS.map(([d, label]) =>
+    `<option value="${d ?? ''}"${d === addedSpan ? ' selected' : ''}>${label === 'Last run' ? 'Last run added' : `Added, ${label.toLowerCase()}`}</option>`).join('')}</select>`;
 }
 
 // Dataset tab: how much the most recent additions grew the dataset, and since when.
