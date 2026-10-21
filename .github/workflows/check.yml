@@ -15,6 +15,7 @@ on:
         default: false
 
 permissions:
+  actions: read       # the manual run cooldown reads this workflow's past runs
   contents: write
   pages: write
   id-token: write
@@ -39,6 +40,28 @@ jobs:
           last = max(checked, default="2000-01-01T00:00:00Z")
           hours = (datetime.datetime.now(datetime.timezone.utc) - datetime.datetime.fromisoformat(last.replace("Z", "+00:00"))).total_seconds() / 3600
           print(f"skip={'true' if hours < 12 else 'false'}")
+          PY
+      - name: Manual run cooldown (one every 24 hours)
+        # A manual run (the site's "Manual run" button sends people to GitHub's "Run workflow") may start only
+        # 24 hours after the last manual run, so the sites we read are not visited more than they need to be.
+        # A run this step refuses ends as failed, and failed runs are not counted, so a refusal never restarts the clock.
+        # The site's button reads the same list of runs to show how long is left (site/app.js, lastManualRun).
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          last=$(gh api "repos/${{ github.repository }}/actions/workflows/check.yml/runs?event=workflow_dispatch&per_page=20" \
+            --jq '[.workflow_runs[] | select(.id != ${{ github.run_id }} and .conclusion != "failure")][0].created_at // empty')
+          [ -z "$last" ] && { echo "No earlier manual run. Going ahead."; exit 0; }
+          python3 - "$last" <<'PY'
+          import datetime, sys
+          last = datetime.datetime.fromisoformat(sys.argv[1].replace("Z", "+00:00"))
+          left = last + datetime.timedelta(hours=24) - datetime.datetime.now(datetime.timezone.utc)
+          if left.total_seconds() > 0:
+              h, m = divmod(int(left.total_seconds() // 60), 60)
+              print(f"::error::The last manual run started {sys.argv[1]}. Manual runs are limited to one every 24 hours; try again in {h} h {m} min.")
+              sys.exit(1)
+          print(f"Last manual run started {sys.argv[1]}, more than 24 hours ago. Going ahead.")
           PY
       - uses: astral-sh/setup-uv@v5
         if: steps.gate.outputs.skip != 'true'

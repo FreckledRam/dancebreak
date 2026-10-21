@@ -184,7 +184,7 @@
       <div class="panel"><div class="nums" id="scrape-nums"></div></div>
     <div class="panel">
       <h2>Scraper health</h2>
-      <h1 id="headline">&nbsp;</h1>
+      <div class="health-top"><h1 id="headline">&nbsp;</h1><div class="run-now"><span id="next-in" class="muted"></span><button id="manual-run" title="Start a scrape now instead of waiting for the daily one. One every 24 hours">Manual run</button></div></div>
       <p class="sub" id="headline-sub">&nbsp;</p>
       <table id="sources-table" class="stack">
         <thead><tr><th title="The site this scraper reads, and a link to its code on GitHub">Scraper</th><th title="Whether its last run worked">Status</th><th title="When this scraper last found a battle it did not already have">Last new data</th><th title="The most recent event collected from this site">Newest event</th><th title="Battles in the dataset that came from this site" class="num">Battles</th></tr></thead>
@@ -285,6 +285,14 @@
     <h3 id="modal-title"></h3>
     <div id="modal-body"></div>
     <div class="dialog-actions"><button id="modal-cancel">Cancel</button><button id="modal-ok" class="primary">Download</button></div>
+  </div>
+</div>
+
+<div id="run-modal" class="modal" hidden>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="run-title">
+    <h3 id="run-title"></h3>
+    <div id="run-body"></div>
+    <div class="dialog-actions"><button id="run-cancel">Cancel</button><button id="run-ok" class="primary">Continue to GitHub</button></div>
   </div>
 </div>
 

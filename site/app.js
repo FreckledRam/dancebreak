@@ -143,6 +143,48 @@ function nextRun(status) {
   return t;
 }
 
+// ---- manual run
+// The site is static, so the button cannot start a scrape itself. It says whether a manual run is allowed yet, then
+// opens GitHub's "Run workflow" page for check.yml, which only people with write access to the repository can use.
+// The 24 hour limit is enforced by the workflow ("Manual run cooldown" in check.yml); this only reads the same runs.
+const REPO = 'FreckledRam/dancebreak', COOLDOWN_HOURS = 24;
+const COOLDOWN_WHY = `Manual runs are limited to one every ${COOLDOWN_HOURS} hours. Each run visits And8, WDSF and Break Konnect, and visiting
+  more often than once a day adds load on those sites and risks the scraper being blocked. New results rarely appear faster than that.`;
+
+// When the last manual run that counts started: GitHub's public list of this workflow's manual runs, newest first.
+// Failed runs are skipped, since a run the cooldown refuses ends as failed and must not restart the clock.
+async function lastManualRun() {
+  const res = await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/check.yml/runs?event=workflow_dispatch&per_page=20`);
+  if (!res.ok) throw new Error(`GitHub said ${res.status}`);
+  const run = (await res.json()).workflow_runs.find((r) => r.conclusion !== 'failure');
+  return run ? new Date(run.created_at) : null;
+}
+
+async function askManualRun() {
+  const title = $('#run-title'), body = $('#run-body'), ok = $('#run-ok');
+  const show = (head, html, canRun) => { title.textContent = head; body.innerHTML = html; ok.hidden = !canRun; $('#run-cancel').textContent = canRun ? 'Cancel' : 'Close'; };
+  $('#run-modal').hidden = false;
+  if (LIVE) return show('A scrape is running now', '<p>Wait for it to finish. Its progress shows in the Queue panel below.</p>', false);
+  show('Manual run', '<p class="muted">Checking when the last manual run was…</p>', false);
+  const why = `<p class="note">${COOLDOWN_WHY}</p>`;
+  const how = '<p>GitHub opens next. Press <b>Run workflow</b> there. You need write access to the repository; anyone else can wait for the daily run.</p>';
+  let last;
+  try { last = await lastManualRun(); } catch {
+    return show('Start a manual run?', `<p>Could not check when the last manual run was. If one ran in the last ${COOLDOWN_HOURS} hours, GitHub will refuse this one.</p>${how}${why}`, true);
+  }
+  const free = last && new Date(+last + COOLDOWN_HOURS * 3600e3);
+  if (free && free > Date.now()) {
+    return show('Manual run on cooldown', `<p>The last manual run started ${esc(ago(last.toISOString()))}. The next one can start in <b>${countdown(free)}</b>, at ${esc(free.toLocaleString([], { weekday: 'short', hour: 'numeric', minute: '2-digit' }))}.</p>
+      <p>The daily scrape still runs in ${countdown(nextRun(STATUS))}.</p>${why}`, false);
+  }
+  show('Start a manual run?', `<p>This collects new events now instead of waiting ${countdown(nextRun(STATUS))} for the daily scrape.</p>${how}${why}`, true);
+}
+const closeManualRun = () => { $('#run-modal').hidden = true; };
+$('#manual-run').onclick = askManualRun;
+$('#run-cancel').onclick = closeManualRun;
+$('#run-ok').onclick = () => { window.open(`https://github.com/${REPO}/actions/workflows/check.yml`, '_blank', 'noopener'); closeManualRun(); };
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !$('#run-modal').hidden) closeManualRun(); });
+
 function progressCell(key, q, done, pct) {
   const live = liveProgress(key);
   if (live) return `<div class="progress"><div class="bar live"><i style="width:${live.pct}%"></i></div><span class="note">${live.done}/${live.todo} events</span></div>`;
@@ -224,6 +266,7 @@ function renderStatus(status, activity) {
   ].map(([label, value, note]) => `<div><b>${value}</b><span>${label === 'ADDED' ? addedPicker() : label}</span><small>${note}</small></div>`).join('');
   $('#added-span').onchange = (e) => { addedSpan = e.target.value === '' ? null : +e.target.value; e.target.blur(); renderStatus(STATUS, ACTIVITY); };
   $('#headline-sub').hidden = true;
+  $('#next-in').textContent = LIVE ? 'Scrape running now' : `Next scrape in ${countdown(next)}`;
   document.querySelectorAll('.review-count').forEach((el) => { el.textContent = status.need_review || ''; });
 
   $('#sources-table tbody').innerHTML = Object.entries(status.sources).map(([key, s]) => {

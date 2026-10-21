@@ -240,8 +240,8 @@ table.rank .cols td { border: 0; padding: 3px 12px 3px 0; font-size: 13px; backg
 @media (max-width: 680px) { .cols { grid-template-columns: 1fr; } }
 
 /* download dialog */
-#modal { position: fixed; inset: 0; z-index: 20; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,.6); }
-#modal[hidden] { display: none; }
+#modal, #run-modal { position: fixed; inset: 0; z-index: 20; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,.6); }
+#modal[hidden], #run-modal[hidden] { display: none; }
 .dialog { width: 460px; max-width: 100%; max-height: 90vh; overflow-y: auto; background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; box-shadow: 0 24px 60px rgba(0,0,0,.6); }
 .dialog h3 { margin: 0 0 4px; font-size: 20px; font-weight: 700; letter-spacing: -.02em; }
 .dialog h4 { margin: 18px 0 4px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
@@ -521,3 +521,8 @@ table.rank th.filtered::after { opacity: 1; }
 .code-link { display: block; margin-top: 2px; font-size: 12px; }
 .code-link a { color: var(--muted); }
 .code-link a:hover { color: var(--fg); }
+/* scraper health: the countdown to the next scrape and the Manual run button, beside the headline */
+.health-top { display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; }
+.health-top h1 { margin-bottom: 0; }
+.run-now { display: flex; align-items: center; gap: 14px; font-size: 14px; }
+#next-in { white-space: nowrap; }
