@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20T15:04:02Z",
+ "updated": "2026-10-21T15:13:59Z",
  "upcoming": [
   {
    "source": "and8",
@@ -200,6 +200,16 @@
    "url": "https://and8.dance/en/e/5648",
    "place": "Tokyo, Japan",
    "image": null
+  },
+  {
+   "source": "breakkonnect",
+   "id": "4985",
+   "name": "Flavor Fest's Bring the Flavor Breakin' Battle",
+   "start": "2026-11-08",
+   "end": "2026-11-08",
+   "url": "https://breakkonnect.com/event/4985",
+   "place": "Tampa, FL, USA",
+   "image": "https://images-ivn6elc3dq-uc.a.run.app/c34600e9-b2e4-4de4-ac57-c680ebfa940b/480/300"
   },
   {
    "source": "and8",
@@ -764,6 +774,13 @@
  ],
  "features": [
   {
+   "title": "Meet the Dakar 2026 Youth Olympic Games Athletes: Seoul’s Pioneer B-Girl Minji Charts Her Own Course",
+   "source": "WDSF",
+   "date": "2026-10-21",
+   "url": "https://www.worlddancesport.org/News/meet-dakar-2026-bgirl-minji-interview-3935",
+   "image": "https://www.worlddancesport.org/media/e0ed1560-bbb6-4694-9243-b4ea008b34d2/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_minji.jpg.jpeg"
+  },
+  {
    "title": "Meet the Dakar 2026 Youth Olympic Games Athletes: From National Surfer to Olympic Breaker with Italy’s B-Boy Leo",
    "source": "WDSF",
    "date": "2026-10-20",
@@ -797,16 +814,16 @@
    "date": "2026-10-02",
    "url": "https://www.worlddancesport.org/News/just-dance-breaking-opening-day-asian-games-aichi-nagoya-2026-3920",
    "image": "https://www.worlddancesport.org/media/c3e0645f-384f-4c6c-a47b-b4d700e8e792/480x280/landscape/hal01272.jpg"
-  },
-  {
-   "title": "Watch Live: Experience the Breaking Action at the 20th Asian Games from Aichi-Nagoya!",
-   "source": "WDSF",
-   "date": "2026-10-01",
-   "url": "https://www.worlddancesport.org/News/watch-live-breaking-20th-asian-games-3919",
-   "image": "https://www.worlddancesport.org/media/b3947bc9-b59b-4359-bb7b-b4d600be1948/480x280/landscape/img_9887.png"
   }
  ],
  "headlines": [
+  {
+   "title": "Zeluss Conquers Morocco, sets sights on Afrobreak title in Accra",
+   "source": "Ghana Sports Online",
+   "date": "2026-10-21",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPQnF0QWhKZE1sX2RlRElkTGpGZlRDb0x6aTVHSjk2MmhIVlZ0Z3VfQmthLTNFZDI5NkUzSEFlMEVSRnZYbWo4OWRtZTViaDA1ZllxeEFOUm54Z01VZkZKeDFVV0lJb282YlpzRzJEVENxcUlObTNvWE9CN1hoU21ncDYwNlpRcmp0OXhSWG1JMGtMZUpMUGdoTnFxVE9fWDRUa0HSAaIBQVVfeXFMT0JxdEFoSmRNbF9kZURJZExqRmZUQ29Memk1R0o5NjJoSFZWdGd1X0JrYS0zRWQyOTZFM0hBZTBFUkZ2WG1qODlkbWU1YmgwNWZZcXhBTlJueGdNVWZGSngxVVdJSW9vNmJac0cyRFRDcXFJTm0zb1hPQjdYaFNtZ3A2MDZaUXJqdDl4UlhtSTBrTGVKTFBnaE5xcVRPX1g0VGtB?oc=5",
+   "image": null
+  },
   {
    "title": "SDF Finale Features National Breakers' Special Performances",
    "source": "조선일보",
@@ -819,13 +836,6 @@
    "source": "Chosunbiz",
    "date": "2026-10-16",
    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQcndoWk5WQUhvdFl0VlRET2JZNkt4R0lUUGFWMkpLNkotU3d5UEM1WHphd2hCb202b2hDVHZrUGIzaS1kMjZBN2F6RVEyZFAwdzNaZXFBQ2hUdmJPWjI2dm5tdE5kRlphajA4SWVlV3c3Z24xdG01QVdvMkdlbElQSktSZmFsaFM20gGcAUFVX3lxTE1FcWNFVnBKbHg0OTJValBDelRUMnctS01Ddng4bng4c1FYd3VHNVNEMDhlNUZsNDBjSVFYcGFJU1J1ZWxkclpsR0tMQVVoYkRpcS1VbVJWQU9QaFQ2TEhlN3AxUlhWdkMtX1FiZVlra3RBMGNtblJYMmJPOTZ2ZThXa1RESWlySnlVVlp5QVRlTUZTaVhmLVZwcHczcQ?oc=5",
-   "image": null
-  },
-  {
-   "title": "5 big misconceptions about breakdance and hip-hop",
-   "source": "Red Bull",
-   "date": "2026-10-14",
-   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQTEZjMU95V2Q1WER1UGdpSnROZzJubGFKVVAtamdrVEVYX1JLVFVMVVhBOGNwMW1kSndYRmN1M0VLME5uZGVfRmlIWWFlQXQtZC1aX3ZURnBWUkg4amF1Q3o5NUdSbk9QY1pQbUtoWkpSNHhVbDhVRS11N1phUkVwV2o2WDAyNWx1?oc=5",
    "image": null
   },
   {
