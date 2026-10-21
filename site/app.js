@@ -233,7 +233,7 @@ function renderStatus(status, activity) {
       ? (quiet === null ? 'This scraper has never run.' : `No scrape in the last ${quiet < 48 ? `${quiet} hours` : `${Math.round(quiet / 24)} days`}. The schedule may have stopped.`)
       : cls === 'error' ? s.note : '';
     return `<tr>
-    <td><b><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a></b></td>
+    <td><b><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a></b><small class="code-link"><a href="https://github.com/FreckledRam/dancebreak/blob/main/sources/${esc(key)}.py" target="_blank" rel="noopener" title="The code that reads ${esc(s.name)}, on GitHub">Code</a></small></td>
     <td data-label="Status"><div><span class="status ${cls}">${label}</span>${why ? `<div class="note" ${s.detail ? `title="${esc(s.detail)}"` : ''}>${esc(why)}</div>` : ''}</div></td>
     <td data-label="Last new data">${ago(s.last_changed)}</td>
     <td data-label="Newest event">${s.newest_event ? `<div class="clip"><span title="${esc(s.newest_event)}">${esc(s.newest_event)}</span><small>${esc(s.newest_date || '')}</small></div>` : '<span class="muted">-</span>'}</td>
