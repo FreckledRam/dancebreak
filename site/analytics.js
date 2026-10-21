@@ -337,7 +337,7 @@ get('data/analytics.json').then((A) => {
     ['events', 'Events', { num: true, tip: 'Number of events they have battled at' }],
     ['div', 'Division', { tip: 'The category they most often enter' }],
     ['to', 'Active', { fmt: years, tip: 'First and last year they appear in the dataset', csv: ACTIVE }],
-  ], { onRow: breakerDetail, tools: $('#breakers .filters'), file: 'breakers', title: 'Breaker rankings', total: () => A.breakers.length,
+  ], { onRow: breakerDetail, sort: 'to', tools: $('#breakers .filters'), file: 'breakers', title: 'Breaker rankings', total: () => A.breakers.length,
     outside: () => [['Search', $('#bq').value.trim()], ['Division', $('#bdiv .on').dataset.v && $('#bdiv .on').textContent]].filter((f) => f[1]) });
   const showBreakers = () => {
     const q = $('#bq').value.trim().toLowerCase(), d = $('#bdiv .on').dataset.v;
@@ -359,6 +359,7 @@ get('data/analytics.json').then((A) => {
     return breakers.open(k);
   };
 
+  A.judges.sort((a, b) => b.battles - a.battles);   // within a year, busiest judges first
   const judges = rankTable($('#judges-table'), $('#judges-pager'), [
     ['name', 'Judge', { fmt: (r) => `<b>${esc(r.name)}</b>`, tip: 'The name used most often for this judge' }],
     ['battles', 'Battles', { num: true, fmt: (r) => r.battles.toLocaleString(), tip: 'Battles they sat on the panel for' }],
@@ -367,7 +368,7 @@ get('data/analytics.json').then((A) => {
     ['alone', 'Lone dissent', { ...pctCell('alone'), tip: 'How often they were the only judge on their side' }],
     ['red', 'Votes for red', { ...pctCell('red'), tip: 'Share of their votes that went to the red side. 50% would be even' }],
     ['to', 'Active', { fmt: years, tip: 'First and last year they appear in the dataset', csv: ACTIVE }],
-  ], { onRow: judgeDetail, sort: 'battles', tools: $('#judges [data-view="judges"] .filters'), file: 'judges', title: 'Judges', total: () => A.judges.length,
+  ], { onRow: judgeDetail, sort: 'to', tools: $('#judges [data-view="judges"] .filters'), file: 'judges', title: 'Judges', total: () => A.judges.length,
     outside: () => [['Search', $('#jq').value.trim()]].filter((f) => f[1]) });
   const showJudges = () => { const q = $('#jq').value.trim().toLowerCase(); judges.set(A.judges.filter((j) => !q || j.name.toLowerCase().includes(q))); };
   $('#jq').oninput = showJudges;
@@ -393,7 +394,7 @@ get('data/analytics.json').then((A) => {
     ['system', 'System', { fmt: (r) => `<a class="plink" href="#systems">${esc(r.system)}</a>`, tip: 'The judging system used most at this event' }],
     ['unanimous', 'Unanimous', { ...pctCell('unanimous'), tip: 'Rounds where every judge picked the same side' }],
     ['one_vote', 'One-vote', { ...pctCell('one_vote'), tip: 'Rounds decided by a single judge' }],
-  ], { onRow: eventDetail, tools: $('#events .filters'), file: 'events', title: 'Events', total: () => A.events.length,
+  ], { onRow: eventDetail, sort: 'when', tools: $('#events .filters'), file: 'events', title: 'Events', total: () => A.events.length,
     outside: () => [['Search', $('#eq').value.trim()], ['Source', $('#esrc .on').dataset.v && $('#esrc .on').textContent]].filter((f) => f[1]) });
   // Older events have a year and no day. Sorting uses one value for both, so they fall in with their year.
   A.events.forEach((e) => { e.when = e.date || (e.year ? String(e.year) : null); e.md = e.date ? e.date.slice(5) : null; });
@@ -428,5 +429,5 @@ get('data/analytics.json').then((A) => {
     ['one_vote', 'One-vote', { ...pctCell('one_vote'), tip: 'Rounds decided by a single judge' }],
     ['red_wins', 'Red wins', { ...pctCell('red_wins'), tip: 'Share of decided battles won by the red side' }],
     ['ties', 'Ties', { num: true, tip: 'Battles that ended level' }],
-  ], { sort: 'battles', tools: $('#systems-tools'), file: 'systems', title: 'Judging systems' }).set(A.systems.map((s) => ({ ...s, k: s.system })));
+  ], { sort: 'to', tools: $('#systems-tools'), file: 'systems', title: 'Judging systems' }).set(A.systems.map((s) => ({ ...s, k: s.system })).sort((a, b) => b.battles - a.battles));
 });

@@ -334,6 +334,9 @@ function setupDataset(data) {
   data.cols.push('md'); C.md = data.cols.length - 1;
   data.rows.forEach((r) => r.push(r[C.date] ? r[C.date].slice(5) : ''));
   DATA.C = C;
+  // default order: newest event first; an event's battles keep their order, and year-only events sit with their year
+  const when = (r) => r[C.date] || (r[C.year] ? String(r[C.year]) : '');
+  data.rows.sort((x, y) => when(y).localeCompare(when(x)));
   DATA.text = data.rows.map((r) => [r[C.event], r[C.stage], r[C.red], r[C.blue], r[C.judge_names]].join(' ').toLowerCase());
   $('#downloads').innerHTML = SYSTEMS.map((s) => `<a href="data/export/${s}DataRaw.tsv" download>${s}</a>`).join(', ');
   $('#q').addEventListener('input', () => { page = 0; filter(); });
