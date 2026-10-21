@@ -337,7 +337,7 @@ get('data/analytics.json').then((A) => {
     ['events', 'Events', { num: true, tip: 'Number of events they have battled at' }],
     ['div', 'Division', { tip: 'The category they most often enter' }],
     ['to', 'Active', { fmt: years, tip: 'First and last year they appear in the dataset', csv: ACTIVE }],
-  ], { onRow: breakerDetail, sort: 'to', tools: $('#breakers .filters'), file: 'breakers', title: 'Breaker rankings', total: () => A.breakers.length,
+  ], { onRow: breakerDetail, sort: 'rank', dir: 1, tools: $('#breakers .filters'), file: 'breakers', title: 'Breaker rankings', total: () => A.breakers.length,
     outside: () => [['Search', $('#bq').value.trim()], ['Division', $('#bdiv .on').dataset.v && $('#bdiv .on').textContent]].filter((f) => f[1]) });
   const showBreakers = () => {
     const q = $('#bq').value.trim().toLowerCase(), d = $('#bdiv .on').dataset.v;
