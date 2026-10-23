@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T15:15:52Z",
+ "updated": "2026-10-23T15:03:15Z",
  "upcoming": [
   {
    "source": "and8",
@@ -263,6 +263,16 @@
   },
   {
    "source": "and8",
+   "id": "5739",
+   "name": "Next Generation Battle 2026",
+   "start": "2026-11-14",
+   "end": "2026-11-14",
+   "url": "https://and8.dance/en/e/5739",
+   "place": "Hannover, Germany",
+   "image": null
+  },
+  {
+   "source": "and8",
    "id": "5662",
    "name": "Raebels Crew 15th Anniversary X Stakes Is High - Vol. 2",
    "start": "2026-11-14",
@@ -309,6 +319,16 @@
    "end": "2026-11-22",
    "url": "https://and8.dance/en/e/5542",
    "place": "Stralsund, Germany",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5743",
+   "name": "4 Da Culture",
+   "start": "2026-11-21",
+   "end": "2026-11-21",
+   "url": "https://and8.dance/en/e/5743",
+   "place": "Hannover, Germany",
    "image": null
   },
   {
@@ -493,6 +513,16 @@
   },
   {
    "source": "and8",
+   "id": "5736",
+   "name": "Workshop with BBoy Thias",
+   "start": "2026-11-29",
+   "end": "2026-11-29",
+   "url": "https://and8.dance/en/e/5736",
+   "place": "Salles de danse maison ALG, France",
+   "image": null
+  },
+  {
+   "source": "and8",
    "id": "5632",
    "name": "WDSF World Championshipts - Paris - France",
    "start": "2026-12-04",
@@ -609,6 +639,26 @@
    "end": "2026-12-20",
    "url": "https://and8.dance/en/e/5378",
    "place": "Dubai, United Arab Emirates",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5740",
+   "name": "C.U.B.E. Vol. 13 (Colosseum Urban Battles Event)",
+   "start": "2026-12-29",
+   "end": "2026-12-29",
+   "url": "https://and8.dance/en/e/5740",
+   "place": "Pula, Croatia",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5737",
+   "name": "Kineticz Battle 2027",
+   "start": "2027-01-17",
+   "end": "2027-01-17",
+   "url": "https://and8.dance/en/e/5737",
+   "place": "Sueño, Italy",
    "image": null
   },
   {
@@ -750,29 +800,23 @@
    "url": "https://and8.dance/en/e/5608",
    "place": "Europa SC, Slovakia",
    "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5637",
-   "name": "German Breaking Championships 2027",
-   "start": "2027-07-30",
-   "end": "2027-08-01",
-   "url": "https://and8.dance/en/e/5637",
-   "place": "Stuttgart, Germany",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5575",
-   "name": "UK B-Boy Championships - World Finals 2027",
-   "start": "2027-08-14",
-   "end": "2027-08-15",
-   "url": "https://and8.dance/en/e/5575",
-   "place": "Aviva Studios, Great Britain",
-   "image": null
   }
  ],
  "features": [
+  {
+   "title": "Meet the Dakar 2026 Youth Olympic Games Athletes: Denmark’s B-Boy Ill Will",
+   "source": "WDSF",
+   "date": "2026-10-23",
+   "url": "https://www.worlddancesport.org/News/bboy-ill-will-denmark-dakar-2026-youth-olympics-3939",
+   "image": "https://www.worlddancesport.org/media/3a2fb746-ff7b-40cf-9a0c-b4ec00ab17f6/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_ill-will.jpg"
+  },
+  {
+   "title": "Meet the Dakar 2026 Youth Olympic Games Athletes: Spain’s B-Girl MiniAli, From Dreaming to Breaking!",
+   "source": "WDSF",
+   "date": "2026-10-22",
+   "url": "https://www.worlddancesport.org/News/bgirl-miniali-from-dreaming-to-breaking-dakar-2026-3938",
+   "image": "https://www.worlddancesport.org/media/daca9366-5dac-4523-b7d0-b4eb010425a4/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_mini-ali.jpg.jpeg"
+  },
   {
    "title": "Paris Calls the World: Registrations Are Open for the 2026 WDSF World Championships in Breaking and Hip-Hop Freestyle",
    "source": "WDSF",
@@ -800,23 +844,16 @@
    "date": "2026-10-19",
    "url": "https://www.worlddancesport.org/News/meet-dakar-2026-bgirl-hiyo-interview-3932",
    "image": "https://www.worlddancesport.org/media/821bbde6-4781-48ed-bacf-b4e80106fa99/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_hiyo.jpg.jpeg"
-  },
-  {
-   "title": "Official Announcement: Allocated Athletes for Breaking at the Dakar 2026 Youth Olympic Games",
-   "source": "WDSF",
-   "date": "2026-10-15",
-   "url": "https://www.worlddancesport.org/News/newsallocated-athletes-breaking-dakar-2026-youth-olympics-3928",
-   "image": "https://www.worlddancesport.org/media/206fa606-f053-4186-9bc6-b4e400fe4cad/480x280/landscape/2026-yog_confirmed-athletes-graphic_16x9.jpg.jpeg"
-  },
-  {
-   "title": "Break to Believe: B-Boy Shigekix and B-Girl Royal Crowned Asian Games Champions in Aichi-Nagoya",
-   "source": "WDSF",
-   "date": "2026-10-03",
-   "url": "https://www.worlddancesport.org/News/break-to-believe-shigekix-royal-asian-games-champions-aichi-nagoya-2026-3921",
-   "image": "https://www.worlddancesport.org/media/9774d333-9708-43c3-87b5-b4d800f4e0b6/480x280/landscape/hal09691.jpg"
   }
  ],
  "headlines": [
+  {
+   "title": "Battle of the Boroughs Halloween Breakin’ Bash",
+   "source": "Yonkers Times",
+   "date": "2026-10-23",
+   "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1BXzZ3UFZBZTlOWWJ4LXJBdlVLaHBVOXVTZndDOGctanBqOGEzMWJNb0pfQ2VvbUhpbW5UVWFSVzBTekYySnJjZUJyNGNobElGYnZfTUVnYXhTc2pHQnY2RlVQelFZd3k3REJKZERVZ2tuaElnZ3VnZ2JMRQ?oc=5",
+   "image": null
+  },
   {
    "title": "Langham Place, HKTB unite to revive large-scale Halloween street party in Mong Kok",
    "source": "marketech apac",

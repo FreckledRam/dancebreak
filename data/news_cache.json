@@ -335,6 +335,26 @@
   "5741": {
    "breaking": false,
    "place": ""
+  },
+  "5739": {
+   "breaking": true,
+   "place": "Hannover, Germany"
+  },
+  "5743": {
+   "breaking": true,
+   "place": "Hannover, Germany"
+  },
+  "5736": {
+   "breaking": true,
+   "place": ""
+  },
+  "5740": {
+   "breaking": true,
+   "place": "Pula, Croatia"
+  },
+  "5737": {
+   "breaking": true,
+   "place": ""
   }
  }
 }
