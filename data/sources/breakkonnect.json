@@ -694,5 +694,25 @@
   "date": "2026-06-21",
   "status": "nothing_to_collect",
   "battles": 0
+ },
+ "4687": {
+  "name": "Sol Power 2026",
+  "date": "2026-10-19",
+  "status": "pending"
+ },
+ "4738": {
+  "name": "BreakTO @ STC 2026",
+  "date": "2026-07-04",
+  "status": "pending"
+ },
+ "4747": {
+  "name": "Rockin' The Bay Vol 3 - After Pary",
+  "date": "2026-06-21",
+  "status": "pending"
+ },
+ "4745": {
+  "name": "Ringmaster Round 2",
+  "date": "2026-05-16",
+  "status": "pending"
  }
 }

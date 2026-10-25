@@ -4,18 +4,6 @@
    "breaking": true,
    "place": ""
   },
-  "5711": {
-   "breaking": true,
-   "place": ""
-  },
-  "5305": {
-   "breaking": false,
-   "place": "Zurich, Switzerland"
-  },
-  "5481": {
-   "breaking": true,
-   "place": "Ferney-Voltaire, France"
-  },
   "5604": {
    "breaking": true,
    "place": ""
@@ -296,14 +284,6 @@
    "breaking": true,
    "place": "Chania, Greece"
   },
-  "5729": {
-   "breaking": true,
-   "place": "Floirac, France"
-  },
-  "5730": {
-   "breaking": true,
-   "place": "Stuttgart, Germany"
-  },
   "5728": {
    "breaking": true,
    "place": "Moscow, Russia"
@@ -329,10 +309,6 @@
    "place": "Burghausen, Germany"
   },
   "5718": {
-   "breaking": false,
-   "place": ""
-  },
-  "5741": {
    "breaking": false,
    "place": ""
   },

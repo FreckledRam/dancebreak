@@ -1,5 +1,23 @@
 [
  {
+  "time": "2026-10-25T14:22:21Z",
+  "kind": "check",
+  "source": "wdsf",
+  "text": "3 events listed.",
+  "battles": 0,
+  "events": 0,
+  "run": "2026-10-25T14:22:15Z"
+ },
+ {
+  "time": "2026-10-25T14:22:19Z",
+  "kind": "check",
+  "source": "and8",
+  "text": "152 events listed, 2 new, 2 waiting.",
+  "battles": 0,
+  "events": 0,
+  "run": "2026-10-25T14:22:15Z"
+ },
+ {
   "time": "2026-10-24T14:00:54Z",
   "kind": "check",
   "source": "breakkonnect",

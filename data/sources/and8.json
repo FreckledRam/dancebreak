@@ -856,5 +856,15 @@
   "date": "2026-10-18",
   "status": "collected",
   "battles": 45
+ },
+ "5711": {
+  "name": "Break Battle X Vol. 2 - NBL 4",
+  "date": "2026-10-24",
+  "status": "pending"
+ },
+ "5741": {
+  "name": "ALL’DANCE 2vs2 All Styles",
+  "date": "2026-10-24",
+  "status": "pending"
  }
 }

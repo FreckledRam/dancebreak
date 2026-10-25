@@ -1,14 +1,14 @@
 {
- "running": false,
- "started": "2026-10-24T14:00:40Z",
- "current": null,
+ "running": true,
+ "started": "2026-10-25T14:22:15Z",
+ "current": "breakkonnect",
  "sources": {
   "breakkonnect": {
-   "todo": 1,
-   "done": 1,
-   "started": "2026-10-24T14:00:53Z",
-   "eta_seconds": 8
+   "todo": 4,
+   "done": 0,
+   "started": "2026-10-25T14:22:28Z",
+   "eta_seconds": 32
   }
  },
- "updated": "2026-10-24T14:00:55Z"
+ "updated": "2026-10-25T14:22:28Z"
 }

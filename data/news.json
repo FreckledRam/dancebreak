@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T14:00:40Z",
+ "updated": "2026-10-25T14:22:15Z",
  "upcoming": [
   {
    "source": "and8",
@@ -9,66 +9,6 @@
    "end": "2026-10-25",
    "url": "https://and8.dance/en/e/5694",
    "place": "Medellin-Colombia, Colombia",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5729",
-   "name": "BK 270 Battle",
-   "start": "2026-10-24",
-   "end": "2026-10-24",
-   "url": "https://and8.dance/en/e/5729",
-   "place": "Floirac, France",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5711",
-   "name": "Break Battle X Vol. 2 - NBL 4",
-   "start": "2026-10-24",
-   "end": "2026-10-24",
-   "url": "https://and8.dance/en/e/5711",
-   "place": "Xray UKH, Norway",
-   "image": null
-  },
-  {
-   "source": "breakkonnect",
-   "id": "4898",
-   "name": "Legacy Jam",
-   "start": "2026-10-24",
-   "end": "2026-10-24",
-   "url": "https://breakkonnect.com/event/4898",
-   "place": "Toronto, ON, Canada",
-   "image": "https://images-ivn6elc3dq-uc.a.run.app/bd281036-4d16-42ec-8ea6-4759e19502c8/480/300"
-  },
-  {
-   "source": "breakkonnect",
-   "id": "4958",
-   "name": "Prime Time Breaks VII",
-   "start": "2026-10-24",
-   "end": "2026-10-25",
-   "url": "https://breakkonnect.com/event/4958",
-   "place": "Stratford, NJ, USA",
-   "image": "https://images-ivn6elc3dq-uc.a.run.app/6b4f6a62-42ff-4ee2-b7ae-5c4699a933b5/480/300"
-  },
-  {
-   "source": "and8",
-   "id": "5481",
-   "name": "Show Your Skillz 2026",
-   "start": "2026-10-24",
-   "end": "2026-10-24",
-   "url": "https://and8.dance/en/e/5481",
-   "place": "Ferney-Voltaire, France",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5730",
-   "name": "Tuffstyle Battle 2026",
-   "start": "2026-10-24",
-   "end": "2026-10-24",
-   "url": "https://and8.dance/en/e/5730",
-   "place": "Stuttgart, Germany",
    "image": null
   },
   {
@@ -800,9 +740,56 @@
    "url": "https://and8.dance/en/e/5652",
    "place": "Burghausen, Germany",
    "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5722",
+   "name": "Southbreak Jam 2027 - 11 Years Anniversary",
+   "start": "2027-07-03",
+   "end": "2027-07-03",
+   "url": "https://and8.dance/en/e/5722",
+   "place": "Chania, Greece",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5608",
+   "name": "The Legits Blast 2027 presents Outbreak Europe 2027",
+   "start": "2027-07-18",
+   "end": "2027-07-25",
+   "url": "https://and8.dance/en/e/5608",
+   "place": "Europa SC, Slovakia",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5637",
+   "name": "German Breaking Championships 2027",
+   "start": "2027-07-30",
+   "end": "2027-08-01",
+   "url": "https://and8.dance/en/e/5637",
+   "place": "Stuttgart, Germany",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5575",
+   "name": "UK B-Boy Championships - World Finals 2027",
+   "start": "2027-08-14",
+   "end": "2027-08-15",
+   "url": "https://and8.dance/en/e/5575",
+   "place": "Aviva Studios, Great Britain",
+   "image": null
   }
  ],
  "features": [
+  {
+   "title": "Meet the Dakar 2026 Youth Olympic Games Athletes: How France’s B-Girl Queen Lolita Turned Studio Inspiration and Family Backing into an Olympic Journey",
+   "source": "WDSF",
+   "date": "2026-10-25",
+   "url": "https://www.worlddancesport.org/News/meet-dakar-2026-bgirl-lolita-interview-3936",
+   "image": "https://www.worlddancesport.org/media/85ed5985-337d-4919-a36b-b4ec00c2911c/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_queen-lolita.jpg.jpeg"
+  },
   {
    "title": "Meet the Dakar 2026 Youth Olympic Athletes: B-Girl A2K on Believing in the Impossible",
    "source": "WDSF",
@@ -837,13 +824,6 @@
    "date": "2026-10-21",
    "url": "https://www.worlddancesport.org/News/meet-dakar-2026-bgirl-minji-interview-3935",
    "image": "https://www.worlddancesport.org/media/e0ed1560-bbb6-4694-9243-b4ea008b34d2/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_minji.jpg.jpeg"
-  },
-  {
-   "title": "Meet the Dakar 2026 Youth Olympic Games Athletes: From National Surfer to Olympic Breaker with Italy’s B-Boy Leo",
-   "source": "WDSF",
-   "date": "2026-10-20",
-   "url": "https://www.worlddancesport.org/News/meet-dakar-2026-bboy-leo-interview-3933",
-   "image": "https://www.worlddancesport.org/media/96dc6147-fdec-467a-9618-b4e900ea5aed/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_leo.jpg.jpeg"
   }
  ],
  "headlines": [
@@ -865,7 +845,7 @@
    "title": "This is not your ordinary Japanese teen | Original Series - Athletes, Exclusive Videos & More",
    "source": "olympics.com",
    "date": "2026-10-21",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQSHI2cHJzOW52R0szaFp6N2dKUlExQ3Q5S1NxcWdPU05kNUNpc3hmYlE0OVlRR2kwTmxsd01mNnE3S2sxXzdUOFN3LVBPM09ycjZHZHktMDk3eUxqY0lza0FtajA4a0FCYjhXM0MyOGZRNXVDMXBoNUU5QTlGelVOYklTUFItS3lLVWlOOWRKanpqdw?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOWEJDa1VrZlltRGV5eVlqNFJWOW5CclN4Q2JKNkRCNnJyWG1PRXhVVEJMYXdsNWZTZHl0aEFLaVlBcVBCX1M2ZVBiRlVsdTl4bHZDaGROUXVhdW0yRlFJU3hPSkRYNDhkc1dnY1BCSHdKZXA3MWFFd1lZSklldU9uQ0ttYVJFZ2Z3VzRXMThpU3JGYmJpeW5n?oc=5",
    "image": null
   },
   {
@@ -873,6 +853,20 @@
    "source": "Ghana Sports Online",
    "date": "2026-10-21",
    "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQLUdyMnc4Y1BtYnNQTlpBYjFoOFNyX2d5VEowOUNKVV9UUzJRNGtURjVDTUUtSkpWaTZTbnJYM2t1UXRZMHktcFczTG1FaERrdkhXRmwzUm9BLWxoeThMVHJGZFpxWmhsTFloNmFJTWdTUDRxdE1QQ3VuUExIRnI5RFpXVWpFTzVxNm4yc2k2MWNLY1BEbXJoTkJn0gGiAUFVX3lxTE9CcXRBaEpkTWxfZGVESWRMakZmVENvTHppNUdKOTYyaEhWVnRndV9Ca2EtM0VkMjk2RTNIQWUwRVJGdlhtajg5ZG1lNWJoMDVmWXF4QU5SbnhnTVVmRkp4MVVXSUlvbzZiWnNHMkRUQ3FxSU5tM29YT0I3WGhTbWdwNjA2WlFyanQ5eFJYbUkwa0xlSkxQZ2hOcXFUT19YNFRrQQ?oc=5",
+   "image": null
+  },
+  {
+   "title": "SDF Finale Features National Breakers' Special Performances",
+   "source": "조선일보",
+   "date": "2026-10-16",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOazFaeHBnVWJmQW0zOE8wRGRPS1dOSjdDeGRZV0xwVWV5UGltVC03ci1WLWtfYU9ZeDRYWmJEQ0xPN3JHR3hvMml5MnczWnkxOVJ5NWJlZncwYVR4TncyYlY2VnhhdWFzeno3RmJTcUloOURudDJOenJ0QXdpcXY4dzJ6VU9Sd0tYRy1RdUh3?oc=5",
+   "image": null
+  },
+  {
+   "title": "Street World Fighter Directors War — Final Live Show Preview",
+   "source": "The Korea Daily",
+   "date": "2026-10-16",
+   "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5tQ054SFFXcFF6WmZWNm1Fa2dRd0k4aURBZFRnSXhqMUhJNS1WWmdrazVmQjFTV3BiMWRwc1d3ZUlKODUxLTY1M3pGcjQ0Wll6ekZSRDFkRHY3cnZjVFhYQ3lnUHpLWDlLaThId3RRMmw0ZEttUGc?oc=5",
    "image": null
   },
   {
@@ -887,13 +881,6 @@
    "source": "Red Bull",
    "date": "2026-10-12",
    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPcDhIRkNvcXFrdmEtZ0RNaXZGSEJrOW1KSE1PVWZVNFBaVTJkdzFnTnpjS2ZlZzZKS1FHUjZ0ZFdUcThlSVdxVmNVV0tqdjlXZ0taUVRjdVlOQlZpc1o4RzVuWlpZeEoxTGxzUURwcXpuZWtNUzNjODlIeVA3b3hqT1NaX2hPNkM4?oc=5",
-   "image": null
-  },
-  {
-   "title": "All you need to know about breaking",
-   "source": "Red Bull",
-   "date": "2026-10-11",
-   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9qQ1NQeXJFcUNEcndCWWc4dVY5dGxOYmFjTTMxUjVELUhUVlhaX2RlN0JHTk1UY2R3cHlfclgzZkpieHpvSjh1SkpqN1ZNbW8yTmxRSjZtODFPQnM2X202cDVzRVh4MmRsMkRoUEZHSFVWU001?oc=5",
    "image": null
   }
  ],
