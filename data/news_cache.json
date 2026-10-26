@@ -1,13 +1,5 @@
 {
  "and8": {
-  "5694": {
-   "breaking": true,
-   "place": ""
-  },
-  "5604": {
-   "breaking": true,
-   "place": ""
-  },
   "5653": {
    "breaking": true,
    "place": ""
@@ -252,10 +244,6 @@
    "breaking": false,
    "place": "Karlsruhe, Germany"
   },
-  "5712": {
-   "breaking": true,
-   "place": ""
-  },
   "5719": {
    "breaking": true,
    "place": "London, Great Britain"
@@ -335,6 +323,10 @@
   "5744": {
    "breaking": true,
    "place": "Dessau, Germany"
+  },
+  "5746": {
+   "breaking": true,
+   "place": "Ostend, Belgium"
   }
  }
 }

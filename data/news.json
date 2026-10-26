@@ -1,36 +1,6 @@
 {
- "updated": "2026-10-25T14:22:15Z",
+ "updated": "2026-10-26T16:47:25Z",
  "upcoming": [
-  {
-   "source": "and8",
-   "id": "5694",
-   "name": "Break Rumble Criollo Style Medellin, Colombia 2026",
-   "start": "2026-10-23",
-   "end": "2026-10-25",
-   "url": "https://and8.dance/en/e/5694",
-   "place": "Medellin-Colombia, Colombia",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5604",
-   "name": "Freestyle Session - Europe Qualifier 2026 | BboyFrance",
-   "start": "2026-10-25",
-   "end": "2026-10-25",
-   "url": "https://and8.dance/en/e/5604",
-   "place": "La pyramide, France",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5712",
-   "name": "West Tusca-Ny Battle",
-   "start": "2026-10-25",
-   "end": "2026-10-25",
-   "url": "https://and8.dance/en/e/5712",
-   "place": "Fly Space, Italy",
-   "image": null
-  },
   {
    "source": "breakkonnect",
    "id": "4973",
@@ -828,10 +798,24 @@
  ],
  "headlines": [
   {
+   "title": "Willis rules the floor at the Red Bull Dance Your Style World Final 2026",
+   "source": "Red Bull",
+   "date": "2026-10-25",
+   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPYW5GZll4QWNscUpGUzFBdkFfcVE3VVZmeHpNNlIxeEpGMEtNcFVVV0tpX3pYZWhhem5PSFMxYW1GaWxoZ0RCbUxfTG43X29ZRVJDODYwalIzcGZGWVh3UDRLTXR1S2ttTnA2czBxamd6Y0VRZURSN0VfbXdGdFoxUjBnMA?oc=5",
+   "image": null
+  },
+  {
    "title": "Battle of the Boroughs Halloween Breakin’ Bash",
    "source": "Yonkers Times",
    "date": "2026-10-23",
    "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1BXzZ3UFZBZTlOWWJ4LXJBdlVLaHBVOXVTZndDOGctanBqOGEzMWJNb0pfQ2VvbUhpbW5UVWFSVzBTekYySnJjZUJyNGNobElGYnZfTUVnYXhTc2pHQnY2RlVQelFZd3k3REJKZERVZ2tuaElnZ3VnZ2JMRQ?oc=5",
+   "image": null
+  },
+  {
+   "title": "This is the Red Bull Dance Your Style 2026 World Final line-up",
+   "source": "Red Bull",
+   "date": "2026-10-23",
+   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE8xMWZhNGFiUXY0eW01cHlvblpuSnluWFd1dDRaYjI5dVA0eE5FQUx3eWFqbEt3YzZ0Tkg2QUkybmdPemE3bi1LUDJjS19OcU1abEF0OXE1VWVGMTZ5dFdzd0FuYUYweDFsdXF1MWVOM2RyYWU4?oc=5",
    "image": null
   },
   {
@@ -865,22 +849,8 @@
   {
    "title": "Street World Fighter Directors War — Final Live Show Preview",
    "source": "The Korea Daily",
-   "date": "2026-10-16",
+   "date": "2026-10-15",
    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5tQ054SFFXcFF6WmZWNm1Fa2dRd0k4aURBZFRnSXhqMUhJNS1WWmdrazVmQjFTV3BiMWRwc1d3ZUlKODUxLTY1M3pGcjQ0Wll6ekZSRDFkRHY3cnZjVFhYQ3lnUHpLWDlLaThId3RRMmw0ZEttUGc?oc=5",
-   "image": null
-  },
-  {
-   "title": "Hong10 and Yeri open 'Street World Fighter' final with special breaking performance - CHOSUNBIZ",
-   "source": "Chosunbiz",
-   "date": "2026-10-16",
-   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQcndoWk5WQUhvdFl0VlRET2JZNkt4R0lUUGFWMkpLNkotU3d5UEM1WHphd2hCb202b2hDVHZrUGIzaS1kMjZBN2F6RVEyZFAwdzNaZXFBQ2hUdmJPWjI2dm5tdE5kRlphajA4SWVlV3c3Z24xdG01QVdvMkdlbElQSktSZmFsaFM20gGcAUFVX3lxTE1FcWNFVnBKbHg0OTJValBDelRUMnctS01Ddng4bng4c1FYd3VHNVNEMDhlNUZsNDBjSVFYcGFJU1J1ZWxkclpsR0tMQVVoYkRpcS1VbVJWQU9QaFQ2TEhlN3AxUlhWdkMtX1FiZVlra3RBMGNtblJYMmJPOTZ2ZThXa1RESWlySnlVVlp5QVRlTUZTaVhmLVZwcHczcQ?oc=5",
-   "image": null
-  },
-  {
-   "title": "Everything you need to know about the Red Bull BC One World Final",
-   "source": "Red Bull",
-   "date": "2026-10-12",
-   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPcDhIRkNvcXFrdmEtZ0RNaXZGSEJrOW1KSE1PVWZVNFBaVTJkdzFnTnpjS2ZlZzZKS1FHUjZ0ZFdUcThlSVdxVmNVV0tqdjlXZ0taUVRjdVlOQlZpc1o4RzVuWlpZeEoxTGxzUURwcXpuZWtNUzNjODlIeVA3b3hqT1NaX2hPNkM4?oc=5",
    "image": null
   }
  ],
