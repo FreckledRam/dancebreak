@@ -860,12 +860,14 @@
  "5711": {
   "name": "Break Battle X Vol. 2 - NBL 4",
   "date": "2026-10-24",
-  "status": "pending"
+  "status": "collected",
+  "battles": 15
  },
  "5741": {
   "name": "ALL’DANCE 2vs2 All Styles",
   "date": "2026-10-24",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "5604": {
   "name": "Freestyle Session - Europe Qualifier 2026 | BboyFrance",
