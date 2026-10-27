@@ -1,14 +1,14 @@
 {
- "running": true,
+ "running": false,
  "started": "2026-10-27T15:52:56Z",
- "current": "and8",
+ "current": null,
  "sources": {
   "and8": {
    "todo": 2,
-   "done": 0,
+   "done": 2,
    "started": "2026-10-27T15:53:53Z",
    "eta_seconds": 90
   }
  },
- "updated": "2026-10-27T15:53:53Z"
+ "updated": "2026-10-27T15:55:18Z"
 }

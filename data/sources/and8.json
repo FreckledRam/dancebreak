@@ -872,11 +872,13 @@
  "5604": {
   "name": "Freestyle Session - Europe Qualifier 2026 | BboyFrance",
   "date": "2026-10-25",
-  "status": "pending"
+  "status": "collected",
+  "battles": 14
  },
  "5694": {
   "name": "Break Rumble Criollo Style Medellin, Colombia 2026",
   "date": "2026-10-25",
-  "status": "pending"
+  "status": "collected",
+  "battles": 48
  }
 }
