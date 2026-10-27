@@ -327,6 +327,22 @@
   "5746": {
    "breaking": true,
    "place": "Ostend, Belgium"
+  },
+  "5706": {
+   "breaking": true,
+   "place": "Chiba, Japan"
+  },
+  "5747": {
+   "breaking": false,
+   "place": ""
+  },
+  "5742": {
+   "breaking": false,
+   "place": ""
+  },
+  "5745": {
+   "breaking": false,
+   "place": ""
   }
  }
 }
