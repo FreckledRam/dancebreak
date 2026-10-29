@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-28T16:37:23Z",
+ "updated": "2026-10-29T16:55:49Z",
  "upcoming": [
   {
    "source": "breakkonnect",
@@ -483,6 +483,16 @@
   },
   {
    "source": "and8",
+   "id": "5750",
+   "name": "Fortuna Breaking Battle 2026",
+   "start": "2026-12-06",
+   "end": "2026-12-06",
+   "url": "https://and8.dance/en/e/5750",
+   "place": "Saarbrücken, Germany",
+   "image": null
+  },
+  {
+   "source": "and8",
    "id": "5683",
    "name": "67 Jam 2026",
    "start": "2026-12-12",
@@ -633,6 +643,16 @@
   },
   {
    "source": "and8",
+   "id": "5749",
+   "name": "Cologne United Battle (Breaking, Crew vs Crew)",
+   "start": "2027-03-06",
+   "end": "2027-03-06",
+   "url": "https://and8.dance/en/e/5749",
+   "place": "OT Nippes, Germany",
+   "image": null
+  },
+  {
+   "source": "and8",
    "id": "5524",
    "name": "Break2Future 2027",
    "start": "2027-03-13",
@@ -764,6 +784,13 @@
  ],
  "features": [
   {
+   "title": "Meet The Dakar 2026 Youth Olympic Games Athletes: B-Boy Holy Rain on Shaping Breaking’s Olympic Destiny from Dakar 2026 to Brisbane 2032",
+   "source": "WDSF",
+   "date": "2026-10-28",
+   "url": "https://www.worlddancesport.org/News/meet-dakar-2026-athletes-bboy-holy-rain-3946",
+   "image": "https://www.worlddancesport.org/media/7da4242c-94c1-414f-8057-b4f1013bdbe1/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_holy-rain.jpg.jpeg"
+  },
+  {
    "title": "Meet the Dakar 2026 Youth Olympic Games Athletes: B-Boy Edgar on Vision, Heritage, and Latvia’s Breakthrough",
    "source": "WDSF",
    "date": "2026-10-28",
@@ -797,13 +824,6 @@
    "date": "2026-10-23",
    "url": "https://www.worlddancesport.org/News/bgirl-a2k-dakar-2026-youth-olympic-games-3941",
    "image": "https://www.worlddancesport.org/media/be243559-d0e4-416d-884a-b4ec00f9a8a6/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_a2k.jpg"
-  },
-  {
-   "title": "Meet the Dakar 2026 Youth Olympic Games Athletes: Denmark’s B-Boy Ill Will",
-   "source": "WDSF",
-   "date": "2026-10-23",
-   "url": "https://www.worlddancesport.org/News/bboy-ill-will-denmark-dakar-2026-youth-olympics-3939",
-   "image": "https://www.worlddancesport.org/media/3a2fb746-ff7b-40cf-9a0c-b4ec00ab17f6/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_ill-will.jpg"
   }
  ],
  "headlines": [
@@ -822,31 +842,10 @@
    "image": null
   },
   {
-   "title": "Langham Place, HKTB unite to revive large-scale Halloween street party in Mong Kok",
-   "source": "marketech apac",
-   "date": "2026-10-22",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQcWVfYmhRazBqR1g1RUhJZi1BUmhNcW9YZElyUVpRbHlCdjNlaE9fY3lqVVVHalFBeW02ZmFFcloxd3B1dW9ydVRhdVN0c0xrYnhfMUExbGxsV1JOblA0NjFwOE1aQ0xLZHl3M0x4QVBPNFVpRGt4dVBlZmFwWlpTaTZuTXhmSlVvS09mX2pQd2QtajQwRDdhVkNJMkQtTEpWUEJvMVA3UFpUb0FOYkE?oc=5",
-   "image": null
-  },
-  {
-   "title": "This is not your ordinary Japanese teen | Original Series - Athletes, Exclusive Videos & More",
-   "source": "olympics.com",
-   "date": "2026-10-21",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOWEJDa1VrZlltRGV5eVlqNFJWOW5CclN4Q2JKNkRCNnJyWG1PRXhVVEJMYXdsNWZTZHl0aEFLaVlBcVBCX1M2ZVBiRlVsdTl4bHZDaGROUXVhdW0yRlFJU3hPSkRYNDhkc1dnY1BCSHdKZXA3MWFFd1lZSklldU9uQ0ttYVJFZ2Z3VzRXMThpU3JGYmJpeW5n?oc=5",
-   "image": null
-  },
-  {
    "title": "Zeluss Conquers Morocco, sets sights on Afrobreak title in Accra",
    "source": "Ghana Sports Online",
    "date": "2026-10-21",
    "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQLUdyMnc4Y1BtYnNQTlpBYjFoOFNyX2d5VEowOUNKVV9UUzJRNGtURjVDTUUtSkpWaTZTbnJYM2t1UXRZMHktcFczTG1FaERrdkhXRmwzUm9BLWxoeThMVHJGZFpxWmhsTFloNmFJTWdTUDRxdE1QQ3VuUExIRnI5RFpXVWpFTzVxNm4yc2k2MWNLY1BEbXJoTkJn0gGiAUFVX3lxTE9CcXRBaEpkTWxfZGVESWRMakZmVENvTHppNUdKOTYyaEhWVnRndV9Ca2EtM0VkMjk2RTNIQWUwRVJGdlhtajg5ZG1lNWJoMDVmWXF4QU5SbnhnTVVmRkp4MVVXSUlvbzZiWnNHMkRUQ3FxSU5tM29YT0I3WGhTbWdwNjA2WlFyanQ5eFJYbUkwa0xlSkxQZ2hOcXFUT19YNFRrQQ?oc=5",
-   "image": null
-  },
-  {
-   "title": "From bouldering to BMX, emerging sports gain a grip",
-   "source": "China Daily",
-   "date": "2026-10-15",
-   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5PWEdHSzh0QlFObHZucVVHXzBYbUZtLUZvdWp0bnFGZnlOMmhaMUZYZFU2aElrdFktcF94UW92R28yUU83djQteDU3ZGxxc2R4SEhOU2hOSGl5OVJFaEtMQ3prRElEcG1NLUlQd3FoVkZGbWxtTHFCWlY1cGc2REE?oc=5",
    "image": null
   }
  ],
