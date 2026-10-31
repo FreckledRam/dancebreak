@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30T16:41:39Z",
+ "updated": "2026-10-31T15:43:27Z",
  "upcoming": [
   {
    "source": "breakkonnect",
@@ -10,16 +10,6 @@
    "url": "https://breakkonnect.com/event/4973",
    "place": "Yonkers, NY, USA",
    "image": "https://images-ivn6elc3dq-uc.a.run.app/384985ce-32e9-484f-868c-b7742d798b4f/480/300"
-  },
-  {
-   "source": "breakkonnect",
-   "id": "4992",
-   "name": "Break or Treat",
-   "start": "2026-10-31",
-   "end": "2026-10-31",
-   "url": "https://breakkonnect.com/event/4992",
-   "place": "Renton, WA, USA",
-   "image": "https://images-ivn6elc3dq-uc.a.run.app/07110e1e-d456-4217-8a64-bf796af40532/480/300"
   },
   {
    "source": "and8",
@@ -838,17 +828,17 @@
  ],
  "headlines": [
   {
+   "title": "Red Bull BC One World Final Toronto Announcement",
+   "source": "Red Bull",
+   "date": "2026-10-30",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPNU1rcWhZLXF3RzhaSjY2bF9lUHQ2R0hVbXBHZWxfeS1iZkNZVTc3X1ZHSHlGZWRUTXpUa2ZCTkp3RGMzZWdGQ3A1b3BRTFgzUGY4LUJWdjZzd05ZNUdfU1lubVFHOEM5RU8xUjZ5a3BxeW5Bc2JUWWxMSFpUUk8tQXYyQTZ6NjVjUy12dEZR?oc=5",
+   "image": null
+  },
+  {
    "title": "Learn to breakdance with Mikel: The Indian Step",
    "source": "Red Bull",
    "date": "2026-10-24",
    "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNcElZMVhMdGZXWld5Y3lHYjE5VjZpTTNFQzVNZlhkVkVrV3ZoNkdiR0g4dmxaWHQ3cVJraXAzSDNjZ1k4WnFrc21NSlV0TkpjV3MtejVyZF85dThVWGRZQVR2R1dqQUdnenJZcFFTSTUtR3ZmR1BIMlotS2g2Wmw1ZEdoYm9mM3A0cVpxdWNqUHJmRndLMk9yOUM4SnZqcHNxUGJYWHln?oc=5",
-   "image": null
-  },
-  {
-   "title": "Battle of the Boroughs Halloween Breakin’ Bash",
-   "source": "Yonkers Times",
-   "date": "2026-10-23",
-   "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1BXzZ3UFZBZTlOWWJ4LXJBdlVLaHBVOXVTZndDOGctanBqOGEzMWJNb0pfQ2VvbUhpbW5UVWFSVzBTekYySnJjZUJyNGNobElGYnZfTUVnYXhTc2pHQnY2RlVQelFZd3k3REJKZERVZ2tuaElnZ3VnZ2JMRQ?oc=5",
    "image": null
   }
  ],

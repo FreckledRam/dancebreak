@@ -1,7 +1,14 @@
 {
- "running": false,
- "started": "2026-10-30T16:41:40Z",
- "current": null,
- "sources": {},
- "updated": "2026-10-30T16:41:48Z"
+ "running": true,
+ "started": "2026-10-31T15:43:27Z",
+ "current": "breakkonnect",
+ "sources": {
+  "breakkonnect": {
+   "todo": 1,
+   "done": 0,
+   "started": "2026-10-31T15:43:40Z",
+   "eta_seconds": 8
+  }
+ },
+ "updated": "2026-10-31T15:43:40Z"
 }

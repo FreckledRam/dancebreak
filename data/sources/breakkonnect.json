@@ -718,5 +718,10 @@
   "date": "2026-05-16",
   "status": "nothing_to_collect",
   "battles": 0
+ },
+ "4752": {
+  "name": "WhackDonuts 2 Year Anniversary Jam",
+  "date": "2026-10-24",
+  "status": "pending"
  }
 }
