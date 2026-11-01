@@ -1,46 +1,6 @@
 {
- "updated": "2026-10-31T15:43:27Z",
+ "updated": "2026-11-01T16:48:34Z",
  "upcoming": [
-  {
-   "source": "breakkonnect",
-   "id": "4973",
-   "name": "Battle of the Boroughs",
-   "start": "2026-10-31",
-   "end": "2026-10-31",
-   "url": "https://breakkonnect.com/event/4973",
-   "place": "Yonkers, NY, USA",
-   "image": "https://images-ivn6elc3dq-uc.a.run.app/384985ce-32e9-484f-868c-b7742d798b4f/480/300"
-  },
-  {
-   "source": "and8",
-   "id": "5706",
-   "name": "MOMENTS Chapter 4",
-   "start": "2026-10-31",
-   "end": "2026-10-31",
-   "url": "https://and8.dance/en/e/5706",
-   "place": "Chiba, Japan",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5653",
-   "name": "Thriller Jam Vol.5",
-   "start": "2026-10-31",
-   "end": "2026-10-31",
-   "url": "https://and8.dance/en/e/5653",
-   "place": "Der Anker, Germany",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5645",
-   "name": "Triple Threat - Newcastle Vice",
-   "start": "2026-10-31",
-   "end": "2026-10-31",
-   "url": "https://and8.dance/en/e/5645",
-   "place": "Dance City, Great Britain",
-   "image": null
-  },
   {
    "source": "and8",
    "id": "5700",
@@ -50,6 +10,16 @@
    "url": "https://and8.dance/en/e/5700",
    "place": "Kokura Station JAM Square, 3F North-South Public Passage, JR Kokura Station, Japan",
    "image": null
+  },
+  {
+   "source": "breakkonnect",
+   "id": "5006",
+   "name": "Burgers and Breaks",
+   "start": "2026-11-06",
+   "end": "2026-11-06",
+   "url": "https://breakkonnect.com/event/5006",
+   "place": "Brooklyn, NY, USA",
+   "image": "https://images-ivn6elc3dq-uc.a.run.app/12a4af9c-a05b-4348-a075-2652282aae02/480/300"
   },
   {
    "source": "and8",
@@ -831,14 +801,7 @@
    "title": "Red Bull BC One World Final Toronto Announcement",
    "source": "Red Bull",
    "date": "2026-10-30",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPNU1rcWhZLXF3RzhaSjY2bF9lUHQ2R0hVbXBHZWxfeS1iZkNZVTc3X1ZHSHlGZWRUTXpUa2ZCTkp3RGMzZWdGQ3A1b3BRTFgzUGY4LUJWdjZzd05ZNUdfU1lubVFHOEM5RU8xUjZ5a3BxeW5Bc2JUWWxMSFpUUk8tQXYyQTZ6NjVjUy12dEZR?oc=5",
-   "image": null
-  },
-  {
-   "title": "Learn to breakdance with Mikel: The Indian Step",
-   "source": "Red Bull",
-   "date": "2026-10-24",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNcElZMVhMdGZXWld5Y3lHYjE5VjZpTTNFQzVNZlhkVkVrV3ZoNkdiR0g4dmxaWHQ3cVJraXAzSDNjZ1k4WnFrc21NSlV0TkpjV3MtejVyZF85dThVWGRZQVR2R1dqQUdnenJZcFFTSTUtR3ZmR1BIMlotS2g2Wmw1ZEdoYm9mM3A0cVpxdWNqUHJmRndLMk9yOUM4SnZqcHNxUGJYWHln?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPRktsZ3k1aUdlZjVGZW51a1pNWVRoSVR4N3RXV2o2WFBWdlplTE1ldXpvUjQ4UWdwOHZNN3JQU2NVZTVnUUdta1pZaENyVTdtdnNBTURyTWJaa203UTB0M1M0bTdOdHFKV3JNOE9Fa1hYcC12QjZZNkxCTXBCTExPWTFkb3Z6TWNDMjNvX2hR?oc=5",
    "image": null
   }
  ],

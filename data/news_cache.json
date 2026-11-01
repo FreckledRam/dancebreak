@@ -1,13 +1,5 @@
 {
  "and8": {
-  "5653": {
-   "breaking": true,
-   "place": ""
-  },
-  "5645": {
-   "breaking": true,
-   "place": ""
-  },
   "5681": {
    "breaking": false,
    "place": ""
@@ -323,10 +315,6 @@
   "5746": {
    "breaking": true,
    "place": "Ostend, Belgium"
-  },
-  "5706": {
-   "breaking": true,
-   "place": "Chiba, Japan"
   },
   "5747": {
    "breaking": false,

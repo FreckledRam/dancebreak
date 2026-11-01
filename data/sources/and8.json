@@ -880,5 +880,10 @@
   "date": "2026-10-25",
   "status": "collected",
   "battles": 48
+ },
+ "5700": {
+  "name": "JDSF Breaking Block Battle Series 2026 - South Block",
+  "date": "2026-11-01",
+  "status": "pending"
  }
 }
