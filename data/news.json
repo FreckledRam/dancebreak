@@ -1,16 +1,6 @@
 {
- "updated": "2026-11-01T16:48:34Z",
+ "updated": "2026-11-02T20:21:05Z",
  "upcoming": [
-  {
-   "source": "and8",
-   "id": "5700",
-   "name": "JDSF Breaking Block Battle Series 2026 - South Block",
-   "start": "2026-11-01",
-   "end": "2026-11-01",
-   "url": "https://and8.dance/en/e/5700",
-   "place": "Kokura Station JAM Square, 3F North-South Public Passage, JR Kokura Station, Japan",
-   "image": null
-  },
   {
    "source": "breakkonnect",
    "id": "5006",
@@ -565,9 +555,9 @@
    "source": "wdsf",
    "id": "8907",
    "name": "BfG World Series",
-   "start": "2027-01-15",
-   "end": "2027-01-16",
-   "url": "https://www.worlddancesport.org/Events/Kurume-City-Japan-15012027-16012027-8907",
+   "start": "2027-01-16",
+   "end": "2027-01-17",
+   "url": "https://www.worlddancesport.org/Events/Kurume-City-Japan-16012027-17012027-8907",
    "place": "Kurume City, Japan",
    "image": null
   },
@@ -754,6 +744,13 @@
  ],
  "features": [
   {
+   "title": "Meet The Dakar 2026 Youth Olympic Games Athletes: Becoming Your Dream, The Story of B-Girl Melkez",
+   "source": "WDSF",
+   "date": "2026-11-02",
+   "url": "https://www.worlddancesport.org/News/Meet-The-Dakar-2026-Youth-Olympic-Games-Athletes-Becoming-Your-Dream-The-Story-of-B-Girl-Melkez-3951",
+   "image": "https://www.worlddancesport.org/media/6f14a8c3-a08a-44d2-adb4-b4f6009f6423/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_melkez.jpg"
+  },
+  {
    "title": "Meet The Dakar 2026 Youth Olympic Games Athletes: The Story Of B-Boy Gera",
    "source": "WDSF",
    "date": "2026-10-30",
@@ -787,13 +784,6 @@
    "date": "2026-10-27",
    "url": "https://www.worlddancesport.org/News/bboy-saturn-dakar-2026-youth-olympic-games-3942",
    "image": "https://www.worlddancesport.org/media/8b92a602-79d4-4801-8a3e-b4f000c97094/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_saturn.jpg%20%281%29.jpeg"
-  },
-  {
-   "title": "Meet the Dakar 2026 Youth Olympic Games Athletes: How France’s B-Girl Queen Lolita Turned Studio Inspiration and Family Backing into an Olympic Journey",
-   "source": "WDSF",
-   "date": "2026-10-25",
-   "url": "https://www.worlddancesport.org/News/meet-dakar-2026-bgirl-lolita-interview-3936",
-   "image": "https://www.worlddancesport.org/media/85ed5985-337d-4919-a36b-b4ec00c2911c/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_queen-lolita.jpg.jpeg"
   }
  ],
  "headlines": [
