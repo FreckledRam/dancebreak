@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02T20:21:05Z",
+ "updated": "2026-11-03T17:50:39Z",
  "upcoming": [
   {
    "source": "breakkonnect",
@@ -10,6 +10,16 @@
    "url": "https://breakkonnect.com/event/5006",
    "place": "Brooklyn, NY, USA",
    "image": "https://images-ivn6elc3dq-uc.a.run.app/12a4af9c-a05b-4348-a075-2652282aae02/480/300"
+  },
+  {
+   "source": "and8",
+   "id": "5752",
+   "name": "Battle New School International",
+   "start": "2026-11-07",
+   "end": "2026-11-07",
+   "url": "https://and8.dance/en/e/5752",
+   "place": "Le Pavillon de Penvillers, France",
+   "image": null
   },
   {
    "source": "and8",
@@ -629,7 +639,7 @@
    "end": "2027-03-14",
    "url": "https://breakkonnect.com/event/4948",
    "place": "New Jersey, USA",
-   "image": "https://images-ivn6elc3dq-uc.a.run.app/ba75ecc2-882e-4478-bf84-6c6e7137c486/480/300"
+   "image": "https://images-ivn6elc3dq-uc.a.run.app/fb5f5d41-c378-481f-a5e3-557e75577111/480/300"
   },
   {
    "source": "and8",
@@ -650,6 +660,16 @@
    "url": "https://breakkonnect.com/event/4959",
    "place": "Dumaguete City, Negros Oriental, Philippines",
    "image": "https://images-ivn6elc3dq-uc.a.run.app/4bc2dae2-ac5a-41f9-92fd-131b5e827033/480/300"
+  },
+  {
+   "source": "and8",
+   "id": "5755",
+   "name": "The BreakDown Challenge 2027",
+   "start": "2027-05-15",
+   "end": "2027-05-16",
+   "url": "https://and8.dance/en/e/5755",
+   "place": "Historic Centre, Grosseto, Italy",
+   "image": null
   },
   {
    "source": "and8",
@@ -740,9 +760,26 @@
    "url": "https://and8.dance/en/e/5575",
    "place": "Aviva Studios, Great Britain",
    "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5746",
+   "name": "Unbreakable 2027 - UB22 Edition",
+   "start": "2027-09-03",
+   "end": "2027-09-05",
+   "url": "https://and8.dance/en/e/5746",
+   "place": "Ostend, Belgium",
+   "image": null
   }
  ],
  "features": [
+  {
+   "title": "Meet The Dakar 2026 Youth Olympic Games Athletes: B-Boy Lil Machine On Making Colombian Breaking History and Representing Latin America",
+   "source": "WDSF",
+   "date": "2026-11-03",
+   "url": "https://www.worlddancesport.org/News/meet-dakar-2026-athletes-bboy-lil-machine-3948",
+   "image": "https://www.worlddancesport.org/media/dfd06f43-67a9-40e4-806f-b4f701248d05/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_lil-machine.jpg.jpeg"
+  },
   {
    "title": "Meet The Dakar 2026 Youth Olympic Games Athletes: Becoming Your Dream, The Story of B-Girl Melkez",
    "source": "WDSF",
@@ -777,13 +814,6 @@
    "date": "2026-10-27",
    "url": "https://www.worlddancesport.org/News/bgirl-krazy-dakar-2026-youth-olympic-games-3943",
    "image": "https://www.worlddancesport.org/media/3fae1daf-e0d6-440c-bb74-b4f0010a0eb1/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_krazy.jpg%20%281%29.jpeg"
-  },
-  {
-   "title": "Meet the Dakar 2026 Youth Olympic Athletes: B-Boy Saturn on Musical Instinct and Old-School Energy",
-   "source": "WDSF",
-   "date": "2026-10-27",
-   "url": "https://www.worlddancesport.org/News/bboy-saturn-dakar-2026-youth-olympic-games-3942",
-   "image": "https://www.worlddancesport.org/media/8b92a602-79d4-4801-8a3e-b4f000c97094/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_saturn.jpg%20%281%29.jpeg"
   }
  ],
  "headlines": [
@@ -791,7 +821,7 @@
    "title": "Red Bull BC One World Final Toronto Announcement",
    "source": "Red Bull",
    "date": "2026-10-30",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPRktsZ3k1aUdlZjVGZW51a1pNWVRoSVR4N3RXV2o2WFBWdlplTE1ldXpvUjQ4UWdwOHZNN3JQU2NVZTVnUUdta1pZaENyVTdtdnNBTURyTWJaa203UTB0M1M0bTdOdHFKV3JNOE9Fa1hYcC12QjZZNkxCTXBCTExPWTFkb3Z6TWNDMjNvX2hR?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPWlRTVEMzbFV2dFdYTjJjSnNMSlVjd0JDYU16TWF3Xzdzb1loTXIzbnJMb19TdVA1bjhMb0ZhYnVPal9zTW5HcG9vUzNLd2tJTWx3RGJFRXJRY01nUFFJUDY4Z3phMUZPdVVXXzNBWGNiZHl1Mnc3WHV6RDhVS0RObWNncVRyVmtIclh0dVZR?oc=5",
    "image": null
   }
  ],
