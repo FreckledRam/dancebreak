@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-03T17:50:39Z",
+ "updated": "2026-11-04T17:59:03Z",
  "upcoming": [
   {
    "source": "breakkonnect",
@@ -40,6 +40,16 @@
    "url": "https://and8.dance/en/e/5695",
    "place": "Seoul, South Korea",
    "image": null
+  },
+  {
+   "source": "breakkonnect",
+   "id": "5014",
+   "name": "Breaks Unlimited Vol. 5",
+   "start": "2026-11-07",
+   "end": "2026-11-07",
+   "url": "https://breakkonnect.com/event/5014",
+   "place": "Atlanta, GA, USA",
+   "image": "https://images-ivn6elc3dq-uc.a.run.app/f1ceb156-10aa-4165-b2b4-e0710463e939/480/300"
   },
   {
    "source": "and8",
@@ -90,6 +100,16 @@
    "url": "https://and8.dance/en/e/5648",
    "place": "Tokyo, Japan",
    "image": null
+  },
+  {
+   "source": "breakkonnect",
+   "id": "5011",
+   "name": "The Breaks Kru Anniversary",
+   "start": "2026-11-07",
+   "end": "2026-11-08",
+   "url": "https://breakkonnect.com/event/5011",
+   "place": "Brooklyn, NY, USA",
+   "image": "https://images-ivn6elc3dq-uc.a.run.app/43826cb6-1e35-4e45-a0ec-f6263b81350f/480/300"
   },
   {
    "source": "breakkonnect",
@@ -179,6 +199,16 @@
    "end": "2026-11-14",
    "url": "https://and8.dance/en/e/5505",
    "place": "Ingolstadt, Germany",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5748",
+   "name": "Ultimate Break Battle",
+   "start": "2026-11-14",
+   "end": "2026-11-14",
+   "url": "https://and8.dance/en/e/5748",
+   "place": "Collège Samivel, France",
    "image": null
   },
   {
@@ -369,6 +399,16 @@
    "end": "2026-11-28",
    "url": "https://and8.dance/en/e/5735",
    "place": "Burghausen, Germany",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5754",
+   "name": "NOW OR NEVER vol.3",
+   "start": "2026-11-28",
+   "end": "2026-11-28",
+   "url": "https://and8.dance/en/e/5754",
+   "place": "Grundschule Löhne-Bahnhof, Germany",
    "image": null
   },
   {
@@ -583,6 +623,16 @@
   },
   {
    "source": "and8",
+   "id": "5751",
+   "name": "Tell A Story: the Battle (Breaking & All Styles)",
+   "start": "2027-01-24",
+   "end": "2027-01-24",
+   "url": "https://and8.dance/en/e/5751",
+   "place": "BZZ Zofingen, Switzerland",
+   "image": null
+  },
+  {
+   "source": "and8",
    "id": "5450",
    "name": "the movement ARENA Youth Edition meets BadenBreaks 2027",
    "start": "2027-01-30",
@@ -750,29 +800,23 @@
    "url": "https://and8.dance/en/e/5637",
    "place": "Stuttgart, Germany",
    "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5575",
-   "name": "UK B-Boy Championships - World Finals 2027",
-   "start": "2027-08-14",
-   "end": "2027-08-15",
-   "url": "https://and8.dance/en/e/5575",
-   "place": "Aviva Studios, Great Britain",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5746",
-   "name": "Unbreakable 2027 - UB22 Edition",
-   "start": "2027-09-03",
-   "end": "2027-09-05",
-   "url": "https://and8.dance/en/e/5746",
-   "place": "Ostend, Belgium",
-   "image": null
   }
  ],
  "features": [
+  {
+   "title": "Meet The Dakar 2026 Youth Olympic Games Athletes: B-Boy David On Building for the Next Generation",
+   "source": "WDSF",
+   "date": "2026-11-04",
+   "url": "https://www.worlddancesport.org/News/meet-dakar-2026-athletes-bboy-david-zwolle-3954",
+   "image": "https://www.worlddancesport.org/media/1e304c7a-359d-417d-a941-b4f80094a08a/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_david.jpg.jpeg"
+  },
+  {
+   "title": "Meet The Dakar 2026 Youth Olympic Games Athletes: B-Girl Reese, A True Calling",
+   "source": "WDSF",
+   "date": "2026-11-04",
+   "url": "https://www.worlddancesport.org/News/meet-dakar-2026-athletes-bgirl-reese-calling-3952",
+   "image": "https://www.worlddancesport.org/media/4bf92da2-e227-4d81-a0dc-b4f700a6eba3/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_reese.jpg"
+  },
   {
    "title": "Meet The Dakar 2026 Youth Olympic Games Athletes: B-Boy Lil Machine On Making Colombian Breaking History and Representing Latin America",
    "source": "WDSF",
@@ -800,20 +844,6 @@
    "date": "2026-10-28",
    "url": "https://www.worlddancesport.org/News/meet-dakar-2026-athletes-bboy-holy-rain-3946",
    "image": "https://www.worlddancesport.org/media/7da4242c-94c1-414f-8057-b4f1013bdbe1/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_holy-rain.jpg.jpeg"
-  },
-  {
-   "title": "Meet the Dakar 2026 Youth Olympic Games Athletes: B-Boy Edgar on Vision, Heritage, and Latvia’s Breakthrough",
-   "source": "WDSF",
-   "date": "2026-10-28",
-   "url": "https://www.worlddancesport.org/News/b-boy-edgar-dakar-2026-latvia-breaking-interview-3945",
-   "image": "https://www.worlddancesport.org/media/6a2f29ba-0f39-4db7-bead-b4f100d6e75b/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_edgar.jpg.jpeg"
-  },
-  {
-   "title": "Meet the Dakar 2026 Youth Olympic Athletes: B-Girl Krazy on Representing the Birthplace of Breaking",
-   "source": "WDSF",
-   "date": "2026-10-27",
-   "url": "https://www.worlddancesport.org/News/bgirl-krazy-dakar-2026-youth-olympic-games-3943",
-   "image": "https://www.worlddancesport.org/media/3fae1daf-e0d6-440c-bb74-b4f0010a0eb1/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_krazy.jpg%20%281%29.jpeg"
   }
  ],
  "headlines": [
@@ -822,6 +852,20 @@
    "source": "Red Bull",
    "date": "2026-10-30",
    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPWlRTVEMzbFV2dFdYTjJjSnNMSlVjd0JDYU16TWF3Xzdzb1loTXIzbnJMb19TdVA1bjhMb0ZhYnVPal9zTW5HcG9vUzNLd2tJTWx3RGJFRXJRY01nUFFJUDY4Z3phMUZPdVVXXzNBWGNiZHl1Mnc3WHV6RDhVS0RObWNncVRyVmtIclh0dVZR?oc=5",
+   "image": null
+  },
+  {
+   "title": "Learn to breakdance with Mikel: The Indian Step",
+   "source": "Red Bull",
+   "date": "2026-10-24",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNcElZMVhMdGZXWld5Y3lHYjE5VjZpTTNFQzVNZlhkVkVrV3ZoNkdiR0g4dmxaWHQ3cVJraXAzSDNjZ1k4WnFrc21NSlV0TkpjV3MtejVyZF85dThVWGRZQVR2R1dqQUdnenJZcFFTSTUtR3ZmR1BIMlotS2g2Wmw1ZEdoYm9mM3A0cVpxdWNqUHJmRndLMk9yOUM4SnZqcHNxUGJYWHln?oc=5",
+   "image": null
+  },
+  {
+   "title": "B-boy Cheerito: Red Bull BC One Eastern European",
+   "source": "Red Bull",
+   "date": "2026-10-24",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPYXZpR19qOXE3T0h4Mk01YUR0bXpteEZhQkhoRFExbDdiRFhHSkZOTVhrNmxicU94TzZ1R0p2MGZvR01Genk1aHBXVEZSODFnejFwWGFLV1ZqSWx2UW54M0Y0RW5PdGRxRzFoWjVaSnFfVzZPcWJUVTBZbGF4czFVWkFnVUdwWndIY00zNjlR?oc=5",
    "image": null
   }
  ],
