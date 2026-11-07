@@ -886,5 +886,15 @@
   "date": "2026-11-01",
   "status": "collected",
   "battles": 27
+ },
+ "5695": {
+  "name": "Break Rumble South Korea 2026",
+  "date": "2026-11-07",
+  "status": "pending"
+ },
+ "5701": {
+  "name": "JDSF Breaking Block Battle Series 2026 - North Block",
+  "date": "2026-11-07",
+  "status": "pending"
  }
 }

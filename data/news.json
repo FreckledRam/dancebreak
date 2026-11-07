@@ -1,16 +1,6 @@
 {
- "updated": "2026-11-06T17:28:43Z",
+ "updated": "2026-11-07T16:25:07Z",
  "upcoming": [
-  {
-   "source": "breakkonnect",
-   "id": "5006",
-   "name": "Burgers and Breaks",
-   "start": "2026-11-06",
-   "end": "2026-11-06",
-   "url": "https://breakkonnect.com/event/5006",
-   "place": "Brooklyn, NY, USA",
-   "image": "https://images-ivn6elc3dq-uc.a.run.app/12a4af9c-a05b-4348-a075-2652282aae02/480/300"
-  },
   {
    "source": "and8",
    "id": "5752",
@@ -46,7 +36,7 @@
    "id": "5014",
    "name": "Breaks Unlimited Vol. 5",
    "start": "2026-11-07",
-   "end": "2026-11-07",
+   "end": "2026-11-08",
    "url": "https://breakkonnect.com/event/5014",
    "place": "Atlanta, GA, USA",
    "image": "https://images-ivn6elc3dq-uc.a.run.app/f1ceb156-10aa-4165-b2b4-e0710463e939/480/300"
@@ -800,9 +790,26 @@
    "url": "https://and8.dance/en/e/5608",
    "place": "Europa SC, Slovakia",
    "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5637",
+   "name": "German Breaking Championships 2027",
+   "start": "2027-07-30",
+   "end": "2027-08-01",
+   "url": "https://and8.dance/en/e/5637",
+   "place": "Stuttgart, Germany",
+   "image": null
   }
  ],
  "features": [
+  {
+   "title": "Meet The Dakar 2026 Youth Olympic Games Athletes: Morocco’s Vanguard: B-Boy Bilel and B-Girl Nawel, Two Paths, One Cipher",
+   "source": "WDSF",
+   "date": "2026-11-07",
+   "url": "https://www.worlddancesport.org/News/morocco-breaking-dakar-2026-bilel-nawel-3961",
+   "image": "https://www.worlddancesport.org/media/aba633e4-1c38-4189-870b-b4fb008e1853/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_morocco.jpg.jpeg"
+  },
   {
    "title": "Breaking Becomes First Sport to Sell Out at 2026 Youth Olympic Games in Dakar",
    "source": "WDSF",
@@ -837,16 +844,16 @@
    "date": "2026-11-05",
    "url": "https://www.worlddancesport.org/News/meet-dakar-2026-athletes-bgirl-aizara-kazakhstan-3955",
    "image": "https://www.worlddancesport.org/media/5d9d8c9b-823e-4777-a862-b4f801001ee1/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_aizara.jpg.jpeg"
-  },
-  {
-   "title": "Meet The Dakar 2026 Youth Olympic Games Athletes: B-Boy David On Building for the Next Generation",
-   "source": "WDSF",
-   "date": "2026-11-04",
-   "url": "https://www.worlddancesport.org/News/meet-dakar-2026-athletes-bboy-david-zwolle-3954",
-   "image": "https://www.worlddancesport.org/media/1e304c7a-359d-417d-a941-b4f80094a08a/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_david.jpg.jpeg"
   }
  ],
  "headlines": [
+  {
+   "title": "Hip-hop - 21st Century, Culture, Music",
+   "source": "Britannica",
+   "date": "2026-11-01",
+   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNU3oxVHEtQ01KQUNPdTM0VjRSS20tN21QV2hTRk4wVU1qYkY5ejhVNFlvYzIyX04tZ1FobkNjR1pjM1BqX050dTBtMGtmWUh6dDd6NEUtR3liN3BJZWRkOUlTOGI3dWVEOFpWR05KMWtKaXRtTUxPeUo3LUY5MzdkaQ?oc=5",
+   "image": null
+  },
   {
    "title": "Red Bull BC One World Final Toronto Announcement",
    "source": "Red Bull",
@@ -855,10 +862,10 @@
    "image": null
   },
   {
-   "title": "Learn to breakdance with Mikel: The Indian Step",
+   "title": "Willis rules the floor at the Red Bull Dance Your Style World Final 2026",
    "source": "Red Bull",
-   "date": "2026-10-24",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNcElZMVhMdGZXWld5Y3lHYjE5VjZpTTNFQzVNZlhkVkVrV3ZoNkdiR0g4dmxaWHQ3cVJraXAzSDNjZ1k4WnFrc21NSlV0TkpjV3MtejVyZF85dThVWGRZQVR2R1dqQUdnenJZcFFTSTUtR3ZmR1BIMlotS2g2Wmw1ZEdoYm9mM3A0cVpxdWNqUHJmRndLMk9yOUM4SnZqcHNxUGJYWHln?oc=5",
+   "date": "2026-10-25",
+   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPYW5GZll4QWNscUpGUzFBdkFfcVE3VVZmeHpNNlIxeEpGMEtNcFVVV0tpX3pYZWhhem5PSFMxYW1GaWxoZ0RCbUxfTG43X29ZRVJDODYwalIzcGZGWVh3UDRLTXR1S2ttTnA2czBxamd6Y0VRZURSN0VfbXdGdFoxUjBnMA?oc=5",
    "image": null
   }
  ],
