@@ -734,11 +734,13 @@
  "4762": {
   "name": "I Need A Break V",
   "date": "2026-10-03",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4780": {
   "name": "Connection",
   "date": "2026-06-07",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  }
 }

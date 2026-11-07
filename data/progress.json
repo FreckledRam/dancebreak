@@ -1,14 +1,14 @@
 {
- "running": true,
+ "running": false,
  "started": "2026-11-07T16:25:07Z",
- "current": "breakkonnect",
+ "current": null,
  "sources": {
   "breakkonnect": {
    "todo": 2,
-   "done": 0,
+   "done": 2,
    "started": "2026-11-07T16:25:18Z",
    "eta_seconds": 16
   }
  },
- "updated": "2026-11-07T16:25:18Z"
+ "updated": "2026-11-07T16:25:23Z"
 }
