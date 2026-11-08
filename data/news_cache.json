@@ -4,30 +4,6 @@
    "breaking": false,
    "place": ""
   },
-  "5690": {
-   "breaking": true,
-   "place": "Dijon, France"
-  },
-  "5695": {
-   "breaking": true,
-   "place": "Seoul, South Korea"
-  },
-  "5643": {
-   "breaking": true,
-   "place": "Hamburg, Germany"
-  },
-  "5674": {
-   "breaking": true,
-   "place": ""
-  },
-  "5701": {
-   "breaking": true,
-   "place": ""
-  },
-  "5648": {
-   "breaking": true,
-   "place": "Tokyo, Japan"
-  },
   "5697": {
    "breaking": false,
    "place": "Feuchtwangen, Germany"
@@ -325,10 +301,6 @@
    "place": "Saarbrücken, Germany"
   },
   "5749": {
-   "breaking": true,
-   "place": ""
-  },
-  "5752": {
    "breaking": true,
    "place": ""
   },

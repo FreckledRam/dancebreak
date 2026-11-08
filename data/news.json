@@ -1,116 +1,6 @@
 {
- "updated": "2026-11-07T16:25:07Z",
+ "updated": "2026-11-08T16:39:58Z",
  "upcoming": [
-  {
-   "source": "and8",
-   "id": "5752",
-   "name": "Battle New School International",
-   "start": "2026-11-07",
-   "end": "2026-11-07",
-   "url": "https://and8.dance/en/e/5752",
-   "place": "Le Pavillon de Penvillers, France",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5690",
-   "name": "Battle of The Year Next Generation - Europe 2026",
-   "start": "2026-11-07",
-   "end": "2026-11-07",
-   "url": "https://and8.dance/en/e/5690",
-   "place": "Dijon, France",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5695",
-   "name": "Break Rumble South Korea 2026",
-   "start": "2026-11-07",
-   "end": "2026-11-07",
-   "url": "https://and8.dance/en/e/5695",
-   "place": "Seoul, South Korea",
-   "image": null
-  },
-  {
-   "source": "breakkonnect",
-   "id": "5014",
-   "name": "Breaks Unlimited Vol. 5",
-   "start": "2026-11-07",
-   "end": "2026-11-08",
-   "url": "https://breakkonnect.com/event/5014",
-   "place": "Atlanta, GA, USA",
-   "image": "https://images-ivn6elc3dq-uc.a.run.app/f1ceb156-10aa-4165-b2b4-e0710463e939/480/300"
-  },
-  {
-   "source": "and8",
-   "id": "5643",
-   "name": "Enter the Circle 2026",
-   "start": "2026-11-07",
-   "end": "2026-11-07",
-   "url": "https://and8.dance/en/e/5643",
-   "place": "Hamburg, Germany",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5674",
-   "name": "Flon Battle 2026",
-   "start": "2026-11-07",
-   "end": "2026-11-07",
-   "url": "https://and8.dance/en/e/5674",
-   "place": "Flon, Switzerland",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5701",
-   "name": "JDSF Breaking Block Battle Series 2026 - North Block",
-   "start": "2026-11-07",
-   "end": "2026-11-07",
-   "url": "https://and8.dance/en/e/5701",
-   "place": "Tonarie Kitahiroshima - Tonarie Field Live Arena, Japan",
-   "image": null
-  },
-  {
-   "source": "breakkonnect",
-   "id": "4971",
-   "name": "Pass The Torch VOL. II",
-   "start": "2026-11-07",
-   "end": "2026-11-08",
-   "url": "https://breakkonnect.com/event/4971",
-   "place": "New York, NY, USA",
-   "image": "https://images-ivn6elc3dq-uc.a.run.app/2d8ecc01-6921-443a-9e56-fe249265812a/480/300"
-  },
-  {
-   "source": "and8",
-   "id": "5648",
-   "name": "Spin Control World Final 2026",
-   "start": "2026-11-07",
-   "end": "2026-11-07",
-   "url": "https://and8.dance/en/e/5648",
-   "place": "Tokyo, Japan",
-   "image": null
-  },
-  {
-   "source": "breakkonnect",
-   "id": "5011",
-   "name": "The Breaks Kru Anniversary",
-   "start": "2026-11-07",
-   "end": "2026-11-08",
-   "url": "https://breakkonnect.com/event/5011",
-   "place": "Brooklyn, NY, USA",
-   "image": "https://images-ivn6elc3dq-uc.a.run.app/43826cb6-1e35-4e45-a0ec-f6263b81350f/480/300"
-  },
-  {
-   "source": "breakkonnect",
-   "id": "4985",
-   "name": "Flavor Fest's Bring the Flavor Breakin' Battle",
-   "start": "2026-11-08",
-   "end": "2026-11-08",
-   "url": "https://breakkonnect.com/event/4985",
-   "place": "Tampa, FL, USA",
-   "image": "https://images-ivn6elc3dq-uc.a.run.app/c34600e9-b2e4-4de4-ac57-c680ebfa940b/480/300"
-  },
   {
    "source": "and8",
    "id": "5719",
@@ -322,6 +212,16 @@
    "image": null
   },
   {
+   "source": "breakkonnect",
+   "id": "5030",
+   "name": "Rhythmic Damage XIX",
+   "start": "2026-11-21",
+   "end": "2026-11-22",
+   "url": "https://breakkonnect.com/event/5030",
+   "place": "Philadelphia, PA, USA",
+   "image": "https://images-ivn6elc3dq-uc.a.run.app/2baae2ac-1be2-4a03-b215-1117da10b86d/480/300"
+  },
+  {
    "source": "and8",
    "id": "5734",
    "name": "Superbreak 2026",
@@ -510,6 +410,16 @@
    "url": "https://and8.dance/en/e/5708",
    "place": "Erfurt, Germany",
    "image": null
+  },
+  {
+   "source": "breakkonnect",
+   "id": "5026",
+   "name": "Ground Zero Crew 30 Year Anniversary",
+   "start": "2026-12-12",
+   "end": "2026-12-13",
+   "url": "https://breakkonnect.com/event/5026",
+   "place": "Miami, FL, USA",
+   "image": "https://images-ivn6elc3dq-uc.a.run.app/24cccc37-60ce-4d6e-a827-c5dc0515ed54/480/300"
   },
   {
    "source": "and8",
@@ -800,9 +710,36 @@
    "url": "https://and8.dance/en/e/5637",
    "place": "Stuttgart, Germany",
    "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5575",
+   "name": "UK B-Boy Championships - World Finals 2027",
+   "start": "2027-08-14",
+   "end": "2027-08-15",
+   "url": "https://and8.dance/en/e/5575",
+   "place": "Aviva Studios, Great Britain",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5746",
+   "name": "Unbreakable 2027 - UB22 Edition",
+   "start": "2027-09-03",
+   "end": "2027-09-05",
+   "url": "https://and8.dance/en/e/5746",
+   "place": "Ostend, Belgium",
+   "image": null
   }
  ],
  "features": [
+  {
+   "title": "Meet The Dakar 2026 Youth Olympic Games Athletes: B-Boy Papis and B-Girl Suzz Carry Senegal’s Hopes for Dakar 2026",
+   "source": "WDSF",
+   "date": "2026-11-08",
+   "url": "https://www.worlddancesport.org/News/Meet-The-Dakar-2026-Youth-Olympic-Games-Athletes-B-Boy-Papis-and-B-Girl-Suzz-Carry-Senegal’s-Hopes-for-Dakar-2026-3962",
+   "image": "https://www.worlddancesport.org/media/3300c9dc-d516-4bed-9d0e-b4fc00fde091/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_senegal.jpg"
+  },
   {
    "title": "Meet The Dakar 2026 Youth Olympic Games Athletes: Morocco’s Vanguard: B-Boy Bilel and B-Girl Nawel, Two Paths, One Cipher",
    "source": "WDSF",
@@ -837,13 +774,6 @@
    "date": "2026-11-05",
    "url": "https://www.worlddancesport.org/News/world-championships-paris-2026-breaking-hip-hop-tickets-3957",
    "image": "https://www.worlddancesport.org/media/ce6c63ad-2451-448a-a177-b4f900bd56ea/480x280/landscape/native_1200x627_en.jpg"
-  },
-  {
-   "title": "Meet The Dakar 2026 Youth Olympic Games Athletes: B-Girl Aizara: Grace, Power, and Central Asia’s New Generation",
-   "source": "WDSF",
-   "date": "2026-11-05",
-   "url": "https://www.worlddancesport.org/News/meet-dakar-2026-athletes-bgirl-aizara-kazakhstan-3955",
-   "image": "https://www.worlddancesport.org/media/5d9d8c9b-823e-4777-a862-b4f801001ee1/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_aizara.jpg.jpeg"
   }
  ],
  "headlines": [
@@ -855,17 +785,17 @@
    "image": null
   },
   {
+   "title": "Red Bull BC One World Final 2026: Last Chance Cypher",
+   "source": "Red Bull",
+   "date": "2026-10-31",
+   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOMXFyd1hXTTJFaEFGV1RhVDUwQVZCMGxkQ0ZRTlNwVDJzdnVUMkxySTJtU2dzTXB1c2RrT0hqMGViUVM2N2N5S01EdS01QVRsdXluN3hscDFkZ3llbG5OcHlBVjZIbHo1RU5ZZ0wzOFM2NU1WNmM0dXFlcHhPZi1RMDdpVWUxaUg4aEtjc1lhWDd1WlNlYWtPYkZzc0RSVTZzc2lHRVdBWUJRMUVMTmJPVThOVUFmdFBIU3F3UDhRQmxQQXJfMnc?oc=5",
+   "image": null
+  },
+  {
    "title": "Red Bull BC One World Final Toronto Announcement",
    "source": "Red Bull",
    "date": "2026-10-30",
    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPWlRTVEMzbFV2dFdYTjJjSnNMSlVjd0JDYU16TWF3Xzdzb1loTXIzbnJMb19TdVA1bjhMb0ZhYnVPal9zTW5HcG9vUzNLd2tJTWx3RGJFRXJRY01nUFFJUDY4Z3phMUZPdVVXXzNBWGNiZHl1Mnc3WHV6RDhVS0RObWNncVRyVmtIclh0dVZR?oc=5",
-   "image": null
-  },
-  {
-   "title": "Willis rules the floor at the Red Bull Dance Your Style World Final 2026",
-   "source": "Red Bull",
-   "date": "2026-10-25",
-   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPYW5GZll4QWNscUpGUzFBdkFfcVE3VVZmeHpNNlIxeEpGMEtNcFVVV0tpX3pYZWhhem5PSFMxYW1GaWxoZ0RCbUxfTG43X29ZRVJDODYwalIzcGZGWVh3UDRLTXR1S2ttTnA2czBxamd6Y0VRZURSN0VfbXdGdFoxUjBnMA?oc=5",
    "image": null
   }
  ],
