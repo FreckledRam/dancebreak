@@ -1,13 +1,5 @@
 {
  "and8": {
-  "5710": {
-   "breaking": false,
-   "place": ""
-  },
-  "5697": {
-   "breaking": false,
-   "place": "Feuchtwangen, Germany"
-  },
   "5560": {
    "breaking": true,
    "place": ""
@@ -203,10 +195,6 @@
   "5663": {
    "breaking": false,
    "place": "Karlsruhe, Germany"
-  },
-  "5719": {
-   "breaking": true,
-   "place": "London, Great Britain"
   },
   "5721": {
    "breaking": true,
