@@ -1,0 +1,153 @@
+{
+ "event": "Whack Donuts: Soul glaze Sunday Tops & Drops 1V1",
+ "source": "breakkonnect",
+ "date": "2026-06-28",
+ "year": 2026,
+ "url": "https://breakkonnect.com/event/4800",
+ "battles": [
+  {
+   "system": "PointsPerRound",
+   "red": "Lando",
+   "blue": "Rahul",
+   "winner": "Lando",
+   "judges": [
+    "Profo Won"
+   ],
+   "cells": {
+    "event": "Whack Donuts: Soul glaze Sunday Tops & Drops 1V1",
+    "stage": "1vs1 Tops & Drops Top 8 KnockOut",
+    "r1j1over": "-1",
+    "r1j1redp": "10",
+    "r1j1blup": "9",
+    "r2j1over": "-1",
+    "r2j1redp": "10",
+    "r2j1blup": "9",
+    "breaker 1 (red)": "Lando",
+    "breaker 2 (blue)": "Rahul",
+    "winner": "Lando",
+    "battle rounds": "2",
+    "number of judges": "1",
+    "breaker 1 round wins": "2",
+    "breaker 2 round wins": "0",
+    "tie rounds": "0",
+    "breaker 1 vote count": "2",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "breaker 1 points": "20",
+    "breaker 2 points": "18",
+    "judge 1 name": "Profo Won"
+   },
+   "id": "breakkonnect-4800-2441-68059",
+   "stage": "1vs1 Tops & Drops Top 8 KnockOut",
+   "url": "https://breakkonnect.com/sparring/68059"
+  },
+  {
+   "system": "PointsPerRound",
+   "red": "Justified",
+   "blue": "konlin",
+   "winner": "Justified",
+   "judges": [
+    "Profo Won"
+   ],
+   "cells": {
+    "event": "Whack Donuts: Soul glaze Sunday Tops & Drops 1V1",
+    "stage": "1vs1 Tops & Drops Top 8 KnockOut",
+    "r1j1over": "0",
+    "r1j1redp": "9",
+    "r1j1blup": "9",
+    "r2j1over": "-1",
+    "r2j1redp": "10",
+    "r2j1blup": "9",
+    "breaker 1 (red)": "Justified",
+    "breaker 2 (blue)": "konlin",
+    "winner": "Justified",
+    "battle rounds": "2",
+    "number of judges": "1",
+    "breaker 1 round wins": "1",
+    "breaker 2 round wins": "0",
+    "tie rounds": "1",
+    "breaker 1 vote count": "1",
+    "breaker 2 vote count": "0",
+    "tie vote count": "1",
+    "breaker 1 points": "19",
+    "breaker 2 points": "18",
+    "judge 1 name": "Profo Won"
+   },
+   "id": "breakkonnect-4800-2441-68060",
+   "stage": "1vs1 Tops & Drops Top 8 KnockOut",
+   "url": "https://breakkonnect.com/sparring/68060"
+  },
+  {
+   "system": "PointsPerRound",
+   "red": "jerz",
+   "blue": "Q-VOE",
+   "winner": "jerz",
+   "judges": [
+    "Profo Won"
+   ],
+   "cells": {
+    "event": "Whack Donuts: Soul glaze Sunday Tops & Drops 1V1",
+    "stage": "1vs1 Tops & Drops Top 8 KnockOut",
+    "r1j1over": "-1",
+    "r1j1redp": "10",
+    "r1j1blup": "9",
+    "r2j1over": "-1",
+    "r2j1redp": "10",
+    "r2j1blup": "9",
+    "breaker 1 (red)": "jerz",
+    "breaker 2 (blue)": "Q-VOE",
+    "winner": "jerz",
+    "battle rounds": "2",
+    "number of judges": "1",
+    "breaker 1 round wins": "2",
+    "breaker 2 round wins": "0",
+    "tie rounds": "0",
+    "breaker 1 vote count": "2",
+    "breaker 2 vote count": "0",
+    "tie vote count": "0",
+    "breaker 1 points": "20",
+    "breaker 2 points": "18",
+    "judge 1 name": "Profo Won"
+   },
+   "id": "breakkonnect-4800-2441-68057",
+   "stage": "1vs1 Tops & Drops Top 8 KnockOut",
+   "url": "https://breakkonnect.com/sparring/68057"
+  },
+  {
+   "system": "PointsPerRound",
+   "red": "Dibs",
+   "blue": "Printz",
+   "winner": "Dibs",
+   "judges": [
+    "Profo Won"
+   ],
+   "cells": {
+    "event": "Whack Donuts: Soul glaze Sunday Tops & Drops 1V1",
+    "stage": "1vs1 Tops & Drops Top 8 KnockOut",
+    "r1j1over": "1",
+    "r1j1redp": "9",
+    "r1j1blup": "10",
+    "r2j1over": "-3",
+    "r2j1redp": "10",
+    "r2j1blup": "7",
+    "breaker 1 (red)": "Dibs",
+    "breaker 2 (blue)": "Printz",
+    "winner": "Dibs",
+    "battle rounds": "2",
+    "number of judges": "1",
+    "breaker 1 round wins": "1",
+    "breaker 2 round wins": "1",
+    "tie rounds": "0",
+    "breaker 1 vote count": "1",
+    "breaker 2 vote count": "1",
+    "tie vote count": "0",
+    "breaker 1 points": "19",
+    "breaker 2 points": "17",
+    "judge 1 name": "Profo Won"
+   },
+   "id": "breakkonnect-4800-2441-68058",
+   "stage": "1vs1 Tops & Drops Top 8 KnockOut",
+   "url": "https://breakkonnect.com/sparring/68058"
+  }
+ ]
+}
