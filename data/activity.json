@@ -1,5 +1,23 @@
 [
  {
+  "time": "2026-11-09T20:45:14Z",
+  "kind": "check",
+  "source": "wdsf",
+  "text": "2 events listed.",
+  "battles": 0,
+  "events": 0,
+  "run": "2026-11-09T20:42:25Z"
+ },
+ {
+  "time": "2026-11-09T20:45:12Z",
+  "kind": "check",
+  "source": "and8",
+  "text": "158 events listed, 1 new, collected 88 battles from 2 events.",
+  "battles": 88,
+  "events": 2,
+  "run": "2026-11-09T20:42:25Z"
+ },
+ {
   "time": "2026-11-08T16:40:21Z",
   "kind": "check",
   "source": "breakkonnect",

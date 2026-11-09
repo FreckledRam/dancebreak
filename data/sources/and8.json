@@ -890,16 +890,19 @@
  "5695": {
   "name": "Break Rumble South Korea 2026",
   "date": "2026-11-07",
-  "status": "pending"
+  "status": "collected",
+  "battles": 63
  },
  "5701": {
   "name": "JDSF Breaking Block Battle Series 2026 - North Block",
   "date": "2026-11-07",
-  "status": "pending"
+  "status": "collected",
+  "battles": 25
  },
  "5710": {
   "name": "Snipes Beyond Doubt",
   "date": "2026-11-07",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  }
 }
