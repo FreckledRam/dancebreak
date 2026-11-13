@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T18:18:29Z",
+ "updated": "2026-11-13T17:43:47Z",
  "upcoming": [
   {
    "source": "and8",
@@ -19,16 +19,6 @@
    "end": "2026-11-13",
    "url": "https://and8.dance/en/e/3720",
    "place": "Complex Tour de l'Oeuf, Senegal",
-   "image": null
-  },
-  {
-   "source": "wdsf",
-   "id": "8597",
-   "name": "Youth Olympic Games",
-   "start": "2026-11-12",
-   "end": "2026-11-13",
-   "url": "https://www.worlddancesport.org/Events/Dakar-Senegal-12112026-13112026-8597",
-   "place": "Dakar, Senegal",
    "image": null
   },
   {
@@ -744,6 +734,13 @@
  ],
  "features": [
   {
+   "title": "The Olympic Pulse Returns: Youth Breakers Deliver an Unforgettable Opening Day at the Dakar 2026 Youth Olympic Games",
+   "source": "WDSF",
+   "date": "2026-11-12",
+   "url": "https://www.worlddancesport.org/News/The-Olympic-Pulse-Returns-Youth-Breakers-Deliver-an-Unforgettable-Opening-Day-at-the-Dakar-2026-Youth-Olympic-Games-3966",
+   "image": "https://www.worlddancesport.org/media/60c80ebc-c05d-4705-a4c5-b50001750933/480x280/landscape/hal04828.jpg"
+  },
+  {
    "title": "From Paris to Dakar: B-Boy Hiro10 Inspires the Next Generation at the Youth Olympic Games",
    "source": "WDSF",
    "date": "2026-11-11",
@@ -777,16 +774,30 @@
    "date": "2026-11-06",
    "url": "https://www.worlddancesport.org/News/dakar-2026-breaking-sold-out-livestream-schedule-3960",
    "image": "https://www.worlddancesport.org/media/996dd68a-7687-404c-bb7c-b4fa00bd3db0/480x280/landscape/gemini_generated_image_5zbijs5zbijs5zbi.jpeg"
-  },
-  {
-   "title": "Meet The Dakar 2026 Youth Olympic Games Athletes: B-Girl NikaStar: Patience, Legacy, and Determination",
-   "source": "WDSF",
-   "date": "2026-11-06",
-   "url": "https://www.worlddancesport.org/News/Meet-The-Dakar-2026-Youth-Olympic-Games-Athletes-B-Girl-NikaStar-Patience-Legacy-and-Determination-3959",
-   "image": "https://www.worlddancesport.org/media/c4df90a9-486a-4cd7-bff0-b4fa00e41823/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_nikastar.jpg%20%281%29.jpeg"
   }
  ],
  "headlines": [
+  {
+   "title": "B-BOY HOLY RAIN (CHN) turns mother's sacrifice into golden breaking moment at Dakar 2026",
+   "source": "www.olympics.com",
+   "date": "2026-11-13",
+   "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQMU5oVktqNzRKd2RxOG1FbkhiUGl0Z3Z0N08zUXpRdzBPLWRQVUVtOG5iM2tXMWoxWDE5OFJWc0R3ZkpCeWFsMGxVMk5GdW9CWjJ3ci1UWGRTczhOUUl3WWRVX1VqdkVjSnU2QnJlZGxHT3E5WmZIak5TZGJUMWZLQkRvYklZd2R0ckdFbmJwdm9xeGNTZE1UazM5Vm1tU2VxdFVpUjBXaWtObDNUMl91eHljMFBDMlZqY3JsNE1CaU03WTRERlVyU1YyMlpJRzUtZ3lCRnA5M3VkeTI1azYwUmpnYkN5SEZM?oc=5",
+   "image": null
+  },
+  {
+   "title": "Top seeds B-Girl HIYO, B-Boy HOLY RAIN lead unbeaten charge into Dakar 2026 breaking quarterfinals",
+   "source": "www.olympics.com",
+   "date": "2026-11-12",
+   "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNc25SM1ZTYlN0LTNaWEhaazR5MkNRc1BMcGZsckNGV3oya0JGNDEyOWktRnkzYU1IZ21FNjQxdjZZX2hlLWZQSzNYaG5hSGRvV3RHMWtCYjEyS3Z1NDhzN2RvMkdZMmF6UnVEejl2YWExVm50SE1TZ0ZnZmgxNkZpRkdPSUFUNnlvVEVsejRWZHViNmVrZHdqbE9Hcm1hYUdIUVZXb0ZiYTg3LWlONHZINnZVb2JFOXVfX3hLZHNWVDZ2VDI5LVk3NTQ5OUc0U0N0TzBGbmtEbkNiUVlWZmpjNVROZUluYmhRaHVSNmstUm8xWDNoNUtB?oc=5",
+   "image": null
+  },
+  {
+   "title": "Breaking: From Buenos Aires to Paris to present, Youth Olympic medallist Shigekix has set high bar with class and dignity",
+   "source": "Olympics",
+   "date": "2026-11-11",
+   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOS0ozZUgtbjBKeGZDTU9NSzlGWWZQSXA4S2hPQUxiUWR6aXFjcl9BTHJDN3J3ZHc1V2NweXRBdFBSd3paYUFHcVhCRlhqYXR6c3BZa1FlMGNkWFBLVFVNSUJ2b01ZSnYzWnFGdWsySVl5NXVBNi1NYzAycVpVNzMzOXk0TWl4Mms?oc=5",
+   "image": null
+  },
   {
    "title": "Paris 2024 breaking stars - where are they two years after the Olympics?",
    "source": "Olympics",
@@ -809,10 +820,17 @@
    "image": null
   },
   {
+   "title": "The big return of breakdancing to the Olympic stage",
+   "source": "Francs Jeux",
+   "date": "2026-11-09",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNOFlMYVc5b1NpQzJPQ0k2cmduN3V4R204UExyTDBzeVhoVzk0S3pkWDg4elJLS05vRV92dGY1ZHZvYXNJOHNoWDNuWm5CWkd3NTZjUTRieGxnZXpkOUtGWU1MZFQxZHhST1hoVjJBZUp0Vl84R1E4eTRSSEt6eV8zSldFbVJDRnNaSVdTMk5ibnZrai04UV9DUm9RZ244cU8xUnN0Z0pocXRwX0lkWjNCa0Rn?oc=5",
+   "image": null
+  },
+  {
    "title": "Red Bull BC One World Final Toronto Announcement",
    "source": "Red Bull",
    "date": "2026-10-30",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPNU1rcWhZLXF3RzhaSjY2bF9lUHQ2R0hVbXBHZWxfeS1iZkNZVTc3X1ZHSHlGZWRUTXpUa2ZCTkp3RGMzZWdGQ3A1b3BRTFgzUGY4LUJWdjZzd05ZNUdfU1lubVFHOEM5RU8xUjZ5a3BxeW5Bc2JUWWxMSFpUUk8tQXYyQTZ6NjVjUy12dEZR?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxObWppZ0l6ME52U1VaOFBsZVRsekJiOWxQbUhjV1JzN09STnpNZEtLLTE3VlV1UjgyLWhrbmh2ZG5qRndVVzJlbXFOeFFHaThrLXVkX1hjNWEya3VzbmJOczZ1Tm5LS1FhR0tqa1FZSVZQNUYxRW9kNFlHZENBbHAtZXhiVXl2T2t0YW9MX2x3?oc=5",
    "image": null
   }
  ],
