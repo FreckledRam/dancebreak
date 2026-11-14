@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13T17:43:47Z",
+ "updated": "2026-11-14T16:35:52Z",
  "upcoming": [
   {
    "source": "and8",
@@ -9,16 +9,6 @@
    "end": "2026-11-15",
    "url": "https://and8.dance/en/e/5560",
    "place": "Lukiškės Prison 2.0, Lithuania",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "3720",
-   "name": "Breaking @ 2026 Youth Olympic Games",
-   "start": "2026-11-12",
-   "end": "2026-11-13",
-   "url": "https://and8.dance/en/e/3720",
-   "place": "Complex Tour de l'Oeuf, Senegal",
    "image": null
   },
   {
@@ -483,6 +473,16 @@
   },
   {
    "source": "and8",
+   "id": "5757",
+   "name": "Swiss Breaking Championship 2026",
+   "start": "2026-12-19",
+   "end": "2026-12-19",
+   "url": "https://and8.dance/en/e/5757",
+   "place": "Gemeindesaal Baar, Switzerland",
+   "image": null
+  },
+  {
+   "source": "and8",
    "id": "5740",
    "name": "C.U.B.E. Vol. 13 (Colosseum Urban Battles Event)",
    "start": "2026-12-29",
@@ -734,6 +734,13 @@
  ],
  "features": [
   {
+   "title": "Hiyo and Holy Rain Crowned Gold Medallists Before IOC President Kirsty Coventry as Breaking Concludes at the 2026 Youth Olympic Games",
+   "source": "WDSF",
+   "date": "2026-11-13",
+   "url": "https://www.worlddancesport.org/News/newsdakar-2026-youth-olympic-games-breaking-finals-hiyo-holy-rain-gold-3967",
+   "image": "https://www.worlddancesport.org/media/fac3ffb2-fb73-4f76-ada7-b5010186ebd8/480x280/landscape/hal09500.jpg"
+  },
+  {
    "title": "The Olympic Pulse Returns: Youth Breakers Deliver an Unforgettable Opening Day at the Dakar 2026 Youth Olympic Games",
    "source": "WDSF",
    "date": "2026-11-12",
@@ -767,16 +774,30 @@
    "date": "2026-11-07",
    "url": "https://www.worlddancesport.org/News/morocco-breaking-dakar-2026-bilel-nawel-3961",
    "image": "https://www.worlddancesport.org/media/aba633e4-1c38-4189-870b-b4fb008e1853/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_morocco.jpg.jpeg"
-  },
-  {
-   "title": "Breaking Becomes First Sport to Sell Out at 2026 Youth Olympic Games in Dakar",
-   "source": "WDSF",
-   "date": "2026-11-06",
-   "url": "https://www.worlddancesport.org/News/dakar-2026-breaking-sold-out-livestream-schedule-3960",
-   "image": "https://www.worlddancesport.org/media/996dd68a-7687-404c-bb7c-b4fa00bd3db0/480x280/landscape/gemini_generated_image_5zbijs5zbijs5zbi.jpeg"
   }
  ],
  "headlines": [
+  {
+   "title": "B-Girl Emma Prepares to Make History at Red Bull BC One World Final in Toronto",
+   "source": "Toronto Guardian",
+   "date": "2026-11-14",
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQMUE1T0hNV1UySm1sbHFfX01kVzN2TlBIYTkySGh5TmNYc1IwQTVuNlBVbi1OYjdpRF9scDdoT1ZoZkVlTVhnMUl4V0d2a0JsTnJXN3E1cTdPNjQ3QlQ2elpwNnkwMEk5UHZXcUh4X2VKR2F6N0JrakV1MFdPNkNHVVBFNGlLa2ZwM2pUTEpzMlpJbU0tdGUw?oc=5",
+   "image": null
+  },
+  {
+   "title": "B-Boy Holy Rain takes Youth Olympic gold in breaking",
+   "source": "NBC Olympics",
+   "date": "2026-11-13",
+   "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNa0JSLTZXbXZNeWxfN05vcUxsVkdUSVlTVGpwSDZ5eGxXZjV5VmtNRDYtNFI2eWlqMHFkak8xZTZlYW9jeU5DeVY0N3NtMXdsWVJhU1g1c2V1T2dyQlZtS3R3dU5MSGRPVVRWYTJudFp3SUNiSWF3ZlVDWVkyaFhGN3RWdWZyWGZ0NW5LUw?oc=5",
+   "image": null
+  },
+  {
+   "title": "HLs: B-Boy Holy Rain takes YOG gold in breaking",
+   "source": "Yahoo Sports",
+   "date": "2026-11-13",
+   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE4wVW1tX3FwTVNzczI2MTlzUUhnZi1vZTR4YWtqUW92LWtaczNaTFBOdm5EMlZsWklTQ3ZCdGxaVXlMaTFZTjVEajNXTWpJRkJObk1hR0publlCa3J1WS1aUlFsVnY4RVAwWWRfOVlKWUJOOV9E?oc=5",
+   "image": null
+  },
   {
    "title": "B-BOY HOLY RAIN (CHN) turns mother's sacrifice into golden breaking moment at Dakar 2026",
    "source": "www.olympics.com",
@@ -792,13 +813,6 @@
    "image": null
   },
   {
-   "title": "Breaking: From Buenos Aires to Paris to present, Youth Olympic medallist Shigekix has set high bar with class and dignity",
-   "source": "Olympics",
-   "date": "2026-11-11",
-   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOS0ozZUgtbjBKeGZDTU9NSzlGWWZQSXA4S2hPQUxiUWR6aXFjcl9BTHJDN3J3ZHc1V2NweXRBdFBSd3paYUFHcVhCRlhqYXR6c3BZa1FlMGNkWFBLVFVNSUJ2b01ZSnYzWnFGdWsySVl5NXVBNi1NYzAycVpVNzMzOXk0TWl4Mms?oc=5",
-   "image": null
-  },
-  {
    "title": "Paris 2024 breaking stars - where are they two years after the Olympics?",
    "source": "Olympics",
    "date": "2026-11-10",
@@ -810,27 +824,6 @@
    "source": "Olympics",
    "date": "2026-11-09",
    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPQUgteWZLRkpIaXczQi11d2wxNHdBOG9GeVFtSjkxeFhEdW1PazFHeGQybzFBbHdtNmxOVmRFVlVvTXdMZUlxQ2RWNVZJbHYzWGRDMHJHVFhIeTRYYTB5dHhzT3N6ZHlERWRVdzdaSzhZUjNXeWNuMHctc3J0ZE13a0taRUZEZWc1VUxHeVBzNnVpS3ptTmFpeVdKdnFHT2hzYXIw?oc=5",
-   "image": null
-  },
-  {
-   "title": "Who's made it to the Red Bull BC One World Final 2026?",
-   "source": "Red Bull",
-   "date": "2026-11-09",
-   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5Mdk1HVzFLNjJ3VEJ2czhQdmhvTzJUZXRFakpibGhybVZ1clEtZEM2bVBSTEFTUjZ5WVBSMzV6YV9FZFg1Y1VoYWFqWHQzRXRBYkRWcEFWTHNSdWtnY242aVVNZ1NDRVRSUk92QmlxSkE3UE1o?oc=5",
-   "image": null
-  },
-  {
-   "title": "The big return of breakdancing to the Olympic stage",
-   "source": "Francs Jeux",
-   "date": "2026-11-09",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNOFlMYVc5b1NpQzJPQ0k2cmduN3V4R204UExyTDBzeVhoVzk0S3pkWDg4elJLS05vRV92dGY1ZHZvYXNJOHNoWDNuWm5CWkd3NTZjUTRieGxnZXpkOUtGWU1MZFQxZHhST1hoVjJBZUp0Vl84R1E4eTRSSEt6eV8zSldFbVJDRnNaSVdTMk5ibnZrai04UV9DUm9RZ244cU8xUnN0Z0pocXRwX0lkWjNCa0Rn?oc=5",
-   "image": null
-  },
-  {
-   "title": "Red Bull BC One World Final Toronto Announcement",
-   "source": "Red Bull",
-   "date": "2026-10-30",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxObWppZ0l6ME52U1VaOFBsZVRsekJiOWxQbUhjV1JzN09STnpNZEtLLTE3VlV1UjgyLWhrbmh2ZG5qRndVVzJlbXFOeFFHaThrLXVkX1hjNWEya3VzbmJOczZ1Tm5LS1FhR0tqa1FZSVZQNUYxRW9kNFlHZENBbHAtZXhiVXl2T2t0YW9MX2x3?oc=5",
    "image": null
   }
  ],

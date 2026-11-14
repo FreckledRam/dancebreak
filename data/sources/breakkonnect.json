@@ -778,5 +778,10 @@
   "date": "2026-06-28",
   "status": "collected",
   "battles": 4
+ },
+ "4801": {
+  "name": "Midwest Mayhem",
+  "date": "2026-08-01",
+  "status": "pending"
  }
 }
