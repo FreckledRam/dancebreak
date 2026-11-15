@@ -12,14 +12,6 @@
    "breaking": false,
    "place": ""
   },
-  "5662": {
-   "breaking": true,
-   "place": "Aachen, Germany"
-  },
-  "5505": {
-   "breaking": true,
-   "place": "Ingolstadt, Germany"
-  },
   "5600": {
    "breaking": false,
    "place": ""
@@ -240,10 +232,6 @@
    "breaking": true,
    "place": "Burghausen, Germany"
   },
-  "5739": {
-   "breaking": true,
-   "place": "Hannover, Germany"
-  },
   "5743": {
    "breaking": true,
    "place": "Hannover, Germany"
@@ -289,10 +277,6 @@
    "place": ""
   },
   "5755": {
-   "breaking": true,
-   "place": ""
-  },
-  "5748": {
    "breaking": true,
    "place": ""
   },
