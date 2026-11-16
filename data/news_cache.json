@@ -1,21 +1,5 @@
 {
  "and8": {
-  "5560": {
-   "breaking": true,
-   "place": ""
-  },
-  "5530": {
-   "breaking": false,
-   "place": ""
-  },
-  "5341": {
-   "breaking": false,
-   "place": ""
-  },
-  "5600": {
-   "breaking": false,
-   "place": ""
-  },
   "5542": {
    "breaking": true,
    "place": "Stralsund, Germany"
@@ -196,10 +180,6 @@
    "breaking": true,
    "place": "Thessaloniki, Greece"
   },
-  "5723": {
-   "breaking": true,
-   "place": ""
-  },
   "5724": {
    "breaking": true,
    "place": "Augsburg, Germany"
@@ -207,10 +187,6 @@
   "5722": {
    "breaking": true,
    "place": "Chania, Greece"
-  },
-  "5728": {
-   "breaking": true,
-   "place": "Moscow, Russia"
   },
   "5727": {
    "breaking": true,

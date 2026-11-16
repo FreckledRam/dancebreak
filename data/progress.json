@@ -1,14 +1,7 @@
 {
  "running": false,
- "started": "2026-11-15T17:07:15Z",
+ "started": "2026-11-16T20:26:49Z",
  "current": null,
- "sources": {
-  "wdsf": {
-   "todo": 1,
-   "done": 1,
-   "started": "2026-11-15T17:07:27Z",
-   "eta_seconds": 12
-  }
- },
- "updated": "2026-11-15T17:07:40Z"
+ "sources": {},
+ "updated": "2026-11-16T20:26:56Z"
 }
