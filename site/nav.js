@@ -103,6 +103,7 @@
     ['breakers', 'Breakers', 'An Elo rating for every breaker'],
     ['judges', 'Judges', 'How each judge votes, and how each system behaves'],
     ['events', 'Events', 'Size, field strength and closeness of every event'],
+    ['video', 'Video analysis', 'Skeleton tracking on battle footage'],
   ];
   TOUR.forEach(([id], i) => {
     const prev = TOUR[i - 1], next = TOUR[i + 1];

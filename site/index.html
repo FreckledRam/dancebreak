@@ -11,9 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
 <script>
   // always load the newest styles and script instead of a copy the browser saved earlier
-  document.write('<link rel="stylesheet" href="style.css?v=' + Date.now() + '"><link rel="stylesheet" href="home.css?v=' + Date.now() + '"><link rel="stylesheet" href="news.css?v=' + Date.now() + '">');
+  document.write('<link rel="stylesheet" href="style.css?v=' + Date.now() + '"><link rel="stylesheet" href="home.css?v=' + Date.now() + '"><link rel="stylesheet" href="news.css?v=' + Date.now() + '"><link rel="stylesheet" href="video.css?v=' + Date.now() + '">');
 </script>
-<noscript><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="home.css"><link rel="stylesheet" href="news.css"></noscript>
+<noscript><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="home.css"><link rel="stylesheet" href="news.css"><link rel="stylesheet" href="video.css"></noscript>
 </head>
 <body>
 <header>
@@ -32,6 +32,7 @@
       <a class="tab c-breakers" href="#breakers">Breakers</a>
       <a class="tab c-judges" href="#judges">Judges</a>
       <a class="tab c-events" href="#events">Events</a>
+      <a class="tab" href="#video">Video analysis</a>
     </div>
     <div class="nav-side">
       <div class="nav-search" id="nav-search">
@@ -233,6 +234,12 @@
   </section>
 
 
+  <section id="video" hidden>
+    <h1>Video analysis</h1>
+    <p class="sub">Skeleton tracking on battle footage.</p>
+    <div id="va"></div>
+  </section>
+
   <section id="breakers" hidden>
     <h1 class="c-breakers">Breaker rankings</h1>
     <p class="sub">Elo rating from every recorded 1 vs 1 battle. A breaker is ranked after 5 battles. Click a breaker for their history.</p>
@@ -299,6 +306,6 @@
 <footer>
   <p>Data from <a href="https://and8.dance">And8</a>, <a href="https://www.worlddancesport.org">WDSF</a> and <a href="https://breakkonnect.com">Break Konnect</a>. <a id="repo" href="https://github.com/FreckledRam/dancebreak">Code and data on GitHub</a>.</p>
 </footer>
-<script>document.write('<script src="export.js?v=' + Date.now() + '"><\/script><script src="app.js?v=' + Date.now() + '"><\/script><script src="analytics.js?v=' + Date.now() + '"><\/script><script src="home.js?v=' + Date.now() + '"><\/script><script src="news.js?v=' + Date.now() + '"><\/script><script src="nav.js?v=' + Date.now() + '"><\/script>');</script>
+<script>document.write('<script src="export.js?v=' + Date.now() + '"><\/script><script src="app.js?v=' + Date.now() + '"><\/script><script src="analytics.js?v=' + Date.now() + '"><\/script><script src="home.js?v=' + Date.now() + '"><\/script><script src="news.js?v=' + Date.now() + '"><\/script><script src="video.js?v=' + Date.now() + '"><\/script><script src="nav.js?v=' + Date.now() + '"><\/script>');</script>
 </body>
 </html>

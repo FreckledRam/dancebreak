@@ -43,7 +43,7 @@ function orderWords(kind) {
 }
 
 // ---- tabs
-const TABS = ['sources', 'breakers', 'judges', 'events', 'news', 'home'];
+const TABS = ['sources', 'breakers', 'judges', 'events', 'video', 'news', 'home'];
 const VIEW_OF = { systems: 'judges', review: 'sources', dataset: 'sources' };
 function showTab() {
   // Systems is a view inside the Judges tab; Dataset and Null are views inside Data health. Each has its own address.
