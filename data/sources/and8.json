@@ -908,6 +908,7 @@
  "5560": {
   "name": "Urban Essentials",
   "date": "2026-11-15",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  }
 }
