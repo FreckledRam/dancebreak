@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T18:36:29Z",
+ "updated": "2026-11-21T17:29:14Z",
  "upcoming": [
   {
    "source": "and8",
@@ -542,6 +542,16 @@
    "image": null
   },
   {
+   "source": "and8",
+   "id": "5765",
+   "name": "Express Yourself Battle 2027",
+   "start": "2027-04-10",
+   "end": "2027-04-10",
+   "url": "https://and8.dance/en/e/5765",
+   "place": "Salach, Germany",
+   "image": null
+  },
+  {
    "source": "breakkonnect",
    "id": "4959",
    "name": "DC at 20",
@@ -763,10 +773,10 @@
    "image": null
   },
   {
-   "title": "Breaking at Dakar 2026: Full schedule and how to watch live Youth Olympic dance sport action",
-   "source": "Olympics",
-   "date": "2026-11-09",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPQUgteWZLRkpIaXczQi11d2wxNHdBOG9GeVFtSjkxeFhEdW1PazFHeGQybzFBbHdtNmxOVmRFVlVvTXdMZUlxQ2RWNVZJbHYzWGRDMHJHVFhIeTRYYTB5dHhzT3N6ZHlERWRVdzdaSzhZUjNXeWNuMHctc3J0ZE13a0taRUZEZWc1VUxHeVBzNnVpS3ptTmFpeVdKdnFHT2hzYXIw?oc=5",
+   "title": "Get to Know Phil Wizard, Canada’s Breaking Champion",
+   "source": "Red Bull",
+   "date": "2026-11-10",
+   "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE0tQWZuMHRYMlhZQUFZeDRaOGxvSUc5ZlhTcHBhZUdyczMxNm5kQ3lteGVwQ1FyWlJ6eGxITlRuLWFjNUNieFY3aUZ6VktNcXJXWmlDOW90SDc3ODlodVdIUzVNVQ?oc=5",
    "image": null
   }
  ],
