@@ -1,16 +1,6 @@
 {
- "updated": "2026-11-21T17:29:14Z",
+ "updated": "2026-11-22T17:48:35Z",
  "upcoming": [
-  {
-   "source": "and8",
-   "id": "5707",
-   "name": "Arena of Stylez / Arena of Power",
-   "start": "2026-11-20",
-   "end": "2026-11-21",
-   "url": "https://and8.dance/en/e/5707",
-   "place": "Dresdner Weihnachts-Circus, Germany",
-   "image": null
-  },
   {
    "source": "and8",
    "id": "5542",
@@ -23,56 +13,6 @@
   },
   {
    "source": "and8",
-   "id": "5743",
-   "name": "4 Da Culture",
-   "start": "2026-11-21",
-   "end": "2026-11-21",
-   "url": "https://and8.dance/en/e/5743",
-   "place": "Hannover, Germany",
-   "image": null
-  },
-  {
-   "source": "wdsf",
-   "id": "8800",
-   "name": "Asian Championship",
-   "start": "2026-11-21",
-   "end": "2026-11-22",
-   "url": "https://www.worlddancesport.org/Events/Hong-Kong-China-Hong-Kong-China-21112026-22112026-8800",
-   "place": "Hong Kong, China",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5348",
-   "name": "Bast'a'move 6 - BAM6",
-   "start": "2026-11-21",
-   "end": "2026-11-21",
-   "url": "https://and8.dance/en/e/5348",
-   "place": "BastArts Academy - ŠKD BAST, Slovenia",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5486",
-   "name": "Battle Day III - 2026",
-   "start": "2026-11-21",
-   "end": "2026-11-21",
-   "url": "https://and8.dance/en/e/5486",
-   "place": "Estonia, Estonia",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5731",
-   "name": "Breakdance Dream Cup 2026",
-   "start": "2026-11-21",
-   "end": "2026-11-21",
-   "url": "https://and8.dance/en/e/5731",
-   "place": "Kawasaki, Japan",
-   "image": null
-  },
-  {
-   "source": "and8",
    "id": "5472",
    "name": "Breaking News 2026",
    "start": "2026-11-21",
@@ -80,46 +20,6 @@
    "url": "https://and8.dance/en/e/5472",
    "place": "Taoyuan, Taiwan",
    "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5724",
-   "name": "DMA Urban Cypher 2026",
-   "start": "2026-11-21",
-   "end": "2026-11-21",
-   "url": "https://and8.dance/en/e/5724",
-   "place": "Augsburg, Germany",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5709",
-   "name": "FUJIFILM instax™ Undisputed Accra",
-   "start": "2026-11-21",
-   "end": "2026-11-21",
-   "url": "https://and8.dance/en/e/5709",
-   "place": "Accra Mall, Accra Ghana, Ghana",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5657",
-   "name": "One Love",
-   "start": "2026-11-21",
-   "end": "2026-11-21",
-   "url": "https://and8.dance/en/e/5657",
-   "place": "halle76 - Raum für kreative Bewegung Karlsruhe, Germany",
-   "image": null
-  },
-  {
-   "source": "breakkonnect",
-   "id": "5030",
-   "name": "Rhythmic Damage XIX",
-   "start": "2026-11-21",
-   "end": "2026-11-22",
-   "url": "https://breakkonnect.com/event/5030",
-   "place": "Philadelphia, PA, USA",
-   "image": "https://images-ivn6elc3dq-uc.a.run.app/2baae2ac-1be2-4a03-b215-1117da10b86d/480/300"
   },
   {
    "source": "and8",
@@ -737,6 +637,13 @@
   }
  ],
  "headlines": [
+  {
+   "title": "A pioneer who took breaking global",
+   "source": "Red Bull",
+   "date": "2026-11-21",
+   "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1hR2tFUl9sSDEwc25sQWRHajNoRXRjNlNJSlZjOHFIZEVhTG8yV29aV0pabDB6cGhyTlRDMXhNQ0loeVl5d3JSQTlhZDg5d2QxbDRpbVZtZ0d5VUw4ZVM4b1h3?oc=5",
+   "image": null
+  },
   {
    "title": "B-Girl Emma Prepares to Make History at Red Bull BC One World Final in Toronto",
    "source": "Toronto Guardian",

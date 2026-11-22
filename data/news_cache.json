@@ -4,29 +4,9 @@
    "breaking": true,
    "place": "Stralsund, Germany"
   },
-  "5707": {
-   "breaking": true,
-   "place": ""
-  },
   "5472": {
    "breaking": true,
    "place": "Taoyuan, Taiwan"
-  },
-  "5348": {
-   "breaking": true,
-   "place": ""
-  },
-  "5486": {
-   "breaking": true,
-   "place": ""
-  },
-  "5709": {
-   "breaking": true,
-   "place": ""
-  },
-  "5657": {
-   "breaking": true,
-   "place": ""
   },
   "5703": {
    "breaking": true,
@@ -180,10 +160,6 @@
    "breaking": true,
    "place": "Thessaloniki, Greece"
   },
-  "5724": {
-   "breaking": true,
-   "place": "Augsburg, Germany"
-  },
   "5722": {
    "breaking": true,
    "place": "Chania, Greece"
@@ -200,17 +176,9 @@
    "breaking": true,
    "place": "Kawasaki, Japan"
   },
-  "5731": {
-   "breaking": true,
-   "place": "Kawasaki, Japan"
-  },
   "5735": {
    "breaking": true,
    "place": "Burghausen, Germany"
-  },
-  "5743": {
-   "breaking": true,
-   "place": "Hannover, Germany"
   },
   "5736": {
    "breaking": true,
@@ -256,10 +224,6 @@
    "breaking": true,
    "place": ""
   },
-  "5753": {
-   "breaking": false,
-   "place": ""
-  },
   "5754": {
    "breaking": true,
    "place": ""
@@ -299,6 +263,10 @@
   "5765": {
    "breaking": true,
    "place": "Salach, Germany"
+  },
+  "5766": {
+   "breaking": false,
+   "place": ""
   }
  }
 }
