@@ -1,76 +1,6 @@
 {
- "updated": "2026-11-22T17:48:35Z",
+ "updated": "2026-11-23T22:02:12Z",
  "upcoming": [
-  {
-   "source": "and8",
-   "id": "5542",
-   "name": "Baltic Break Festival Rise of the Wave 2026",
-   "start": "2026-11-20",
-   "end": "2026-11-22",
-   "url": "https://and8.dance/en/e/5542",
-   "place": "Stralsund, Germany",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5472",
-   "name": "Breaking News 2026",
-   "start": "2026-11-21",
-   "end": "2026-11-22",
-   "url": "https://and8.dance/en/e/5472",
-   "place": "Taoyuan, Taiwan",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5734",
-   "name": "Superbreak 2026",
-   "start": "2026-11-21",
-   "end": "2026-11-22",
-   "url": "https://and8.dance/en/e/5734",
-   "place": "Kawasaki, Japan",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5703",
-   "name": "Autumn Breaks 2026",
-   "start": "2026-11-22",
-   "end": "2026-11-22",
-   "url": "https://and8.dance/en/e/5703",
-   "place": "Den Bosch, Netherlands",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5713",
-   "name": "Belgian Breaking Championship 2026",
-   "start": "2026-11-22",
-   "end": "2026-11-22",
-   "url": "https://and8.dance/en/e/5713",
-   "place": "Het Depot, Belgium",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5698",
-   "name": "BreakSM26",
-   "start": "2026-11-22",
-   "end": "2026-11-22",
-   "url": "https://and8.dance/en/e/5698",
-   "place": "Tiivistämö, Finland",
-   "image": null
-  },
-  {
-   "source": "and8",
-   "id": "5721",
-   "name": "Underground Heat 2",
-   "start": "2026-11-22",
-   "end": "2026-11-22",
-   "url": "https://and8.dance/en/e/5721",
-   "place": "Hildesheim, Germany",
-   "image": null
-  },
   {
    "source": "and8",
    "id": "5688",
@@ -594,6 +524,13 @@
  ],
  "features": [
   {
+   "title": "The Continental Cypher in Hong Kong: 2026 WDSF Asian Championships",
+   "source": "WDSF",
+   "date": "2026-11-23",
+   "url": "https://www.worlddancesport.org/News/2026-wdsf-asian-championships-breaking-adult-hong-kong-recap-3974",
+   "image": "https://www.worlddancesport.org/media/399fbe19-bfcb-4307-ab7f-b50b013ddf11/480x280/landscape/0z0a5426-opq5224398046.jpg"
+  },
+  {
    "title": "Olympic Generations Unite in Paris for 2026 WDSF World Championships Breaking Adult as Momentum Builds for ‘Breaking for Brisbane 2032’",
    "source": "WDSF",
    "date": "2026-11-20",
@@ -627,28 +564,14 @@
    "date": "2026-11-11",
    "url": "https://www.worlddancesport.org/News/dakar-2026-youth-olympic-games-breaking-livestream-guide-3964",
    "image": "https://www.worlddancesport.org/media/98d22a56-a547-4cfe-bc5e-b4ff0118df49/480x280/landscape/2026-yog_livestream-graphic_16x9_web.jpg.jpeg"
-  },
-  {
-   "title": "Meet The Dakar 2026 Youth Olympic Games Athletes: B-Boy Papis and B-Girl Suzz Carry Senegal’s Hopes for Dakar 2026",
-   "source": "WDSF",
-   "date": "2026-11-08",
-   "url": "https://www.worlddancesport.org/News/Meet-The-Dakar-2026-Youth-Olympic-Games-Athletes-B-Boy-Papis-and-B-Girl-Suzz-Carry-Senegal’s-Hopes-for-Dakar-2026-3962",
-   "image": "https://www.worlddancesport.org/media/3300c9dc-d516-4bed-9d0e-b4fc00fde091/480x280/landscape/2026-yog_athlete-promo-graphic_16x9_senegal.jpg"
   }
  ],
  "headlines": [
   {
-   "title": "A pioneer who took breaking global",
-   "source": "Red Bull",
-   "date": "2026-11-21",
-   "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1hR2tFUl9sSDEwc25sQWRHajNoRXRjNlNJSlZjOHFIZEVhTG8yV29aV0pabDB6cGhyTlRDMXhNQ0loeVl5d3JSQTlhZDg5d2QxbDRpbVZtZ0d5VUw4ZVM4b1h3?oc=5",
-   "image": null
-  },
-  {
-   "title": "B-Girl Emma Prepares to Make History at Red Bull BC One World Final in Toronto",
-   "source": "Toronto Guardian",
-   "date": "2026-11-14",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQMUE1T0hNV1UySm1sbHFfX01kVzN2TlBIYTkySGh5TmNYc1IwQTVuNlBVbi1OYjdpRF9scDdoT1ZoZkVlTVhnMUl4V0d2a0JsTnJXN3E1cTdPNjQ3QlQ2elpwNnkwMEk5UHZXcUh4X2VKR2F6N0JrakV1MFdPNkNHVVBFNGlLa2ZwM2pUTEpzMlpJbU0tdGUw?oc=5",
+   "title": "Urban sports at Dakar 2026 - The best photos of Breaking and Skateboarding at the Youth Olympic Games",
+   "source": "www.olympics.com",
+   "date": "2026-11-15",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOV3p0b0ZrSVhsa3FuLV9tLWlTeWw2OTd5b0F5d2pPM09mRC1XdDFpUUo0Y0l4WkJYczNERmxpZVl2eFFqUFprOGlnb19LckRxQkpiS2k2Ulc3cHZyODhmN3IwakpwMWo2UEZHc1RMd3ZXRWkxWS1pcVVRTUQ0T2JqTnR5QUFqbTBjdVRwenNRbjlLU19JMXExbnI5eDBaUWd3bFByRi11LUxQcURDSTczWHA4Yw?oc=5",
    "image": null
   },
   {
@@ -666,10 +589,17 @@
    "image": null
   },
   {
+   "title": "B-Girl Emma Prepares to Make History at Red Bull BC One World Final in Toronto",
+   "source": "Toronto Guardian",
+   "date": "2026-11-13",
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQMUE1T0hNV1UySm1sbHFfX01kVzN2TlBIYTkySGh5TmNYc1IwQTVuNlBVbi1OYjdpRF9scDdoT1ZoZkVlTVhnMUl4V0d2a0JsTnJXN3E1cTdPNjQ3QlQ2elpwNnkwMEk5UHZXcUh4X2VKR2F6N0JrakV1MFdPNkNHVVBFNGlLa2ZwM2pUTEpzMlpJbU0tdGUw?oc=5",
+   "image": null
+  },
+  {
    "title": "B-BOY HOLY RAIN (CHN) turns mother's sacrifice into golden breaking moment at Dakar 2026",
    "source": "www.olympics.com",
    "date": "2026-11-13",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQVG5LSi1BanhRVGVjWUxXZEYyLURNT1RuaDVkcHhiSV94Y1pQSWJ3VHVmczA2WmlDaUlGaWVpREVxbW9DaUU3SV9nVkJROHFvYmNETFUzLUV2SEQxbVhGUno1Y082OWhrNTlEcFJCOXZpNmFvVEUyS3Rlb0VLZ04yc1VTX3l5a04wSGZBZGpka0Q1SHFnR3hPc1ZFTGFKakxSNmV2LU1lcGlHODJacXlEclBiSzNib3ppWHJYZF9SZlRPLVZ2LXMxRXZR?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQMU5oVktqNzRKd2RxOG1FbkhiUGl0Z3Z0N08zUXpRdzBPLWRQVUVtOG5iM2tXMWoxWDE5OFJWc0R3ZkpCeWFsMGxVMk5GdW9CWjJ3ci1UWGRTczhOUUl3WWRVX1VqdkVjSnU2QnJlZGxHT3E5WmZIak5TZGJUMWZLQkRvYklZd2R0ckdFbmJwdm9xeGNTZE1UazM5Vm1tU2VxdFVpUjBXaWtObDNUMl91eHljMFBDMlZqY3JsNE1CaU03WTRERlVyU1YyMlpJRzUtZ3lCRnA5M3VkeTI1azYwUmpnYkN5SEZM?oc=5",
    "image": null
   },
   {

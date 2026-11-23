@@ -1,25 +1,5 @@
 {
  "and8": {
-  "5542": {
-   "breaking": true,
-   "place": "Stralsund, Germany"
-  },
-  "5472": {
-   "breaking": true,
-   "place": "Taoyuan, Taiwan"
-  },
-  "5703": {
-   "breaking": true,
-   "place": "Den Bosch, Netherlands"
-  },
-  "5713": {
-   "breaking": true,
-   "place": ""
-  },
-  "5698": {
-   "breaking": true,
-   "place": ""
-  },
   "5688": {
    "breaking": true,
    "place": "Toronto, Canada"
@@ -148,10 +128,6 @@
    "breaking": false,
    "place": "Karlsruhe, Germany"
   },
-  "5721": {
-   "breaking": true,
-   "place": "Hildesheim, Germany"
-  },
   "5705": {
    "breaking": true,
    "place": ""
@@ -171,10 +147,6 @@
   "5726": {
    "breaking": true,
    "place": "Lille, France"
-  },
-  "5734": {
-   "breaking": true,
-   "place": "Kawasaki, Japan"
   },
   "5735": {
    "breaking": true,
