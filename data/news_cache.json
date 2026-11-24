@@ -239,6 +239,10 @@
   "5766": {
    "breaking": false,
    "place": ""
+  },
+  "5767": {
+   "breaking": true,
+   "place": "Ljubljana, Slovenia"
   }
  }
 }

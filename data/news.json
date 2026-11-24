@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T22:02:12Z",
+ "updated": "2026-11-24T20:39:48Z",
  "upcoming": [
   {
    "source": "and8",
@@ -443,6 +443,16 @@
   },
   {
    "source": "and8",
+   "id": "5767",
+   "name": "World Kidz Breaking Champion 2027",
+   "start": "2027-06-04",
+   "end": "2027-06-06",
+   "url": "https://and8.dance/en/e/5767",
+   "place": "Ljubljana, Slovenia",
+   "image": null
+  },
+  {
+   "source": "and8",
    "id": "5626",
    "name": "DNA Festival 2027",
    "start": "2027-06-11",
@@ -617,5 +627,7 @@
    "image": null
   }
  ],
- "errors": {}
+ "errors": {
+  "headlines": "failed after 3 tries: GET https://news.google.com/rss/search"
+ }
 }
