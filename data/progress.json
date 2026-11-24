@@ -1,7 +1,7 @@
 {
  "running": true,
  "started": "2026-11-24T20:39:48Z",
- "current": "wdsf",
+ "current": "breakkonnect",
  "sources": {
   "and8": {
    "todo": 2,
@@ -11,10 +11,16 @@
   },
   "wdsf": {
    "todo": 1,
-   "done": 0,
+   "done": 1,
    "started": "2026-11-24T20:42:02Z",
    "eta_seconds": 12
+  },
+  "breakkonnect": {
+   "todo": 1,
+   "done": 0,
+   "started": "2026-11-24T20:42:18Z",
+   "eta_seconds": 8
   }
  },
- "updated": "2026-11-24T20:42:02Z"
+ "updated": "2026-11-24T20:42:18Z"
 }

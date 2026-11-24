@@ -1,5 +1,14 @@
 [
  {
+  "time": "2026-11-24T20:42:10Z",
+  "kind": "check",
+  "source": "wdsf",
+  "text": "4 events listed, collected 32 battles from 1 events.",
+  "battles": 32,
+  "events": 1,
+  "run": "2026-11-24T20:39:48Z"
+ },
+ {
   "time": "2026-11-24T20:41:53Z",
   "kind": "check",
   "source": "and8",
