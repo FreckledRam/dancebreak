@@ -788,7 +788,8 @@
  "4676": {
   "name": "ExperiMeant It! 2026",
   "date": "2026-11-22",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  },
  "4872": {
   "name": "Underground Flow’s 25th Year Anniversary",
