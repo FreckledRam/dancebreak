@@ -1,14 +1,20 @@
 {
  "running": true,
  "started": "2026-11-24T20:39:48Z",
- "current": "and8",
+ "current": "wdsf",
  "sources": {
   "and8": {
    "todo": 2,
-   "done": 0,
+   "done": 2,
    "started": "2026-11-24T20:40:41Z",
    "eta_seconds": 90
+  },
+  "wdsf": {
+   "todo": 1,
+   "done": 0,
+   "started": "2026-11-24T20:42:02Z",
+   "eta_seconds": 12
   }
  },
- "updated": "2026-11-24T20:40:41Z"
+ "updated": "2026-11-24T20:42:02Z"
 }

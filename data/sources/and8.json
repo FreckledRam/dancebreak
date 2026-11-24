@@ -920,11 +920,13 @@
  "5713": {
   "name": "Belgian Breaking Championship 2026",
   "date": "2026-11-22",
-  "status": "pending"
+  "status": "collected",
+  "battles": 52
  },
  "5643": {
   "name": "Enter the Circle 2026",
   "date": "2026-11-07",
-  "status": "pending"
+  "status": "nothing_to_collect",
+  "battles": 0
  }
 }

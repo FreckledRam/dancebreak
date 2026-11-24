@@ -1,5 +1,14 @@
 [
  {
+  "time": "2026-11-24T20:41:53Z",
+  "kind": "check",
+  "source": "and8",
+  "text": "162 events listed, 1 new, collected 52 battles from 1 events.",
+  "battles": 52,
+  "events": 1,
+  "run": "2026-11-24T20:39:48Z"
+ },
+ {
   "time": "2026-11-23T22:03:14Z",
   "kind": "check",
   "source": "breakkonnect",
