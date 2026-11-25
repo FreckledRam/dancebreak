@@ -1,26 +1,7 @@
 {
  "running": false,
- "started": "2026-11-24T20:39:48Z",
+ "started": "2026-11-25T19:56:19Z",
  "current": null,
- "sources": {
-  "and8": {
-   "todo": 2,
-   "done": 2,
-   "started": "2026-11-24T20:40:41Z",
-   "eta_seconds": 90
-  },
-  "wdsf": {
-   "todo": 1,
-   "done": 1,
-   "started": "2026-11-24T20:42:02Z",
-   "eta_seconds": 12
-  },
-  "breakkonnect": {
-   "todo": 1,
-   "done": 1,
-   "started": "2026-11-24T20:42:18Z",
-   "eta_seconds": 8
-  }
- },
- "updated": "2026-11-24T20:42:20Z"
+ "sources": {},
+ "updated": "2026-11-25T19:56:25Z"
 }

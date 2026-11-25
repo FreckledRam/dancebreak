@@ -243,6 +243,14 @@
   "5767": {
    "breaking": true,
    "place": "Ljubljana, Slovenia"
+  },
+  "5769": {
+   "breaking": false,
+   "place": "Vienna, Austria"
+  },
+  "5768": {
+   "breaking": true,
+   "place": "Hannover, Germany"
   }
  }
 }
