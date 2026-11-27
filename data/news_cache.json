@@ -251,6 +251,10 @@
   "5768": {
    "breaking": true,
    "place": "Hannover, Germany"
+  },
+  "5771": {
+   "breaking": true,
+   "place": "Plochingen, Germany"
   }
  }
 }

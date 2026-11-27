@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T19:36:32Z",
+ "updated": "2026-11-27T19:28:05Z",
  "upcoming": [
   {
    "source": "and8",
@@ -219,6 +219,16 @@
    "end": "2026-12-13",
    "url": "https://and8.dance/en/e/5702",
    "place": "Nagamori Shigenobu Civic Center, Japan",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5771",
+   "name": "29th Battle Toys Anniversary 2026",
+   "start": "2026-12-18",
+   "end": "2026-12-19",
+   "url": "https://and8.dance/en/e/5771",
+   "place": "Plochingen, Germany",
    "image": null
   },
   {
@@ -578,13 +588,6 @@
  ],
  "headlines": [
   {
-   "title": "Olympic breaking champion Phil Wizard takes aim at elusive title in Toronto",
-   "source": "CBC",
-   "date": "2026-11-26",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNOHpLazlTdXpQcjFxYlhBVzFHSy02dTlETy1lTkpuM0o4SklVVFdpeEdWRVlsUUVkWk5RQXlRbFBiZVU4bG9DREZ1ZVdZNlZRZlRBckhvc01HQURqZmtrUldKWnlIXzZWRnNseTFtY3lWZWNXTVZWUV83bkdDMGlZMnRKQlNPQVR2NkcycTNvR1lFbVJNMHE5ajFGVHJYdw?oc=5",
-   "image": null
-  },
-  {
    "title": "Khenobu: The Quest To Conquer",
    "source": "Red Bull",
    "date": "2026-11-20",
@@ -603,34 +606,6 @@
    "source": "Red Bull",
    "date": "2026-11-20",
    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNOG8wTUFQaC02MDZCaG1qcDBmRThfaGF2MFd4cFIwSjQ1MHNEOHdSTzJlUHg0X1hzNGRYYWIwcm93TEs5ZDctS0VpMHhWd1J5b2tFQnlsUjZoZDRZb2hZZkhRNXI4dlY2b2ZTVkxOS1hKc3lNOS1KNXFoUE1XRk1HbzNpT21XR2NyeHhj?oc=5",
-   "image": null
-  },
-  {
-   "title": "B-Boy Holy Rain takes Youth Olympic gold in breaking",
-   "source": "NBC Olympics",
-   "date": "2026-11-13",
-   "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNa0JSLTZXbXZNeWxfN05vcUxsVkdUSVlTVGpwSDZ5eGxXZjV5VmtNRDYtNFI2eWlqMHFkak8xZTZlYW9jeU5DeVY0N3NtMXdsWVJhU1g1c2V1T2dyQlZtS3R3dU5MSGRPVVRWYTJudFp3SUNiSWF3ZlVDWVkyaFhGN3RWdWZyWGZ0NW5LUw?oc=5",
-   "image": null
-  },
-  {
-   "title": "HLs: B-Boy Holy Rain takes YOG gold in breaking",
-   "source": "Yahoo Sports",
-   "date": "2026-11-13",
-   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE4wVW1tX3FwTVNzczI2MTlzUUhnZi1vZTR4YWtqUW92LWtaczNaTFBOdm5EMlZsWklTQ3ZCdGxaVXlMaTFZTjVEajNXTWpJRkJObk1hR0publlCa3J1WS1aUlFsVnY4RVAwWWRfOVlKWUJOOV9E?oc=5",
-   "image": null
-  },
-  {
-   "title": "B-BOY HOLY RAIN (CHN) turns mother's sacrifice into golden breaking moment at Dakar 2026",
-   "source": "www.olympics.com",
-   "date": "2026-11-13",
-   "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQMU5oVktqNzRKd2RxOG1FbkhiUGl0Z3Z0N08zUXpRdzBPLWRQVUVtOG5iM2tXMWoxWDE5OFJWc0R3ZkpCeWFsMGxVMk5GdW9CWjJ3ci1UWGRTczhOUUl3WWRVX1VqdkVjSnU2QnJlZGxHT3E5WmZIak5TZGJUMWZLQkRvYklZd2R0ckdFbmJwdm9xeGNTZE1UazM5Vm1tU2VxdFVpUjBXaWtObDNUMl91eHljMFBDMlZqY3JsNE1CaU03WTRERlVyU1YyMlpJRzUtZ3lCRnA5M3VkeTI1azYwUmpnYkN5SEZM?oc=5",
-   "image": null
-  },
-  {
-   "title": "B-Girl Emma Prepares to Make History at Red Bull BC One World Final in Toronto",
-   "source": "Toronto Guardian",
-   "date": "2026-11-13",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQMUE1T0hNV1UySm1sbHFfX01kVzN2TlBIYTkySGh5TmNYc1IwQTVuNlBVbi1OYjdpRF9scDdoT1ZoZkVlTVhnMUl4V0d2a0JsTnJXN3E1cTdPNjQ3QlQ2elpwNnkwMEk5UHZXcUh4X2VKR2F6N0JrakV1MFdPNkNHVVBFNGlLa2ZwM2pUTEpzMlpJbU0tdGUw?oc=5",
    "image": null
   }
  ],
