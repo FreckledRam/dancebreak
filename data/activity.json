@@ -1,5 +1,32 @@
 [
  {
+  "time": "2026-11-28T18:13:51Z",
+  "kind": "check",
+  "source": "breakkonnect",
+  "text": "107 events listed.",
+  "battles": 0,
+  "events": 0,
+  "run": "2026-11-28T18:13:45Z"
+ },
+ {
+  "time": "2026-11-28T18:13:49Z",
+  "kind": "check",
+  "source": "wdsf",
+  "text": "4 events listed.",
+  "battles": 0,
+  "events": 0,
+  "run": "2026-11-28T18:13:45Z"
+ },
+ {
+  "time": "2026-11-28T18:13:47Z",
+  "kind": "check",
+  "source": "and8",
+  "text": "163 events listed, 1 new, 1 waiting.",
+  "battles": 0,
+  "events": 0,
+  "run": "2026-11-28T18:13:45Z"
+ },
+ {
   "time": "2026-11-27T19:28:12Z",
   "kind": "check",
   "source": "breakkonnect",

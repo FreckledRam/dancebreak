@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-27T19:28:05Z",
+ "updated": "2026-11-28T18:13:45Z",
  "upcoming": [
   {
    "source": "and8",
    "id": "5688",
-   "name": "Red Bull BC One Camp Toronto 2026",
+   "name": "Red Bull BC One Camp & LCC Toronto 2026",
    "start": "2026-11-26",
    "end": "2026-11-28",
    "url": "https://and8.dance/en/e/5688",
@@ -379,6 +379,16 @@
    "end": "2027-03-28",
    "url": "https://and8.dance/en/e/5760",
    "place": "Brazil",
+   "image": null
+  },
+  {
+   "source": "and8",
+   "id": "5772",
+   "name": "Rockin' Sensation 2027",
+   "start": "2027-03-27",
+   "end": "2027-03-27",
+   "url": "https://and8.dance/en/e/5772",
+   "place": "Seoul, South Korea",
    "image": null
   },
   {
